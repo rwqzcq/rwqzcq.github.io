@@ -71,6 +71,61 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ml/svm" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/04/25/ml/svm/" class="article-date">
+  <time class="dt-published" datetime="2021-04-25T12:17:04.000Z" itemprop="datePublished">2021-04-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/04/25/ml/svm/">SVM原理与优缺点</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="SVM的原理"><a href="#SVM的原理" class="headerlink" title="SVM的原理"></a>SVM的原理</h1><p>SVM 是一种二类分类模型。它的基本模型是在<code>特征空间</code>中寻找<code>间隔最大化</code>的<code>分离超平面</code>的线性分类器。<br>当训练样本线性可分时，通过<code>硬间隔最大</code>化，学习一个线性分类器，即线性可分支持向量机；<br>当训练数据<code>近似线性可分</code>时，<code>引入松弛变量</code>，通过软间隔最大化，学习一个线性分类器，即线性支持向量机；<br>当训练<code>数据线性不可分</code>时，通过使用<code>核技巧及软间隔最大化</code>，学习非线性支持向量机。</p>
+<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ol>
+<li>由于SVM是一个凸优化问题，所以求得的解一定是全局最优而不是局部最优。</li>
+<li>不仅适用于线性线性问题还适用于非线性问题(用核技巧)。</li>
+<li>拥有高维样本空间的数据也能用SVM，这是因为数据集的复杂度只取决于<code>支持向量</code>而不是数据集的维度，这在某种意义上避免了“维数灾难”。</li>
+<li>理论基础比较完善</li>
+</ol>
+<h1 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h1><ol>
+<li>二次规划问题求解将涉及m阶矩阵的计算(m为样本的个数), 因此SVM不适用于超大数据集。</li>
+</ol>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><ol>
+<li>核技巧<br>核技巧的基本思路分为两步:<ul>
+<li>使用一个变换将原空间的数据映射到新空间(例如更高维甚至无穷维的空间)；</li>
+<li>然后在新空间里用线性方法从训练数据中学习得到模型。</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/04/25/ml/svm/" data-id="cknx5n2t30005kdbnakb5331u" data-title="SVM原理与优缺点" class="article-share-link">Teilen</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-tongji/hypothesis_test" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/04/25/tongji/hypothesis_test/" class="article-date">
@@ -100,7 +155,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/25/tongji/hypothesis_test/" data-id="cknx4qwwi00089jbndlhkasi8" data-title="假设检验" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2021/04/25/tongji/hypothesis_test/" data-id="cknx5n2t60008kdbn2b7vcae3" data-title="假设检验" class="article-share-link">Teilen</a>
       
       
       
@@ -142,7 +197,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/25/yewu/index/" data-id="cknx4qwwf00069jbn5vbe1ock" data-title="常见的业务指标" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2021/04/25/yewu/index/" data-id="cknx5n2t8000akdbncayb9hhh" data-title="常见的业务指标" class="article-share-link">Teilen</a>
       
       
       
@@ -210,7 +265,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/25/ml/kmeans/" data-id="cknx4qwwh00079jbn5xla7ull" data-title="k-means原理优缺点" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2021/04/25/ml/kmeans/" data-id="cknx5n2sx0002kdbne9se7jhp" data-title="k-means原理优缺点" class="article-share-link">Teilen</a>
       
       
       
@@ -308,7 +363,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/25/sql/niuke-86/" data-id="cknx4qww900029jbn65fb4321" data-title="牛客SQL-第86题-简历分析(三)" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2021/04/25/sql/niuke-86/" data-id="cknx5n2t50007kdbnhwy7cubt" data-title="牛客SQL-第86题-简历分析(三)" class="article-share-link">Teilen</a>
       
       
       
@@ -377,7 +432,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/25/sql/niuke-find-top1-grade_num/" data-id="cknx4qwwb00039jbnainl3uc7" data-title="牛客SQL-找到积分最高的人" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2021/04/25/sql/niuke-find-top1-grade_num/" data-id="cknx5n2sz0003kdbn9u04c48q" data-title="牛客SQL-找到积分最高的人" class="article-share-link">Teilen</a>
       
       
       
@@ -434,7 +489,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/23/hello-world/" data-id="cknx4qww600019jbnfn3q21dz" data-title="RWQ_CCNU_IMD" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2021/04/23/hello-world/" data-id="cknx5n2su0001kdbn4tmk9cgl" data-title="RWQ_CCNU_IMD" class="article-share-link">Teilen</a>
       
       
       
@@ -498,6 +553,10 @@
       <ul>
         
           <li>
+            <a href="/2021/04/25/ml/svm/">SVM原理与优缺点</a>
+          </li>
+        
+          <li>
             <a href="/2021/04/25/tongji/hypothesis_test/">假设检验</a>
           </li>
         
@@ -511,10 +570,6 @@
         
           <li>
             <a href="/2021/04/25/sql/niuke-86/">牛客SQL-第86题-简历分析(三)</a>
-          </li>
-        
-          <li>
-            <a href="/2021/04/25/sql/niuke-find-top1-grade_num/">牛客SQL-找到积分最高的人</a>
           </li>
         
       </ul>
