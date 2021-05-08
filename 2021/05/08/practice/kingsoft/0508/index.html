@@ -13,10 +13,13 @@
 <meta property="og:site_name" content="rwqccnuimd的博客">
 <meta property="og:description" content="工作内容完成三个安卓版本13.5, 13.6, 13.7，在2021年2月26号到2021年4月18号，也就是在每一个版本上线的第4天到第20天，以周为单位，观察安卓版本用户在分享行为的留存率的变化。 通过编写SQL语句完成数据的提取，包括  总体留存 文件分享(as_file)行为留存 链接分享(as_link)行为留存  最后将这些留存数据合并成一张excel，利用offset函数计算其留存率">
 <meta property="og:locale">
+<meta property="og:image" content="http://example.com/images/wps_active_android_core_share_feature_table_structure.png">
+<meta property="og:image" content="http://example.com/images/wps_active_android_core_share_feature_demo_data.png">
 <meta property="article:published_time" content="2021-05-08T02:53:27.000Z">
-<meta property="article:modified_time" content="2021-05-08T03:43:00.548Z">
+<meta property="article:modified_time" content="2021-05-08T10:45:07.055Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/wps_active_android_core_share_feature_table_structure.png">
   
     <link rel="alternate" href="/atom.xml" title="rwqccnuimd的博客" type="application/atom+xml">
   
@@ -112,7 +115,26 @@
 <li>在计算的<code>as_file</code>留存率，出现了明显得错误，大于1。</li>
 <li>对于Leader 的sql照抄而没有一个很好的改进。</li>
 </ol>
-<h1 id="表结构"><a href="#表结构" class="headerlink" title="表结构"></a>表结构</h1><h1 id="学习要点"><a href="#学习要点" class="headerlink" title="学习要点"></a>学习要点</h1><h1 id="未来学习的方向"><a href="#未来学习的方向" class="headerlink" title="未来学习的方向"></a>未来学习的方向</h1><ol>
+<h1 id="表结构"><a href="#表结构" class="headerlink" title="表结构"></a>表结构</h1><p><img src="/images/wps_active_android_core_share_feature_table_structure.png"></p>
+<p>该表以日期的形式记录了每一个用户在特定的日期内在某一个版本的安卓APP中触发分享行为，其中具体的分享行为包括</p>
+<ol>
+<li>if_show(分享页面展示)</li>
+<li>as_file(以文件的形式分享,记录的是当天分享的次数)</li>
+<li>as_link(以链接的形式分享,记录的是当天分享的次数)</li>
+<li>if_click(是否点击，点击任意位置都会被记录)</li>
+</ol>
+<p>数据举例:<br><img src="/images/wps_active_android_core_share_feature_demo_data.png"></p>
+<h1 id="业务指标计算"><a href="#业务指标计算" class="headerlink" title="业务指标计算"></a>业务指标计算</h1><h2 id="计算总体的周留存率"><a href="#计算总体的周留存率" class="headerlink" title="计算总体的周留存率"></a>计算总体的周留存率</h2><h3 id="概念解析"><a href="#概念解析" class="headerlink" title="概念解析"></a>概念解析</h3><blockquote>
+<p>周留存 = 本周仍然使用分享功能的用户 / 上一周使用分享功能的用户</p>
+</blockquote>
+<p>需要注意的是周的概念：比如在周二使用的用户，那么在下一个周期(7天)仍然使用了分享功能，那么这个就计算为一次留存。但是在我们的这个业务中，周不严格地区分天数，也就是说，<br><code>上一周任意一天分享地用户在下一周任意一天分享，都会记录为一次留存</code>，关于留存率的详细链接参考<a target="_blank" rel="noopener" href="http://www.gupowang.com/article/view/5099">这里</a>。</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 开启两个子查询</span></span><br><span class="line"><span class="keyword">with</span> yesterday <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="keyword">distinct</span> <span class="type">date</span>,</span><br><span class="line">        google_id,</span><br><span class="line">        <span class="keyword">left</span>(version, <span class="number">4</span>) <span class="keyword">as</span> version</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        `wps<span class="operator">-</span>data<span class="operator">-</span>analysis.wps_active.android_core_feature_share`</span><br><span class="line">    <span class="keyword">where</span></span><br><span class="line">        <span class="keyword">left</span>(version, <span class="number">4</span>) <span class="keyword">in</span> (<span class="string">&#x27;13.5&#x27;</span>, <span class="string">&#x27;13.6&#x27;</span>, <span class="string">&#x27;13.7&#x27;</span>) <span class="keyword">and</span></span><br><span class="line">        <span class="type">date</span> <span class="keyword">between</span> <span class="string">&#x27;2021-02-26&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;2021-04-18&#x27;</span></span><br><span class="line">),</span><br><span class="line">today <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="keyword">distinct</span> <span class="type">date</span>,</span><br><span class="line">        google_id,</span><br><span class="line">        <span class="keyword">left</span>(version, <span class="number">4</span>) <span class="keyword">as</span> version</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        `wps<span class="operator">-</span>data<span class="operator">-</span>analysis.wps_active.android_core_feature_share`</span><br><span class="line">    <span class="keyword">where</span></span><br><span class="line">        <span class="keyword">left</span>(version, <span class="number">4</span>) <span class="keyword">in</span> (<span class="string">&#x27;13.5&#x27;</span>, <span class="string">&#x27;13.6&#x27;</span>, <span class="string">&#x27;13.7&#x27;</span>) <span class="keyword">and</span></span><br><span class="line">        <span class="type">date</span> <span class="keyword">between</span> <span class="string">&#x27;2021-02-26&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;2021-04-18&#x27;</span>   </span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 计算留存</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    b.google_id,</span><br><span class="line">    b.google_id,</span><br><span class="line">    b.version,</span><br><span class="line">    date_trunc(a.date, week) <span class="keyword">as</span> week,</span><br><span class="line">    date_diff(b.date, a.date, week) <span class="keyword">as</span> time_interval <span class="comment">-- 计算时间差 是在一周内的，还是在下一周的</span></span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    yesterday <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> </span><br><span class="line">    today <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">    a.google_id <span class="operator">=</span> b.google_id <span class="keyword">and</span></span><br><span class="line">    b.version <span class="operator">=</span> a.version <span class="keyword">and</span></span><br><span class="line">    date_diff(b.date, a.date, week) <span class="keyword">in</span> (<span class="number">0</span>,<span class="number">1</span>) <span class="comment">-- 核心 也就是说两个表里面差1周或者差0周会被链接</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="计算文件分享的周留存率"><a href="#计算文件分享的周留存率" class="headerlink" title="计算文件分享的周留存率"></a>计算文件分享的周留存率</h2><h2 id="计算链接分享的周留存率"><a href="#计算链接分享的周留存率" class="headerlink" title="计算链接分享的周留存率"></a>计算链接分享的周留存率</h2><h1 id="学习要点"><a href="#学习要点" class="headerlink" title="学习要点"></a>学习要点</h1><ol>
+<li>distinct</li>
+</ol>
+<p>distinct约束</p>
+<h1 id="未来学习的方向"><a href="#未来学习的方向" class="headerlink" title="未来学习的方向"></a>未来学习的方向</h1><ol>
 <li>如何在excel中使用<code>数据透视表</code>完成留存率的计算。</li>
 <li>hiveSQL的执行顺序</li>
 </ol>
@@ -120,7 +142,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/05/08/practice/kingsoft/0508/" data-id="ckof7cjkv000qbkwmfux6e8ph" data-title="5月8日实习日志" class="article-share-link">Teilen</a>
+      <a data-url="http://example.com/2021/05/08/practice/kingsoft/0508/" data-id="ckofmhh8r000oxkwm8n5p19xu" data-title="5月8日实习日志" class="article-share-link">Teilen</a>
       
       
       
