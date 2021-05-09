@@ -37,6 +37,19 @@ More info: [Generating](https://hexo.io/docs/generating.html)
 $ hexo deploy
 ```
 
+### 多机器切换
+
+#### 切换到windows的工作电脑
+
+```bash
+
+git checkout hexo
+
+git pull
+
+```
+
+
 ### 参考链接
 - https://hexo.io/zh-cn/docs/tag-plugins
 - http://ijiaober.github.io/2014/08/05/hexo/hexo-04/
