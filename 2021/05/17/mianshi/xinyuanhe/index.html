@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>上海心愿盒笔试 | rwqccnuimd的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="题目内容 定义一个python方程将邮件里面的raw.xlsx清理并转化成sample.xlsx的格式，表头与sample一致，清理规则如下：   删除types为空并移除 剔除明显outlier   利用commodity &#x3D; 52的数据进行以下分析：  定义一个方程计算receive_time和comment_time的时间差(以天计算)，并在原表生成新的列，列名为time_differenc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="上海心愿盒笔试">
+<meta property="og:url" content="http://example.com/2021/05/17/mianshi/xinyuanhe/index.html">
+<meta property="og:site_name" content="rwqccnuimd的博客">
+<meta property="og:description" content="题目内容 定义一个python方程将邮件里面的raw.xlsx清理并转化成sample.xlsx的格式，表头与sample一致，清理规则如下：   删除types为空并移除 剔除明显outlier   利用commodity &#x3D; 52的数据进行以下分析：  定义一个方程计算receive_time和comment_time的时间差(以天计算)，并在原表生成新的列，列名为time_differenc">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-05-17T01:36:13.000Z">
+<meta property="article:modified_time" content="2021-05-17T03:42:06.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="笔试">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="rwqccnuimd的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">rwqccnuimd的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-mianshi/xinyuanhe" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/17/mianshi/xinyuanhe/" class="article-date">
+  <time class="dt-published" datetime="2021-05-17T01:36:13.000Z" itemprop="datePublished">2021-05-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AC%94%E8%AF%95/">笔试</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      上海心愿盒笔试
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="题目内容"><a href="#题目内容" class="headerlink" title="题目内容"></a>题目内容</h1><ol>
+<li>定义一个python方程将邮件里面的raw.xlsx清理并转化成sample.xlsx的格式，表头与sample一致，<br>清理规则如下：</li>
+</ol>
+<ul>
+<li>删除types为空并移除</li>
+<li>剔除明显outlier</li>
+</ul>
+<ol start="2">
+<li><p>利用commodity = 52的数据进行以下分析：</p>
+<ul>
+<li>定义一个方程计算receive_time和comment_time的时间差(以天计算)，并在原表生成新的列，列名为<code>time_difference</code></li>
+<li>将数据可视化，生成两个图表<ul>
+<li>定义一个方程用柱状图展示每一个time_difference的count</li>
+<li>定义一个方程用comment_time生成曲线图，x轴为日期，颗粒度为天，y轴为每一个日期的count</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>提出有意思的想法</p>
+</li>
+</ol>
+<p>通过多个角度分析用户的评论内容，分析其再次购买的意愿。</p>
+<ol>
+<li><p>首先进行总体统计：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">               time_difference</span><br><span class="line">comment_value</span><br><span class="line">不感兴趣                       242</span><br><span class="line">已经下单                       245</span><br><span class="line">还想再试                       646</span><br></pre></td></tr></table></figure>
+<p>57%的用户还想再次尝试，可以发现，总体上，该店铺内的产品用户比较满意。</p>
+</li>
+<li><p>总体上看用户从下单到评论的时间间隔。</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mean       12.253310</span><br><span class="line">std         7.442732</span><br><span class="line">min         0.000000</span><br><span class="line">25%         6.000000</span><br><span class="line">50%        12.000000</span><br><span class="line">75%        16.000000</span><br><span class="line">max        56.000000</span><br></pre></td></tr></table></figure>
+<p>用户平均的时间间隔为12天，标准差为7天，大部分集中在16天之内。</p>
+</li>
+<li><p>重点分析还想再试的用户，该类型用户有较大的价值。<br>与总体差别不大，所以较难根据用户评论反馈时间来分析用户的下单意愿。</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mean      12.159443</span><br><span class="line">std        7.226199</span><br><span class="line">min        0.000000</span><br><span class="line">25%        6.000000</span><br><span class="line">50%       12.000000</span><br><span class="line">75%       16.000000</span><br><span class="line">max       47.000000</span><br></pre></td></tr></table></figure></li>
+<li><p>寻求更多的特征分析用户的下单意愿。</p>
+</li>
+</ol>
+<p>从用户的评论来看，主要的评论的角度包括了<code>包装</code>,<code>大小</code>,<code>气味</code>, <code>口味</code>, <code>外观</code>，因此这些角度可以当作特征，而最后的下单意愿可以作为<code>目标值</code>，再加上评论间隔时间这一特征，<br>可以利用<code>决策树</code>构建分类模型，以此来判断，哪一些特征对于<code>用户的下单意愿</code>影响较大，以此作为产品改进的方向。</p>
+<h1 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h1><ol>
+<li>较为简单，不涉及到很复杂的知识点</li>
+</ol>
+<h1 id="相关知识点"><a href="#相关知识点" class="headerlink" title="相关知识点"></a>相关知识点</h1><ol>
+<li>pandas用<code>apply</code>扩展多列</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">raw_df[[<span class="string">&#x27;comment_type&#x27;</span>, <span class="string">&#x27;comment_value&#x27;</span>]] = raw_df.apply(<span class="keyword">lambda</span> x: x[<span class="string">&#x27;types&#x27;</span>].split(<span class="string">&#x27;:&#x27;</span>), axis=<span class="number">1</span>, result_type=<span class="string">&quot;expand&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>定义<code>axis=1</code>,以及<code>result_type=expand</code></p>
+<ol start="2">
+<li>找到离群点</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(raw_df[<span class="string">&#x27;receive_time&#x27;</span>].describe())</span><br></pre></td></tr></table></figure>
+<p><code>describe</code>方法来看总体的数据分布</p>
+<ol start="3">
+<li>pandas一行拆分成多行</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># https://zhuanlan.zhihu.com/p/124242604</span></span><br><span class="line"><span class="comment">#一、先将‘爱好’字段拆分</span></span><br><span class="line">df[<span class="string">&#x27;爱好&#x27;</span>]=df[<span class="string">&#x27;爱好&#x27;</span>].<span class="built_in">map</span>(<span class="keyword">lambda</span> x:x.split(<span class="string">&#x27;,&#x27;</span>))</span><br><span class="line"><span class="comment">#二、然后直接调用explode()方法</span></span><br><span class="line">df_new=df.explode(<span class="string">&#x27;爱好&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><a href="main.py">py文件下载</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/17/mianshi/xinyuanhe/" data-id="ckr0gal09000ca1bn3ow34dss" data-title="上海心愿盒笔试" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/05/17/mianshi/zhaolianjinrong/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          招联金融面试
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/05/14/mianshi/taicheng/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">上海-泰诚科技笔试题目</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1%E6%8C%87%E6%A0%87/">业务指标</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E4%B9%A0/">实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AF%95/">笔试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" rel="tag">金山实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/SQL/" style="font-size: 16px;">SQL</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 18px;">其他</a> <a href="/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 20px;">实习</a> <a href="/tags/%E7%AC%94%E8%AF%95/" style="font-size: 12px;">笔试</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 12px;">统计学</a> <a href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" style="font-size: 14px;">金山实习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 16px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/06/28/mianshi/yinlian/">银联</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/28/mianshi/rongbao/">融保科技</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/11/mianshi/xiecheng/">携程笔面试</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/11/practice/kingsoft/0611/">6月11日实习内容</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/07/practice/kingsoft/0607/">6月7日工作内容</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

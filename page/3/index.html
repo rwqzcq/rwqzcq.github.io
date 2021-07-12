@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>rwqccnuimd的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="rwqccnuimd的博客">
+<meta property="og:url" content="http://example.com/page/3/index.html">
+<meta property="og:site_name" content="rwqccnuimd的博客">
+<meta property="og:locale">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="rwqccnuimd的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">rwqccnuimd的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-practice/kingsoft/0518" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/18/practice/kingsoft/0518/" class="article-date">
+  <time class="dt-published" datetime="2021-05-18T03:20:35.000Z" itemprop="datePublished">2021-05-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/18/practice/kingsoft/0518/">5月18日实习内容</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="埋点"><a href="#埋点" class="headerlink" title="埋点"></a>埋点</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>数据埋点就是在APP端，记录某一些行为的数据采集机制。根据用户在APP上的一系列操作线索，提炼有用的信息，进行数据分析。</p>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><ol>
+<li><p>分析运营机制合理性<br>比如记录APP分享的转化率</p>
+</li>
+<li><p>产品功能的合理性<br>提前在新功能的各个按钮上进行埋点，就能获取到用户使用新功能的次数，以及在新功能的使用行为，可以分析用户是否对新功能比较感兴趣，页面的跳转设置是否合理等。</p>
+</li>
+<li><p>分析用户消费行为，挖掘流失点<br>记录到每个流程的转化率，用于分析用户漏斗的哪一个阶段出现了问题，结合业务输出解决方案。</p>
+</li>
+<li><p>监控产品的流畅性<br>提前在核心功能页面和按钮进行埋点，就能记录到每个页面和按钮的衔接情况，发现问题及时解决，以免影响用户体验。</p>
+</li>
+<li><p>分析不同渠道的用户行为差异<br>提前在各个渠道进行埋点，记录各渠道用户在APP中的后续行为，调整推广策略。</p>
+</li>
+</ol>
+<h2 id="埋点类型"><a href="#埋点类型" class="headerlink" title="埋点类型"></a>埋点类型</h2><ol>
+<li><p>页面埋点<br>用户进入一次页面就上报一次，页面埋点主要用来记录用户访问某个页面的各项信息，可自定义触发时间、获取要求以及页面来源。</p>
+</li>
+<li><p>点击埋点<br>点击埋点主要用来记录用户在某个页面点击某个按钮／广告位／ｂａｎｎｅｒ等的各项信息，可自定义触发时间、获取要求以及页面来源。</p>
+</li>
+<li><p>停留埋点<br>停留埋点主要用来记录用户访问某个页面的停留时长的各项信息，同样可自定义触发时间、获取要求以及页面来源。<br>用于分析不同渠道的喜好情况对比。</p>
+</li>
+</ol>
+<h2 id="编写埋点需求"><a href="#编写埋点需求" class="headerlink" title="编写埋点需求"></a>编写埋点需求</h2><ol>
+<li><p>产品流程图</p>
+</li>
+<li><p>实录场景思路</p>
+</li>
+<li><p>编写文档</p>
+</li>
+</ol>
+<p>文档三要素：</p>
+<ul>
+<li>用户属性信息，比如说需要获取用户的设备号、标签、定位什么的；</li>
+<li>事件ID，是事件埋点的唯一标识，每一条埋点记录对应一个事件ID，用于在数据库进行取数；</li>
+<li>事件描述，包括事件类型（点击／页面／停留）、事件来源（如果产品逻辑复杂，可以多级来源，１级来源、２级来源等）、触发时间、触发事件（让计算机知道什么情况要触发）    </li>
+</ul>
+<h1 id="安卓数据埋点规范"><a href="#安卓数据埋点规范" class="headerlink" title="安卓数据埋点规范"></a>安卓数据埋点规范</h1><h2 id="目前埋点出现的问题"><a href="#目前埋点出现的问题" class="headerlink" title="目前埋点出现的问题"></a>目前埋点出现的问题</h2><ol>
+<li>各个PM埋点规范不统一</li>
+<li>变量命名不规范</li>
+<li>新人培训成本高</li>
+</ol>
+<h2 id="埋点文档示例"><a href="#埋点文档示例" class="headerlink" title="埋点文档示例"></a>埋点文档示例</h2><p><img src="maidian-1.png" alt="埋点文档规范1"></p>
+<p><img src="maidian-2.png" alt="埋点文档规范"></p>
+<p>总体上来说，主要就是让安卓APP的埋点在命名上具有统一的格式与可解读性。基础的埋点类型有三个，分别是</p>
+<ul>
+<li>button-click 点击</li>
+<li>page-show 页面展示</li>
+<li>func_result 功能结果</li>
+</ul>
+<p>每一个埋点都是一个事件，每一个事件都有<code>名字</code>，一系列属性与属性所对应的值，不同的事件从总体上看，都要有某一些通用的属性，如下图所示。</p>
+<p><img src="event-common-keys.png" alt="事件通用属性"></p>
+<h1 id="具体表结构"><a href="#具体表结构" class="headerlink" title="具体表结构"></a>具体表结构</h1><p>该事件表为一个<code>宽表</code>，不同于传统的mysql数据库一行就是一个数据，而这个宽表就类似与一种JSON的格式，如下面的图：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;&#x27;id&#x27;: 1, &#x27;params&#x27;: [&#123;</span><br><span class="line">        &#x27;key1&#x27;: &#x27;func_name&#x27;,</span><br><span class="line">        &#x27;value&#x27;: &#x27;1&#x27;</span><br><span class="line">    &#125;]&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>该宽表内可以先按照日期来截取整个表的内容，然后再进行查询数据，其中最主要的函数是<code>unnest</code>。<br>比如下面的sql</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="operator">*</span></span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    `wps<span class="operator">-</span>cloud<span class="operator">-</span>analysis.analytics.enents_2021<span class="operator">*</span>`</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    event_name <span class="operator">=</span> <span class="string">&#x27;btn_click&#x27;</span> <span class="keyword">and</span></span><br><span class="line">    _table_suffix <span class="operator">&gt;=</span><span class="string">&#x27;0214&#x27;</span> <span class="keyword">and</span> <span class="comment">-- 日期查询</span></span><br><span class="line">    (<span class="keyword">select</span> value.string_value <span class="keyword">from</span> <span class="built_in">unnest</span>(params) <span class="keyword">where</span> key<span class="operator">=</span><span class="string">&#x27;category&#x27;</span>) <span class="operator">=</span> <span class="string">&#x27;Memo&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="SQL练习"><a href="#SQL练习" class="headerlink" title="SQL练习"></a>SQL练习</h1><h2 id="计算Memo这个功能4月份以来13-9版本的周留存"><a href="#计算Memo这个功能4月份以来13-9版本的周留存" class="headerlink" title="计算Memo这个功能4月份以来13.9版本的周留存"></a>计算Memo这个功能4月份以来13.9版本的周留存</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> base04 <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="operator">*</span></span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">        `wps<span class="operator">-</span>cloud<span class="operator">-</span>service.analytics_153386958.events_202104<span class="operator">*</span>`</span><br><span class="line">    <span class="keyword">where</span></span><br><span class="line">        app_info.version <span class="operator">&gt;=</span> <span class="string">&#x27;13.9&#x27;</span> <span class="keyword">and</span> </span><br><span class="line">        event_name <span class="operator">=</span><span class="string">&#x27;page_show&#x27;</span> <span class="keyword">and</span></span><br><span class="line">        (<span class="keyword">select</span> value.string_value <span class="keyword">from</span> <span class="built_in">unnest</span>(event_params) <span class="keyword">where</span> key<span class="operator">=</span><span class="string">&#x27;category&#x27;</span>) <span class="operator">=</span> <span class="string">&#x27;Memo&#x27;</span></span><br><span class="line">    <span class="keyword">order</span> <span class="keyword">by</span> event_date</span><br><span class="line">),</span><br><span class="line">base05 <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="operator">*</span></span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">        `wps<span class="operator">-</span>cloud<span class="operator">-</span>service.analytics_153386958.events_202105<span class="operator">*</span>`</span><br><span class="line">    <span class="keyword">where</span></span><br><span class="line">        app_info.version <span class="operator">&gt;=</span> <span class="string">&#x27;13.9&#x27;</span> <span class="keyword">and</span> </span><br><span class="line">        event_name <span class="operator">=</span><span class="string">&#x27;page_show&#x27;</span> <span class="keyword">and</span></span><br><span class="line">        (<span class="keyword">select</span> value.string_value <span class="keyword">from</span> <span class="built_in">unnest</span>(event_params) <span class="keyword">where</span> key<span class="operator">=</span><span class="string">&#x27;category&#x27;</span>) <span class="operator">=</span> <span class="string">&#x27;Memo&#x27;</span></span><br><span class="line">    <span class="keyword">order</span> <span class="keyword">by</span> event_date </span><br><span class="line">),</span><br><span class="line">base <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> base04</span><br><span class="line">    <span class="keyword">union</span> <span class="keyword">all</span> (<span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> base05)</span><br><span class="line">    <span class="keyword">order</span> <span class="keyword">by</span> event_date</span><br><span class="line">),</span><br><span class="line">yesterday <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="keyword">distinct</span> parse_DATE(<span class="string">&#x27;%Y%m%d&#x27;</span>, event_date) <span class="keyword">as</span> <span class="type">date</span>,</span><br><span class="line">        user_pseudo_id <span class="keyword">as</span> google_id</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        base</span><br><span class="line">),</span><br><span class="line">today <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="keyword">distinct</span> parse_DATE(<span class="string">&#x27;%Y%m%d&#x27;</span>, event_date) <span class="keyword">as</span> <span class="type">date</span>,</span><br><span class="line">        user_pseudo_id <span class="keyword">as</span> google_id</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        base</span><br><span class="line">)</span><br><span class="line"><span class="comment">-- 计算总体周留存</span></span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">    date_trunc(a.date, week) <span class="keyword">as</span> week,</span><br><span class="line">    date_diff(b.date, a.date, week) <span class="keyword">as</span> week_interval,</span><br><span class="line">    <span class="built_in">count</span>(<span class="keyword">distinct</span> a.google_id) <span class="keyword">as</span> retentions</span><br><span class="line"><span class="keyword">from</span> yesterday <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> today <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span> a.google_id <span class="operator">=</span> b.google_id <span class="keyword">and</span></span><br><span class="line">date_diff(b.date, a.date, week) <span class="keyword">in</span> (<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">    week,</span><br><span class="line">    week_interval</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">    week,</span><br><span class="line">    week_interval</span><br></pre></td></tr></table></figure>
+
+<h1 id="埋点面试题目"><a href="#埋点面试题目" class="headerlink" title="埋点面试题目"></a>埋点面试题目</h1><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li>数据埋点介绍：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/38282055">https://zhuanlan.zhihu.com/p/38282055</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/18/practice/kingsoft/0518/" data-id="ckr0gal29003oa1bn0d5h89rg" data-title="5月18日实习内容" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other/travel-co-clustering-recommendation" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/17/other/travel-co-clustering-recommendation/" class="article-date">
+  <time class="dt-published" datetime="2021-05-17T06:32:08.000Z" itemprop="datePublished">2021-05-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/17/other/travel-co-clustering-recommendation/">协同过滤-景点推荐</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="基于用户的协同过滤"><a href="#基于用户的协同过滤" class="headerlink" title="基于用户的协同过滤"></a>基于用户的协同过滤</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> surprise <span class="keyword">import</span> NormalPredictor</span><br><span class="line"><span class="keyword">from</span> surprise <span class="keyword">import</span> Reader</span><br><span class="line"><span class="keyword">from</span> surprise <span class="keyword">import</span> Dataset, KNNBaseline, SVD, accuracy, Reader</span><br><span class="line"><span class="keyword">from</span> surprise.model_selection <span class="keyword">import</span> cross_validate</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Creation of the dataframe. Column names are irrelevant.</span></span><br><span class="line">ratings_dict = &#123;<span class="string">&#x27;itemID&#x27;</span>: [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>],</span><br><span class="line">                <span class="string">&#x27;userID&#x27;</span>: [<span class="number">9</span>, <span class="number">32</span>, <span class="number">2</span>, <span class="number">45</span>, <span class="string">&#x27;user_foo&#x27;</span>],</span><br><span class="line">                <span class="string">&#x27;rating&#x27;</span>: [<span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">1</span>]&#125;</span><br><span class="line">df = pd.DataFrame(ratings_dict)</span><br><span class="line"></span><br><span class="line"><span class="comment"># A reader is still needed but only the rating_scale param is requiered.</span></span><br><span class="line">reader = Reader(rating_scale=(<span class="number">1</span>, <span class="number">5</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># The columns must correspond to user id, item id and ratings (in that order).</span></span><br><span class="line">data = Dataset.load_from_df(df[[<span class="string">&#x27;userID&#x27;</span>, <span class="string">&#x27;itemID&#x27;</span>, <span class="string">&#x27;rating&#x27;</span>]], reader)</span><br><span class="line"></span><br><span class="line">trainset = data.build_full_trainset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># user-based</span></span><br><span class="line">user_based_sim_option = &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;pearson_baseline&#x27;</span>, <span class="string">&#x27;user_based&#x27;</span>: <span class="literal">True</span>&#125;</span><br><span class="line">algo = KNNBaseline(sim_option = user_based_sim_option)</span><br><span class="line">algo.fit(trainset)</span><br><span class="line"></span><br><span class="line"><span class="comment"># pred</span></span><br><span class="line">uid = <span class="string">&#x27;user_foo&#x27;</span></span><br><span class="line">inner_id = algo.trainset.to_inner_uid(uid)</span><br><span class="line">neighbors = algo.get_neighbors(inner_id, k=<span class="number">10</span>)</span><br><span class="line">neighbors_uid = (algo.trainset.to_raw_uid(x) <span class="keyword">for</span> x <span class="keyword">in</span> neighbors )</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="安装surprise"><a href="#安装surprise" class="headerlink" title="安装surprise"></a>安装surprise</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -c conda-forge scikit-surprise</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/898cc4443add">https://www.jianshu.com/p/898cc4443add</a></li>
+<li><a target="_blank" rel="noopener" href="https://surprise.readthedocs.io/en/stable/getting_started.html#load-dom-dataframe-py">https://surprise.readthedocs.io/en/stable/getting_started.html#load-dom-dataframe-py</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/17/other/travel-co-clustering-recommendation/" data-id="ckr0gal0w001ga1bn6fswawsh" data-title="协同过滤-景点推荐" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-mianshi/zhaolianjinrong" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/17/mianshi/zhaolianjinrong/" class="article-date">
+  <time class="dt-published" datetime="2021-05-17T03:47:45.000Z" itemprop="datePublished">2021-05-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/17/mianshi/zhaolianjinrong/">招联金融面试</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><ol>
+<li>参数估计与假设检验</li>
+<li>SQL执行顺序</li>
+<li>成绩与奖学金</li>
+</ol>
+<h2 id="我问的问题"><a href="#我问的问题" class="headerlink" title="我问的问题"></a>我问的问题</h2><ol>
+<li>业务方向<ul>
+<li>客户划分</li>
+<li>较为传统的方向</li>
+<li>评分卡</li>
+</ul>
+</li>
+</ol>
+<h1 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h1><h2 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h2><ol>
+<li>跟身边人做事或者性格上有什么明显不同的地方<ul>
+<li>巴以冲突！减分！</li>
+</ul>
+</li>
+<li>介绍项目</li>
+<li>平常爱好</li>
+<li>个人性格特点</li>
+<li>出现了困难怎么解决</li>
+<li>1w块砖，找到其中不合格的500块砖，怎么去找到500块砖，砖的属性包括了：长、宽、高、质量：<ul>
+<li>无监督问题</li>
+<li>数据分布</li>
+<li>标准化</li>
+<li>离群点</li>
+</ul>
+</li>
+</ol>
+<h2 id="我问的问题-1"><a href="#我问的问题-1" class="headerlink" title="我问的问题"></a>我问的问题</h2><ol>
+<li>500块砖</li>
+<li>新人培养</li>
+</ol>
+<h1 id="综合评价"><a href="#综合评价" class="headerlink" title="综合评价"></a>综合评价</h1><ol>
+<li>比较和谐</li>
+<li>比较简单</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/17/mianshi/zhaolianjinrong/" data-id="ckr0gal0d000ka1bnb83gdhv1" data-title="招联金融面试" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-mianshi/xinyuanhe" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/17/mianshi/xinyuanhe/" class="article-date">
+  <time class="dt-published" datetime="2021-05-17T01:36:13.000Z" itemprop="datePublished">2021-05-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AC%94%E8%AF%95/">笔试</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/17/mianshi/xinyuanhe/">上海心愿盒笔试</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="题目内容"><a href="#题目内容" class="headerlink" title="题目内容"></a>题目内容</h1><ol>
+<li>定义一个python方程将邮件里面的raw.xlsx清理并转化成sample.xlsx的格式，表头与sample一致，<br>清理规则如下：</li>
+</ol>
+<ul>
+<li>删除types为空并移除</li>
+<li>剔除明显outlier</li>
+</ul>
+<ol start="2">
+<li><p>利用commodity = 52的数据进行以下分析：</p>
+<ul>
+<li>定义一个方程计算receive_time和comment_time的时间差(以天计算)，并在原表生成新的列，列名为<code>time_difference</code></li>
+<li>将数据可视化，生成两个图表<ul>
+<li>定义一个方程用柱状图展示每一个time_difference的count</li>
+<li>定义一个方程用comment_time生成曲线图，x轴为日期，颗粒度为天，y轴为每一个日期的count</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>提出有意思的想法</p>
+</li>
+</ol>
+<p>通过多个角度分析用户的评论内容，分析其再次购买的意愿。</p>
+<ol>
+<li><p>首先进行总体统计：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">               time_difference</span><br><span class="line">comment_value</span><br><span class="line">不感兴趣                       242</span><br><span class="line">已经下单                       245</span><br><span class="line">还想再试                       646</span><br></pre></td></tr></table></figure>
+<p>57%的用户还想再次尝试，可以发现，总体上，该店铺内的产品用户比较满意。</p>
+</li>
+<li><p>总体上看用户从下单到评论的时间间隔。</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mean       12.253310</span><br><span class="line">std         7.442732</span><br><span class="line">min         0.000000</span><br><span class="line">25%         6.000000</span><br><span class="line">50%        12.000000</span><br><span class="line">75%        16.000000</span><br><span class="line">max        56.000000</span><br></pre></td></tr></table></figure>
+<p>用户平均的时间间隔为12天，标准差为7天，大部分集中在16天之内。</p>
+</li>
+<li><p>重点分析还想再试的用户，该类型用户有较大的价值。<br>与总体差别不大，所以较难根据用户评论反馈时间来分析用户的下单意愿。</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mean      12.159443</span><br><span class="line">std        7.226199</span><br><span class="line">min        0.000000</span><br><span class="line">25%        6.000000</span><br><span class="line">50%       12.000000</span><br><span class="line">75%       16.000000</span><br><span class="line">max       47.000000</span><br></pre></td></tr></table></figure></li>
+<li><p>寻求更多的特征分析用户的下单意愿。</p>
+</li>
+</ol>
+<p>从用户的评论来看，主要的评论的角度包括了<code>包装</code>,<code>大小</code>,<code>气味</code>, <code>口味</code>, <code>外观</code>，因此这些角度可以当作特征，而最后的下单意愿可以作为<code>目标值</code>，再加上评论间隔时间这一特征，<br>可以利用<code>决策树</code>构建分类模型，以此来判断，哪一些特征对于<code>用户的下单意愿</code>影响较大，以此作为产品改进的方向。</p>
+<h1 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h1><ol>
+<li>较为简单，不涉及到很复杂的知识点</li>
+</ol>
+<h1 id="相关知识点"><a href="#相关知识点" class="headerlink" title="相关知识点"></a>相关知识点</h1><ol>
+<li>pandas用<code>apply</code>扩展多列</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">raw_df[[<span class="string">&#x27;comment_type&#x27;</span>, <span class="string">&#x27;comment_value&#x27;</span>]] = raw_df.apply(<span class="keyword">lambda</span> x: x[<span class="string">&#x27;types&#x27;</span>].split(<span class="string">&#x27;:&#x27;</span>), axis=<span class="number">1</span>, result_type=<span class="string">&quot;expand&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>定义<code>axis=1</code>,以及<code>result_type=expand</code></p>
+<ol start="2">
+<li>找到离群点</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(raw_df[<span class="string">&#x27;receive_time&#x27;</span>].describe())</span><br></pre></td></tr></table></figure>
+<p><code>describe</code>方法来看总体的数据分布</p>
+<ol start="3">
+<li>pandas一行拆分成多行</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># https://zhuanlan.zhihu.com/p/124242604</span></span><br><span class="line"><span class="comment">#一、先将‘爱好’字段拆分</span></span><br><span class="line">df[<span class="string">&#x27;爱好&#x27;</span>]=df[<span class="string">&#x27;爱好&#x27;</span>].<span class="built_in">map</span>(<span class="keyword">lambda</span> x:x.split(<span class="string">&#x27;,&#x27;</span>))</span><br><span class="line"><span class="comment">#二、然后直接调用explode()方法</span></span><br><span class="line">df_new=df.explode(<span class="string">&#x27;爱好&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><a href="main.py">py文件下载</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/17/mianshi/xinyuanhe/" data-id="ckr0gal09000ca1bn3ow34dss" data-title="上海心愿盒笔试" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-mianshi/taicheng" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/14/mianshi/taicheng/" class="article-date">
+  <time class="dt-published" datetime="2021-05-14T03:16:15.000Z" itemprop="datePublished">2021-05-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/14/mianshi/taicheng/">上海-泰诚科技笔试题目</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="1-用python进行数据整理及分析："><a href="#1-用python进行数据整理及分析：" class="headerlink" title="1.用python进行数据整理及分析："></a>1.用python进行数据整理及分析：</h1><p>a)打开“inputs.csv”筛选出2019年全年，type=DAID的数据</p>
+<p>b)检查数据是否有缺失值，是否每半小时都有数据，并用上一时刻的值补齐数据<br>c)做一些简单的visualization，分析2019年DAID的走势（任何角度都可以，并配合简单的语言解释）<br>d)将得到的图和解释写在下面：</p>
+<h1 id="2-蒙特卡洛模拟："><a href="#2-蒙特卡洛模拟：" class="headerlink" title="2.蒙特卡洛模拟："></a>2.蒙特卡洛模拟：</h1><p>a)还是使用上题的数据集，使用蒙特卡洛模拟，模拟出2021年2月的DANF和DATF的半小时颗粒度的数据。</p>
+<p>b)简单描述模拟过程和注意事项：</p>
+<h1 id="3-排序算法：给你一个整数数组alist，请你将该数组升序排列。"><a href="#3-排序算法：给你一个整数数组alist，请你将该数组升序排列。" class="headerlink" title="3.排序算法：给你一个整数数组alist，请你将该数组升序排列。"></a>3.排序算法：给你一个整数数组alist，请你将该数组升序排列。</h1><p>a)编写以上算法；</p>
+<p>写出该算法的空间复杂度。</p>
+<h1 id="4-编写一个SQL查询，获取Employee表中第n高的薪水（Salary）"><a href="#4-编写一个SQL查询，获取Employee表中第n高的薪水（Salary）" class="headerlink" title="4.编写一个SQL查询，获取Employee表中第n高的薪水（Salary）"></a>4.编写一个SQL查询，获取Employee表中第n高的薪水（Salary）</h1><p>例如上述Employee表，n = 2 时，应返回第二高的薪水 200。如果不存在第 n 高的薪水，那么查询应返回 null。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">when</span> Salary <span class="keyword">is</span> <span class="keyword">null</span> <span class="keyword">then</span> <span class="keyword">null</span> <span class="keyword">else</span> Salary <span class="keyword">end</span> <span class="keyword">as</span> max_salary</span><br><span class="line"><span class="keyword">from</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="operator">*</span>,</span><br><span class="line">        <span class="built_in">row_number</span>() <span class="keyword">over</span>(<span class="keyword">order</span> <span class="keyword">by</span> Salary <span class="keyword">desc</span>) <span class="keyword">as</span> <span class="string">&#x27;ranking&#x27;</span></span><br><span class="line">    <span class="keyword">from</span> Employee</span><br><span class="line">) <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">where</span> a.ranking <span class="operator">=</span> n</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li>蒙特卡洛. <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/342624971">https://zhuanlan.zhihu.com/p/342624971</a></li>
+<li>pandas时间日期操作. <a target="_blank" rel="noopener" href="https://www.pypandas.cn/docs/user_guide/timeseries.html#%E8%BD%AC%E6%8D%A2%E6%97%B6%E9%97%B4%E6%88%B3">https://www.pypandas.cn/docs/user_guide/timeseries.html#%E8%BD%AC%E6%8D%A2%E6%97%B6%E9%97%B4%E6%88%B3</a></li>
+<li>seaborn折线图. <a target="_blank" rel="noopener" href="https://seaborn.pydata.org/examples/errorband_lineplots.html">https://seaborn.pydata.org/examples/errorband_lineplots.html</a> </li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/14/mianshi/taicheng/" data-id="ckr0gakzv0004a1bnbblm44j3" data-title="上海-泰诚科技笔试题目" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other/weibo-user-struct-hole" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/13/other/weibo-user-struct-hole/" class="article-date">
+  <time class="dt-published" datetime="2021-05-13T09:56:59.000Z" itemprop="datePublished">2021-05-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/13/other/weibo-user-struct-hole/">微博用户结构洞分析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="1-数据预处理"><a href="#1-数据预处理" class="headerlink" title="1. 数据预处理"></a>1. 数据预处理</h1><ul>
+<li><p>读取数据</p>
+</li>
+<li><p>解析每一个微博，利用textrank提取出关键词</p>
+</li>
+<li><p>建立用户-关键词映射</p>
+</li>
+<li><p>建立用户-用户关系网络，以共现次数作为边的权重</p>
+</li>
+<li><p>生成networkx的Graph对象</p>
+</li>
+<li><p>生成gaphei对象供gephi来画图</p>
+</li>
+</ul>
+<h1 id="2-结构洞分析"><a href="#2-结构洞分析" class="headerlink" title="2. 结构洞分析"></a>2. 结构洞分析</h1><h1 id="3-节点重要性排序"><a href="#3-节点重要性排序" class="headerlink" title="3. 节点重要性排序"></a>3. 节点重要性排序</h1><ul>
+<li><p>读取networkx文件</p>
+</li>
+<li><p>pagerank排序</p>
+</li>
+<li><p>输出到csv文件</p>
+</li>
+</ul>
+<h1 id="4-requirements-txt"><a href="#4-requirements-txt" class="headerlink" title="4. requirements.txt"></a>4. requirements.txt</h1><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">networkx</span><br><span class="line">pandas</span><br><span class="line">jieba</span><br><span class="line">tqdm</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li>pajek <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34322002/article/details/102565747">https://blog.csdn.net/qq_34322002/article/details/102565747</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/13/other/weibo-user-struct-hole/" data-id="ckr0gal12001na1bn04bddamf" data-title="微博用户结构洞分析" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other/seborn-clear" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/13/other/seborn-clear/" class="article-date">
+  <time class="dt-published" datetime="2021-05-13T07:28:15.000Z" itemprop="datePublished">2021-05-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/13/other/seborn-clear/">在for循环中seaborn画图去重重复标签</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>在利用seborn在一个循环中生成多张图片的时候，需要注意的是使用的的是需要清楚本步骤留下的痕迹，否则就容易出现下面的问题<br><img src="DIP_1.png"></p>
+<p><img src="DIP_2.png"></p>
+<p>在上面的图片中出现了<code>label</code>还有<code>点</code>的重复。</p>
+<h1 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h1><h2 id="1-matplotlib的clf"><a href="#1-matplotlib的clf" class="headerlink" title="1. matplotlib的clf"></a>1. matplotlib的<code>clf</code></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"></span><br><span class="line">sns.scatterplot()</span><br><span class="line">plt.clf() <span class="comment"># 这里清除</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-seaborn的clf"><a href="#2-seaborn的clf" class="headerlink" title="2. seaborn的clf"></a>2. seaborn的<code>clf</code></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"></span><br><span class="line">fig = sns.scatterplot()</span><br><span class="line">plot = fig.get_figure()</span><br><span class="line">plot.clf() <span class="comment"># 这里清楚</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/36018681/stop-seaborn-plotting-multiple-figures-on-top-of-one-another">https://stackoverflow.com/questions/36018681/stop-seaborn-plotting-multiple-figures-on-top-of-one-another</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/13/other/seborn-clear/" data-id="ckr0gal0s0019a1bn5oll8x6p" data-title="在for循环中seaborn画图去重重复标签" class="article-share-link">Teilen</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-practice/kingsoft/0513" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/13/practice/kingsoft/0513/" class="article-date">
+  <time class="dt-published" datetime="2021-05-13T02:07:42.000Z" itemprop="datePublished">2021-05-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/13/practice/kingsoft/0513/">5月13日工作内容</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="工作内容"><a href="#工作内容" class="headerlink" title="工作内容"></a>工作内容</h1><p>1、先看懂每个迭代是在干啥  如果有不明白的可以在 【安卓+pc数据需求】的群里问下何文钦or曹念慈</p>
+<p>2、每个迭代他们自己有写需要关注的数据，你可以看下，然后思考下这个数据是否全面   </p>
+<h1 id="具体迭代"><a href="#具体迭代" class="headerlink" title="具体迭代"></a>具体迭代</h1><h2 id="【4-12-4-16】「全球」-首页-amp-打开文件列表文件显示优化"><a href="#【4-12-4-16】「全球」-首页-amp-打开文件列表文件显示优化" class="headerlink" title="【4.12~4.16】「全球」-首页&amp;打开文件列表文件显示优化"></a>【4.12~4.16】「全球」-首页&amp;打开文件列表文件显示优化</h2><h3 id="需要关注的数据"><a href="#需要关注的数据" class="headerlink" title="需要关注的数据"></a>需要关注的数据</h3><h2 id="【3-29-4-2】系统复制栏WPS入口-将文字保存成Memo"><a href="#【3-29-4-2】系统复制栏WPS入口-将文字保存成Memo" class="headerlink" title="【3.29~4.2】系统复制栏WPS入口-将文字保存成Memo"></a>【3.29~4.2】系统复制栏WPS入口-将文字保存成Memo</h2><h3 id="需要关注的数据-1"><a href="#需要关注的数据-1" class="headerlink" title="需要关注的数据"></a>需要关注的数据</h3><ol>
+<li>埋点数据</li>
+</ol>
+<p><img src="%E5%AE%89%E5%8D%93-memo-%E5%9F%8B%E7%82%B9.png"></p>
+<p>需要关注的是<code>属性值</code>，查某一个行为的方法为:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> `wps<span class="operator">-</span>cloud<span class="operator">-</span>service.analytics_153386958.events_20210511` </span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    app_info.version <span class="operator">=</span> <span class="string">&#x27;13.9&#x27;</span> <span class="keyword">and</span> </span><br><span class="line">    event_name<span class="operator">=</span><span class="string">&#x27;page_show&#x27;</span> <span class="keyword">and</span></span><br><span class="line">    (<span class="keyword">select</span> value.string_value <span class="keyword">from</span> <span class="built_in">unnest</span>(event_params) <span class="keyword">where</span> key<span class="operator">=</span><span class="string">&#x27;category&#x27;</span>) <span class="operator">=</span> <span class="string">&#x27;Memo&#x27;</span> <span class="keyword">and</span></span><br><span class="line">    (<span class="keyword">select</span> value.string_value <span class="keyword">from</span> <span class="built_in">unnest</span>(event_params) <span class="keyword">where</span> key<span class="operator">=</span><span class="string">&#x27;func_name&#x27;</span>) <span class="operator">=</span> <span class="string">&#x27;Savereminder_SystemCopyBarEntrance&#x27;</span></span><br><span class="line">limit <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p>其中核心查询条件为</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">select</span> value.string_value <span class="keyword">from</span> <span class="built_in">unnest</span>(event_params) <span class="keyword">where</span> key<span class="operator">=</span><span class="string">&#x27;category&#x27;</span>) <span class="operator">=</span> <span class="string">&#x27;Memo&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://cloud.google.com/bigquery/docs/reference/standard-sql/arrays"><code>unnest</code></a>函数是把<code>event_params</code>展开成一张表，这个表里面有两个(实际上为多个，主要取决于event_params的key的数量)字段，分别为<code>key</code>, <code>value</code>，value又可以分成<code>string_value</code></p>
+<blockquote>
+<p>个人理解为在一行记录中产生一个子表，然后在这个子表中查询。</p>
+</blockquote>
+<p>unnest的官方表述：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">如需将 ARRAY 转换为一组行（即执行展平操作），请使用 UNNEST 运算符。UNNEST 获取一个 ARRAY，然后返回一个表，ARRAY 中的每个元素均占该表的一行。</span><br><span class="line">由于 UNNEST 破坏了 ARRAY 元素的顺序，您可能需要恢复表中的顺序。为此，请使用可选的 WITH OFFSET 子句返回另一个包含各数组元素偏移量的列，然后使用 ORDER BY 子句按偏移量对行进行排序。</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>指标</li>
+</ol>
+<ul>
+<li>uv</li>
+<li>文档打开率</li>
+<li>周留存率</li>
+</ul>
+<h3 id="检索埋点数据"><a href="#检索埋点数据" class="headerlink" title="检索埋点数据"></a>检索埋点数据</h3><p><code>event</code>表中记录了安卓端内所有用户的所有行为数据。<br>从<code>event</code>宽表中检索到相关的埋点数据，event宽表的形式不同于传统的关系型数据库表结构，它是包含Key_value形式的结构，如下图所示：<br><img src="event-%E8%A1%A8%E7%BB%93%E6%9E%84.png"></p>
+<p>其中标识一个用户的行为的核心字段包括</p>
+<ul>
+<li>event_name: 用户所触发的事件的大的类，比如page_show，它的意思是打开页面</li>
+<li>event_params.key: event_name的一些参数，这个是自定义的，根据不同的业务场景定义不同的key</li>
+<li>event_params.value.string_value: key所对应的值,该数值是字符串类型</li>
+</ul>
+<p>比如下面的数据<br><img src="event-demo.png"><br>这里面的一条数据记录了</p>
+<blockquote>
+<p><code>某一个用户在某一个外部应用中选择了一段话，然后进入系统复制栏入口保存提示页</code>。<br>核心信息为<code>event_name.params.key.category=Memo</code>以及<code>event_name.params.key.func_name=Savereminder_SystemCopyBarEntrance</code></p>
+</blockquote>
+<h1 id="产品涉及到得名词"><a href="#产品涉及到得名词" class="headerlink" title="产品涉及到得名词"></a>产品涉及到得名词</h1><ol>
+<li><p>dialog<br><img src="dialog.png" alt="dialog"><br>对话框</p>
+</li>
+<li><p>toast<br><img src="toast.png" alt="toast"><br>简单提示</p>
+</li>
+<li><p>pop<br><img src="pop.png" alt="pop"></p>
+</li>
+</ol>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li>APP 反馈的三种形式：toast、snackbar、dialog. <a target="_blank" rel="noopener" href="https://app.yinxiang.com/fx/05d7f0ce-9d7c-4e11-a45e-80a80361b563">https://app.yinxiang.com/fx/05d7f0ce-9d7c-4e11-a45e-80a80361b563</a></li>
+<li>防止被数字欺骗. <a target="_blank" rel="noopener" href="https://app.yinxiang.com/fx/b9c3ea0f-d763-4001-a4c2-c6016723907d">https://app.yinxiang.com/fx/b9c3ea0f-d763-4001-a4c2-c6016723907d</a></li>
+<li>什么是AB Test. <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20045543/answer/1103961403">https://www.zhihu.com/question/20045543/answer/1103961403</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/13/practice/kingsoft/0513/" data-id="ckr0gal27003la1bnakvv2v0m" data-title="5月13日工作内容" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other/protein-gae-clutser" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/12/other/protein-gae-clutser/" class="article-date">
+  <time class="dt-published" datetime="2021-05-12T07:24:32.000Z" itemprop="datePublished">2021-05-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/12/other/protein-gae-clutser/">基于GAE的蛋白质网络聚类</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="数据读取与预处理"><a href="#数据读取与预处理" class="headerlink" title="数据读取与预处理"></a>数据读取与预处理</h1><ol>
+<li><p>读取所有的蛋白质数据并为其附上编号</p>
+</li>
+<li><p>找到所有蛋白质的特征向量</p>
+</li>
+<li><p>根据txt文件构造图</p>
+</li>
+<li><p>读取所有时刻下的活跃节点</p>
+</li>
+<li><p>根据时刻切分成12个图</p>
+</li>
+<li><p>保存文件</p>
+</li>
+</ol>
+<p><a href="process.py">文件下载</a></p>
+<h1 id="模型训练并保存向量Z"><a href="#模型训练并保存向量Z" class="headerlink" title="模型训练并保存向量Z"></a>模型训练并保存向量Z</h1><ol>
+<li>定义device</li>
+<li>构建模型</li>
+<li>读取上一步生成的数据</li>
+<li>训练生成Z</li>
+<li>保存Z</li>
+</ol>
+<p><a href="train.py">文件下载</a></p>
+<h1 id="3-利用Z聚类"><a href="#3-利用Z聚类" class="headerlink" title="3. 利用Z聚类"></a>3. 利用Z聚类</h1><p><a href="cluster.py">文件下载</a></p>
+<h1 id="4-参考链接"><a href="#4-参考链接" class="headerlink" title="4. 参考链接"></a>4. 参考链接</h1><ul>
+<li>hexo 添加静态图片<br><a target="_blank" rel="noopener" href="http://abonege.github.io/2016/05/25/%E5%A6%82%E4%BD%95%E5%9C%A8hexo%E4%BD%BF%E7%94%A8%E5%9B%BE%E7%89%87/">http://abonege.github.io/2016/05/25/%E5%A6%82%E4%BD%95%E5%9C%A8hexo%E4%BD%BF%E7%94%A8%E5%9B%BE%E7%89%87/</a></li>
+</ul>
+<h1 id="5-requirements-txt"><a href="#5-requirements-txt" class="headerlink" title="5. requirements.txt"></a>5. requirements.txt</h1><p><a href="requirements.txt">下载</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/12/other/protein-gae-clutser/" data-id="ckr0gal0o0013a1bn271tcuqj" data-title="基于GAE的蛋白质网络聚类" class="article-share-link">Teilen</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other/pytorch_geometric_install" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/12/other/pytorch_geometric_install/" class="article-date">
+  <time class="dt-published" datetime="2021-05-12T03:48:01.000Z" itemprop="datePublished">2021-05-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/12/other/pytorch_geometric_install/">pytorch_geometric安装</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>安装torch1.7.0</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install torch&#x3D;&#x3D;1.7.0+cpu torchvision&#x3D;&#x3D;0.8.1+cpu torchaudio&#x3D;&#x3D;&#x3D;0.7.0 -f https:&#x2F;&#x2F;download.pytorch.org&#x2F;whl&#x2F;torch_stable.html</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>安装其他包</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pip install torch-scatter -f https:&#x2F;&#x2F;pytorch-geometric.com&#x2F;whl&#x2F;torch-1.7.0+cpu.html</span><br><span class="line">pip install torch-sparse -f https:&#x2F;&#x2F;pytorch-geometric.com&#x2F;whl&#x2F;torch-1.7.0+cpu.html</span><br><span class="line">pip install torch-cluster -f https:&#x2F;&#x2F;pytorch-geometric.com&#x2F;whl&#x2F;torch-1.7.0+cpu.html</span><br><span class="line">pip install torch-spline-conv -f https:&#x2F;&#x2F;pytorch-geometric.com&#x2F;whl&#x2F;torch-1.7.0+cpu.html</span><br><span class="line">pip install torch-geometric</span><br></pre></td></tr></table></figure>
+
+<h1 id="requirements-txt"><a href="#requirements-txt" class="headerlink" title="requirements.txt"></a>requirements.txt</h1><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">torch==1.7.0+cpu torchvision==0.8.1+cpu torchaudio===0.7.0 -f https://download.pytorch.org/whl/torch_stable.html</span><br><span class="line">torch-scatter -f https://pytorch-geometric.com/whl/torch-1.7.0+cpu.html</span><br><span class="line">torch-sparse -f https://pytorch-geometric.com/whl/torch-1.7.0+cpu.html</span><br><span class="line">torch-cluster -f https://pytorch-geometric.com/whl/torch-1.7.0+cpu.html</span><br><span class="line">torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.7.0+cpu.html</span><br><span class="line">torch-geometric</span><br></pre></td></tr></table></figure>
+
+<h1 id="淘宝镜像"><a href="#淘宝镜像" class="headerlink" title="淘宝镜像"></a>淘宝镜像</h1><p><a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/pypi/simple">https://mirrors.aliyun.com/pypi/simple</a></p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html">https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/12/other/pytorch_geometric_install/" data-id="ckr0gal0q0015a1bng5s9a88l" data-title="pytorch_geometric安装" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; zurück</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1%E6%8C%87%E6%A0%87/">业务指标</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E4%B9%A0/">实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AF%95/">笔试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" rel="tag">金山实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/SQL/" style="font-size: 16px;">SQL</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 18px;">其他</a> <a href="/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 20px;">实习</a> <a href="/tags/%E7%AC%94%E8%AF%95/" style="font-size: 12px;">笔试</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 12px;">统计学</a> <a href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" style="font-size: 14px;">金山实习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 16px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/06/28/mianshi/yinlian/">银联</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/28/mianshi/rongbao/">融保科技</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/11/mianshi/xiecheng/">携程笔面试</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/11/practice/kingsoft/0611/">6月11日实习内容</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/07/practice/kingsoft/0607/">6月7日工作内容</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>rwqccnuimd的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="rwqccnuimd的博客">
+<meta property="og:url" content="http://example.com/page/4/index.html">
+<meta property="og:site_name" content="rwqccnuimd的博客">
+<meta property="og:locale">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="rwqccnuimd的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">rwqccnuimd的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-practice/kingsoft/0512" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/12/practice/kingsoft/0512/" class="article-date">
+  <time class="dt-published" datetime="2021-05-12T02:32:00.000Z" itemprop="datePublished">2021-05-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/12/practice/kingsoft/0512/">5月12日工作内容</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="工作内容"><a href="#工作内容" class="headerlink" title="工作内容"></a>工作内容</h1><ol>
+<li>继续学习Leader做的数据复盘，</li>
+<li>分版本计算留存率变化。</li>
+</ol>
+<h1 id="分版本计算周留存"><a href="#分版本计算周留存" class="headerlink" title="分版本计算周留存"></a>分版本计算周留存</h1><p>计算每一个国家每一个版本上线的2周内的留存变化。</p>
+<p>结果1 - 大盘</p>
+<p><img src="/images/wps_retention_version_excel.png"></p>
+<p>已经知道了每一个版本的日期范围，计算这个日期范围内该<code>版本</code>与<code>大盘</code>的留存率。<br>步骤为</p>
+<ol>
+<li>根据日期筛选出该日期内大盘的week0与week1。<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">SUMIFS</span>(data!$<span class="symbol">E:</span>$E,data!$<span class="symbol">C:</span>$C,$L$<span class="number">10</span>,data!$<span class="symbol">B:</span>$B,$L$<span class="number">11</span>,data!$<span class="symbol">A:</span>$A,<span class="string">&quot;&gt;=&quot;</span>&amp;$<span class="symbol">I17</span>,data!$<span class="symbol">A:</span>$A,<span class="string">&quot;&lt;=&quot;</span>&amp;$<span class="symbol">J17</span>)/<span class="built_in">SUMIFS</span>(data!$<span class="symbol">D:</span>$D,data!$<span class="symbol">C:</span>$C,$L$<span class="number">10</span>,data!$<span class="symbol">B:</span>$B,$L$<span class="number">11</span>,data!$<span class="symbol">A:</span>$A,<span class="string">&quot;&gt;=&quot;</span>&amp;$<span class="symbol">I17</span>,data!$<span class="symbol">A:</span>$A,<span class="string">&quot;&lt;=&quot;</span>&amp;$<span class="symbol">J17</span>)</span><br></pre></td></tr></table></figure>
+核心就是日期的判断用<code>data!$A:$A,&quot;&gt;=&quot;&amp;$I17</code>，要注意用<code>双引号</code>在做字符串的拼接的时候。</li>
+</ol>
+<p>但是在做这个的时候就出现了很大的问题，就在于写SQL的时候并没有做<code>根据不同的版本计算周留存</code>。后来检查SQL还发现了日本也没有分版本，<br>原来是把泰国分版本的SQL复制成日本的时候<code>参数并没有做更改</code>!</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> base_version <span class="keyword">as</span> (</span><br><span class="line">    <span class="comment">-- 大盘分版本</span></span><br><span class="line">    <span class="keyword">select</span> </span><br><span class="line">        week,</span><br><span class="line">        <span class="keyword">left</span>(first_open_version, <span class="number">4</span>) <span class="keyword">as</span> version, <span class="comment">-- 这里需要注意</span></span><br><span class="line">        <span class="string">&#x27;all&#x27;</span> <span class="keyword">as</span> country,</span><br><span class="line">        week_interval,</span><br><span class="line">        <span class="built_in">sum</span>(retentions) <span class="keyword">as</span> retentions</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        `wps<span class="operator">-</span>data<span class="operator">-</span>analysis.wps_metric_android.android_retentions_weekly`</span><br><span class="line">    <span class="keyword">where</span></span><br><span class="line">        week <span class="operator">&gt;=</span> &quot;2021-02-15&quot; <span class="keyword">and</span></span><br><span class="line">        week_interval <span class="keyword">in</span> (<span class="number">0</span>, <span class="number">1</span>) <span class="keyword">and</span></span><br><span class="line">        first_open_version <span class="operator">&gt;=</span> <span class="string">&#x27;13.0&#x27;</span> <span class="keyword">and</span> first_open_version <span class="operator">&lt;=</span> <span class="string">&#x27;14.0.0&#x27;</span></span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> version, week, week_interval</span><br><span class="line">    <span class="keyword">order</span> <span class="keyword">by</span> version, week, week_interval</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>根据日期筛选出该日期内版本的week0与week1。<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">SUMIFS</span>(data!$<span class="symbol">E:</span>$E,data!$<span class="symbol">C:</span>$C,$L$<span class="number">10</span>,data!$<span class="symbol">B:</span>$B,$<span class="symbol">K17</span>,data!$<span class="symbol">A:</span>$A,<span class="string">&quot;&gt;=&quot;</span>&amp;$<span class="symbol">I17</span>,data!$<span class="symbol">A:</span>$A,<span class="string">&quot;&lt;=&quot;</span>&amp;$<span class="symbol">J17</span>)/<span class="built_in">SUMIFS</span>(data!$<span class="symbol">D:</span>$D,data!$<span class="symbol">C:</span>$C,$L$<span class="number">10</span>,data!$<span class="symbol">B:</span>$B,$<span class="symbol">K17</span>,data!$<span class="symbol">A:</span>$A,<span class="string">&quot;&gt;=&quot;</span>&amp;$<span class="symbol">I17</span>,data!$<span class="symbol">A:</span>$A,<span class="string">&quot;&lt;=&quot;</span>&amp;$<span class="symbol">J17</span>)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="分国家计算月留存（不区分版本）"><a href="#分国家计算月留存（不区分版本）" class="headerlink" title="分国家计算月留存（不区分版本）"></a>分国家计算月留存（不区分版本）</h1><ol>
+<li>写sql</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 月留存</span></span><br><span class="line"><span class="keyword">with</span> base <span class="keyword">as</span> (</span><br><span class="line">    <span class="comment">-- 大盘</span></span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="keyword">month</span>,</span><br><span class="line">        month_interval,</span><br><span class="line">        <span class="string">&#x27;all&#x27;</span> <span class="keyword">as</span> country,</span><br><span class="line">        <span class="built_in">sum</span>(retentions) <span class="keyword">as</span> retentions</span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">        `wps<span class="operator">-</span>data<span class="operator">-</span>analysis.wps_metric_android.android_retentions_monthly`</span><br><span class="line">    <span class="keyword">where</span> month_interval <span class="keyword">in</span> (<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">month</span>, month_interval </span><br><span class="line">    <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">month</span>, month_interval</span><br><span class="line">),</span><br><span class="line">Japan_base <span class="keyword">as</span> (</span><br><span class="line">    <span class="comment">-- 日本</span></span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="keyword">month</span>,</span><br><span class="line">        month_interval,</span><br><span class="line">        <span class="string">&#x27;Japan&#x27;</span> <span class="keyword">as</span> country,</span><br><span class="line">        <span class="built_in">sum</span>(retentions) <span class="keyword">as</span> retentions</span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">        `wps<span class="operator">-</span>data<span class="operator">-</span>analysis.wps_metric_android.android_retentions_monthly`</span><br><span class="line">    <span class="keyword">where</span> month_interval <span class="keyword">in</span> (<span class="number">0</span>, <span class="number">1</span>) <span class="keyword">and</span> country <span class="keyword">in</span> (<span class="string">&#x27;Japan&#x27;</span>)</span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">month</span>, month_interval </span><br><span class="line">    <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">month</span>, month_interval</span><br><span class="line">),</span><br><span class="line">Thailand_base <span class="keyword">as</span> (</span><br><span class="line">    <span class="comment">-- 泰国</span></span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="keyword">month</span>,</span><br><span class="line">        month_interval,</span><br><span class="line">        <span class="string">&#x27;Thailand&#x27;</span> <span class="keyword">as</span> country,</span><br><span class="line">        <span class="built_in">sum</span>(retentions) <span class="keyword">as</span> retentions</span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">        `wps<span class="operator">-</span>data<span class="operator">-</span>analysis.wps_metric_android.android_retentions_monthly`</span><br><span class="line">    <span class="keyword">where</span> month_interval <span class="keyword">in</span> (<span class="number">0</span>, <span class="number">1</span>) <span class="keyword">and</span> country <span class="keyword">in</span> (<span class="string">&#x27;Thailand&#x27;</span>)</span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">month</span>, month_interval </span><br><span class="line">    <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">month</span>, month_interval</span><br><span class="line">),</span><br><span class="line">month_all <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> base</span><br><span class="line">    <span class="keyword">union</span> <span class="keyword">all</span> (<span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> Japan_base)</span><br><span class="line">    <span class="keyword">union</span> <span class="keyword">all</span> (<span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> Thailand_base)</span><br><span class="line">    <span class="keyword">order</span> <span class="keyword">by</span> country, <span class="keyword">month</span>, month_interval</span><br><span class="line">),</span><br><span class="line">month0 <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> month_all <span class="keyword">where</span> month_interval <span class="operator">=</span> <span class="number">0</span></span><br><span class="line">),</span><br><span class="line">month1 <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> month_all <span class="keyword">where</span> month_interval <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    a.month,</span><br><span class="line">    a.country,</span><br><span class="line">    a.retentions <span class="keyword">as</span> month0,</span><br><span class="line">    b.retentions <span class="keyword">as</span> month1</span><br><span class="line"><span class="keyword">from</span> month0 <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> month1 <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span> a.month <span class="operator">=</span> b.month <span class="keyword">and</span> a.country <span class="operator">=</span> b.country</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> country, <span class="keyword">month</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>结果导出到excel</li>
+<li>sumifs + $计算留存<br>在<code>$绝对引用</code>那里还是不是很熟练。<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">SUMIFS</span>(data!$<span class="symbol">O:</span>$O,data!$<span class="symbol">L:</span>$L,$<span class="symbol">B4</span>,data!$<span class="symbol">M:</span>$M,C$<span class="number">2</span>)/<span class="built_in">SUMIFS</span>(data!$<span class="symbol">N:</span>$<span class="built_in">N</span>,data!$<span class="symbol">L:</span>$L,$<span class="symbol">B4</span>,data!$<span class="symbol">M:</span>$M,C$<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>下拉的时候date要向下(行)顺延，向右(列)不发生变化，也就是<code>$B4</code> 行变列不变，$在前面。<br>右拉的时候date(行)不变化，而向右(列)发生变化，也就是<code>C$2</code>，行不变列变，$在中间。</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="学习的知识点"><a href="#学习的知识点" class="headerlink" title="学习的知识点"></a>学习的知识点</h1><ol>
+<li>excel &amp; 符号的使用</li>
+</ol>
+<blockquote>
+<p>&amp;符号代表字符串的拼接</p>
+</blockquote>
+<p>在时间周期那里得到<code>20201124-20201206</code>这样的格式。</p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">text</span>(<span class="symbol">I7</span>, &#x27;YYYYMMDD&#x27;) &amp; &#x27;-&#x27; &amp; <span class="built_in">text</span>(<span class="symbol">I8</span>, &#x27;YYYYMMDD&#x27;)</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>excel $ 地址引用</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/12/practice/kingsoft/0512/" data-id="ckr0gal26003ia1bn5f9ecpxd" data-title="5月12日工作内容" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-practice/kingsoft/0511" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/11/practice/kingsoft/0511/" class="article-date">
+  <time class="dt-published" datetime="2021-05-11T08:37:49.000Z" itemprop="datePublished">2021-05-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/11/practice/kingsoft/0511/">5月11日工作内容</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="工作内容"><a href="#工作内容" class="headerlink" title="工作内容"></a>工作内容</h1><ol>
+<li>学习leader做的excel中月度数据复盘，学习其制作的方式。</li>
+</ol>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><ol>
+<li>难度较大，涉及到大量的SQL语句与Excel函数操作。</li>
+</ol>
+<h1 id="学习的知识点"><a href="#学习的知识点" class="headerlink" title="学习的知识点"></a>学习的知识点</h1><h2 id="大盘留存率"><a href="#大盘留存率" class="headerlink" title="大盘留存率"></a>大盘留存率</h2><p>某一个时间段内大盘的留存率不区分<code>版本、国家</code>。比如下面一段SQL就是计算留存率。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    week,</span><br><span class="line">    <span class="string">&#x27;all&#x27;</span> <span class="keyword">as</span> first_open_version,</span><br><span class="line">    <span class="string">&#x27;all&#x27;</span> <span class="keyword">as</span> country,</span><br><span class="line">    <span class="built_in">SUM</span>(week0),</span><br><span class="line">    <span class="built_in">SUM</span>(week1)</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    `wps<span class="operator">-</span>data<span class="operator">-</span>analysis.wps_active.android_retentions_weekly_ratio`</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    week <span class="operator">&gt;=</span> &quot;2021-02-15&quot; </span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span></span><br><span class="line">    week,</span><br><span class="line">    country,</span><br><span class="line">    first_open_version </span><br></pre></td></tr></table></figure>
+<p>按照传统的SQL执行顺序为<code>from-&gt;where-&gt;group by-&gt;select</code>，这一段代码放到<code>mysql</code>中会报错，如果在mysql应该这样写：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    week,</span><br><span class="line">    <span class="string">&#x27;all&#x27;</span> <span class="keyword">as</span> first_open_version,</span><br><span class="line">    <span class="string">&#x27;all&#x27;</span> <span class="keyword">as</span> country,</span><br><span class="line">    <span class="built_in">SUM</span>(week0),</span><br><span class="line">    <span class="built_in">SUM</span>(week1)</span><br><span class="line"><span class="keyword">from</span> (</span><br><span class="line">    <span class="keyword">SELECT</span></span><br><span class="line">        week,</span><br><span class="line">        <span class="string">&#x27;all&#x27;</span> <span class="keyword">as</span> first_open_version,</span><br><span class="line">        <span class="string">&#x27;all&#x27;</span> <span class="keyword">as</span> country,</span><br><span class="line">        week0,</span><br><span class="line">        week1</span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">        `wps<span class="operator">-</span>data<span class="operator">-</span>analysis.wps_active.android_retentions_weekly_ratio`</span><br><span class="line">    <span class="keyword">WHERE</span></span><br><span class="line">        week <span class="operator">&gt;=</span> &quot;2021-02-15&quot;</span><br><span class="line">) <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    week,</span><br><span class="line">    first_open_version,</span><br><span class="line">    country</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">    week,</span><br><span class="line">    first_open_version,</span><br><span class="line">    country</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>更简便的写法为</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    week,</span><br><span class="line">    <span class="string">&#x27;all&#x27;</span> <span class="keyword">as</span> first_open_version,</span><br><span class="line">    <span class="string">&#x27;all&#x27;</span> <span class="keyword">as</span> country,</span><br><span class="line">    <span class="built_in">sum</span>(week0),</span><br><span class="line">    <span class="built_in">sum</span>(week1)</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    `wps<span class="operator">-</span>data<span class="operator">-</span>analysis.wps_active.android_retentions_weekly_ratio`</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    week <span class="operator">&gt;=</span> <span class="string">&#x27;2021-02-15&#x27;</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    week</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> week</span><br></pre></td></tr></table></figure>
+<p>这个就又涉及到了hiveSQL的执行顺序</p>
+<blockquote>
+<p>from-&gt;join-&gt;where-&gt;select-&gt;group by-&gt;having</p>
+</blockquote>
+<p>这个涉及到了Hadoop中的<code>Map-Reduce操作</code>。上面的select属于<code>Map阶段</code>，而最后输出的数据属于 <code>Reduce</code>中的select操作。</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">在map阶段</span><br><span class="line">    from 加载，进行表的查找和加载</span><br><span class="line">    where过滤</span><br><span class="line">    select查询</span><br><span class="line">    group by 执行分组后的相关计算</span><br><span class="line">    map端文件合并</span><br><span class="line"></span><br><span class="line">在Reduce阶段</span><br><span class="line">    group by :对map端发来的文件进行合并</span><br><span class="line">    select : 过滤列用于输出结果</span><br><span class="line">    limit排序</span><br></pre></td></tr></table></figure>
+
+<h2 id="分版本计算"><a href="#分版本计算" class="headerlink" title="分版本计算"></a>分版本计算</h2><p>还是涉及到hiveSQL的执行顺序。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 日本分版本</span></span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">    week,</span><br><span class="line">    <span class="keyword">left</span>(first_open_version, <span class="number">4</span>) <span class="keyword">as</span> version, <span class="comment">-- 这里需要注意</span></span><br><span class="line">    <span class="string">&#x27;Thailand&#x27;</span> <span class="keyword">as</span> country,</span><br><span class="line">    week_interval,</span><br><span class="line">    <span class="built_in">sum</span>(retentions) <span class="keyword">as</span> retentions</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    `wps<span class="operator">-</span>data<span class="operator">-</span>analysis.wps_metric_android.android_retentions_weekly`</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    week <span class="operator">&gt;=</span> &quot;2021-02-15&quot; <span class="keyword">and</span></span><br><span class="line">    week_interval <span class="keyword">in</span> (<span class="number">0</span>, <span class="number">1</span>) <span class="keyword">and</span></span><br><span class="line">    country <span class="keyword">in</span> (<span class="string">&#x27;Thailand&#x27;</span>) <span class="keyword">and</span> </span><br><span class="line">    first_open_version <span class="operator">&gt;=</span> <span class="string">&#x27;13.0&#x27;</span> <span class="keyword">and</span> first_open_version <span class="operator">&lt;=</span> <span class="string">&#x27;14.0.0&#x27;</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> version, week, week_interval</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> version, week, week_interval</span><br></pre></td></tr></table></figure>
+<p>由于hivesql的执行顺序为<code>select-&gt;group</code>，因此根据<code>left(first_open_version, 4)</code>来分组的话别名要起到select里面，然后在<code>group by</code>中应用。</p>
+<h2 id="EXCEL-SUNIFS多条件区域求和与-绝对引用"><a href="#EXCEL-SUNIFS多条件区域求和与-绝对引用" class="headerlink" title="EXCEL SUNIFS多条件区域求和与$绝对引用"></a>EXCEL SUNIFS多条件区域求和与$绝对引用</h2><p>在用excel计算留存率的时候，需要分国家、分版本来计算留存率，如下图所示。<br><img src="/images/wps_retention_weekly_excel.png"></p>
+<p>这个时候需要在一个新的sheet中去按照版本与国家来计算每一个日期的周留存率。结果如下图所示：<br><img src="/images/wps_retention_weekly_result_excel.png"><br>此时的目标就是通过计算出一个cell然后通过拖拽来实现计算所有的cell。实现此步骤主要使用的是两个要点为</p>
+<ul>
+<li>sumifs 多条件筛选求和</li>
+<li>$绝对引用</li>
+</ul>
+<p>原来的写法：</p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=<span class="built_in">SUMIFS</span>(data!<span class="symbol">E:E</span>,data!<span class="symbol">A:A</span>,<span class="symbol">A4</span>,data!<span class="symbol">B:B</span>,<span class="symbol">B2</span>,data!<span class="symbol">C:C</span>,<span class="symbol">B1</span>)/<span class="built_in">SUMIFS</span>(data!<span class="symbol">D:D</span>,data!<span class="symbol">A:A</span>,<span class="symbol">A4</span>,data!<span class="symbol">B:B</span>,<span class="symbol">B2</span>,data!<span class="symbol">C:C</span>,<span class="symbol">B1</span>)</span><br></pre></td></tr></table></figure>
+<p>这样的写法并不能够拖拽。<br>因为拖拽的时候对应的数据项会偏移，原来的做法是再去增加一行，然后再去拖拽，让excel去智能识别我的<code>筛选条件固定的</code>，也就是我查找的区域是不变的。<br>这个时候就要用到<code>$</code>表示绝对引用。解释如下:</p>
+<blockquote>
+<p>$是绝对引用的意思。比如你公式中使用A1，那么你使用拖动填充公式的时候，如果往下填充，下一条公式会自动变成A2，如果往右，会自动变成B1。<br>如果你公式中使用$A$1，那么拖动填充的时候这个引用就不会变化。A$1这样是行不会变化，$A1是列不会变化。    </p>
+</blockquote>
+<p><code>A$1这样是行不会变化，$A1是列不会变化。</code>我的理解是向左右拖拽的时候<code>A$1</code>,这样不会发生变化，但是向上向下会发生变化，同理，<code>$A1</code>代表着上下拖拽的时候，引用的值不会发生变化，<br>如果就是让行列都不发生变化的话，使用<code>$A$1</code>。</p>
+<p>正确的写法：</p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">SUMIFS</span>(data!$<span class="symbol">E:</span>$E,data!$<span class="symbol">A:</span>$A,$<span class="symbol">A4</span>,data!$<span class="symbol">B:</span>$B,B$<span class="number">2</span>,data!$<span class="symbol">C:</span>$C,B$<span class="number">1</span>)/<span class="built_in">SUMIFS</span>(data!$<span class="symbol">D:</span>$D,data!$<span class="symbol">A:</span>$A,$<span class="symbol">A4</span>,data!$<span class="symbol">B:</span>$B,B$<span class="number">2</span>,data!$<span class="symbol">C:</span>$C,B$<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p>由于要定位的数据的区域、筛选的数据的区域是固定的，因此需要加上绝对引用，如<code>data!$E:$E</code>，上下拖拽(列不变，行变)不改变要检索的值，而左右拖拽(行不变，列变)需要改变检索的值。<br>这个时候在检索的值就需要写成</p>
+<ul>
+<li><code>$A4</code>，也就是date，左右拖拽不变，上下拖拽变 -&gt; 列不变，行变。</li>
+<li><code>C$2</code>，也就是version，上下拖拽不变，左右拖拽变 -&gt; 行不变，列变。</li>
+</ul>
+<blockquote>
+<p>容易的记法是$向右挨着谁，谁变。先行后列。</p>
+</blockquote>
+<h2 id="EECEL-绝对引用"><a href="#EECEL-绝对引用" class="headerlink" title="EECEL $ 绝对引用"></a>EECEL $ 绝对引用</h2><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li>执行顺序<a target="_blank" rel="noopener" href="https://www.cnblogs.com/jiangxiaoxian/p/7155636.html">https://www.cnblogs.com/jiangxiaoxian/p/7155636.html</a></li>
+<li>执行顺序<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/7198782c291b">https://www.jianshu.com/p/7198782c291b</a></li>
+<li>绝对引用<a target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/554518715.html">https://zhidao.baidu.com/question/554518715.html</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/11/practice/kingsoft/0511/" data-id="ckr0gal25003ha1bn3sus70dz" data-title="5月11日工作内容" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-yewu/liucun" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/11/yewu/liucun/" class="article-date">
+  <time class="dt-published" datetime="2021-05-11T06:47:39.000Z" itemprop="datePublished">2021-05-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/11/yewu/liucun/">流失分析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/11/yewu/liucun/" data-id="ckr0gal1u0030a1bn8gr4hqxd" data-title="流失分析" class="article-share-link">Teilen</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-yewu/user_clf" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/11/yewu/user_clf/" class="article-date">
+  <time class="dt-published" datetime="2021-05-11T06:47:12.000Z" itemprop="datePublished">2021-05-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/11/yewu/user_clf/">用户群体划分</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/11/yewu/user_clf/" data-id="ckr0gal1w0034a1bnf5iq9unw" data-title="用户群体划分" class="article-share-link">Teilen</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-ml/decision_tree" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/11/ml/decision_tree/" class="article-date">
+  <time class="dt-published" datetime="2021-05-11T06:39:26.000Z" itemprop="datePublished">2021-05-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/11/ml/decision_tree/">决策树</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/11/ml/decision_tree/" data-id="ckr0gal15001qa1bnexp98iaz" data-title="决策树" class="article-share-link">Teilen</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-tongji/ab_test" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/11/tongji/ab_test/" class="article-date">
+  <time class="dt-published" datetime="2021-05-11T06:26:00.000Z" itemprop="datePublished">2021-05-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/11/tongji/ab_test/">A/B测试</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/11/tongji/ab_test/" data-id="ckr0gal1p002pa1bn345ofw6f" data-title="A/B测试" class="article-share-link">Teilen</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-sql/tuhu2020" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/10/sql/tuhu2020/" class="article-date">
+  <time class="dt-published" datetime="2021-05-10T09:20:51.000Z" itemprop="datePublished">2021-05-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/SQL/">SQL</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/10/sql/tuhu2020/">途虎2020秋招笔试</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>订单表tbl_table<br><img src="https://uploadfiles.nowcoder.com/images/20200922/309376_1600775260850_9BEF6F9A3CF4DF7874C3F672A920625C"></p>
+<p>用户表tbl_user<br><img src="https://uploadfiles.nowcoder.com/images/20200922/309376_1600775277671_68CCF014DC93ED17F64087E3F8D252DD"></p>
+<ol>
+<li>2020年第一季度（1-3月），全国整体业务同比下滑最大三个城市是哪几个？（用sql实现计算逻辑）</li>
+<li>公司希望各条业务线完成双十一100%的订单增长目标，帮助供应链团队计算下2020年双十一当天各省不同轮胎需要备多少库存（用sql实现轮胎条数计算的逻辑）</li>
+</ol>
+<h1 id="题目1"><a href="#题目1" class="headerlink" title="题目1"></a>题目1</h1><h2 id="查询全国整体业务"><a href="#查询全国整体业务" class="headerlink" title="查询全国整体业务"></a>查询全国整体业务</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="keyword">full</span> <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        a.salesamount,</span><br><span class="line">        b.city,</span><br><span class="line">        <span class="type">date</span>(a.orderdate) <span class="keyword">as</span> <span class="type">date</span></span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        tbl_table <span class="keyword">as</span> a</span><br><span class="line">    <span class="keyword">left</span> <span class="keyword">join</span></span><br><span class="line">        tbl_user <span class="keyword">as</span> b</span><br><span class="line">    <span class="keyword">on</span> a.user_id <span class="operator">=</span> b.user_id</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="查询2020年第一季度"><a href="#查询2020年第一季度" class="headerlink" title="查询2020年第一季度"></a>查询2020年第一季度</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> year2020 <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        city,</span><br><span class="line">        <span class="built_in">sum</span>(salesamount) <span class="keyword">as</span> salesamount</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        <span class="keyword">full</span></span><br><span class="line">    <span class="keyword">where</span> </span><br><span class="line">        <span class="type">date</span> <span class="keyword">between</span> <span class="string">&#x27;2020-01-01&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;2020-03-31&#x27;</span></span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">        city</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="查询2019年第一季度"><a href="#查询2019年第一季度" class="headerlink" title="查询2019年第一季度"></a>查询2019年第一季度</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> year2019 <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        city,</span><br><span class="line">        <span class="built_in">sum</span>(salesamount) <span class="keyword">as</span> salesamount</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        <span class="keyword">full</span></span><br><span class="line">    <span class="keyword">where</span> </span><br><span class="line">        <span class="type">date</span> <span class="keyword">between</span> <span class="string">&#x27;2019-01-01&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;2019-03-31&#x27;</span></span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">        city</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="查看下滑"><a href="#查看下滑" class="headerlink" title="查看下滑"></a>查看下滑</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    a.city,</span><br><span class="line">    (a.salesamount <span class="operator">-</span> b.salesamount) <span class="operator">/</span> b.salesamount <span class="keyword">as</span> diff</span><br><span class="line"><span class="keyword">from</span>    </span><br><span class="line">    year2020 <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span></span><br><span class="line">    year2019 <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span> a.city <span class="operator">=</span> b.city</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> diff </span><br><span class="line">limit <span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="题目2"><a href="#题目2" class="headerlink" title="题目2"></a>题目2</h1><h2 id="查询219年双十一全国整体业务"><a href="#查询219年双十一全国整体业务" class="headerlink" title="查询219年双十一全国整体业务"></a>查询219年双十一全国整体业务</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> full2019 <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        a.salesamount,</span><br><span class="line">        b.province,</span><br><span class="line">        <span class="type">date</span>(a.orderdate) <span class="keyword">as</span> <span class="type">date</span></span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        tbl_table <span class="keyword">as</span> a</span><br><span class="line">    <span class="keyword">left</span> <span class="keyword">join</span></span><br><span class="line">        tbl_user <span class="keyword">as</span> b</span><br><span class="line">    <span class="keyword">on</span> a.user_id <span class="operator">=</span> b.user_id</span><br><span class="line">    <span class="keyword">where</span> </span><br><span class="line">        <span class="type">date</span>(a.orderdate) <span class="operator">=</span> <span class="string">&#x27;2019-11-11&#x27;</span></span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="按省拆分"><a href="#按省拆分" class="headerlink" title="按省拆分"></a>按省拆分</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> province2019 <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        province,</span><br><span class="line">        <span class="built_in">sum</span>(salesamount) <span class="keyword">as</span> salesamount</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        full2019</span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">        province</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="预测2020年双11各省"><a href="#预测2020年双11各省" class="headerlink" title="预测2020年双11各省"></a>预测2020年双11各省</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    province,</span><br><span class="line">    salesamount <span class="operator">*</span> <span class="number">2</span> <span class="keyword">as</span> salesamount</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    province2019</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/10/sql/tuhu2020/" data-id="ckr0gal1n002la1bn3jk6egxd" data-title="途虎2020秋招笔试" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-sql/niuke-70" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/10/sql/niuke-70/" class="article-date">
+  <time class="dt-published" datetime="2021-05-10T07:55:06.000Z" itemprop="datePublished">2021-05-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/SQL/">SQL</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/10/sql/niuke-70/">牛客网70题-求每一天新用户的留存率</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p><a href="%E5%8E%9F%E5%A7%8B%E9%93%BE%E6%8E%A5">https://www.nowcoder.com/practice/ea0c56cd700344b590182aad03cc61b8?tpId=82&amp;tqId=35088&amp;rp=1&amp;ru=%2Factivity%2Foj&amp;qru=%2Fta%2Fsql%2Fquestion-ranking&amp;tab=answerKey</a><br>牛客每天有很多人登录，请你统计一下牛客每个日期新用户的次日留存率。<br>有一个登录(login)记录表，简况如下:<br><img src="https://uploadfiles.nowcoder.com/images/20200820/557336_1597903752757_A02F3DF1419BC2D3D4EE9B2B4557053B"><br>第1行表示user_id为2的用户在2020-10-12使用了客户端id为1的设备登录了牛客网，因为是第1次登录，所以是新用户<br>。。。<br>第4行表示user_id为2的用户在2020-10-13使用了客户端id为2的设备登录了牛客网，因为是第2次登录，所以是老用户<br>。。<br>最后1行表示user_id为4的用户在2020-10-15使用了客户端id为1的设备登录了牛客网，因为是第2次登录，所以是老用户</p>
+<p>请你写出一个sql语句查询每个日期新用户的次日留存率，结果保留小数点后面3位数(3位之后的四舍五入)，并且查询结果按照日期升序排序，上面的例子查询结果如下:<br><img src="https://uploadfiles.nowcoder.com/images/20200820/557336_1597903761838_F734DB69B9941F0DF86776922B0CF347"><br>查询结果表明:<br>2020-10-12登录了3个(user_id为2，3，1)新用户，2020-10-13，只有2个(id为2,1)登录，故2020-10-12新用户次日留存率为2/3=0.667;<br>2020-10-13没有新用户登录，输出0.000;<br>2020-10-14登录了1个(user_id为4)新用户，2020-10-15，user_id为4的用户登录，故2020-10-14新用户次日留存率为1/1=1.000;<br>2020-10-15没有新用户登录，输出0.000;<br>(注意:sqlite里查找某一天的后一天的用法是:date(yyyy-mm-dd, ‘+1 day’)，sqlite里1/2得到的不是0.5，得到的是0，只有1*1.0/2才会得到0.5)</p>
+<h1 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> if <span class="keyword">exists</span> login;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `login` (</span><br><span class="line">`id` <span class="type">int</span>(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">`user_id` <span class="type">int</span>(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">`client_id` <span class="type">int</span>(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">`<span class="type">date</span>` <span class="type">date</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY (`id`));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> login <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="string">&#x27;2020-10-12&#x27;</span>),</span><br><span class="line">(<span class="number">2</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="string">&#x27;2020-10-12&#x27;</span>),</span><br><span class="line">(<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="string">&#x27;2020-10-12&#x27;</span>),</span><br><span class="line">(<span class="number">4</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="string">&#x27;2020-10-13&#x27;</span>),</span><br><span class="line">(<span class="number">5</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="string">&#x27;2020-10-13&#x27;</span>),</span><br><span class="line">(<span class="number">6</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="string">&#x27;2020-10-14&#x27;</span>),</span><br><span class="line">(<span class="number">7</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="string">&#x27;2020-10-14&#x27;</span>),</span><br><span class="line">(<span class="number">8</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="string">&#x27;2020-10-15&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2020</span><span class="number">-10</span><span class="number">-12</span><span class="operator">|</span><span class="number">0.667</span></span><br><span class="line"><span class="number">2020</span><span class="number">-10</span><span class="number">-13</span><span class="operator">|</span><span class="number">0.000</span></span><br><span class="line"><span class="number">2020</span><span class="number">-10</span><span class="number">-14</span><span class="operator">|</span><span class="number">1.000</span></span><br><span class="line"><span class="number">2020</span><span class="number">-10</span><span class="number">-15</span><span class="operator">|</span><span class="number">0.000</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h1><blockquote>
+<p>注意是查找每一个日期<code>新用户</code>的留存</p>
+</blockquote>
+<h2 id="错误写法"><a href="#错误写法" class="headerlink" title="错误写法"></a>错误写法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    a.date</span><br><span class="line">    round(</span><br><span class="line">        <span class="built_in">count</span>(<span class="keyword">distinct</span> b.user_id) <span class="operator">/</span> <span class="built_in">count</span>(<span class="keyword">distinct</span> a.user_id),</span><br><span class="line">        <span class="number">3</span></span><br><span class="line">    ) <span class="keyword">as</span> p</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    user_login <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> </span><br><span class="line">    user_login <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">    a.user_id <span class="operator">=</span> b.user_id <span class="keyword">and</span></span><br><span class="line">    datediff(b.date, a.date) <span class="operator">=</span> <span class="number">1</span> <span class="comment">-- 相隔1天</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> a.date</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="type">date</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这里写的错误的原因在于没有在日期中区分出来新的用户</p>
+</blockquote>
+<h2 id="正确写法1"><a href="#正确写法1" class="headerlink" title="正确写法1"></a>正确写法1</h2><h3 id="查询出每一个用户的最早登录日期"><a href="#查询出每一个用户的最早登录日期" class="headerlink" title="查询出每一个用户的最早登录日期"></a>查询出每一个用户的最早登录日期</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">with</span> user_first_login <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        user_id,</span><br><span class="line">        <span class="built_in">min</span>(<span class="type">date</span>) <span class="keyword">as</span> <span class="type">date</span></span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">        user_login</span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> user_id</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="查询出所有日期"><a href="#查询出所有日期" class="headerlink" title="查询出所有日期"></a>查询出所有日期</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> all_date <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="keyword">distinct</span> <span class="type">date</span></span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        user_login</span><br><span class="line">    <span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">        <span class="type">date</span> </span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="在每一个日期中过滤掉老用户"><a href="#在每一个日期中过滤掉老用户" class="headerlink" title="在每一个日期中过滤掉老用户"></a>在每一个日期中过滤掉老用户</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> date_retention <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        a.date</span><br><span class="line">        round(</span><br><span class="line">            <span class="built_in">count</span>(<span class="keyword">distinct</span> b.user_id) <span class="operator">/</span> <span class="built_in">count</span>(<span class="keyword">distinct</span> a.user_id),</span><br><span class="line">            <span class="number">3</span></span><br><span class="line">        ) <span class="keyword">as</span> p</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        user_login <span class="keyword">as</span> a</span><br><span class="line">    <span class="keyword">left</span> <span class="keyword">join</span> </span><br><span class="line">        user_login <span class="keyword">as</span> b</span><br><span class="line">    <span class="keyword">on</span> </span><br><span class="line">        a.user_id <span class="operator">=</span> b.user_id <span class="keyword">and</span></span><br><span class="line">        datediff(b.date, a.date) <span class="operator">=</span> <span class="number">1</span> <span class="comment">-- 相隔1天</span></span><br><span class="line">    <span class="keyword">where</span> </span><br><span class="line">        <span class="keyword">exists</span> (</span><br><span class="line">            <span class="keyword">select</span></span><br><span class="line">                <span class="operator">*</span></span><br><span class="line">            <span class="keyword">from</span> </span><br><span class="line">                user_first_login <span class="keyword">as</span> c</span><br><span class="line">            <span class="keyword">where</span> </span><br><span class="line">                c.user_id <span class="operator">=</span> a.user_id <span class="keyword">and</span></span><br><span class="line">                c.date <span class="operator">=</span> a.date</span><br><span class="line">        )</span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">        a.date</span><br><span class="line">    <span class="keyword">order</span> <span class="keyword">by</span> <span class="type">date</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="合并所有日期"><a href="#合并所有日期" class="headerlink" title="合并所有日期"></a>合并所有日期</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    a.date,</span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">when</span> b.p <span class="keyword">is</span> <span class="keyword">null</span> <span class="keyword">then</span> <span class="number">0.000</span> <span class="keyword">else</span> b <span class="keyword">end</span> <span class="keyword">as</span> p</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    all_date <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> </span><br><span class="line">    date_retention  <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">    a.date <span class="operator">=</span> b.date</span><br></pre></td></tr></table></figure>
+
+<h2 id="正确解法2"><a href="#正确解法2" class="headerlink" title="正确解法2"></a>正确解法2</h2><h3 id="找到所有新用户与首次登录日期"><a href="#找到所有新用户与首次登录日期" class="headerlink" title="找到所有新用户与首次登录日期"></a>找到所有新用户与首次登录日期</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> user_first_login <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        user_id,</span><br><span class="line">        <span class="built_in">min</span>(<span class="type">date</span>) <span class="keyword">as</span> <span class="type">date</span></span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">        login</span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> user_id</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="原表与新用户表链接-这是最巧妙的地方"><a href="#原表与新用户表链接-这是最巧妙的地方" class="headerlink" title="原表与新用户表链接(这是最巧妙的地方)"></a>原表与新用户表链接(这是最巧妙的地方)</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> date_retention <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        a.date,</span><br><span class="line">        round(</span><br><span class="line">            <span class="built_in">count</span>(b.user_id) <span class="operator">/</span> <span class="built_in">count</span>(a.user_id),</span><br><span class="line">            <span class="number">3</span></span><br><span class="line">        )</span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">        user_first_login <span class="keyword">as</span> a</span><br><span class="line">    <span class="keyword">left</span> <span class="keyword">join</span> </span><br><span class="line">        login <span class="keyword">as</span> b</span><br><span class="line">    <span class="keyword">on</span> </span><br><span class="line">        a.user_id <span class="operator">=</span> b.user_id <span class="keyword">and</span></span><br><span class="line">        datediff(b.date, a.date) <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">        a.date</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="利用union-补全日期"><a href="#利用union-补全日期" class="headerlink" title="利用union 补全日期"></a>利用union 补全日期</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="operator">*</span></span><br><span class="line"><span class="keyword">from</span> date_retention</span><br><span class="line"><span class="keyword">union</span> <span class="keyword">all</span></span><br><span class="line">(</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="keyword">distinct</span> <span class="type">date</span>,</span><br><span class="line">        <span class="number">0.000</span> <span class="keyword">as</span> p</span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">        user_login</span><br><span class="line">    <span class="keyword">where</span></span><br><span class="line">        <span class="type">date</span> <span class="keyword">not</span> <span class="keyword">in</span> (<span class="keyword">select</span> <span class="type">date</span> <span class="keyword">from</span> user_first_login)</span><br><span class="line">)</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">    <span class="type">date</span></span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/10/sql/niuke-70/" data-id="ckr0gal1f0029a1bngjuzfc1r" data-title="牛客网70题-求每一天新用户的留存率" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-sql/niuke-57" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/10/sql/niuke-57/" class="article-date">
+  <time class="dt-published" datetime="2021-05-10T06:50:52.000Z" itemprop="datePublished">2021-05-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/SQL/">SQL</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/10/sql/niuke-57/">牛客网SQL第5题-含有关键字exists查找未分配具体部门的员工的所有信息</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/practice/c39cbfbd111a4d92b221acec1c7c1484?tpId=82&tqId=29825&rp=1&ru=/activity/oj&qru=/ta/sql/question-ranking&tab=answerKey">原始链接</a><br>使用含有关键字exists查找未分配具体部门的员工的所有信息。</p>
+<h1 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `employees` (</span><br><span class="line">`emp_no` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">`birth_date` <span class="type">date</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">`first_name` <span class="type">varchar</span>(<span class="number">14</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">`last_name` <span class="type">varchar</span>(<span class="number">16</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">`gender` <span class="type">char</span>(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">`hire_date` <span class="type">date</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY (`emp_no`));</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `dept_emp` (</span><br><span class="line">`emp_no` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">`dept_no` <span class="type">char</span>(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">`from_date` <span class="type">date</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">`to_date` <span class="type">date</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY (`emp_no`,`dept_no`));</span><br></pre></td></tr></table></figure>
+
+<h1 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h1><p>输出格式</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">emp_no	birth_date	first_name	last_name	gender	hire_date</span><br><span class="line">10011	1953-11-07	Mary	Sluis	F	1990-01-22</span><br></pre></td></tr></table></figure>
+
+<h1 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">      <span class="operator">*</span></span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    employees</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    <span class="keyword">not</span> <span class="keyword">exists</span> (</span><br><span class="line">        <span class="keyword">select</span> </span><br><span class="line">            emp_no</span><br><span class="line">        <span class="keyword">from</span> </span><br><span class="line">            dept_emp</span><br><span class="line">        <span class="keyword">where</span> </span><br><span class="line">            dept_emp.emp_no <span class="operator">=</span> employees.emp_no <span class="comment">-- 这里是核心</span></span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+
+<h1 id="exists使用"><a href="#exists使用" class="headerlink" title="exists使用"></a>exists使用</h1><p>Exists的用法：</p>
+<ol>
+<li>exists对外表用loop逐条查询，每次查询都会查看exists的条件语句，当</li>
+<li>exists里的条件语句能够返回记录行时(无论记录行是的多少，只要能返回)，条件就为真，返回当前loop到的这条记录;</li>
+<li>反之如果exists里的条 件语句不能返回记录行，则当前loop到的这条记录被丢弃，</li>
+<li>exists的条件就像一个bool条件，当能返回结果集则为true，不能返回结果集则为 false。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/10/sql/niuke-57/" data-id="ckr0gal1d0027a1bnbe16ghtx" data-title="牛客网SQL第5题-含有关键字exists查找未分配具体部门的员工的所有信息" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-ml/logistic_regression" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/10/ml/logistic_regression/" class="article-date">
+  <time class="dt-published" datetime="2021-05-10T06:33:10.000Z" itemprop="datePublished">2021-05-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/10/ml/logistic_regression/">逻辑回归</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><h2 id="一句话概括"><a href="#一句话概括" class="headerlink" title="一句话概括"></a>一句话概括</h2><p>逻辑回归假设数据服从<code>伯努利分布</code>，通过<code>极大化似然函数</code>的方法，运用<code>梯度下降</code>来求解参数，来达到将<code>数据二分类</code>的目的。</p>
+<h2 id="假设"><a href="#假设" class="headerlink" title="假设"></a>假设</h2><p>逻辑回归假设数据服从伯努利分布，伯努利分布有一个简单的例子是抛硬币，抛中为正面的概率是p,抛中为负面的概率是1−p。<br>在逻辑回归这个模型里面是假设 hθ(x) 为样本为正的概率，1−hθ(x)为样本为负的概率。</p>
+<h2 id="如何做分类"><a href="#如何做分类" class="headerlink" title="如何做分类"></a>如何做分类</h2><p>逻辑回归作为一个回归(也就是y值是连续的)，如何应用到分类上去呢。<br>y值确实是一个<code>连续的变量</code>。逻辑回归的做法是<code>划定一个阈值</code>，y值大于这个阈值的是一类，y值小于这个阈值的是另外一类。<br>阈值具体如何调整根据实际情况选择。一般会选择0.5做为阈值来划分。</p>
+<h1 id="线性回归与逻辑回归的区别"><a href="#线性回归与逻辑回归的区别" class="headerlink" title="线性回归与逻辑回归的区别"></a>线性回归与逻辑回归的区别</h1><ol>
+<li>线性回归的变量服从0-1正态分布，而逻辑回归的变量服从伯努利分布。</li>
+<li>线性回归要求<code>因变量</code>是<code>连续性数值变量</code>，而逻辑回归要求因变量是<code>分类型变量</code>。</li>
+<li>线性回归要求自变量和因变量呈线性关系，而逻辑回归不要求自变量和因变量呈线性关系。</li>
+<li>逻辑回归是分析因变量<code>取某个值的概率</code>与自变量的关系，而线性回归是直接分析因变量与自变量的关系。</li>
+</ol>
+<h1 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h1><p>降低过拟合。过拟合表现在训练数据上的误差非常小，而在测试数据上误差反而增大。<br>原因是模型过于复杂，过分的去拟合数据的噪声。<br>正则化项是对模型参数添加先验，使得模型复杂度较小，对于噪声扰动相对较小。<br>在目标函数或代价函数后面加上一个正则项，一般有L1正则与L2正则。</p>
+<h2 id="L1"><a href="#L1" class="headerlink" title="L1"></a>L1</h2><p><img src="https://img-blog.csdnimg.cn/20190826120845495.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzMzMjMxNTcz,size_16,color_FFFFFF,t_70"><br>L1 正则的本质其实是为模型增加了“模型参数服从零均值拉普拉斯分布”这一先验知识。<br>L1能够精确地评价每一个特征对于损失函数结果的影响程度，对于影响程度小的特征，它直接把他们的系数θi归零！</p>
+<h2 id="L2"><a href="#L2" class="headerlink" title="L2"></a>L2</h2><p>L2 正则的本质其实是为模型增加了“模型参数服从零均值正态分布”这一先验知识。<br>L2 正则化中增加所有权重 w 参数的平方之和，逼迫所有 w 尽可能趋向零但不为零（L2 的导数趋于零）。<br>因为在未加入 L2 正则化发生过拟合时，拟合函数需要顾忌每一个点，最终形成的拟合函数波动很大，在某些很小的区间里，函数值的变化很剧烈，也就是某些 w 值非常大。为此，L2 正则化的加入就惩罚了权重变大的趋势。</p>
+<h1 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h1><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ol>
+<li>形式简单，模型的<code>可解释性</code>非常好。从<code>特征的权重</code>可以看到不同的特征对最后结果的影响，某个特征的权重值比较高，那么这个特征最后对结果的影响会比较大。</li>
+<li>训练速度较快。分类的时候，计算量仅仅只和<code>特征的数目</code>相关。并且逻辑回归的分布式优化sgd发展比较成熟，训练的速度可以通过堆机器进一步提高，这样我们可以在短时间内迭代好几个版本的模型。</li>
+<li>资源占用小,尤其是内存。因为只需要存储各个维度的特征值。</li>
+</ol>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ol>
+<li>准确率并不是很高。因为形式非常的简单(非常类似线性模型)，很难去拟合数据的真实分布。</li>
+<li>很难处理数据不平衡的问题。举个例子：如果我们对于一个正负样本非常不平衡的问题比如正负样本比<br>10000:1.我们把所有样本都预测为正也能使损失函数的值比较小。但是作为一个分类器，它对正负样本的区分能力不会很好。</li>
+<li>较难去处理非线性数据。</li>
+<li>逻辑回归本身无法筛选特征。有时候，我们会用gbdt来筛选特征，然后再上逻辑回归。</li>
+</ol>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ModifyRong/p/7739955.html">https://www.cnblogs.com/ModifyRong/p/7739955.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_33231573/article/details/99709837">https://blog.csdn.net/sinat_33231573/article/details/99709837</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/345566088">https://zhuanlan.zhihu.com/p/345566088</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/74874291">https://zhuanlan.zhihu.com/p/74874291</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/10/ml/logistic_regression/" data-id="ckr0gal1a0020a1bnfn24a8qj" data-title="逻辑回归" class="article-share-link">Teilen</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; zurück</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1%E6%8C%87%E6%A0%87/">业务指标</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E4%B9%A0/">实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AF%95/">笔试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" rel="tag">金山实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/SQL/" style="font-size: 16px;">SQL</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 18px;">其他</a> <a href="/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 20px;">实习</a> <a href="/tags/%E7%AC%94%E8%AF%95/" style="font-size: 12px;">笔试</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 12px;">统计学</a> <a href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" style="font-size: 14px;">金山实习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 16px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/06/28/mianshi/yinlian/">银联</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/28/mianshi/rongbao/">融保科技</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/11/mianshi/xiecheng/">携程笔面试</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/11/practice/kingsoft/0611/">6月11日实习内容</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/07/practice/kingsoft/0607/">6月7日工作内容</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
