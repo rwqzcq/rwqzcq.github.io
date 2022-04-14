@@ -122,7 +122,7 @@ from (
     select
         user_id,
         total_grade,
-        dense_rank(order by total_grade desc) as 'ranking'
+        dense_rank() over (order by total_grade desc) as 'ranking'
     from (
         select
             user_id,
