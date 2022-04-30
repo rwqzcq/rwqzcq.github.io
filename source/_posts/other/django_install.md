@@ -77,7 +77,6 @@ pip install django-ckeditor
 
 ![](3.png)
 
-<<<<<<< HEAD
 ## 6. 安装安装代码编辑器 Vs Code
 
 [下载](http://vscode.cdn.azure.cn/stable/78a4c91400152c0f27ba4d363eb56d2835f9903a/VSCodeUserSetup-x64-1.43.0.exe)
@@ -91,12 +90,5 @@ pip install django-ckeditor
 下载地址: https://sunlogin.oray.com/download
 
 ## 8. 观看视频，了解django
-=======
-## 6. 安装Vs code
-
-[下载](http://vscode.cdn.azure.cn/stable/78a4c91400152c0f27ba4d363eb56d2835f9903a/VSCodeUserSetup-x64-1.43.0.exe)
-
-## 7. 观看视频，了解django
->>>>>>> a0f0c488d8e95c86febe7c323b7e22d38991a299
 
 <iframe src="//player.bilibili.com/player.html?aid=16957624&bvid=BV1GW411Y7EU&cid=27721310&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" height="400" width="100%"> </iframe>
