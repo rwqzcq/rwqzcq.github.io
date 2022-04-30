@@ -36,6 +36,7 @@ https://akshare-4gize6tod19f2d2e-1252952517.tcloudbaseapp.com/data/event/event.h
 
 > 有一些接口不能用，比如`covid_19_baidu`
 
+<<<<<<< HEAD
 # 3. covid-19
 
 数据源来自`https://github.com/CSSEGISandData/COVID-19 dataset`。
@@ -85,3 +86,7 @@ pypi地址:https://pypi.org/project/covid-tracking-project/
 import ctp
 data = ctp.us().history()
 ```
+=======
+
+
+>>>>>>> a0f0c488d8e95c86febe7c323b7e22d38991a299

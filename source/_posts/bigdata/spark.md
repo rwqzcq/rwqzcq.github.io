@@ -39,6 +39,7 @@ cd /Library/Hive/apache-hive-3.1.2-bin/lib
 sudo cp mysql-connector-java-8.0.27.jar /Users/renweiqiang/opt/anaconda3/lib/python3.7/site-packages/pyspark/jars
 ```
 
+<<<<<<< HEAD
 # pyspark做文本分类
 
 ## spark链接mysql
@@ -46,9 +47,14 @@ sudo cp mysql-connector-java-8.0.27.jar /Users/renweiqiang/opt/anaconda3/lib/pyt
 将jdbc链接mysql的驱动放入到`spark`的`jar`目录。
 
 
+=======
+>>>>>>> a0f0c488d8e95c86febe7c323b7e22d38991a299
 
 # 参考链接
 
 1.Jupyter中通过pyspark连接Hive数据库. https://blog.csdn.net/Albert_Fang/article/details/107932131
 2.pyspark环境搭建,连接hive. https://blog.csdn.net/l752820681/article/details/114482873
+<<<<<<< HEAD
 3. pyspark链接mysql. https://zhuanlan.zhihu.com/p/136777424
+=======
+>>>>>>> a0f0c488d8e95c86febe7c323b7e22d38991a299

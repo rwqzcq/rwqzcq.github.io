@@ -85,6 +85,7 @@ cd /Library/Hadoop/Hbase/hbase-2.3.7/bin
 ./start-hbase.sh
 ```
 
+<<<<<<< HEAD
 > 20220415更新: Hbase启动报错，报错信息如下:
 
 ```log
@@ -110,6 +111,8 @@ sudo lsof -i tcp:2181
 
 
 
+=======
+>>>>>>> a0f0c488d8e95c86febe7c323b7e22d38991a299
 验证是否安装成功：
 
 ```shell
@@ -154,7 +157,11 @@ python sqlline.py 127.0.0.1:2181
 > !tables
 ```
 
+<<<<<<< HEAD
 > 20220414更新：启动该服务报错，报错信息如下:
+=======
+>20220414更新：启动该服务报错，报错信息如下:
+>>>>>>> a0f0c488d8e95c86febe7c323b7e22d38991a299
 
 ```
 java.net.UnknownHostException: bogon: bogon: nodename nor servname provided, or not known--异常
@@ -166,8 +173,11 @@ java.net.UnknownHostException: bogon: bogon: nodename nor servname provided, or 
 127.0.0.1 localhost bogon
 ```
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> a0f0c488d8e95c86febe7c323b7e22d38991a299
 运行[demo](https://phoenix.apache.org/installation.html):
 
 ```shell
