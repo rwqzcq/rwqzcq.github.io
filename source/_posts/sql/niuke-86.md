@@ -264,3 +264,50 @@ order by first_year_month desc, job desc
 |  ----  | ----  | ---- | ---- | 
 | 方法1  | 51ms | 6900kb | 5 | 
 | 方法2  | 51ms | 6824kb | 3 | 
+
+
+## 2021-08-03写法
+
+```sql
+
+select
+    a.job,
+    first_year_mon,
+    first_year_cnt,
+    second_year_mon,
+    second_year_cnt
+from (
+    select
+        DATE_FORMAT(date, '%Y-%m') as first_year_mon,
+        job,
+        sum(num) as first_year_cnt
+    from
+        resume_info
+    where
+        date between '2025-01-01' and '2025-12-31'
+    group by
+        job,
+        DATE_FORMAT(date, '%Y-%m')
+) as a
+left join (
+    select
+        DATE_FORMAT(date, '%Y-%m') as second_year_mon,
+        job,
+        sum(num) as second_year_cnt
+    from
+        resume_info
+    where
+        date between '2026-01-01' and '2026-12-31'
+    group by
+        job,
+        DATE_FORMAT(date, '%Y-%m')
+) as b
+on
+    a.job = b.job
+    and right(a.first_year_mon, 2) = right(b.second_year_mon, 2) -- 这里用上字符串或者
+    -- date_format(a.first_year_mon, '%m') = date_format(b.second_year_mon, '%m') 保证月份相同
+order BY
+    first_year_mon desc,
+    job desc
+
+```

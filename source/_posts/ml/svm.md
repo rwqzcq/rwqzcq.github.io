@@ -2,7 +2,9 @@
 title: SVM原理与优缺点
 date: 2021-04-25 20:17:04
 tags:
+ - 机器学习
 categories:
+ - 机器学习
 ---
 
 # SVM的原理
