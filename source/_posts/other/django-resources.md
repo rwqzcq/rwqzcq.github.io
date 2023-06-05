@@ -335,6 +335,104 @@ def my_custom_sql(self):
 > 无限极分类插件
 https://django-mptt.readthedocs.io/en/latest/install.html
 
+
+# Django Filter结合分页
+
+## views.py
+
+```python
+
+import django_filters
+from .models import *
+
+class PaperFilter(django_filters.FilterSet):
+    class Meta:
+        model = Paper
+        fields = {
+            'title': ['contains']  
+        }
+
+# Create your views here.
+def paper_list(request):
+    """
+    论文管理
+    """
+    qs = Paper.objects.all().order_by('-year', '-n_citation')
+    f = PaperFilter(request.GET, queryset=qs)
+    # 每页展示的数量
+    per_page = 10 
+    # 实例化一个分页器对象
+    paginator = Paginator(f.qs, per_page)
+    # 获取当前页码数
+    page_number = request.GET.get('page', 1)
+    # 获取当前页面的对象列表
+    page_obj = paginator.page(page_number)
+    return render(request, 'paper/list.html', {'filter': f, 'page_obj': page_obj})
+```
+
+## templates
+
+```html
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    {% load bootstrap4 %}
+    <form action="" method="GET">
+        {% bootstrap_form filter.form  %}
+        <div class="text-center">
+            {% buttons submit='提交' %}
+            {% endbuttons %}
+        </div>  
+    </form>
+</div>
+<hr>
+{% if filter.qs.count > 0 %}
+    {% for obj in page_obj %}
+        <div class="card" style="margin-top:5px;">
+            <div class="card-header">
+                <a href="{% url 'paper_detail' obj.id %}" target="_blank">{{ obj.title }}</a>
+                {% if request.user.id in obj.fav_user_ids %}
+                    <span class="float-right">
+                        <button class="btn btn-sm btn-success" disabled="disabled">已收藏</button>
+                        <a href="{% url 'do_cancel_fav' obj.id %}" class="btn btn-sm btn-danger" target="_blank">取消收藏</a>
+                    </span>
+                {% else %}
+                    <span class="float-right">
+                        <a href="{% url 'do_fav' obj.id %}" class="btn btn-sm btn-primary" target="_blank">收藏</a>
+                    </span>
+                {% endif %}
+            </div>
+            <div class="card-body">
+                <p>{{ obj.authors }}</p>
+                <p>{{ obj.venue }}</p>
+                <p>
+                    Publish at: {{ obj.year }}
+                </p>
+                <p>
+                    Citation Number: 
+                    <span class="text-success">{{ obj.n_citation }}</span>
+                </p>
+                <p>
+                    {{ obj.fos_show }}
+                </p>
+                <hr>
+                <p class="text-sm">
+                    {{ obj.abstract }}
+                </p>
+            </div>
+        </div>
+    {% endfor %}
+    <!-- 分页 -->
+    <div style="margin-top:10px">
+        <!--extra=request.GET.urlencode 可以保证分页的时候带上其他的request的参数 -->
+        {% bootstrap_pagination page_obj extra=request.GET.urlencode %}
+    </div>
+
+{% endif %}
+
+{% endblock %}
+```
+
 # 相关资源
 
 - Django相关资源大集合. https://github.com/wsvincent/awesome-django#ecommerce

@@ -7,7 +7,7 @@ categories:
  - 毕业论文
 ---
 
-# GB样式修改
+# 国标样式修改
 
 github上现成的模板: https://duter2016.github.io/2019/10/19/%E5%9F%BA%E4%BA%8E%E5%9B%BD%E5%AE%B6%E6%A0%87%E5%87%86%E7%9A%84-EndNote-%E8%BE%93%E5%87%BA%E6%A0%B7%E5%BC%8F%E6%A8%A1%E6%9D%BF/
 以上的模板并没有把`et, al`修改成`等`，因此参考https://zhuanlan.zhihu.com/p/125652934

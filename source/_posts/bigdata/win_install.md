@@ -72,7 +72,105 @@ hdfs namenode -format
 | hadoop3.3.0 | https://archive.apache.org/dist/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz|
 
 
+> 以下是2023年更新
 
+# 配置java
+
+# 配置hadoop
+
+```cmd
+cd d:
+mkdir Hadoop
+tar -axvf hadoop-3.1.3
+
+cd hadoop-3.1.3
+mkdir data
+mkdir data/datanode
+mkdir data/namenode
+
+```
+
+环境变量
+
+HADOOP_HOME D:\Hadoop\hadoop-3.1.3
+
+
+配置好后
+
+打开浏览器，输入`127.0.0.1:9870`可以查看文件系统
+
+# 配置Spark
+
+## 1. 安装scala
+
+```shell
+cd d:Hadoop
+tar -zxvf scala-2.13.10.zip
+# 添加scalar到环境变量
+# SCALA_HOME D:\Hadoop\scala-2.13.10
+# %SCALA_HOME%\bin
+```
+
+# 2. spark
+
+```shell
+cd d:Hadoop
+tar -zxvf spark-XXXX
+# 添加SPARK_HOME到环境变量
+# SPARK_HOME D:\Hadoop\spark-3.1.1-bin-hadoop3.2
+# %SPARK_HOME%\bin
+```
+
+> 参考：https://zhuanlan.zhihu.com/p/406008198
+
+
+# 3. 如何启动
+
+## 3.1 启动hadoo
+
+管理员身份打开`powershell`
+
+依次输入：
+
+```shell
+start-all.cmd
+```
+
+## 3.2 启动网站
+
+打开`anaconda prompt powershell`
+
+依次输入：
+
+```shell
+
+cd d:
+cd Hadoop
+cd scripts
+cd mysite
+python manage.py runserver
+
+```
+
+打开浏览器，输入:`127.0.0.1:8000/admin`
+
+账号：admin
+密码：admin123456
+
+## 3.3 启动spark来计算
+
+打开`anaconda prompt powershell`
+
+依次输入:
+
+```shell
+cd d:
+cd Hadoop
+cd scripts
+cd mysite
+python spark_sql.py
+
+```
 
 
 # 参考链接

@@ -244,7 +244,7 @@ cd $SPARK_HOME
 ./sbin/start-all.sh # 启动所有
 ```
 
-`jsp`查看情况
+`jps`查看情况
 
 ```txt
 (base) renweiqiang@renweiqiangdeMacBook-Pro spark-3.1.1-bin-hadoop3.2 % jps

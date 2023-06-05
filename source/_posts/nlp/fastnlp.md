@@ -32,7 +32,7 @@ pip install fastnlp
 
 
 ```python
-from fastnlp import Dataset
+from fastNLP import DataSet
 # 构建一个dict
 data = {
     'raw_chars': [ # 一维数组，存放了所有的原始文本
@@ -67,8 +67,8 @@ data = {
 }
 # 将dict传入到Dataset中
 dataset = Dataset(data)
-test_dataset = Dataset(test_data)
-dev_dataset = Dataset(dev_dataset)
+test_dataset = DataSet(test_data)
+dev_dataset = DataSet(dev_dataset)
 ```
 
 > 对不对原始的数据分词、完全取决于自己，
@@ -78,6 +78,7 @@ dev_dataset = Dataset(dev_dataset)
 第二步构建`Vocab`，将字符数字转化成`数字`。
 
 ```python
+from fastNLP import Vocabulary
 vocab = Vocabulary()
 vocab.from_dataset(dataset, field_name='words', no_create_entry_dataset=[dev_dataset, valid_dataset]) # 根据dataset的words字段来构建vocab，把test dev数据集放到no_create_entry_dataset
 

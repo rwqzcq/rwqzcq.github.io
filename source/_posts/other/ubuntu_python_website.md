@@ -7,6 +7,32 @@ categories:
  - 其他
 ---
 
+# 安装宝塔
+
+参考[官方文档](https://www.bt.cn/new/download.html)
+
+# 安装miniconda3
+
+下载地址为: https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh
+
+安装位置在:
+
+> /home/ubuntu
+
+配置环境变量:
+
+```sh
+echo 'export PATH="/home/ubuntu/miniconda3/bin:$PATH"' >> ~/.bashrc
+```
+
+赋予文件夹访问权限:
+
+```shell
+sudo chmod -R 777 /home/ubuntu/miniconda3/
+```
+
+TODO 删除/root/anaconda3
+
 # 安装相关组件
 
 1. nginx
@@ -119,6 +145,12 @@ uwsgi --ini uwsgi.ini
 
 ```
 
+测试通过的话可以使用`nohup`
+
+```python
+nohup uwsgi --ini uwsgi.ini > uwsgi.log &
+```
+
 ## 4. nginx.cof文件配置
 
 ```txt
@@ -143,7 +175,8 @@ server {
 ## 5. 重启nginx
 
 # 参考链接
-
+- 宝塔安装. https://www.bt.cn/new/download.html
 - conda安装`uwsgi`. https://www.cnblogs.com/jiaxiaoxin/p/10642263.html
 - ubuntu下`sudo`没有用. https://blog.csdn.net/jiangjiang_jian/article/details/88933530
 - uwsgi+nginx. https://www.cnblogs.com/sdadx/p/10360208.html
+
