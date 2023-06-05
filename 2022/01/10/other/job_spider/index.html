@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>就业信息爬取与分析 | rwqccnuimd的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="爬虫数据源为51job，通过指定的城市代码与岗位名称来构造请求的url，核心的构造url的代码如下: 1234567891011city_config &#x3D; &amp;#123;    &amp;#x27;shenzhen&amp;#x27;: &amp;#x27;040000&amp;#x27;,    &amp;#x27;guangzhou&amp;#x27;: &amp;#x27;030200&amp;#x27;&amp;#125;city &#x3D; &amp;#x27;&amp;#x27;d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="就业信息爬取与分析">
+<meta property="og:url" content="http://example.com/2022/01/10/other/job_spider/index.html">
+<meta property="og:site_name" content="rwqccnuimd的博客">
+<meta property="og:description" content="爬虫数据源为51job，通过指定的城市代码与岗位名称来构造请求的url，核心的构造url的代码如下: 1234567891011city_config &#x3D; &amp;#123;    &amp;#x27;shenzhen&amp;#x27;: &amp;#x27;040000&amp;#x27;,    &amp;#x27;guangzhou&amp;#x27;: &amp;#x27;030200&amp;#x27;&amp;#125;city &#x3D; &amp;#x27;&amp;#x27;d">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/2022/01/10/other/job_spider/0_decision_tree_pred.png">
+<meta property="og:image" content="http://example.com/2022/01/10/other/job_spider/1_%E9%A2%91%E7%B9%81%E9%A1%B9%E9%9B%86.png">
+<meta property="og:image" content="http://example.com/2022/01/10/other/job_spider/2_%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99.png">
+<meta property="article:published_time" content="2022-01-10T05:32:31.000Z">
+<meta property="article:modified_time" content="2022-01-20T15:03:10.414Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="其他">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/01/10/other/job_spider/0_decision_tree_pred.png">
+  
+    <link rel="alternate" href="/atom.xml" title="rwqccnuimd的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">rwqccnuimd的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-other/job_spider" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/01/10/other/job_spider/" class="article-date">
+  <time class="dt-published" datetime="2022-01-10T05:32:31.000Z" itemprop="datePublished">2022-01-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      就业信息爬取与分析
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h1><p>数据源为<code>51job</code>，通过指定的城市代码与岗位名称来构造请求的url，核心的构造url的代码如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">city_config = &#123;</span><br><span class="line">    <span class="string">&#x27;shenzhen&#x27;</span>: <span class="string">&#x27;040000&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;guangzhou&#x27;</span>: <span class="string">&#x27;030200&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">city = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gen_url</span>(<span class="params">self, i=<span class="number">1</span></span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    生成待爬虫的Url</span></span><br><span class="line"><span class="string">    params: i为页码</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    self.url = <span class="string">f&#x27;https://search.51job.com/list/<span class="subst">&#123;self.city_config[self.city]&#125;</span>,000000,0000,00,9,99,&#x27;</span> + self.keyword + <span class="string">&quot;,2,&quot;</span> + <span class="built_in">str</span>(i) + <span class="string">&quot;.html&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>爬取的就业信息存储到JSON文件中，核心代码如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_json</span>(<span class="params">self, data</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;写入文件&quot;&quot;&quot;</span></span><br><span class="line">    path = self.data_dir + <span class="string">f&#x27;/<span class="subst">&#123;self.keyword&#125;</span>_<span class="subst">&#123;self.city&#125;</span>_<span class="subst">&#123;time.time()&#125;</span>.json&#x27;</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(path, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;UTF-8&#x27;</span>) <span class="keyword">as</span> wp:</span><br><span class="line">        json.dump(data, wp, ensure_ascii=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<p>数据格式如下所示:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;engine_jds&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;jt&quot;</span>: <span class="string">&quot;0_0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;tags&quot;</span>: [],</span><br><span class="line">    <span class="attr">&quot;ad_track&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;jobid&quot;</span>: <span class="string">&quot;98192508&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;coid&quot;</span>: <span class="string">&quot;4865021&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;effect&quot;</span>: <span class="string">&quot;1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;is_special_job&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;job_href&quot;</span>: <span class="string">&quot;https://jobs.51job.com/guangzhou-hpq/98192508.html?s=sou_sou_soulb&amp;t=0_0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;job_name&quot;</span>: <span class="string">&quot;Python全栈开发&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;job_title&quot;</span>: <span class="string">&quot;Python全栈开发&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;company_href&quot;</span>: <span class="string">&quot;https://jobs.51job.com/all/co4865021.html&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;company_name&quot;</span>: <span class="string">&quot;广东珺桦能源科技有限公司&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;providesalary_text&quot;</span>: <span class="string">&quot;0.6-1.2万/月&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;workarea&quot;</span>: <span class="string">&quot;030206&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;workarea_text&quot;</span>: <span class="string">&quot;广州-黄埔区&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;updatedate&quot;</span>: <span class="string">&quot;12-24&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;iscommunicate&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;companytype_text&quot;</span>: <span class="string">&quot;民营公司&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;degreefrom&quot;</span>: <span class="string">&quot;6&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;workyear&quot;</span>: <span class="string">&quot;4&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;issuedate&quot;</span>: <span class="string">&quot;2021-12-24 09:05:24&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;isFromXyz&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;isIntern&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;jobwelf&quot;</span>: <span class="string">&quot;五险一金 员工旅游 绩效奖金 年终奖金 定期体检 餐饮补贴&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;jobwelf_list&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;五险一金&quot;</span>,</span><br><span class="line">        <span class="string">&quot;员工旅游&quot;</span>,</span><br><span class="line">        <span class="string">&quot;绩效奖金&quot;</span>,</span><br><span class="line">        <span class="string">&quot;年终奖金&quot;</span>,</span><br><span class="line">        <span class="string">&quot;定期体检&quot;</span>,</span><br><span class="line">        <span class="string">&quot;餐饮补贴&quot;</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;isdiffcity&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;attribute_text&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;广州-黄埔区&quot;</span>,</span><br><span class="line">        <span class="string">&quot;2年经验&quot;</span>,</span><br><span class="line">        <span class="string">&quot;本科&quot;</span>,</span><br><span class="line">        <span class="string">&quot;招2人&quot;</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;companysize_text&quot;</span>: <span class="string">&quot;少于50人&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;companyind_text&quot;</span>: <span class="string">&quot;电气/电力/水利&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;adid&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h2 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h2><p>使用决策树进行薪资的预测，本研究将薪资预测转化成一个<code>回归任务</code>，即根据一系列的<code>特征</code>来取预测具体的<code>薪资</code>。其中选择的特征主要包括：</p>
+<ul>
+<li>城市</li>
+<li>公司类型</li>
+<li>公司规模</li>
+<li>学历</li>
+<li>工作年限</li>
+<li>福利待遇</li>
+<li>工作经验<br>主要涉及的工作为对针对这些特征进行预处理-&gt;转化成向量-&gt;数据切分-&gt;决策树模型训练<br>其核心的代码如下图所示:</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeRegressor</span><br><span class="line">regressor = DecisionTreeRegressor()</span><br><span class="line">regressor.fit(X_train, y_train)</span><br></pre></td></tr></table></figure>
+
+<p>其中反映模型拟合度的图如下所示：</p>
+<p><img src="0_decision_tree_pred.png" alt="模型拟合度"></p>
+<h2 id="Aprori"><a href="#Aprori" class="headerlink" title="Aprori"></a>Aprori</h2><p>使用关联规则来挖掘企业用人单位对于薪资、岗位要求、福利待遇的相似点，通过选择一系列特征数据来构造数据集，如下所示：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">[[&#x27;薪资: 0.8万-1.0万&#x27;, &#x27;深圳-南山区&#x27;, &#x27;无需经验&#x27;, &#x27;大专&#x27;, &#x27;招2人&#x27;, &#x27;民营公司&#x27;],</span><br><span class="line"> [&#x27;薪资: 2.5万-3.0万&#x27;,</span><br><span class="line">  &#x27;深圳-福田区&#x27;,</span><br><span class="line">  &#x27;5-7年经验&#x27;,</span><br><span class="line">  &#x27;本科&#x27;,</span><br><span class="line">  &#x27;招1人&#x27;,</span><br><span class="line">  &#x27;民营公司&#x27;,</span><br><span class="line">  &#x27;150-500人&#x27;,</span><br><span class="line">  &#x27;五险一金&#x27;],</span><br><span class="line"> [&#x27;薪资: 2.5万-5.0万&#x27;,</span><br><span class="line">  &#x27;深圳-南山区&#x27;,</span><br><span class="line">  &#x27;5-7年经验&#x27;,</span><br><span class="line">  &#x27;本科&#x27;,</span><br><span class="line">  &#x27;招1人&#x27;,</span><br><span class="line">  &#x27;上市公司&#x27;,</span><br><span class="line">  &#x27;500-1000人&#x27;,</span><br><span class="line">  &#x27;五险一金&#x27;,</span><br><span class="line">  &#x27;员工旅游&#x27;,</span><br><span class="line">  &#x27;年终奖金&#x27;,</span><br><span class="line">  &#x27;定期体检&#x27;],</span><br><span class="line"> [&#x27;薪资: 2.5万-3.0万&#x27;,</span><br><span class="line">  &#x27;深圳&#x27;,</span><br><span class="line">  &#x27;3-4年经验&#x27;,</span><br><span class="line">  &#x27;本科&#x27;,</span><br><span class="line">  &#x27;招1人&#x27;,</span><br><span class="line">  &#x27;民营公司&#x27;,</span><br><span class="line">  &#x27;50-150人&#x27;,</span><br><span class="line">  &#x27;五险一金&#x27;,</span><br><span class="line">  &#x27;年终奖金&#x27;,</span><br><span class="line">  &#x27;绩效奖金&#x27;,</span><br><span class="line">  &#x27;年底双薪&#x27;,</span><br><span class="line">  &#x27;交通补贴&#x27;,</span><br><span class="line">  &#x27;餐饮补贴&#x27;,</span><br><span class="line">  &#x27;股票期权&#x27;,</span><br><span class="line">  &#x27;员工旅游&#x27;],</span><br></pre></td></tr></table></figure>
+
+<p>然后设置关联规则的<code>最小支持度</code>以及<code>置信度</code>可以得到频繁项集，如下图所示：</p>
+<p><img src="1_%E9%A2%91%E7%B9%81%E9%A1%B9%E9%9B%86.png" alt="频繁项集"></p>
+<p>最后的关联规则如下图所示:</p>
+<p><img src="2_%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99.png" alt="关联规则"></p>
+<p>可以看到的是:</p>
+<blockquote>
+<p>薪资在<code>1万到1.5万之间</code>的学历要求均为<code>本科</code>，同时需要<code>1年经验</code>，在福利待遇上面，都会提供<code>绩效奖金</code>与<code>五险一金</code>。</p>
+</blockquote>
+<p>核心代码如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">te = TransactionEncoder()</span><br><span class="line">te_ary = te.fit(train_data).transform(train_data)</span><br><span class="line">train_df = pd.DataFrame(te_ary,columns=te.columns_)</span><br><span class="line">frequent_itemsets = apriori(train_df,min_support=<span class="number">0.01</span>,use_colnames=<span class="literal">True</span>)</span><br><span class="line">association_rule = association_rules(frequent_itemsets,metric=<span class="string">&#x27;confidence&#x27;</span>,min_threshold=<span class="number">0.95</span>)	<span class="comment"># metric可以有很多的度量选项，返回的表列名都可以作为参数</span></span><br><span class="line">association_rule.sort_values(by=<span class="string">&#x27;leverage&#x27;</span>,ascending=<span class="literal">False</span>,inplace=<span class="literal">True</span>)    <span class="comment">#关联规则可以按leverage排序</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Django可视化展示"><a href="#Django可视化展示" class="headerlink" title="Django可视化展示"></a>Django可视化展示</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># settings.py</span></span><br><span class="line">SIMPLEUI_CONFIG = &#123;</span><br><span class="line">    <span class="string">&#x27;system_keep&#x27;</span>: <span class="literal">False</span>,</span><br><span class="line">    <span class="string">&#x27;menu_display&#x27;</span>: [<span class="string">&#x27;薪资统计&#x27;</span>, <span class="string">&#x27;工作经验要求统计&#x27;</span>, <span class="string">&#x27;学历统计&#x27;</span>, <span class="string">&#x27;公司类型统计&#x27;</span>, <span class="string">&#x27;福利统计&#x27;</span>, <span class="string">&#x27;岗位要求统计&#x27;</span>],      <span class="comment"># 开启排序和过滤功能, 不填此字段为默认排序和全部显示, 空列表[] 为全部不显示.</span></span><br><span class="line">    <span class="string">&#x27;dynamic&#x27;</span>: <span class="literal">True</span>, </span><br><span class="line">    <span class="string">&#x27;menus&#x27;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;薪资统计&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;icon&#x27;</span>: <span class="string">&#x27;fa fa-chart-bar&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;url&#x27;</span>: <span class="string">&#x27;/bar/?type=salary&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;工作经验要求统计&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;icon&#x27;</span>: <span class="string">&#x27;fa fa-chart-pie&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;url&#x27;</span>: <span class="string">&#x27;/bar/?type=avg_exp&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;学历统计&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;icon&#x27;</span>: <span class="string">&#x27;fa fa-chart-pie&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;url&#x27;</span>: <span class="string">&#x27;/bar/?type=degree&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;公司类型统计&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;icon&#x27;</span>: <span class="string">&#x27;fa fa-chart-pie&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;url&#x27;</span>: <span class="string">&#x27;/bar/?type=companytype_text&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;福利统计&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;icon&#x27;</span>: <span class="string">&#x27;fa fa-chart-bar&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;url&#x27;</span>: <span class="string">&#x27;/wordcloud/?type=welf&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;岗位要求统计&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;icon&#x27;</span>: <span class="string">&#x27;fa fa-chart-bar&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;url&#x27;</span>: <span class="string">&#x27;/wordcloud/?type=attribute&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># views.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="keyword">from</span> mysite.settings <span class="keyword">import</span> BASE_DIR</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create your views here.</span></span><br><span class="line">data_df = pd.read_csv(BASE_DIR / <span class="string">&#x27;app&#x27;</span> / <span class="string">&#x27;train_data.csv&#x27;</span>)</span><br><span class="line"><span class="comment"># 薪资</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_salary</span>(<span class="params">salary</span>):</span></span><br><span class="line">    <span class="keyword">if</span> salary &lt; <span class="number">0.5</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&lt;0.5万&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="number">0.5</span> &lt;= salary &lt; <span class="number">1.0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;0.5万-1万&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="number">1.0</span> &lt;= salary &lt; <span class="number">1.5</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;1万-1.5万&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="number">1.5</span> &lt;= salary &lt;= <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;1.5万-2万&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="number">2</span> &lt;= salary &lt; <span class="number">2.5</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;2万-2.5万&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="number">2.5</span> &lt;= salary &lt; <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;2.5万-3万&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="number">3</span> &lt; salary:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&gt;3万&#x27;</span></span><br><span class="line">data_df[<span class="string">&#x27;salary&#x27;</span>] = data_df[<span class="string">&#x27;mean_y&#x27;</span>].apply(process_salary)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 工作经验</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_exp</span>(<span class="params">exp</span>):</span></span><br><span class="line">    <span class="keyword">if</span> exp == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;无经验要求&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">f&#x27;<span class="subst">&#123;<span class="built_in">int</span>(exp)&#125;</span>年经验&#x27;</span></span><br><span class="line">data_df[<span class="string">&#x27;avg_exp&#x27;</span>] = data_df[<span class="string">&#x27;avg_exp&#x27;</span>].apply(process_exp)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">group_count</span>(<span class="params">key</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    分组统计</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> data_df[key].groupby(data_df[key]).count().to_frame().to_dict()[key]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bar_plot</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    _<span class="built_in">type</span> = request.GET.get(<span class="string">&#x27;type&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    template = <span class="string">&#x27;bar.html&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> _<span class="built_in">type</span> == <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">        key = <span class="string">&#x27;salary&#x27;</span></span><br><span class="line">        title = <span class="string">&#x27;薪资范围统计&#x27;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        key = _<span class="built_in">type</span></span><br><span class="line"></span><br><span class="line">    data = group_count(key)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> _<span class="built_in">type</span> == <span class="string">&#x27;salary&#x27;</span>: <span class="comment"># 薪资统计</span></span><br><span class="line">        title = <span class="string">&#x27;薪资范围统计&#x27;</span></span><br><span class="line">        template = <span class="string">&#x27;bar.html&#x27;</span></span><br><span class="line">    <span class="keyword">elif</span> _<span class="built_in">type</span> == <span class="string">&#x27;degree&#x27;</span>:</span><br><span class="line">        title = <span class="string">&#x27;学历要求统计&#x27;</span></span><br><span class="line">        template = <span class="string">&#x27;pie.html&#x27;</span></span><br><span class="line">    <span class="keyword">elif</span> _<span class="built_in">type</span> == <span class="string">&#x27;companytype_text&#x27;</span>:</span><br><span class="line">        title = <span class="string">&#x27;公司类型统计&#x27;</span></span><br><span class="line">        template = <span class="string">&#x27;pie.html&#x27;</span></span><br><span class="line">    <span class="keyword">elif</span> _<span class="built_in">type</span> == <span class="string">&#x27;avg_exp&#x27;</span>:</span><br><span class="line">        title = <span class="string">&#x27;工作经验要求统计&#x27;</span></span><br><span class="line">        template = <span class="string">&#x27;pie.html&#x27;</span></span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    x = <span class="built_in">list</span>(data.keys())</span><br><span class="line">    y = <span class="built_in">list</span>(data.values())</span><br><span class="line">    x = json.dumps(x, ensure_ascii=<span class="literal">False</span>)</span><br><span class="line">    y = json.dumps(y, ensure_ascii=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">f&#x27;app/<span class="subst">&#123;template&#125;</span>&#x27;</span>, &#123;<span class="string">&#x27;x&#x27;</span>: x, <span class="string">&#x27;y&#x27;</span>: y, <span class="string">&#x27;title&#x27;</span>: title&#125;)</span><br><span class="line"></span><br><span class="line">orignal_data_df = pd.read_csv(BASE_DIR / <span class="string">&#x27;app/data.csv&#x27;</span>)</span><br><span class="line">welfs = []</span><br><span class="line">attributes = []</span><br><span class="line"><span class="keyword">for</span> _, row <span class="keyword">in</span> orignal_data_df.iterrows():</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        attributes += <span class="built_in">eval</span>(row[<span class="string">&quot;attribute_text&quot;</span>])</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        welfs += row[<span class="string">&#x27;jobwelf&#x27;</span>].split(<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line">welfs = <span class="built_in">dict</span>(Counter(welfs).most_common())</span><br><span class="line">welfs = [&#123;<span class="string">&quot;name&quot;</span>: k, <span class="string">&quot;value&quot;</span>: v&#125; <span class="keyword">for</span> k, v <span class="keyword">in</span> welfs.items()]</span><br><span class="line"></span><br><span class="line">attributes = <span class="built_in">dict</span>(Counter(attributes).most_common())</span><br><span class="line">attributes = [&#123;<span class="string">&quot;name&quot;</span>: k, <span class="string">&quot;value&quot;</span>: v&#125; <span class="keyword">for</span> k, v <span class="keyword">in</span> attributes.items()]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">word_cloud</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    词云图</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    _<span class="built_in">type</span> = request.GET.get(<span class="string">&#x27;type&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> _<span class="built_in">type</span> == <span class="string">&#x27;welf&#x27;</span>:</span><br><span class="line">        data = welfs</span><br><span class="line">    <span class="keyword">elif</span> _<span class="built_in">type</span> == <span class="string">&#x27;attribute&#x27;</span>:</span><br><span class="line">        data = attributes</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        data = welfs</span><br><span class="line">        </span><br><span class="line">    data = json.dumps(data, ensure_ascii=<span class="literal">False</span>)</span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">&#x27;app/wordcloud.html&#x27;</span>, &#123;<span class="string">&#x27;data&#x27;</span>: data&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<!-- 
+# 参考链接
+
+1. mlxtend文档. http://rasbt.github.io/mlxtend/api_subpackages/mlxtend.frequent_patterns/
+2. 利用mlxtend进行数据关联分析. https://blog.csdn.net/qq_36523839/article/details/83960195
+3. 
+
+-->
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/01/10/other/job_spider/" data-id="cl85d5h51006fi99o1i4d95ws" data-title="就业信息爬取与分析" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/01/17/bigdata/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          Hbase安装与应用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/01/05/bigdata/win_install/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">windows上配置大数据相关组件</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">-CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Leetcode/">Leetcode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/django/">django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/sql/">sql</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1/">业务</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1%E6%8C%87%E6%A0%87/">业务指标</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/">中信证券</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/Django/">Django</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Flume/">Flume</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E9%9B%86/">数据集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/">毕业论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/">毕业设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/">秋招</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/%E9%9D%A2%E8%AF%95/">面试</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AF%95/">笔试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BA%E6%96%87/">论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/">银联实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">-leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flume/" rel="tag">Flume</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hbase/" rel="tag">Hbase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%9A%E5%8A%A1/" rel="tag">业务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" rel="tag">中信证券</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" rel="tag">时间序列预测</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" rel="tag">毕业论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" rel="tag">毕业设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%8B%E6%8B%9B/" rel="tag">秋招</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" rel="tag">金山实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" rel="tag">银联实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/leetcode/" style="font-size: 10px;">-leetcode</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Django/" style="font-size: 13.33px;">Django</a> <a href="/tags/Flume/" style="font-size: 10px;">Flume</a> <a href="/tags/Hbase/" style="font-size: 10px;">Hbase</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/SQL/" style="font-size: 18.89px;">SQL</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/leetcode/" style="font-size: 15.56px;">leetcode</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/%E4%B8%9A%E5%8A%A1/" style="font-size: 13.33px;">业务</a> <a href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" style="font-size: 11.11px;">中信证券</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 20px;">其他</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 13.33px;">大数据</a> <a href="/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 16.67px;">实习</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 11.11px;">工作</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" style="font-size: 10px;">时间序列预测</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12.22px;">机器学习</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" style="font-size: 14.44px;">毕业论文</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">毕业设计</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 12.22px;">爬虫</a> <a href="/tags/%E7%A7%8B%E6%8B%9B/" style="font-size: 13.33px;">秋招</a> <a href="/tags/%E7%AC%94%E8%AF%95/" style="font-size: 12.22px;">笔试</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 12.22px;">统计学</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 11.11px;">论文</a> <a href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" style="font-size: 13.33px;">金山实习</a> <a href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" style="font-size: 10px;">银联实习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 17.78px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/14/other/time_series_pred/">时间序列预测</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/01/other/customer_analysis_in_python/">用户价值分析</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/15/other/PEP8/">PEP-8: Python代码规范</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/29/other/fanqie/">番茄工作法</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/20/citics/neo4j_query_optimize/">neo4j查询调优</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

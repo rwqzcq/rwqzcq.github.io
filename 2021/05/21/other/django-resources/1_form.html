@@ -1,0 +1,56 @@
+<h1 id="1-建立modelForm"><a href="#1-建立modelForm" class="headerlink" title="1. 建立modelForm"></a>1. 建立modelForm</h1><pre><code class="python">from django.forms import ModelForm
+from .models import HealthInfo
+
+class MyForm(ModelForm):
+  class Meta:
+    &quot;&quot;&quot;
+    规定了要为哪一个model创建表单
+    &quot;&quot;&quot;
+    model = HealthInfo # 指定模型
+    fields = &#39;__all__&#39; # 指定字段
+    exclude = [&#39;user&#39;, &#39;create_at&#39;] # 指定排除的字段
+    
+</code></pre>
+<h1 id="2-views中使用-添加数据"><a href="#2-views中使用-添加数据" class="headerlink" title="2. views中使用-添加数据"></a>2. views中使用-添加数据</h1><pre><code class="python">def add_info(request):
+    &quot;&quot;&quot;
+    填报信息
+    &quot;&quot;&quot;
+    if request.method == &#39;GET&#39;:
+        user_form = InfoForm() # 生成form
+        return render(request, &#39;health/add_info.html&#39;, {&#39;user_form&#39;: user_form})
+    else:
+        user_form = InfoForm(request.POST) # 把Post中的数据添加到form中
+        if user_form.is_valid():
+            user_form.save()
+            # TODO
+        else:
+            return render(request, &#39;health/add_info.html&#39;, {&#39;user_form&#39;: user_form})
+</code></pre>
+<h1 id="3-template中加载form"><a href="#3-template中加载form" class="headerlink" title="3. template中加载form"></a>3. template中加载form</h1><pre><code class="html">{% extends &#39;base.html&#39; %}
+{% block content %}
+    {% for key, error in user_form.errors.items %}
+             &lt;div class=&quot;alert alert-danger&quot;&gt;{{ key }} - {{ error}}&lt;/div&gt;
+    {% endfor %}
+    &lt;form class=&quot;form-horizontal&quot; method=&quot;post&quot; action=&quot;&quot;&gt;
+        {% csrf_token %}
+        &lt;h2 class=&quot;form-signin-heading text-center&quot;&gt;Title&lt;/h2&gt;
+        {% for user in user_form %}
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label class=&quot;col-md-2&quot; class=&quot;sr-only&quot;&gt;{{ user.label }}&lt;/label&gt;
+                &lt;div class=&quot;col-md-10&quot;&gt;
+                    {{ user }}
+                &lt;/div&gt;
+            &lt;/div&gt;
+        {% endfor %}
+        &lt;div class=&quot; text-center&quot;&gt;
+            &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;提交&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+      &lt;script&gt;
+          $(function(){
+              $(&#39;input&#39;).addClass(&#39;form-control&#39;);
+              $(&#39;select&#39;).addClass(&#39;form-control&#39;);
+          });
+      &lt;/script&gt;
+{% endblock %}
+</code></pre>

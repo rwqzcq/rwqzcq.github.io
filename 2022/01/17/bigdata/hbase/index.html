@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hbase使用教程 | rwqccnuimd的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Hbase2.3.7安装版本对应关系https:&#x2F;&#x2F;hbase.apache.org&#x2F;book.html#hadoop  Hadoop2.X是Hbase推荐的版本，本次使用Hadoop3.2搭配Hbase2.3  下载地址https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;apache&#x2F;hbase&#x2F;2.3.7&#x2F;hbase-2.3.7-bin.tar.gz    修改conf&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hbase使用教程">
+<meta property="og:url" content="http://example.com/2022/01/17/bigdata/hbase/index.html">
+<meta property="og:site_name" content="rwqccnuimd的博客">
+<meta property="og:description" content="Hbase2.3.7安装版本对应关系https:&#x2F;&#x2F;hbase.apache.org&#x2F;book.html#hadoop  Hadoop2.X是Hbase推荐的版本，本次使用Hadoop3.2搭配Hbase2.3  下载地址https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;apache&#x2F;hbase&#x2F;2.3.7&#x2F;hbase-2.3.7-bin.tar.gz    修改conf&#x2F;">
+<meta property="og:locale">
+<meta property="og:image" content="https://phoenix.apache.org/images/squirrel.png">
+<meta property="article:published_time" content="2022-01-17T03:01:16.000Z">
+<meta property="article:modified_time" content="2022-04-30T16:44:22.882Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="大数据">
+<meta property="article:tag" content="Hbase">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://phoenix.apache.org/images/squirrel.png">
+  
+    <link rel="alternate" href="/atom.xml" title="rwqccnuimd的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">rwqccnuimd的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-bigdata/hbase" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/01/17/bigdata/hbase/" class="article-date">
+  <time class="dt-published" datetime="2022-01-17T03:01:16.000Z" itemprop="datePublished">2022-01-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Hbase使用教程
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Hbase2-3-7安装"><a href="#Hbase2-3-7安装" class="headerlink" title="Hbase2.3.7安装"></a>Hbase2.3.7安装</h1><h2 id="版本对应关系"><a href="#版本对应关系" class="headerlink" title="版本对应关系"></a>版本对应关系</h2><p><a target="_blank" rel="noopener" href="https://hbase.apache.org/book.html#hadoop">https://hbase.apache.org/book.html#hadoop</a></p>
+<blockquote>
+<p>Hadoop2.X是Hbase推荐的版本，本次使用<code>Hadoop3.2</code>搭配<code>Hbase2.3</code></p>
+</blockquote>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/apache/hbase/2.3.7/hbase-2.3.7-bin.tar.gz">https://mirrors.tuna.tsinghua.edu.cn/apache/hbase/2.3.7/hbase-2.3.7-bin.tar.gz</a>   </p>
+<h2 id="修改conf-hbase-env-sh"><a href="#修改conf-hbase-env-sh" class="headerlink" title="修改conf/hbase-env.sh"></a>修改<code>conf/hbase-env.sh</code></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置JDK</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home</span><br><span class="line"><span class="comment"># 开启Zookeeper</span></span><br><span class="line"><span class="built_in">export</span> HBASE_MANAGES_ZK=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="修改conf-hbase-site-xml"><a href="#修改conf-hbase-site-xml" class="headerlink" title="修改conf/hbase-site.xml"></a>修改<code>conf/hbase-site.xml</code></h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 单机配置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.cluster.distributed<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 临时文件夹 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>./tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.unsafe.stream.capability.enforce<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Hbase数据存储位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.rootdir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>/Library/Hadoop/Hbase/hbase-2.3.7/data/hbase<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- zookeeper数据存储位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.zookeeper.property.dataDir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>/Library/Hadoop/Hbase/hbase-2.3.7/data/zookeeper<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Zookeeper地址 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.zookeeper.quorum<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>localhost:2181<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span> </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在<code>/Library/Hadoop/Hbase/hbase-2.3.7</code>文件夹下:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /Library/Hadoop/Hbase/hbase-2.3.7</span><br><span class="line">mkdir data</span><br><span class="line">cd data</span><br><span class="line">mkdir hbase</span><br><span class="line">mkdir zookeeper</span><br></pre></td></tr></table></figure>
+
+<h2 id="Hbase启动"><a href="#Hbase启动" class="headerlink" title="Hbase启动"></a>Hbase启动</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动Hadoop</span></span><br><span class="line">start-all.sh </span><br><span class="line"><span class="comment"># 启动Hbase</span></span><br><span class="line"><span class="built_in">cd</span> /Library/Hadoop/Hbase/hbase-2.3.7/bin</span><br><span class="line">./start-hbase.sh</span><br></pre></td></tr></table></figure>
+
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<blockquote>
+<p>20220415更新: Hbase启动报错，报错信息如下:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2022-04-15 19:43:37,316 WARN  [master&#x2F;192.168.0.104:16000:becomeActiveMaster] master.HMaster: hbase:meta,,1.1588230740 is NOT online; state&#x3D;&#123;1588230740 state&#x3D;OPEN, ts&#x3D;1650023012572, server&#x3D;192.168.0.104,16020,1649902296296&#125;; ServerCrashProcedures&#x3D;true. Master startup cannot progress, </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>解决方法参考这一篇<a target="_blank" rel="noopener" href="https://www.cnblogs.com/yankang/p/10582641.html">博客</a>。<br>需要清理zookeeper</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./hbase zkcli</span><br><span class="line">deleteall /hbase/meta-region-server</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> create /hbase/meta-region-server</span></span><br></pre></td></tr></table></figure>
+
+<p>端口扫描</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof -i tcp:2181</span><br></pre></td></tr></table></figure>
+
+
+
+<p>=======</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>a0f0c488d8e95c86febe7c323b7e22d38991a299<br>验证是否安装成功：</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">jps</span><br><span class="line"></span><br><span class="line">3440 Jps</span><br><span class="line">3362 HMaster # 有HMaster则说明安装成功</span><br><span class="line">1885</span><br></pre></td></tr></table></figure>
+
+<h1 id="Phoenix安装"><a href="#Phoenix安装" class="headerlink" title="Phoenix安装"></a>Phoenix安装</h1><h2 id="Phoenix简介"><a href="#Phoenix简介" class="headerlink" title="Phoenix简介"></a>Phoenix简介</h2><blockquote>
+<p>Phoenix是一个HBase框架，可以通过SQL的方式来操作HBase。<br>Phoenix是构建在HBase上的一个SQL层，是内嵌在HBase中的JDBC驱动，能够让用户使用标准的JDBC来操作HBase。<br>Phoenix使用JAVA语言进行编写，其查询引擎会将SQL查询语句转换成一个或多个HBase Scanner，且并行执行生成标准的JDBC结果集。</p>
+</blockquote>
+<h2 id="Phoenix与Hbase版本对应关系"><a href="#Phoenix与Hbase版本对应关系" class="headerlink" title="Phoenix与Hbase版本对应关系"></a>Phoenix与Hbase版本对应关系</h2><p><a target="_blank" rel="noopener" href="https://phoenix.apache.org/download.html">https://phoenix.apache.org/download.html</a></p>
+<blockquote>
+<p>Current release 4.16.1 can run on Apache HBase 1.3, 1.4, 1.5 and 1.6. Current release <code>5.1.2</code> can run on Apache HBase 2.1, 2.2, <code>2.3</code> and 2.4 CDH HBase 5.11, 5.12, 5.13 and 5.14 is supported by 4.14.0.</p>
+</blockquote>
+<h2 id="下载地址-1"><a href="#下载地址-1" class="headerlink" title="下载地址"></a>下载地址</h2><p><a target="_blank" rel="noopener" href="https://www.apache.org/dyn/closer.lua/phoenix/phoenix-5.1.2/phoenix-hbase-2.3-5.1.2-bin.tar.gz">https://www.apache.org/dyn/closer.lua/phoenix/phoenix-5.1.2/phoenix-hbase-2.3-5.1.2-bin.tar.gz</a></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul>
+<li>复制<code>phoenix-server-hbase-2.3-5.1.2.jar</code>放到<code>hbase/lib</code>目录下</li>
+<li>复制<code>hase/conf/hbase-site.xml</code>到<code>bin</code>目录下</li>
+</ul>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 进入目录</span></span><br><span class="line">cd /Library/Hadoop/Hbase/phoenix/phoenix-hbase-2.3-5.1.2-bin/bin</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动</span></span><br><span class="line">python sqlline.py 127.0.0.1:2181</span><br><span class="line"><span class="meta">#</span><span class="bash"> 初始化表</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> !tables</span></span><br></pre></td></tr></table></figure>
+
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<blockquote>
+<h1 id="20220414更新：启动该服务报错，报错信息如下"><a href="#20220414更新：启动该服务报错，报错信息如下" class="headerlink" title="20220414更新：启动该服务报错，报错信息如下:"></a>20220414更新：启动该服务报错，报错信息如下:</h1><p>20220414更新：启动该服务报错，报错信息如下:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>a0f0c488d8e95c86febe7c323b7e22d38991a299</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.net.UnknownHostException: bogon: bogon: nodename nor servname provided, or not known--异常</span><br></pre></td></tr></table></figure>
+<p>此时需要修改<code>/etc/hosts</code>文件，在最后一行添加:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> vim /etc/hosts</span></span><br><span class="line">127.0.0.1 localhost bogon</span><br></pre></td></tr></table></figure>
+
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<p>=======</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>a0f0c488d8e95c86febe7c323b7e22d38991a299<br>运行<a target="_blank" rel="noopener" href="https://phoenix.apache.org/installation.html">demo</a>:</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 创建一张表然后倒入数据</span></span><br><span class="line">python sqlline.py 127.0.0.1:2181 ../examples/stock_symbol.sql</span><br></pre></td></tr></table></figure>
+
+<p>可以使用一个GUI工具<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/squirrel-sql/">squirrel-sql</a>来去操作:</p>
+<p><img src="https://phoenix.apache.org/images/squirrel.png"></p>
+<p>也可以使用<code>psql.py</code>导入一个CSV文件:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> python psql.py -t tablename localhost abspath</span></span><br><span class="line">python psql.py -t JOB_LIST localhost /Users/renweiqiang/outSource/进行中/0415_hadoop_hbase_招聘信息可视化/todb/joblist.selected.csv</span><br></pre></td></tr></table></figure>
+
+<h1 id="使用python-api去链接"><a href="#使用python-api去链接" class="headerlink" title="使用python api去链接"></a>使用python api去链接</h1><p>安装<code>phoenixdb</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install phoenixdb</span><br></pre></td></tr></table></figure>
+
+<p>开启<code>queryserver</code>服务:</p>
+<blockquote>
+<p>phoenix5.1不包含内置的<code>queryserver</code>，需要额外下载，地址为:<br><a target="_blank" rel="noopener" href="https://dlcdn.apache.org/phoenix/phoenix-queryserver-6.0.0/phoenix-queryserver-6.0.0-bin.tar.gz">https://dlcdn.apache.org/phoenix/phoenix-queryserver-6.0.0/phoenix-queryserver-6.0.0-bin.tar.gz</a></p>
+</blockquote>
+<ul>
+<li>将phoenix中的<code>phoenix-client-hbase-2.3-5.1.2.jar</code>以及<code>phoenix-server-hbase-2.3-5.1.2.jar</code>放到queryserver的bin目录</li>
+<li>将<code>phoenix/bin/hbase-site.xml</code>放到<code>queryserver/bin</code>目录下</li>
+</ul>
+<p>配置queryserver的原文如下:</p>
+<blockquote>
+<p>The server is packaged in a standalone jar, <code>phoenix-queryserver-&lt;version&gt;.jar</code>. This jar, the <code>phoenix-client.jar</code> and <code>HBASE_CONF_DIR</code> on the classpath are all that is required to launch the server.</p>
+</blockquote>
+<p>开启queryserver服务:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> bin</span><br><span class="line">python2 queryserver.py </span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>需要使用<code>python2</code>开启</p>
+</blockquote>
+<p>使用python测试</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> phoenixdb</span><br><span class="line"><span class="keyword">import</span> phoenixdb.cursor</span><br><span class="line">database_url = <span class="string">&quot;http://localhost:8765/&quot;</span></span><br><span class="line"></span><br><span class="line">conn = phoenixdb.connect(database_url, autocommit=<span class="literal">True</span>, cursor_factory=phoenixdb.cursor.DictCursor)</span><br><span class="line">cursor = conn.cursor() </span><br><span class="line">sql = <span class="string">&quot;select * from STOCK_SYMBOL&quot;</span>  </span><br><span class="line">cursor.execute(sql)</span><br><span class="line">cursor.fetchall()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li>Mac下安装HBase及详解. <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/510e1d599123">https://www.jianshu.com/p/510e1d599123</a></li>
+<li>本地模式下搭建Hbase（使用自带的zookeeper）. <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42369418/article/details/99440946">https://blog.csdn.net/weixin_42369418/article/details/99440946</a></li>
+<li>bogon: nodename nor servname provided, or not known–异常. <a target="_blank" rel="noopener" href="https://blog.uproject.cn/articles/2016/07/16/1468684624515.html">https://blog.uproject.cn/articles/2016/07/16/1468684624515.html</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/01/17/bigdata/hbase/" data-id="cl85d5h2l000bi99oe48hc01m" data-title="Hbase使用教程" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hbase/" rel="tag">Hbase</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/01/20/biyelunwen/3_open_event_datatset/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          金融领域事件数据集
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/01/17/bigdata/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">Hbase安装与应用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">-CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Leetcode/">Leetcode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/django/">django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/sql/">sql</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1/">业务</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1%E6%8C%87%E6%A0%87/">业务指标</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/">中信证券</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/Django/">Django</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Flume/">Flume</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E9%9B%86/">数据集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/">毕业论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/">毕业设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/">秋招</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/%E9%9D%A2%E8%AF%95/">面试</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AF%95/">笔试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BA%E6%96%87/">论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/">银联实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">-leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flume/" rel="tag">Flume</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hbase/" rel="tag">Hbase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%9A%E5%8A%A1/" rel="tag">业务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" rel="tag">中信证券</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" rel="tag">时间序列预测</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" rel="tag">毕业论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" rel="tag">毕业设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%8B%E6%8B%9B/" rel="tag">秋招</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" rel="tag">金山实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" rel="tag">银联实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/leetcode/" style="font-size: 10px;">-leetcode</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Django/" style="font-size: 13.33px;">Django</a> <a href="/tags/Flume/" style="font-size: 10px;">Flume</a> <a href="/tags/Hbase/" style="font-size: 10px;">Hbase</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/SQL/" style="font-size: 18.89px;">SQL</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/leetcode/" style="font-size: 15.56px;">leetcode</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/%E4%B8%9A%E5%8A%A1/" style="font-size: 13.33px;">业务</a> <a href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" style="font-size: 11.11px;">中信证券</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 20px;">其他</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 13.33px;">大数据</a> <a href="/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 16.67px;">实习</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 11.11px;">工作</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" style="font-size: 10px;">时间序列预测</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12.22px;">机器学习</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" style="font-size: 14.44px;">毕业论文</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">毕业设计</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 12.22px;">爬虫</a> <a href="/tags/%E7%A7%8B%E6%8B%9B/" style="font-size: 13.33px;">秋招</a> <a href="/tags/%E7%AC%94%E8%AF%95/" style="font-size: 12.22px;">笔试</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 12.22px;">统计学</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 11.11px;">论文</a> <a href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" style="font-size: 13.33px;">金山实习</a> <a href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" style="font-size: 10px;">银联实习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 17.78px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/14/other/time_series_pred/">时间序列预测</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/01/other/customer_analysis_in_python/">用户价值分析</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/15/other/PEP8/">PEP-8: Python代码规范</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/29/other/fanqie/">番茄工作法</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/20/citics/neo4j_query_optimize/">neo4j查询调优</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

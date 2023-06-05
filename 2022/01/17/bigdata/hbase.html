@@ -1,0 +1,205 @@
+<hr>
+<p>title: Hbase使用教程<br>date: 2022-01-17 11:01:16<br>tags:</p>
+<ul>
+<li>大数据</li>
+<li>Hbase<br>categories:</li>
+<li>大数据</li>
+</ul>
+<hr>
+<h1 id="Hbase2-3-7安装"><a href="#Hbase2-3-7安装" class="headerlink" title="Hbase2.3.7安装"></a>Hbase2.3.7安装</h1><h2 id="版本对应关系"><a href="#版本对应关系" class="headerlink" title="版本对应关系"></a>版本对应关系</h2><p><a href="https://hbase.apache.org/book.html#hadoop">https://hbase.apache.org/book.html#hadoop</a></p>
+<blockquote>
+<p>Hadoop2.X是Hbase推荐的版本，本次使用<code>Hadoop3.2</code>搭配<code>Hbase2.3</code></p>
+</blockquote>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="https://mirrors.tuna.tsinghua.edu.cn/apache/hbase/2.3.7/hbase-2.3.7-bin.tar.gz">https://mirrors.tuna.tsinghua.edu.cn/apache/hbase/2.3.7/hbase-2.3.7-bin.tar.gz</a>   </p>
+<h2 id="修改conf-hbase-env-sh"><a href="#修改conf-hbase-env-sh" class="headerlink" title="修改conf/hbase-env.sh"></a>修改<code>conf/hbase-env.sh</code></h2><pre><code class="sh"># 配置JDK
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home
+# 开启Zookeeper
+export HBASE_MANAGES_ZK=true
+</code></pre>
+<h2 id="修改conf-hbase-site-xml"><a href="#修改conf-hbase-site-xml" class="headerlink" title="修改conf/hbase-site.xml"></a>修改<code>conf/hbase-site.xml</code></h2><pre><code class="XML">&lt;property&gt;
+    &lt;!-- 单机配置 --&gt;
+    &lt;name&gt;hbase.cluster.distributed&lt;/name&gt;
+    &lt;value&gt;false&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+    &lt;!-- 临时文件夹 --&gt;
+    &lt;name&gt;hbase.tmp.dir&lt;/name&gt;
+    &lt;value&gt;./tmp&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+    &lt;name&gt;hbase.unsafe.stream.capability.enforce&lt;/name&gt;
+    &lt;value&gt;false&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+    &lt;!-- Hbase数据存储位置 --&gt;
+    &lt;name&gt;hbase.rootdir&lt;/name&gt;
+    &lt;value&gt;/Library/Hadoop/Hbase/hbase-2.3.7/data/hbase&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+    &lt;!-- zookeeper数据存储位置 --&gt;
+    &lt;name&gt;hbase.zookeeper.property.dataDir&lt;/name&gt;
+    &lt;value&gt;/Library/Hadoop/Hbase/hbase-2.3.7/data/zookeeper&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+    &lt;!-- Zookeeper地址 --&gt;
+    &lt;name&gt;hbase.zookeeper.quorum&lt;/name&gt;
+    &lt;value&gt;localhost:2181&lt;/value&gt;
+&lt;/property&gt; 
+</code></pre>
+<p>在<code>/Library/Hadoop/Hbase/hbase-2.3.7</code>文件夹下:</p>
+<pre><code class="shell">cd /Library/Hadoop/Hbase/hbase-2.3.7
+mkdir data
+cd data
+mkdir hbase
+mkdir zookeeper
+</code></pre>
+<h2 id="Hbase启动"><a href="#Hbase启动" class="headerlink" title="Hbase启动"></a>Hbase启动</h2><pre><code class="sh"># 启动Hadoop
+start-all.sh 
+# 启动Hbase
+cd /Library/Hadoop/Hbase/hbase-2.3.7/bin
+./start-hbase.sh
+</code></pre>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<blockquote>
+<p>20220415更新: Hbase启动报错，报错信息如下:</p>
+</blockquote>
+<pre><code class="log">
+2022-04-15 19:43:37,316 WARN  [master/192.168.0.104:16000:becomeActiveMaster] master.HMaster: hbase:meta,,1.1588230740 is NOT online; state={1588230740 state=OPEN, ts=1650023012572, server=192.168.0.104,16020,1649902296296}; ServerCrashProcedures=true. Master startup cannot progress, 
+</code></pre>
+<p>解决方法参考这一篇<a href="https://www.cnblogs.com/yankang/p/10582641.html">博客</a>。<br>需要清理zookeeper</p>
+<pre><code class="shell">./hbase zkcli
+deleteall /hbase/meta-region-server
+
+# create /hbase/meta-region-server
+</code></pre>
+<p>端口扫描</p>
+<pre><code class="shell">sudo lsof -i tcp:2181
+</code></pre>
+<p>=======</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>a0f0c488d8e95c86febe7c323b7e22d38991a299<br>验证是否安装成功：</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre><code class="shell">jps
+
+3440 Jps
+3362 HMaster # 有HMaster则说明安装成功
+1885
+</code></pre>
+<h1 id="Phoenix安装"><a href="#Phoenix安装" class="headerlink" title="Phoenix安装"></a>Phoenix安装</h1><h2 id="Phoenix简介"><a href="#Phoenix简介" class="headerlink" title="Phoenix简介"></a>Phoenix简介</h2><blockquote>
+<p>Phoenix是一个HBase框架，可以通过SQL的方式来操作HBase。<br>Phoenix是构建在HBase上的一个SQL层，是内嵌在HBase中的JDBC驱动，能够让用户使用标准的JDBC来操作HBase。<br>Phoenix使用JAVA语言进行编写，其查询引擎会将SQL查询语句转换成一个或多个HBase Scanner，且并行执行生成标准的JDBC结果集。</p>
+</blockquote>
+<h2 id="Phoenix与Hbase版本对应关系"><a href="#Phoenix与Hbase版本对应关系" class="headerlink" title="Phoenix与Hbase版本对应关系"></a>Phoenix与Hbase版本对应关系</h2><p><a href="https://phoenix.apache.org/download.html">https://phoenix.apache.org/download.html</a></p>
+<blockquote>
+<p>Current release 4.16.1 can run on Apache HBase 1.3, 1.4, 1.5 and 1.6. Current release <code>5.1.2</code> can run on Apache HBase 2.1, 2.2, <code>2.3</code> and 2.4 CDH HBase 5.11, 5.12, 5.13 and 5.14 is supported by 4.14.0.</p>
+</blockquote>
+<h2 id="下载地址-1"><a href="#下载地址-1" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="https://www.apache.org/dyn/closer.lua/phoenix/phoenix-5.1.2/phoenix-hbase-2.3-5.1.2-bin.tar.gz">https://www.apache.org/dyn/closer.lua/phoenix/phoenix-5.1.2/phoenix-hbase-2.3-5.1.2-bin.tar.gz</a></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul>
+<li>复制<code>phoenix-server-hbase-2.3-5.1.2.jar</code>放到<code>hbase/lib</code>目录下</li>
+<li>复制<code>hase/conf/hbase-site.xml</code>到<code>bin</code>目录下</li>
+</ul>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><pre><code class="shell"># 进入目录
+cd /Library/Hadoop/Hbase/phoenix/phoenix-hbase-2.3-5.1.2-bin/bin
+# 启动
+python sqlline.py 127.0.0.1:2181
+# 初始化表
+&gt; !tables
+</code></pre>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<blockquote>
+<h1 id="20220414更新：启动该服务报错，报错信息如下"><a href="#20220414更新：启动该服务报错，报错信息如下" class="headerlink" title="20220414更新：启动该服务报错，报错信息如下:"></a>20220414更新：启动该服务报错，报错信息如下:</h1><p>20220414更新：启动该服务报错，报错信息如下:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>a0f0c488d8e95c86febe7c323b7e22d38991a299</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre><code>java.net.UnknownHostException: bogon: bogon: nodename nor servname provided, or not known--异常
+</code></pre>
+<p>此时需要修改<code>/etc/hosts</code>文件，在最后一行添加:</p>
+<pre><code class="shell"># vim /etc/hosts
+127.0.0.1 localhost bogon
+</code></pre>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<p>=======</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>a0f0c488d8e95c86febe7c323b7e22d38991a299<br>运行<a href="https://phoenix.apache.org/installation.html">demo</a>:</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre><code class="shell"># 创建一张表然后倒入数据
+python sqlline.py 127.0.0.1:2181 ../examples/stock_symbol.sql
+</code></pre>
+<p>可以使用一个GUI工具<a href="https://sourceforge.net/projects/squirrel-sql/">squirrel-sql</a>来去操作:</p>
+<p><img src="https://phoenix.apache.org/images/squirrel.png"></p>
+<p>也可以使用<code>psql.py</code>导入一个CSV文件:</p>
+<pre><code class="shell"># python psql.py -t tablename localhost abspath
+python psql.py -t JOB_LIST localhost /Users/renweiqiang/outSource/进行中/0415_hadoop_hbase_招聘信息可视化/todb/joblist.selected.csv
+</code></pre>
+<h1 id="使用python-api去链接"><a href="#使用python-api去链接" class="headerlink" title="使用python api去链接"></a>使用python api去链接</h1><p>安装<code>phoenixdb</code></p>
+<pre><code class="shell">pip install phoenixdb
+</code></pre>
+<p>开启<code>queryserver</code>服务:</p>
+<blockquote>
+<p>phoenix5.1不包含内置的<code>queryserver</code>，需要额外下载，地址为:<br><a href="https://dlcdn.apache.org/phoenix/phoenix-queryserver-6.0.0/phoenix-queryserver-6.0.0-bin.tar.gz">https://dlcdn.apache.org/phoenix/phoenix-queryserver-6.0.0/phoenix-queryserver-6.0.0-bin.tar.gz</a></p>
+</blockquote>
+<ul>
+<li>将phoenix中的<code>phoenix-client-hbase-2.3-5.1.2.jar</code>以及<code>phoenix-server-hbase-2.3-5.1.2.jar</code>放到queryserver的bin目录</li>
+<li>将<code>phoenix/bin/hbase-site.xml</code>放到<code>queryserver/bin</code>目录下</li>
+</ul>
+<p>配置queryserver的原文如下:</p>
+<blockquote>
+<p>The server is packaged in a standalone jar, <code>phoenix-queryserver-&lt;version&gt;.jar</code>. This jar, the <code>phoenix-client.jar</code> and <code>HBASE_CONF_DIR</code> on the classpath are all that is required to launch the server.</p>
+</blockquote>
+<p>开启queryserver服务:</p>
+<pre><code class="sh">cd bin
+python2 queryserver.py 
+</code></pre>
+<blockquote>
+<p>需要使用<code>python2</code>开启</p>
+</blockquote>
+<p>使用python测试</p>
+<pre><code class="python">import phoenixdb
+import phoenixdb.cursor
+database_url = &quot;http://localhost:8765/&quot;
+
+conn = phoenixdb.connect(database_url, autocommit=True, cursor_factory=phoenixdb.cursor.DictCursor)
+cursor = conn.cursor() 
+sql = &quot;select * from STOCK_SYMBOL&quot;  
+cursor.execute(sql)
+cursor.fetchall()
+</code></pre>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li>Mac下安装HBase及详解. <a href="https://www.jianshu.com/p/510e1d599123">https://www.jianshu.com/p/510e1d599123</a></li>
+<li>本地模式下搭建Hbase（使用自带的zookeeper）. <a href="https://blog.csdn.net/weixin_42369418/article/details/99440946">https://blog.csdn.net/weixin_42369418/article/details/99440946</a></li>
+<li>bogon: nodename nor servname provided, or not known–异常. <a href="https://blog.uproject.cn/articles/2016/07/16/1468684624515.html">https://blog.uproject.cn/articles/2016/07/16/1468684624515.html</a></li>
+</ul>

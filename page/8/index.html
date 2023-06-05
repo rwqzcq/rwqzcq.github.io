@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>rwqccnuimd的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="rwqccnuimd的博客">
+<meta property="og:url" content="http://example.com/page/8/index.html">
+<meta property="og:site_name" content="rwqccnuimd的博客">
+<meta property="og:locale">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="rwqccnuimd的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">rwqccnuimd的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-other/basemap_install" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/08/24/other/basemap_install/" class="article-date">
+  <time class="dt-published" datetime="2021-08-24T04:53:29.000Z" itemprop="datePublished">2021-08-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/08/24/other/basemap_install/">matplotlib画地图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="1-安装matplotlib"><a href="#1-安装matplotlib" class="headerlink" title="1. 安装matplotlib"></a>1. 安装matplotlib</h1><p>在mac电脑上,bigsur操作系统里面引用:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplt <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
+
+<p>报错:</p>
+<blockquote>
+<p>zsh segmetation error python</p>
+</blockquote>
+<p>解决方法是安装:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install matplotlib==3.4.3</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-安装geos"><a href="#2-安装geos" class="headerlink" title="2. 安装geos"></a>2. 安装geos</h1><h1 id="3-安装proj4"><a href="#3-安装proj4" class="headerlink" title="3. 安装proj4"></a>3. 安装proj4</h1><h1 id="4-安装basemap"><a href="#4-安装basemap" class="headerlink" title="4. 安装basemap"></a>4. 安装basemap</h1><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a7020325e671">https://www.jianshu.com/p/a7020325e671</a></li>
+</ul>
+<h1 id="5-BaseMap实例"><a href="#5-BaseMap实例" class="headerlink" title="5. BaseMap实例"></a>5. BaseMap实例</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://blogs.oii.ox.ac.uk/bright/2014/08/12/point-size-legends-in-matplotlib-and-basemap-plots/">https://blogs.oii.ox.ac.uk/bright/2014/08/12/point-size-legends-in-matplotlib-and-basemap-plots/</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/24/other/basemap_install/" data-id="cl85d5h4j005ii99o4z5bb0se" data-title="matplotlib画地图" class="article-share-link">Teilen</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-bishi/xingce_tuxingtuili" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/08/23/bishi/xingce_tuxingtuili/" class="article-date">
+  <time class="dt-published" datetime="2021-08-23T09:34:04.000Z" itemprop="datePublished">2021-08-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AC%94%E8%AF%95/">笔试</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/08/23/bishi/xingce_tuxingtuili/">行测-图形推理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="规律"><a href="#规律" class="headerlink" title="规律"></a>规律</h1><ol>
+<li>大小变化</li>
+<li>方向旋转</li>
+<li>笔画增减 ( 数字 , 线条数 )</li>
+<li>图形求同</li>
+<li>相同部份去掉</li>
+<li>图形叠加 ( 简单叠加 , 合并叠加 , 去同叠加 )</li>
+<li>图形组合变化 ( 如: 首尾两个图形中都包含中间图形 )</li>
+<li>对应位置阴影变化 ( 两图相同或不同则第三图对应位置变阴影或变空白 )</li>
+<li>顺时针或逆时针旋转</li>
+<li>总笔画成等差数列</li>
+<li>由内向外逐步包含</li>
+<li>相同部件 , 上下 , 左右组合</li>
+<li>类似组合 ( 如平行 , 图形个数一样等 )</li>
+<li>横竖线条之比有规律 ( 如横线 3条竖线 4条, 横线 4条竖线 5条等 )</li>
+<li>缺口相似或变化趋势相似（如逐步远离或靠近）</li>
+<li>图形运动变化 ( 同一个图形从各个角度看的不同样子 )</li>
+<li>图形拆分 ( 有三个图构成 , 后两个图为第一个图的构成部件 )</li>
+<li>线条交点数有规律</li>
+<li>方向规律 ( 上, 下, 左, 右)</li>
+<li>相隔一个图形分别对称 (如 : 以第三个图为中心 ,1 和 5对称 ,2 和4对称 )</li>
+<li>含义依据条件而变 ( 如一个错号 , 可以表 “ 划 “, 也可以表示 “ 两划 “)</li>
+<li>图形趋势明显 ( 点或图形从左到右 , 从上到下变化等 )</li>
+<li>图形的上 , 中, 下部分分别变化 ( 求同 , 重叠 , 或去同叠加 )</li>
+<li>相似类 (包含 , 平行 , 覆盖，相交，不同图形组成，含同一图形等）</li>
+<li>上 , 中, 下各部分别翻转变化</li>
+<li>角的度数有规律</li>
+<li>阴影重合变空白</li>
+<li>翻转 , 叠加 , 再翻转</li>
+<li>与特定线的交点数相同 (如 : 与折线的交点数有规律 , 有直线的交点数不用考虑 )</li>
+<li>图形有多条对称轴 , 且有共同交点 , 轴对称图形 ( 如正三角形 , 正方形 )</li>
+<li>平行 , 上下移动</li>
+<li>图形翻转对称</li>
+<li>图形边上角的个数增多或减少</li>
+<li>不同图形叠加形成新图</li>
+<li>图形中某条线均为长线或短线 ( 寻找共同部分 )</li>
+<li>线段间距离共性 .( 如: 直线上有几个点 , 分成几条线段 , 上部覆盖有另一个图形，如圆，三角形等，但是<br>上面的图形占的位置都不大于最外面两点间的距离）</li>
+<li>图形外围 , 内部分别顺或逆时针旋转 ( 内外部变化相反 )</li>
+<li>特殊位置变化有规律 ( 如当水平时 , 垂直时图形有一规律）</li>
+<li>各图形组成部件属于同一类 ( 如: 均为三条曲线相交 )</li>
+<li>以第几幅图为中心进行变化 ( 如: 旋转 , 走近 , 相反等 )</li>
+<li>求共同部分再加点变化 (如 : 提出共同部分 , 然后让共同部分都变黑什么的 )</li>
+<li>除去共同部分有规律</li>
+<li>数线段出头数 , 有规律 ( 成等差数列 , 或有明显规律 )</li>
+<li>图形每行空间数相同</li>
+<li>以中间图形为中心 , 上下 , 对角分别成对称</li>
+<li>先递增再递减规律</li>
+<li>整套图形横着看 , 或竖着看 , 分别有规律 .</li>
+<li>注意考虑图形部分变化 ( 如: 分别为上下不变中间变化 , 然后上中下一起变化 , 左右分别变化 , 左右一起<br>变化等 )</li>
+<li>顺着次序变化． （如 : 原来在内部的放大变为外部图形 , 内部图形相应变化 . 左右组成的图 , 上一个右边图<br>等于下个左边图 , 右边再加个新图 , 如此循环 )<br>————————————————<br>版权声明：本文为CSDN博主「Teacher_HENG」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u010189239/article/details/89288615">https://blog.csdn.net/u010189239/article/details/89288615</a></li>
+</ol>
+<h1 id="九宫格题目"><a href="#九宫格题目" class="headerlink" title="九宫格题目"></a>九宫格题目</h1><p>1、横向观察：将九宫格图形分成三行观察，每行的图形作为一个整体进行观察；</p>
+<p>2、纵向观察：将九宫格图形分成三列观察，每列的图形作为一个整体进行观察；</p>
+<p>3、整体观察：将九宫格图形的所有元素看做一个整体进行观察，通常考查图形求同；</p>
+<p>4、另类观察：S型、O型、米字型以及对角线观察。</p>
+<p>根据九宫格题型的常考思路，总结出九宫格的解题“五步法”。</p>
+<pre><code>第一步：横行看。
+</code></pre>
+<p>　　横向三行，每行三个图形为一组，共三组，看每组三个图形有无显着规律。</p>
+<p>　　第二步：竖列看。</p>
+<p>　　竖向三列，每列三个图形为一组，共三组，看每组三个图形有无显着规律。</p>
+<p>　　第三步：旋转看。</p>
+<p>　　顺时针旋转一周，看外围八个图形之间的变化规律(或逆时针旋转)。</p>
+<p>　　第四步：对角看。</p>
+<p>　　斜着两条对角线，或隔着中间图形的两个对称图形之间看有何规律。</p>
+<p>　　第五步：S形看。</p>
+<h1 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h1><h1 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h1><ul>
+<li><p><a href="0.pdf">第一部分</a></p>
+</li>
+<li><p><a href="1.pdf">第二部分</a></p>
+</li>
+<li><p><a href="2.pdf">第三部分</a></p>
+</li>
+</ul>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li>题目大集合. <a target="_blank" rel="noopener" href="https://blog.csdn.net/u010189239/article/details/89288615">https://blog.csdn.net/u010189239/article/details/89288615</a></li>
+<li>图形推理题集合2. <a target="_blank" rel="noopener" href="https://blog.csdn.net/zy20120580223/article/details/82953644">https://blog.csdn.net/zy20120580223/article/details/82953644</a></li>
+<li>公考行测题-九宫格. <a target="_blank" rel="noopener" href="http://edu.sina.com.cn/official/2015-03-04/1614459404.shtml">http://edu.sina.com.cn/official/2015-03-04/1614459404.shtml</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/23/bishi/xingce_tuxingtuili/" data-id="cl85d5h2c0001i99oej8w01uz" data-title="行测-图形推理" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-mianshi/dongfangcaifu" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/08/18/mianshi/dongfangcaifu/" class="article-date">
+  <time class="dt-published" datetime="2021-08-18T12:06:47.000Z" itemprop="datePublished">2021-08-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%A7%8B%E6%8B%9B/">秋招</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/08/18/mianshi/dongfangcaifu/">东方财富</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="笔试"><a href="#笔试" class="headerlink" title="笔试"></a>笔试</h1><ul>
+<li>某校区一天内垃圾分类的错放率为0.84，求上午垃圾分类的错放率。</li>
+<li>公司合并后市盈率的计算。</li>
+<li>抖音APP每一天访客数属于哪一种分布。</li>
+<li>618活动中厂商有一项活动要到达用户<ul>
+<li>如果你是用户，列举不少于三个的渠道</li>
+<li>针对一种渠道，说明分析的时候需要的指标与意义</li>
+<li>活动结束后撰写数据分析报告，报告的大概内容</li>
+</ul>
+</li>
+</ul>
+<h1 id="笔试总结"><a href="#笔试总结" class="headerlink" title="笔试总结"></a>笔试总结</h1><ul>
+<li>打得不好，时间有点紧张。</li>
+<li>需要一定的金融背景知识。</li>
+<li>考研发散思维。</li>
+</ul>
+<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p>GG</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/18/mianshi/dongfangcaifu/" data-id="cl85d5h3o002zi99oebjy55i6" data-title="东方财富" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A7%8B%E6%8B%9B/" rel="tag">秋招</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-practice/yinlian/4_bank_app_function_survey" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/08/18/practice/yinlian/4_bank_app_function_survey/" class="article-date">
+  <time class="dt-published" datetime="2021-08-18T06:09:24.000Z" itemprop="datePublished">2021-08-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/">银联实习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/08/18/practice/yinlian/4_bank_app_function_survey/">手机银行APP测评</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="17大行手机银行APP功能比较"><a href="#17大行手机银行APP功能比较" class="headerlink" title="17大行手机银行APP功能比较"></a>17大行手机银行APP功能比较</h1><h1 id="交通银行"><a href="#交通银行" class="headerlink" title="交通银行"></a>交通银行</h1><p>不支持绑定<code>他行信用卡</code>。</p>
+<h1 id="邮储银行"><a href="#邮储银行" class="headerlink" title="邮储银行"></a>邮储银行</h1><h2 id="邮储银行-1"><a href="#邮储银行-1" class="headerlink" title="邮储银行"></a>邮储银行</h2><p>他行绑卡的同时会开通一个在邮储的电子账户。</p>
+<h2 id="邮储信用卡"><a href="#邮储信用卡" class="headerlink" title="邮储信用卡"></a>邮储信用卡</h2><p>仅能绑定邮政银行的银行卡与信用卡</p>
+<h1 id="广发银行"><a href="#广发银行" class="headerlink" title="广发银行"></a>广发银行</h1><h1 id="广发银行-1"><a href="#广发银行-1" class="headerlink" title="广发银行"></a>广发银行</h1><p>绑定他行卡仅限几个银行，还需要首先开通广发的电子账户</p>
+<h1 id="上海银行"><a href="#上海银行" class="headerlink" title="上海银行"></a>上海银行</h1><h1 id="上海银行-1"><a href="#上海银行-1" class="headerlink" title="上海银行"></a>上海银行</h1><p>全封闭的，体验极差，只能用他自己的银行，新注册的必须要弄东西。</p>
+<h1 id="建设银行"><a href="#建设银行" class="headerlink" title="建设银行"></a>建设银行</h1><p>很垃圾，有建行卡的情况下还可以玩得转，没有建行卡选择<code>e账户</code>的时候流程就会很麻烦。</p>
+<h1 id="不同维度"><a href="#不同维度" class="headerlink" title="不同维度"></a>不同维度</h1><h2 id="注册绑卡绑定"><a href="#注册绑卡绑定" class="headerlink" title="注册绑卡绑定"></a>注册绑卡绑定</h2><ol>
+<li>注册绑卡深度绑定</li>
+</ol>
+<ul>
+<li>用户在执行注册流程的时候，完整的流程一般为:</li>
+</ul>
+<blockquote>
+<p>输入手机号-&gt;输入验证码-&gt;输入登录密码-&gt;身份证实名验证-&gt;人脸验证-&gt;输入银行卡(本行卡)号-&gt;输入短信验证码-&gt;绑定成功</p>
+</blockquote>
+<p>上面流程如果是一个<code>强制绑定</code>的流程的话用户在中间任何一步退出后，再次登录APP的时候用户要么重新注册，要么就紧接着继续执行上一次退出的流程。<br>如果是一个<code>弱强制绑定</code>的流程的话用户在完成<code>登录密码</code>设置后，在后面的某一步流程推出后就可以利用之前注册的手机号登录系统，进而在首页内选择<code>主动实施绑卡操作</code>或者在使用某一些功能之前给出用户提示来<code>绑卡</code>才能完成本地的操作。</p>
+<h2 id="报告注意事项"><a href="#报告注意事项" class="headerlink" title="报告注意事项"></a>报告注意事项</h2><ol>
+<li>数据统计一定要注明截止的时间。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/18/practice/yinlian/4_bank_app_function_survey/" data-id="cl85d5h7300cvi99ogzwwh1xp" data-title="手机银行APP测评" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" rel="tag">银联实习</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-leetcode/sales-analysis-ii" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/08/16/leetcode/sales-analysis-ii/" class="article-date">
+  <time class="dt-published" datetime="2021-08-16T11:24:53.000Z" itemprop="datePublished">2021-08-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/08/16/leetcode/sales-analysis-ii/">1083销售分析2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/16/leetcode/sales-analysis-ii/" data-id="cl85d5h3f002bi99odkxb1p7s" data-title="1083销售分析2" class="article-share-link">Teilen</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-leetcode/human-traffic-of-stadium" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/08/12/leetcode/human-traffic-of-stadium/" class="article-date">
+  <time class="dt-published" datetime="2021-08-12T06:45:08.000Z" itemprop="datePublished">2021-08-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/leetcode/">leetcode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/08/12/leetcode/human-traffic-of-stadium/">体育馆人流量-连续区间问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>编写一个 SQL 查询以找出每行的人数大于或等于 100 且 <code>id 连续的三行或更多行记录</code>。<br>返回按 visit_date 升序排列的结果表。</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/human-traffic-of-stadium/">https://leetcode-cn.com/problems/human-traffic-of-stadium/</a></p>
+<p><img src="0.png"></p>
+<blockquote>
+<p>遇到这种问题按照哪一个字段来连续就row_number() over (partition by )谁</p>
+</blockquote>
+<h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    id,</span><br><span class="line">    visit_date,</span><br><span class="line">    people</span><br><span class="line"><span class="keyword">from</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">    <span class="comment">-- 分组统计</span></span><br><span class="line">        <span class="operator">*</span>,</span><br><span class="line">        <span class="built_in">count</span>(<span class="number">1</span>) <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> next_id_gap) <span class="keyword">as</span> counting <span class="comment">-- 按照差值统计</span></span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">    (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            <span class="operator">*</span>,</span><br><span class="line">            id <span class="operator">-</span> (<span class="built_in">row_number</span>() <span class="keyword">over</span> (<span class="keyword">order</span> <span class="keyword">by</span> id))  <span class="keyword">as</span> next_id_gap <span class="comment">-- 排序求差值</span></span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            stadium</span><br><span class="line">        <span class="keyword">where</span></span><br><span class="line">            people <span class="operator">&gt;=</span> <span class="number">100</span></span><br><span class="line">    ) <span class="keyword">as</span> a</span><br><span class="line">) <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">    counting <span class="operator">&gt;=</span> <span class="number">3</span> <span class="comment">-- 过滤统计后的差值</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/12/leetcode/human-traffic-of-stadium/" data-id="cl85d5h3g002fi99o0b41grtm" data-title="体育馆人流量-连续区间问题" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-leetcode/investments-in-2016" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/08/12/leetcode/investments-in-2016/" class="article-date">
+  <time class="dt-published" datetime="2021-08-12T05:49:59.000Z" itemprop="datePublished">2021-08-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/leetcode/">leetcode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/08/12/leetcode/investments-in-2016/">2016年投资</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>写一个查询语句，将 2016 年 (TIV_2016) 所有成功投资的金额加起来，保留 2 位小数。</p>
+<p>对于一个投保人，他在 2016 年成功投资的条件是：</p>
+<p>他在 2015 年的投保额 (TIV_2015) 至少跟一个其他投保人在 2015 年的投保额相同。<br>他所在的城市必须与其他投保人都不同（也就是说维度和经度不能跟其他任何一个投保人完全相同）。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/investments-in-2016">https://leetcode-cn.com/problems/investments-in-2016</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<p><img src="0.png" alt="输入输出"></p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>为了判断一个值在某一列中是不是唯一的，我们可以使用<code>GROUP BY</code>和<code>COUNT</code>。<br>最开始自己想的是使用<code>join</code>操作，但是往往会把<code>3月份</code>带入到结果中。</p>
+<p><img src="1.png"></p>
+<p>leetcode官方的解答:</p>
+<blockquote>
+<p>注意：这两条要求<code>需要不分顺序同时满足</code>，所以如果你想要先用规则 1 来筛选一遍数据，然后再用规则 2 来筛选，会得到错误的结果。</p>
+</blockquote>
+<h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    round(<span class="built_in">sum</span>(TIV_2016), <span class="number">2</span>) <span class="keyword">as</span> TIV_2016</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    insurance</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    TIV_2015 <span class="keyword">in</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            TIV_2015</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            insurance</span><br><span class="line">        <span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">            TIV_2015</span><br><span class="line">        <span class="keyword">having</span> <span class="built_in">count</span>(<span class="number">1</span>) <span class="operator">&gt;</span> <span class="number">1</span></span><br><span class="line">    ) <span class="keyword">and</span></span><br><span class="line">    (LAT, LON) <span class="keyword">in</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            LAT,</span><br><span class="line">            LON</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            insurance</span><br><span class="line">        <span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">            LAT, LON</span><br><span class="line">        <span class="keyword">having</span></span><br><span class="line">            <span class="built_in">count</span>(<span class="number">1</span>) <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>where中的条件在原表中要<code>同时满足</code>而没有<code>先后顺序</code>，注意是同时!不是是先筛选了<code>TIV2015</code>后拿着筛选后的结果再去筛选<code>LAT LON</code></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/12/leetcode/investments-in-2016/" data-id="cl85d5h3h002hi99og1yv5t6t" data-title="2016年投资" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-leetcode/simple_sql_collection" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/08/12/leetcode/simple_sql_collection/" class="article-date">
+  <time class="dt-published" datetime="2021-08-12T04:45:51.000Z" itemprop="datePublished">2021-08-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/leetcode/">leetcode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/08/12/leetcode/simple_sql_collection/">mysql简单题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/count-student-number-in-departments/comments/">题目链接</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    a.dept_name,</span><br><span class="line">    <span class="comment">-- if(count(b.student_id) is null, 0, count(b.student_id)) as student_number</span></span><br><span class="line">    <span class="built_in">count</span>(b.student_id) <span class="keyword">as</span> student_number,</span><br><span class="line">    <span class="comment">-- count(null)返回0</span></span><br><span class="line">    <span class="comment">-- sum(null) 返回null</span></span><br><span class="line">    <span class="comment">-- avg(null) 返回null</span></span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    department <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span></span><br><span class="line">    student <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">    a.dept_id <span class="operator">=</span> b.dept_id</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span>    </span><br><span class="line">    a.dept_id</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">    student_number <span class="keyword">desc</span>,</span><br><span class="line">    dept_name </span><br></pre></td></tr></table></figure>
+
+
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-customer-referee/solution/xun-zhao-yong-hu-tui-jian-ren-by-leetcode/">题目链接</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    name</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    customer</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    referee_id <span class="operator">!=</span> <span class="number">2</span> <span class="keyword">or</span> </span><br><span class="line">    referee_id <span class="keyword">is</span> <span class="keyword">null</span></span><br></pre></td></tr></table></figure>
+
+<p>MySQL 使用三值逻辑 —— <code>TRUE</code>, <code>FALSE</code> 和 <code>UNKNOWN</code>。任何与 NULL 值进行的比较都会与第三种值 <code>UNKNOWN</code> 做比较。这个“任何值”包括 <code>NULL 本身</code>！这就是为什么 MySQL 提供 IS NULL 和 IS NOT NULL 两种操作来对 NULL 特殊判断。</p>
+<p>作者：LeetCode<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-customer-referee/solution/xun-zhao-yong-hu-tui-jian-ren-by-leetcode/">https://leetcode-cn.com/problems/find-customer-referee/solution/xun-zhao-yong-hu-tui-jian-ren-by-leetcode/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<h1 id="612"><a href="#612" class="headerlink" title="612"></a>612</h1><p>表 point_2d 保存了所有点（多于 2 个点）的坐标 (x,y) ，这些点在平面上两两不重合。</p>
+<p> </p>
+<p>写一个查询语句找到两点之间的最近距离，保留 2 位小数。</p>
+<p> </p>
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>y</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-1</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>-2</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>最近距离在点 (-1,-1) 和(-1,2) 之间，距离为 1.00 。所以输出应该为：</p>
+<p> </p>
+<table>
+<thead>
+<tr>
+<th>shortest</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1.00</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody></table>
+<p>注意：任意点之间的最远距离小于 10000 。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/shortest-distance-in-a-plane">https://leetcode-cn.com/problems/shortest-distance-in-a-plane</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    round(<span class="built_in">sqrt</span>(<span class="built_in">power</span>(a.x<span class="operator">-</span>b.x, <span class="number">2</span>) <span class="operator">+</span> <span class="built_in">power</span>(a.y<span class="operator">-</span>b.y, <span class="number">2</span>)), <span class="number">2</span>) <span class="keyword">as</span> shortest</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    point_2d <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> </span><br><span class="line">    point_2d <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span></span><br><span class="line">    (a.x, a.y) <span class="operator">!=</span> (b.x, b.y)</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">    shortest</span><br><span class="line">limit <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/12/leetcode/simple_sql_collection/" data-id="cl85d5h3d0029i99ociy34c2u" data-title="mysql简单题" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-leetcode/find-cumulative-salary-of-an-employe" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/08/11/leetcode/find-cumulative-salary-of-an-employe/" class="article-date">
+  <time class="dt-published" datetime="2021-08-11T13:26:48.000Z" itemprop="datePublished">2021-08-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/leetcode/">leetcode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/08/11/leetcode/find-cumulative-salary-of-an-employe/">查询员工累计薪水</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h1><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-cumulative-salary-of-an-employee/">https://leetcode-cn.com/problems/find-cumulative-salary-of-an-employee/</a></p>
+<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Employee 表保存了一年内的薪水信息。</p>
+<p>请你编写 SQL 语句，对于每个员工，查询他除最近一个月（即最大月）之外，剩下<code>每个月的近三个月的累计薪水</code>（不足三个月也要计算）。</p>
+<p>结果请按 Id 升序，然后按 Month 降序显示。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-cumulative-salary-of-an-employee">https://leetcode-cn.com/problems/find-cumulative-salary-of-an-employee</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<p><img src="0.png" alt="输入输出"></p>
+<h1 id="解题难点"><a href="#解题难点" class="headerlink" title="解题难点"></a>解题难点</h1><blockquote>
+<p>剩下的近三个月的累计薪水，比如7月份，那就是<code>5+6+7</code></p>
+</blockquote>
+<p>而不是因为数据表中的记录如下所示：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">month salary</span><br><span class="line">1       3</span><br><span class="line">3       5</span><br><span class="line">7       5</span><br></pre></td></tr></table></figure>
+<p>由于<code>月份没有连续出现</code>所以选择求和的是按照该月份排序后该月份之前的累计求和。</p>
+<h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> base <span class="keyword">as</span> (</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    Id,</span><br><span class="line">    <span class="keyword">Month</span>,</span><br><span class="line">    Salary</span><br><span class="line"><span class="keyword">from</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="operator">*</span>,</span><br><span class="line">        <span class="built_in">row_number</span>() <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> Id <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">Month</span> <span class="keyword">desc</span>) <span class="keyword">as</span> ranking </span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        Employee  </span><br><span class="line">) <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    a.ranking <span class="operator">&gt;</span> <span class="number">1</span> <span class="comment">-- 去除最大的月份</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">    a.Id,</span><br><span class="line">    a.Month,</span><br><span class="line">    <span class="built_in">sum</span>(b.Salary) <span class="keyword">as</span> Salary</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    base <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> </span><br><span class="line">    base <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span></span><br><span class="line">    a.Id <span class="operator">=</span> b.Id <span class="keyword">and</span></span><br><span class="line">    a.Month <span class="operator">&gt;=</span> b.Month <span class="keyword">and</span> <span class="comment">-- 这里是关键,不加这里会导致左表为4，右表为7</span></span><br><span class="line">    a.Month <span class="operator">&lt;=</span> b.Month <span class="operator">+</span> <span class="number">2</span> <span class="comment">-- 近3个月的</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">    a.Id,</span><br><span class="line">    a.Month</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span>    </span><br><span class="line">    Id,</span><br><span class="line">    <span class="keyword">Month</span> <span class="keyword">desc</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/11/leetcode/find-cumulative-salary-of-an-employe/" data-id="cl85d5h3c0025i99o4vve584w" data-title="查询员工累计薪水" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-practice/yinlian/3_excel_format_fix" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/08/11/practice/yinlian/3_excel_format_fix/" class="article-date">
+  <time class="dt-published" datetime="2021-08-11T07:03:23.000Z" itemprop="datePublished">2021-08-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/08/11/practice/yinlian/3_excel_format_fix/">银行APP产品测试数据格式校正</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="1-表头规范"><a href="#1-表头规范" class="headerlink" title="1. 表头规范"></a>1. 表头规范</h1><ul>
+<li>团队</li>
+<li>测试人</li>
+<li>所属银行</li>
+<li>APP名称</li>
+<li>商户（地点）    </li>
+<li>时间    </li>
+<li>主被扫</li>
+<li>金额</li>
+<li>支付流程存在问题    </li>
+<li>针对此次支付体验建议（产品优化建言）    </li>
+<li>二维码台卡或支付盒子等照片（如支付失败或体验不佳）    </li>
+<li>备注</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li><p>全选居中</p>
+</li>
+<li><p>检查表头，去掉<code>支付成功凭证（小票照片或APP中交易成功记录）</code></p>
+</li>
+<li><p>开启筛选</p>
+</li>
+<li><p>各字段矫正</p>
+<ul>
+<li>团队名称<ul>
+<li>以频率最高为主</li>
+</ul>
+</li>
+<li>所属银行<ul>
+<li>与17大行名称一致</li>
+</ul>
+</li>
+<li>APP名称<ul>
+<li>与17大行银行APP名称一致</li>
+</ul>
+</li>
+<li>时间<ul>
+<li>date类型<code>2022年12月12日</code></li>
+</ul>
+</li>
+<li>主被扫<ul>
+<li>只限定为<code>主扫交易</code>或者<code>被扫交易</code></li>
+</ul>
+</li>
+<li>金额<ul>
+<li>数字，保留两位小数</li>
+</ul>
+</li>
+<li>支付流程存在问题<ul>
+<li><code>暂时不管</code></li>
+</ul>
+</li>
+<li>二维码台卡或支付盒子等照片（如支付失败或体验不佳）<ul>
+<li>照片放到表格里面去</li>
+</ul>
+</li>
+<li>备注<ul>
+<li>不管</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>调整行高、列宽到最佳状态</p>
+</li>
+</ol>
+<h1 id="各字段出现的问题"><a href="#各字段出现的问题" class="headerlink" title="各字段出现的问题"></a>各字段出现的问题</h1><ol>
+<li>时间</li>
+</ol>
+<p>格式不统一，用<code>设置单元格格式-日期</code>也不行。</p>
+<ol start="2">
+<li>主被扫</li>
+</ol>
+<ul>
+<li>格式不统一<ul>
+<li><code>主、被扫交易</code></li>
+</ul>
+</li>
+<li>空置<ul>
+<li>看看是否有出现相同的场景</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/11/practice/yinlian/3_excel_format_fix/" data-id="cl85d5h7200csi99o0n7991m4" data-title="银行APP产品测试数据格式校正" class="article-share-link">Teilen</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/7/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/9/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">-CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Leetcode/">Leetcode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/django/">django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/sql/">sql</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1/">业务</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1%E6%8C%87%E6%A0%87/">业务指标</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/">中信证券</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/Django/">Django</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Flume/">Flume</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E9%9B%86/">数据集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/">毕业论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/">毕业设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/">秋招</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/%E9%9D%A2%E8%AF%95/">面试</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AF%95/">笔试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BA%E6%96%87/">论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/">银联实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">-leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flume/" rel="tag">Flume</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hbase/" rel="tag">Hbase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%9A%E5%8A%A1/" rel="tag">业务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" rel="tag">中信证券</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" rel="tag">时间序列预测</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" rel="tag">毕业论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" rel="tag">毕业设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%8B%E6%8B%9B/" rel="tag">秋招</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" rel="tag">金山实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" rel="tag">银联实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/leetcode/" style="font-size: 10px;">-leetcode</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Django/" style="font-size: 13.33px;">Django</a> <a href="/tags/Flume/" style="font-size: 10px;">Flume</a> <a href="/tags/Hbase/" style="font-size: 10px;">Hbase</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/SQL/" style="font-size: 18.89px;">SQL</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/leetcode/" style="font-size: 15.56px;">leetcode</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/%E4%B8%9A%E5%8A%A1/" style="font-size: 13.33px;">业务</a> <a href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" style="font-size: 11.11px;">中信证券</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 20px;">其他</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 13.33px;">大数据</a> <a href="/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 16.67px;">实习</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 11.11px;">工作</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" style="font-size: 10px;">时间序列预测</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12.22px;">机器学习</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" style="font-size: 14.44px;">毕业论文</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">毕业设计</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 12.22px;">爬虫</a> <a href="/tags/%E7%A7%8B%E6%8B%9B/" style="font-size: 13.33px;">秋招</a> <a href="/tags/%E7%AC%94%E8%AF%95/" style="font-size: 12.22px;">笔试</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 12.22px;">统计学</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 11.11px;">论文</a> <a href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" style="font-size: 13.33px;">金山实习</a> <a href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" style="font-size: 10px;">银联实习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 17.78px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/14/other/time_series_pred/">时间序列预测</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/01/other/customer_analysis_in_python/">用户价值分析</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/15/other/PEP8/">PEP-8: Python代码规范</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/29/other/fanqie/">番茄工作法</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/20/citics/neo4j_query_optimize/">neo4j查询调优</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

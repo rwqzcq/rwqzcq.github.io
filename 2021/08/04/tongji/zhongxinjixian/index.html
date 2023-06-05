@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>大数定理与中心极限定理 | rwqccnuimd的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="中心极限定理定义 样本的平均值约等于总体的平均值。 不管总体是什么分布，任意一个总体的样本平均值都会围绕在总体的整体平均值周围，并且呈正态分布。 样本大小必须达到30，中心极限定理才能保证成立。  结论 用样本来估计总体 样本平均值呈正态分布 取样次数越多，结果就越接近正态分布；而且样本大小越大，分布就越接近正态分布。    作用 没有办法得到总体的情况下，可以用样本来估计总体。 根据总体的平均值">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数定理与中心极限定理">
+<meta property="og:url" content="http://example.com/2021/08/04/tongji/zhongxinjixian/index.html">
+<meta property="og:site_name" content="rwqccnuimd的博客">
+<meta property="og:description" content="中心极限定理定义 样本的平均值约等于总体的平均值。 不管总体是什么分布，任意一个总体的样本平均值都会围绕在总体的整体平均值周围，并且呈正态分布。 样本大小必须达到30，中心极限定理才能保证成立。  结论 用样本来估计总体 样本平均值呈正态分布 取样次数越多，结果就越接近正态分布；而且样本大小越大，分布就越接近正态分布。    作用 没有办法得到总体的情况下，可以用样本来估计总体。 根据总体的平均值">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-08-04T06:02:10.000Z">
+<meta property="article:modified_time" content="2021-08-04T07:17:53.851Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="统计学">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="rwqccnuimd的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">rwqccnuimd的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-tongji/zhongxinjixian" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/08/04/tongji/zhongxinjixian/" class="article-date">
+  <time class="dt-published" datetime="2021-08-04T06:02:10.000Z" itemprop="datePublished">2021-08-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      大数定理与中心极限定理
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="中心极限定理"><a href="#中心极限定理" class="headerlink" title="中心极限定理"></a>中心极限定理</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><ul>
+<li>样本的平均值约等于总体的平均值。</li>
+<li>不管总体是什么分布，任意一个总体的<code>样本平均值</code>都会围绕在总体的整体平均值周围，并且呈<code>正态分布</code>。</li>
+<li>样本大小必须达到<code>30</code>，中心极限定理才能保证成立。</li>
+</ul>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><ul>
+<li>用样本来估计总体</li>
+<li>样本平均值呈正态分布<ul>
+<li>取样次数越多，结果就越接近正态分布；而且样本大小越大，分布就越接近正态分布。</li>
+</ul>
+</li>
+</ul>
+<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><ul>
+<li>没有办法得到<code>总体</code>的情况下，可以用样本来估计总体。</li>
+<li>根据总体的平均值与标准差，判断某一个样本是否属于整体。</li>
+</ul>
+<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><blockquote>
+<p>如何估计清华毕业生的年薪</p>
+</blockquote>
+<ul>
+<li><p>随机抽取1个样本，求该样本的平均值。</p>
+<ul>
+<li>例如我们抽取了100名毕业于清华的人，然后对这些人的收入求平均值。</li>
+<li>该样里的100名清华的人，这里的100就是该样本的大小。</li>
+</ul>
+</li>
+<li><p>将第1步样本抽取的工作<code>重复再三</code>，不断地从毕业的人中随机抽取100个人。</p>
+<ul>
+<li>例如我抽取了<code>5个样本</code>，并计算出每个样本的平均值，那么5个样本，就会有5个平均值。</li>
+</ul>
+</li>
+<li><p>根据中心极限定理，这些样本平均值中的<code>绝大部分</code>都极为接近总体的平均收入。有一些会稍高一点，有一些会稍低一点，只有极少数的样本平均值大大高于或低于群体平均值。</p>
+</li>
+<li><p>中心极限定理告诉我们，不论所研究的群体是怎样分布的，这些样本<code>平均值</code>会在总体平均值周围呈现一个正态分布。</p>
+</li>
+</ul>
+<blockquote>
+<p>总的来说，就是反复抽样，那么这些样本的均值惠服从正态分布</p>
+</blockquote>
+<h1 id="大数定理"><a href="#大数定理" class="headerlink" title="大数定理"></a>大数定理</h1><ul>
+<li>某一个随机事件大量重复出现的时候，往往呈现出必然的规律。<br>或者说</li>
+<li>实验条件不变的情况下，重复试验多次，随机事件的<code>频率</code>近似于它的<code>概率</code>。<br>数学化的语言为:</li>
+<li>n只要越来越大，我把这n个<code>独立同分布</code>的数加起来去除以n得到的这个<code>样本均值</code>（也是一个随机变量）会依概率收敛到真值u</li>
+</ul>
+<h1 id="两者之间的联系"><a href="#两者之间的联系" class="headerlink" title="两者之间的联系"></a>两者之间的联系</h1><p>两者都在说样本均值的性质，伴随着N的增大：</p>
+<ul>
+<li>大数定律说样本均值几乎必然等于均值</li>
+<li>中心极限定律说，他越来越趋近于正态分布。并且这个正态分布的<code>方差</code>越来越小。</li>
+</ul>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0e28f3cd80ff">https://www.jianshu.com/p/0e28f3cd80ff</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/04/tongji/zhongxinjixian/" data-id="cl85d5h6800ahi99oefn9ghmb" data-title="大数定理与中心极限定理" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/08/04/mianshi/ali/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          阿里
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/08/02/other/django_install/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">django通用安装配置</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">-CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Leetcode/">Leetcode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/django/">django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/sql/">sql</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1/">业务</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1%E6%8C%87%E6%A0%87/">业务指标</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/">中信证券</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/Django/">Django</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Flume/">Flume</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E9%9B%86/">数据集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/">毕业论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/">毕业设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/">秋招</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/%E9%9D%A2%E8%AF%95/">面试</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AF%95/">笔试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BA%E6%96%87/">论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/">银联实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">-leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flume/" rel="tag">Flume</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hbase/" rel="tag">Hbase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%9A%E5%8A%A1/" rel="tag">业务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" rel="tag">中信证券</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" rel="tag">时间序列预测</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" rel="tag">毕业论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" rel="tag">毕业设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%8B%E6%8B%9B/" rel="tag">秋招</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" rel="tag">金山实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" rel="tag">银联实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/leetcode/" style="font-size: 10px;">-leetcode</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Django/" style="font-size: 13.33px;">Django</a> <a href="/tags/Flume/" style="font-size: 10px;">Flume</a> <a href="/tags/Hbase/" style="font-size: 10px;">Hbase</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/SQL/" style="font-size: 18.89px;">SQL</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/leetcode/" style="font-size: 15.56px;">leetcode</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/%E4%B8%9A%E5%8A%A1/" style="font-size: 13.33px;">业务</a> <a href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" style="font-size: 11.11px;">中信证券</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 20px;">其他</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 13.33px;">大数据</a> <a href="/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 16.67px;">实习</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 11.11px;">工作</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" style="font-size: 10px;">时间序列预测</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12.22px;">机器学习</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" style="font-size: 14.44px;">毕业论文</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">毕业设计</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 12.22px;">爬虫</a> <a href="/tags/%E7%A7%8B%E6%8B%9B/" style="font-size: 13.33px;">秋招</a> <a href="/tags/%E7%AC%94%E8%AF%95/" style="font-size: 12.22px;">笔试</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 12.22px;">统计学</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 11.11px;">论文</a> <a href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" style="font-size: 13.33px;">金山实习</a> <a href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" style="font-size: 10px;">银联实习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 17.78px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/14/other/time_series_pred/">时间序列预测</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/01/other/customer_analysis_in_python/">用户价值分析</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/15/other/PEP8/">PEP-8: Python代码规范</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/29/other/fanqie/">番茄工作法</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/20/citics/neo4j_query_optimize/">neo4j查询调优</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>逻辑回归 | rwqccnuimd的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="简介一句话概括逻辑回归假设数据服从伯努利分布，通过极大化似然函数的方法，运用梯度下降来求解参数，来达到将数据二分类的目的。 假设逻辑回归假设数据服从伯努利分布，伯努利分布有一个简单的例子是抛硬币，抛中为正面的概率是p,抛中为负面的概率是1−p。在逻辑回归这个模型里面是假设 hθ(x) 为样本为正的概率，1−hθ(x)为样本为负的概率。 如何做分类逻辑回归作为一个回归(也就是y值是连续的)，如何应用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="逻辑回归">
+<meta property="og:url" content="http://example.com/2021/05/10/ml/logistic_regression/index.html">
+<meta property="og:site_name" content="rwqccnuimd的博客">
+<meta property="og:description" content="简介一句话概括逻辑回归假设数据服从伯努利分布，通过极大化似然函数的方法，运用梯度下降来求解参数，来达到将数据二分类的目的。 假设逻辑回归假设数据服从伯努利分布，伯努利分布有一个简单的例子是抛硬币，抛中为正面的概率是p,抛中为负面的概率是1−p。在逻辑回归这个模型里面是假设 hθ(x) 为样本为正的概率，1−hθ(x)为样本为负的概率。 如何做分类逻辑回归作为一个回归(也就是y值是连续的)，如何应用">
+<meta property="og:locale">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190826120845495.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzMzMjMxNTcz,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-05-10T06:33:10.000Z">
+<meta property="article:modified_time" content="2021-05-11T02:51:00.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190826120845495.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzMzMjMxNTcz,size_16,color_FFFFFF,t_70">
+  
+    <link rel="alternate" href="/atom.xml" title="rwqccnuimd的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">rwqccnuimd的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-ml/logistic_regression" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/10/ml/logistic_regression/" class="article-date">
+  <time class="dt-published" datetime="2021-05-10T06:33:10.000Z" itemprop="datePublished">2021-05-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      逻辑回归
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><h2 id="一句话概括"><a href="#一句话概括" class="headerlink" title="一句话概括"></a>一句话概括</h2><p>逻辑回归假设数据服从<code>伯努利分布</code>，通过<code>极大化似然函数</code>的方法，运用<code>梯度下降</code>来求解参数，来达到将<code>数据二分类</code>的目的。</p>
+<h2 id="假设"><a href="#假设" class="headerlink" title="假设"></a>假设</h2><p>逻辑回归假设数据服从伯努利分布，伯努利分布有一个简单的例子是抛硬币，抛中为正面的概率是p,抛中为负面的概率是1−p。<br>在逻辑回归这个模型里面是假设 hθ(x) 为样本为正的概率，1−hθ(x)为样本为负的概率。</p>
+<h2 id="如何做分类"><a href="#如何做分类" class="headerlink" title="如何做分类"></a>如何做分类</h2><p>逻辑回归作为一个回归(也就是y值是连续的)，如何应用到分类上去呢。<br>y值确实是一个<code>连续的变量</code>。逻辑回归的做法是<code>划定一个阈值</code>，y值大于这个阈值的是一类，y值小于这个阈值的是另外一类。<br>阈值具体如何调整根据实际情况选择。一般会选择0.5做为阈值来划分。</p>
+<h1 id="线性回归与逻辑回归的区别"><a href="#线性回归与逻辑回归的区别" class="headerlink" title="线性回归与逻辑回归的区别"></a>线性回归与逻辑回归的区别</h1><ol>
+<li>线性回归的变量服从0-1正态分布，而逻辑回归的变量服从伯努利分布。</li>
+<li>线性回归要求<code>因变量</code>是<code>连续性数值变量</code>，而逻辑回归要求因变量是<code>分类型变量</code>。</li>
+<li>线性回归要求自变量和因变量呈线性关系，而逻辑回归不要求自变量和因变量呈线性关系。</li>
+<li>逻辑回归是分析因变量<code>取某个值的概率</code>与自变量的关系，而线性回归是直接分析因变量与自变量的关系。</li>
+</ol>
+<h1 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h1><p>降低过拟合。过拟合表现在训练数据上的误差非常小，而在测试数据上误差反而增大。<br>原因是模型过于复杂，过分的去拟合数据的噪声。<br>正则化项是对模型参数添加先验，使得模型复杂度较小，对于噪声扰动相对较小。<br>在目标函数或代价函数后面加上一个正则项，一般有L1正则与L2正则。</p>
+<h2 id="L1"><a href="#L1" class="headerlink" title="L1"></a>L1</h2><p><img src="https://img-blog.csdnimg.cn/20190826120845495.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzMzMjMxNTcz,size_16,color_FFFFFF,t_70"><br>L1 正则的本质其实是为模型增加了“模型参数服从零均值拉普拉斯分布”这一先验知识。<br>L1能够精确地评价每一个特征对于损失函数结果的影响程度，对于影响程度小的特征，它直接把他们的系数θi归零！</p>
+<h2 id="L2"><a href="#L2" class="headerlink" title="L2"></a>L2</h2><p>L2 正则的本质其实是为模型增加了“模型参数服从零均值正态分布”这一先验知识。<br>L2 正则化中增加所有权重 w 参数的平方之和，逼迫所有 w 尽可能趋向零但不为零（L2 的导数趋于零）。<br>因为在未加入 L2 正则化发生过拟合时，拟合函数需要顾忌每一个点，最终形成的拟合函数波动很大，在某些很小的区间里，函数值的变化很剧烈，也就是某些 w 值非常大。为此，L2 正则化的加入就惩罚了权重变大的趋势。</p>
+<h1 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h1><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ol>
+<li>形式简单，模型的<code>可解释性</code>非常好。从<code>特征的权重</code>可以看到不同的特征对最后结果的影响，某个特征的权重值比较高，那么这个特征最后对结果的影响会比较大。</li>
+<li>训练速度较快。分类的时候，计算量仅仅只和<code>特征的数目</code>相关。并且逻辑回归的分布式优化sgd发展比较成熟，训练的速度可以通过堆机器进一步提高，这样我们可以在短时间内迭代好几个版本的模型。</li>
+<li>资源占用小,尤其是内存。因为只需要存储各个维度的特征值。</li>
+</ol>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ol>
+<li>准确率并不是很高。因为形式非常的简单(非常类似线性模型)，很难去拟合数据的真实分布。</li>
+<li>很难处理数据不平衡的问题。举个例子：如果我们对于一个正负样本非常不平衡的问题比如正负样本比<br>10000:1.我们把所有样本都预测为正也能使损失函数的值比较小。但是作为一个分类器，它对正负样本的区分能力不会很好。</li>
+<li>较难去处理非线性数据。</li>
+<li>逻辑回归本身无法筛选特征。有时候，我们会用gbdt来筛选特征，然后再上逻辑回归。</li>
+</ol>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ModifyRong/p/7739955.html">https://www.cnblogs.com/ModifyRong/p/7739955.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_33231573/article/details/99709837">https://blog.csdn.net/sinat_33231573/article/details/99709837</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/345566088">https://zhuanlan.zhihu.com/p/345566088</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/74874291">https://zhuanlan.zhihu.com/p/74874291</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/10/ml/logistic_regression/" data-id="cl85d5h4a004si99o9gga5rlt" data-title="逻辑回归" class="article-share-link">Teilen</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/05/10/sql/niuke-57/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          牛客网SQL第5题-含有关键字exists查找未分配具体部门的员工的所有信息
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/05/10/ml/linear_regression/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">线性回归</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">-CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Leetcode/">Leetcode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/django/">django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/sql/">sql</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1/">业务</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1%E6%8C%87%E6%A0%87/">业务指标</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/">中信证券</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/Django/">Django</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Flume/">Flume</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E9%9B%86/">数据集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/">毕业论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/">毕业设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/">秋招</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/%E9%9D%A2%E8%AF%95/">面试</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AF%95/">笔试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BA%E6%96%87/">论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/">银联实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">-leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flume/" rel="tag">Flume</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hbase/" rel="tag">Hbase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%9A%E5%8A%A1/" rel="tag">业务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" rel="tag">中信证券</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" rel="tag">时间序列预测</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" rel="tag">毕业论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" rel="tag">毕业设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%8B%E6%8B%9B/" rel="tag">秋招</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" rel="tag">金山实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" rel="tag">银联实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/leetcode/" style="font-size: 10px;">-leetcode</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Django/" style="font-size: 13.33px;">Django</a> <a href="/tags/Flume/" style="font-size: 10px;">Flume</a> <a href="/tags/Hbase/" style="font-size: 10px;">Hbase</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/SQL/" style="font-size: 18.89px;">SQL</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/leetcode/" style="font-size: 15.56px;">leetcode</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/%E4%B8%9A%E5%8A%A1/" style="font-size: 13.33px;">业务</a> <a href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" style="font-size: 11.11px;">中信证券</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 20px;">其他</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 13.33px;">大数据</a> <a href="/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 16.67px;">实习</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 11.11px;">工作</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" style="font-size: 10px;">时间序列预测</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12.22px;">机器学习</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" style="font-size: 14.44px;">毕业论文</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">毕业设计</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 12.22px;">爬虫</a> <a href="/tags/%E7%A7%8B%E6%8B%9B/" style="font-size: 13.33px;">秋招</a> <a href="/tags/%E7%AC%94%E8%AF%95/" style="font-size: 12.22px;">笔试</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 12.22px;">统计学</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 11.11px;">论文</a> <a href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" style="font-size: 13.33px;">金山实习</a> <a href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" style="font-size: 10px;">银联实习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 17.78px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/14/other/time_series_pred/">时间序列预测</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/01/other/customer_analysis_in_python/">用户价值分析</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/15/other/PEP8/">PEP-8: Python代码规范</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/29/other/fanqie/">番茄工作法</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/20/citics/neo4j_query_optimize/">neo4j查询调优</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

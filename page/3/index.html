@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>rwqccnuimd的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="rwqccnuimd的博客">
+<meta property="og:url" content="http://example.com/page/3/index.html">
+<meta property="og:site_name" content="rwqccnuimd的博客">
+<meta property="og:locale">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="rwqccnuimd的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">rwqccnuimd的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-waibao/django_estore" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/02/15/waibao/django_estore/" class="article-date">
+  <time class="dt-published" datetime="2022-02-14T16:05:00.000Z" itemprop="datePublished">2022-02-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/django/">django</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/02/15/waibao/django_estore/">Django电商系统通用数据表结构</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="引入基本的包"><a href="#引入基本的包" class="headerlink" title="引入基本的包"></a>引入基本的包</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth.models <span class="keyword">import</span> User</span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"><span class="keyword">from</span> ckeditor_uploader.fields <span class="keyword">import</span> RichTextUploadingField</span><br></pre></td></tr></table></figure>
+
+<h1 id="分类表"><a href="#分类表" class="headerlink" title="分类表"></a>分类表</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Category</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    分类表</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">25</span>, verbose_name=<span class="string">&#x27;分类名称&#x27;</span>)</span><br><span class="line">    create_at = models.DateTimeField(auto_now_add=<span class="literal">True</span>, verbose_name=<span class="string">&#x27;创建时间&#x27;</span>)  <span class="comment"># 创建时间 默认为当前时间</span></span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">&quot;商品分类管理&quot;</span>  <span class="comment"># 设置模型的别名</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line">        ordering = (<span class="string">&#x27;-create_at&#x27;</span>,)  <span class="comment"># 设置排序的字段</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span>  <span class="comment"># 定义在下拉列表中的显示的名字</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br></pre></td></tr></table></figure>
+
+<h1 id="商品表"><a href="#商品表" class="headerlink" title="商品表"></a>商品表</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Good</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    商品表</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">25</span>, verbose_name=<span class="string">&#x27;商品名&#x27;</span>)</span><br><span class="line">    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name=<span class="string">&#x27;分类&#x27;</span>, default=<span class="number">1</span>)</span><br><span class="line">    description = RichTextUploadingField(verbose_name=<span class="string">&#x27;商品描述&#x27;</span>)</span><br><span class="line">    img = models.ImageField(upload_to=<span class="string">&#x27;img&#x27;</span>, verbose_name=<span class="string">&#x27;商品图片&#x27;</span>)</span><br><span class="line">    amount = models.IntegerField(verbose_name=<span class="string">&#x27;库存量&#x27;</span>, default=<span class="number">1</span>)</span><br><span class="line">    price = models.FloatField(verbose_name=<span class="string">&#x27;价格&#x27;</span>)</span><br><span class="line">    STATUS_CHOICES = (</span><br><span class="line">        (<span class="string">&#x27;正常&#x27;</span>, <span class="string">&#x27;正常&#x27;</span>),</span><br><span class="line">        (<span class="string">&#x27;已下架&#x27;</span>, <span class="string">&#x27;已下架&#x27;</span>)</span><br><span class="line">    )</span><br><span class="line">    status = models.CharField(verbose_name=<span class="string">&#x27;状态&#x27;</span>, default=<span class="string">&#x27;正常&#x27;</span>, choices=STATUS_CHOICES, max_length=<span class="number">32</span>)</span><br><span class="line">    create_at = models.DateTimeField(auto_now_add=<span class="literal">True</span>, verbose_name=<span class="string">&#x27;创建时间&#x27;</span>)  <span class="comment"># 创建时间 默认为当前时间</span></span><br><span class="line">    add_user = models.ForeignKey(User, verbose_name=<span class="string">&#x27;卖家&#x27;</span>, on_delete=models.CASCADE) <span class="comment"># 多卖家的时候有这个字段</span></span><br><span class="line">    </span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">remain</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.amount - self.has_sell</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">has_sell</span>(<span class="params">self</span>):</span></span><br><span class="line">        sum_ = self.order_set.aggregate(<span class="built_in">sum</span>=Sum(<span class="string">&#x27;amount&#x27;</span>))[<span class="string">&#x27;sum&#x27;</span>]</span><br><span class="line">        <span class="keyword">if</span> sum_ <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> sum_</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">&quot;商品管理&quot;</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line">        ordering = (<span class="string">&#x27;-create_at&#x27;</span>,)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br></pre></td></tr></table></figure>
+
+<h1 id="购物车表"><a href="#购物车表" class="headerlink" title="购物车表"></a>购物车表</h1><blockquote>
+<p>一个购物车里面只有一种商品</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cart</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    购物车</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=<span class="string">&#x27;用户&#x27;</span>)</span><br><span class="line">    good = models.ForeignKey(Good, on_delete=models.CASCADE, verbose_name=<span class="string">&#x27;商品&#x27;</span>)</span><br><span class="line">    amount = models.IntegerField(verbose_name=<span class="string">&#x27;数量&#x27;</span>, default=<span class="number">1</span>)</span><br><span class="line">    create_at = models.DateTimeField(auto_now_add=<span class="literal">True</span>, verbose_name=<span class="string">&#x27;创建时间&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">total_price</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.good.price * self.amount</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">&quot;购物车管理&quot;</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line">        ordering = (<span class="string">&#x27;-create_at&#x27;</span>,)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.user.username</span><br></pre></td></tr></table></figure>
+
+<h1 id="收货地址表"><a href="#收货地址表" class="headerlink" title="收货地址表"></a>收货地址表</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Address</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    收货地址</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=<span class="string">&#x27;用户&#x27;</span>)</span><br><span class="line">    province = models.CharField(verbose_name=<span class="string">&#x27;省份&#x27;</span>, max_length=<span class="number">255</span>)</span><br><span class="line">    city = models.CharField(verbose_name=<span class="string">&#x27;市&#x27;</span>, max_length=<span class="number">255</span>)</span><br><span class="line">    area = models.CharField(verbose_name=<span class="string">&#x27;区&#x27;</span>, max_length=<span class="number">255</span>)</span><br><span class="line">    address = models.CharField(verbose_name=<span class="string">&#x27;详细地址&#x27;</span>, max_length=<span class="number">255</span>)</span><br><span class="line">    contact_user = models.CharField(verbose_name=<span class="string">&#x27;收货人&#x27;</span>, max_length=<span class="number">255</span>)</span><br><span class="line">    phone = models.CharField(verbose_name=<span class="string">&#x27;手机号&#x27;</span>, max_length=<span class="number">12</span>)</span><br><span class="line">    create_at = models.DateTimeField(auto_now_add=<span class="literal">True</span>, verbose_name=<span class="string">&#x27;创建时间&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">&quot;收货地址管理&quot;</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line">        ordering = (<span class="string">&#x27;-create_at&#x27;</span>,)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">            &#123;&#125;-&#123;&#125;-&#123;&#125;-&#123;&#125;-&#123;&#125;-&#123;&#125;</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span>.<span class="built_in">format</span>(self.province, self.city, self.area, self.address, self.contact_user, self.phone)</span><br></pre></td></tr></table></figure>
+
+<h1 id="订单表"><a href="#订单表" class="headerlink" title="订单表"></a>订单表</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Order</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    订单表</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=<span class="string">&#x27;用户&#x27;</span>)</span><br><span class="line">    good = models.ForeignKey(Good, on_delete=models.CASCADE, verbose_name=<span class="string">&#x27;商品&#x27;</span>)</span><br><span class="line">    amount = models.IntegerField(default=<span class="string">&#x27;1&#x27;</span>, verbose_name=<span class="string">&#x27;数量&#x27;</span>)</span><br><span class="line">    total_price = models.FloatField(default=<span class="string">&#x27;0&#x27;</span>, verbose_name=<span class="string">&#x27;总价&#x27;</span>)</span><br><span class="line">    address = models.ForeignKey(Address, on_delete=models.CASCADE, verbose_name=<span class="string">&#x27;收货地址&#x27;</span>)</span><br><span class="line">    create_at = models.DateTimeField(auto_now_add=<span class="literal">True</span>, verbose_name=<span class="string">&#x27;创建时间&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">save</span>(<span class="params">self, force_insert=<span class="literal">False</span>, force_update=<span class="literal">False</span>, using=<span class="literal">None</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">             update_fields=<span class="literal">None</span></span>):</span></span><br><span class="line">        self.total_price = self.amount * self.good.price</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">super</span>().save(force_insert=force_insert, force_update=force_update, using=using,</span><br><span class="line">                            update_fields=update_fields)</span><br><span class="line"></span><br><span class="line">    STATUS_CHOICES = (</span><br><span class="line">        (<span class="string">&#x27;已下单&#x27;</span>, <span class="string">&#x27;已下单&#x27;</span>),</span><br><span class="line">        (<span class="string">&#x27;已发货&#x27;</span>, <span class="string">&#x27;已发货&#x27;</span>),</span><br><span class="line">        (<span class="string">&#x27;已收货&#x27;</span>, <span class="string">&#x27;已收货&#x27;</span>),</span><br><span class="line">        (<span class="string">&#x27;已申请退货&#x27;</span>, <span class="string">&#x27;已申请退货&#x27;</span>),</span><br><span class="line">        (<span class="string">&#x27;已退货&#x27;</span>, <span class="string">&#x27;已退货&#x27;</span>),</span><br><span class="line">    )</span><br><span class="line">    status = models.CharField(verbose_name=<span class="string">&#x27;订单状态&#x27;</span>, max_length=<span class="number">32</span>, choices=STATUS_CHOICES, default=<span class="string">&#x27;已下单&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    DELATE_CHOICES = (</span><br><span class="line">        (<span class="string">&#x27;正常&#x27;</span>, <span class="string">&#x27;正常&#x27;</span>),</span><br><span class="line">        (<span class="string">&#x27;已删除&#x27;</span>, <span class="string">&#x27;已删除&#x27;</span>),</span><br><span class="line">    )</span><br><span class="line">    is_delete = models.CharField(verbose_name=<span class="string">&#x27;是否删除&#x27;</span>, max_length=<span class="number">32</span>, choices=DELATE_CHOICES, default=<span class="string">&#x27;正常&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">delete_order</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.is_delete = <span class="string">&#x27;已删除&#x27;</span></span><br><span class="line">        self.save()</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tuihuo</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        退货</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        self.status = <span class="string">&#x27;已申请退货&#x27;</span></span><br><span class="line">        self.save()</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">shuohuo</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.status = <span class="string">&#x27;已收货&#x27;</span></span><br><span class="line">        self.save()</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">&quot;订单管理&quot;</span>  <span class="comment"># 设置模型的别名</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line">        ordering = (<span class="string">&#x27;-create_at&#x27;</span>,)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">str</span>(self.user) + <span class="string">&#x27;-&#x27;</span> + <span class="built_in">str</span>(self.good) + <span class="string">&#x27;-&#x27;</span> + <span class="built_in">str</span>(self.amount)</span><br></pre></td></tr></table></figure>
+
+<h1 id="评论表"><a href="#评论表" class="headerlink" title="评论表"></a>评论表</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Comment</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    评论表</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    order = models.ForeignKey(Order, verbose_name=<span class="string">&#x27;订单&#x27;</span>, on_delete=models.CASCADE)</span><br><span class="line">    score = models.IntegerField(verbose_name=<span class="string">&#x27;评分&#x27;</span>, default=<span class="number">1</span>)</span><br><span class="line">    content = models.TextField(verbose_name=<span class="string">&#x27;评论内容&#x27;</span>)</span><br><span class="line">    create_at = models.DateTimeField(auto_now_add=<span class="literal">True</span>, verbose_name=<span class="string">&#x27;创建时间&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">&quot;评论管理&quot;</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line">        ordering = (<span class="string">&#x27;-create_at&#x27;</span>,)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">str</span>(self.order)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/02/15/waibao/django_estore/" data-id="cl85d5h6700aei99o9k6m7c25" data-title="Django电商系统通用数据表结构" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/" rel="tag">django</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-biyelunwen/4_event_schema" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/02/10/biyelunwen/4_event_schema/" class="article-date">
+  <time class="dt-published" datetime="2022-02-10T08:04:27.000Z" itemprop="datePublished">2022-02-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/">毕业论文</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/02/10/biyelunwen/4_event_schema/">金融风险事件表示框架</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="常见的金融风险事件"><a href="#常见的金融风险事件" class="headerlink" title="常见的金融风险事件"></a>常见的金融风险事件</h1><h2 id="高管异常"><a href="#高管异常" class="headerlink" title="高管异常"></a>高管异常</h2><table>
+<thead>
+<tr>
+<th>表现形式</th>
+<th>触发词</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>高管被查</td>
+<td>被查</td>
+<td>南纺股份高管<code>被查</code> 多宗资产处置存疑</td>
+</tr>
+<tr>
+<td>被采取强制措施</td>
+<td>采取强制措施</td>
+<td>长航凤凰(000520.SZ)跌停 实控人涉嫌刑事案件 被采取<code>强制措施</code></td>
+</tr>
+<tr>
+<td>双规</td>
+<td>双规</td>
+<td>-</td>
+</tr>
+<tr>
+<td>立案调查</td>
+<td>立案调查</td>
+<td>华民股份：公司实际控制人、董事长卢建之被立案调查、留置</td>
+</tr>
+<tr>
+<td>留置</td>
+<td>留置</td>
+<td>600亿大牛股出事了！刚刚，68岁实控人被立案调查、留置！</td>
+</tr>
+</tbody></table>
+<h2 id="公司安全事故"><a href="#公司安全事故" class="headerlink" title="公司安全事故"></a>公司安全事故</h2><table>
+<thead>
+<tr>
+<th>表现形式</th>
+<th>触发词</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>坠亡事故</td>
+<td>坠亡事故</td>
+<td>正源股份全资子公司发生一起高处坠亡事故 被罚款27万元</td>
+</tr>
+</tbody></table>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><blockquote>
+<p>有的不能表现出来</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/02/10/biyelunwen/4_event_schema/" data-id="cl85d5h2w000wi99o3wj3a7vk" data-title="金融风险事件表示框架" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" rel="tag">毕业论文</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-spider/jinrongjie" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/02/10/spider/jinrongjie/" class="article-date">
+  <time class="dt-published" datetime="2022-02-10T03:12:51.000Z" itemprop="datePublished">2022-02-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/02/10/spider/jinrongjie/">金融界爬虫</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/02/10/spider/jinrongjie/" data-id="cl85d5h5l008di99o53psh4t4" data-title="金融界爬虫" class="article-share-link">Teilen</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-spider/zhihu" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/02/10/spider/zhihu/" class="article-date">
+  <time class="dt-published" datetime="2022-02-10T03:12:37.000Z" itemprop="datePublished">2022-02-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/02/10/spider/zhihu/">知乎爬虫</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="爬取某一个问题ID下面的所有答案"><a href="#爬取某一个问题ID下面的所有答案" class="headerlink" title="爬取某一个问题ID下面的所有答案"></a>爬取某一个问题ID下面的所有答案</h1><p>知乎为了反爬取采取了相关的加密机制，其中在请求头中最核心的三个参数为:</p>
+<ol>
+<li>cookie</li>
+<li>user-agent</li>
+<li>x-zse-93</li>
+<li>x-zse-96</li>
+</ol>
+<p>其中<code>x-zse-93</code>的值固定为<code>101_3_2.0</code>。而<code>x-zse-96</code>是最核心的加密后的字符串，关于解密，参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/419576219">这一篇博客</a>。</p>
+<blockquote>
+<p>核心的就是通过浏览器调试JS代码，然后定位到代码：<code>signature: a()(l()(s))</code>，其中的参数<code>s</code>就是原始的字符串，然后通过知乎自己的加密方式形成<code>x-zse-96</code>这个参数。</p>
+</blockquote>
+<p>核心代码为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_x_zse_96</span>(<span class="params">d_c0, uri, x_zse_93=<span class="string">&#x27;101_3_2.0&#x27;</span></span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    解密x-zse-96这个参数</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    f = <span class="string">&quot;+&quot;</span>.join([x_zse_93, uri, d_c0])</span><br><span class="line">    fmd5 = hashlib.new(<span class="string">&#x27;md5&#x27;</span>, f.encode()).hexdigest()</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;g_encrypt.js&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        ctx1 = execjs.<span class="built_in">compile</span>(f.read(), cwd=<span class="string">&#x27;/usr/local/lib/node_modules&#x27;</span>)</span><br><span class="line">    encrypt_str = <span class="string">&quot;2.0_%s&quot;</span> % ctx1.call(<span class="string">&#x27;b&#x27;</span>, fmd5)</span><br><span class="line">    <span class="keyword">return</span> encrypt_str</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li>分析 分析 知乎加密算法 最新 x-zse-96. <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/419576219">https://zhuanlan.zhihu.com/p/419576219</a></li>
+<li>知乎爬虫. <a target="_blank" rel="noopener" href="https://github.com/nanodog/zhihuspider">https://github.com/nanodog/zhihuspider</a></li>
+<li>知乎x-zse-96参数解密. <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_54506550/article/details/121195805">https://blog.csdn.net/weixin_54506550/article/details/121195805</a></li>
+<li>各大网站逆向demo. <a target="_blank" rel="noopener" href="https://github.com/leishufei/JS-Crack-Records/tree/608224c5d2b16912ebbc63fd7002148571ea0708">https://github.com/leishufei/JS-Crack-Records/tree/608224c5d2b16912ebbc63fd7002148571ea0708</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/02/10/spider/zhihu/" data-id="cl85d5h5o008mi99o2ogb41cr" data-title="知乎爬虫" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-biyelunwen/finance-news-website" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/01/24/biyelunwen/finance-news-website/" class="article-date">
+  <time class="dt-published" datetime="2022-01-24T07:22:17.000Z" itemprop="datePublished">2022-01-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/">毕业论文</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/01/24/biyelunwen/finance-news-website/">常见的金融新闻网站</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>目的是为了寻找有关<code>企业</code>的相关新闻。</p>
+</blockquote>
+<h1 id="1-新浪新闻-财经频道-公司新闻"><a href="#1-新浪新闻-财经频道-公司新闻" class="headerlink" title="1. 新浪新闻-财经频道-公司新闻"></a>1. 新浪新闻-财经频道-公司新闻</h1><h2 id="网址"><a href="#网址" class="headerlink" title="网址"></a>网址</h2><p><a target="_blank" rel="noopener" href="http://finance.sina.com.cn/chanjing/">http://finance.sina.com.cn/chanjing/</a></p>
+<h2 id="API接口"><a href="#API接口" class="headerlink" title="API接口"></a>API接口</h2><p><a target="_blank" rel="noopener" href="http://feed.mix.sina.com.cn/api/roll/get?pageid=164&amp;lid=1694&amp;num=10&amp;page=1&amp;callback=feedCardJsonpCallback&amp;_=1611561556802">http://feed.mix.sina.com.cn/api/roll/get?pageid=164&amp;lid=1694&amp;num=10&amp;page=1&amp;callback=feedCardJsonpCallback&amp;_=1611561556802</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/01/24/biyelunwen/finance-news-website/" data-id="cl85d5h2y0014i99o1x1c47bp" data-title="常见的金融新闻网站" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" rel="tag">毕业论文</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other/covid19-data-api" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/01/23/other/covid19-data-api/" class="article-date">
+  <time class="dt-published" datetime="2022-01-23T09:04:57.000Z" itemprop="datePublished">2022-01-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/01/23/other/covid19-data-api/">新冠肺炎数据统计API</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>调研了现有的一些开源的新冠肺炎API</p>
+<h1 id="1-django-covid19"><a href="#1-django-covid19" class="headerlink" title="1. django_covid19"></a>1. django_covid19</h1><h2 id="地址"><a href="#地址" class="headerlink" title="地址"></a>地址</h2><p><a target="_blank" rel="noopener" href="http://ncov.leafcoder.cn/docs/#/?id=country-daily">http://ncov.leafcoder.cn/docs/#/?id=country-daily</a></p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<li>以<code>丁香园</code>作为数据源</li>
+<li>可以部署到本地运行，提供一个可视化大屏</li>
+<li>API比较丰富，可以分<code>国家</code>分<code>省市</code>查看</li>
+</ul>
+<blockquote>
+<p>最新的数据是<code>2021年1月11号</code>，时效性较差</p>
+</blockquote>
+<h1 id="2-akshare"><a href="#2-akshare" class="headerlink" title="2. akshare"></a>2. akshare</h1><h2 id="地址-1"><a href="#地址-1" class="headerlink" title="地址"></a>地址</h2><p><a target="_blank" rel="noopener" href="https://akshare-4gize6tod19f2d2e-1252952517.tcloudbaseapp.com/data/event/event.html">https://akshare-4gize6tod19f2d2e-1252952517.tcloudbaseapp.com/data/event/event.html</a></p>
+<h2 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h2><ul>
+<li>接口齐全</li>
+<li>返回最新的数据，返回的是最近<code>60天</code>的数据，并不能返回从疫情爆发以来的全部数据</li>
+</ul>
+<blockquote>
+<p>有一些接口不能用，比如<code>covid_19_baidu</code></p>
+</blockquote>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<h1 id="3-covid-19"><a href="#3-covid-19" class="headerlink" title="3. covid-19"></a>3. covid-19</h1><p>数据源来自<code>https://github.com/CSSEGISandData/COVID-19 dataset</code>。</p>
+<p>主页为:<a target="_blank" rel="noopener" href="https://pypi.org/project/covid-19/%E3%80%82">https://pypi.org/project/covid-19/。</a></p>
+<p>主要使用命令行的形式得到世界各国的历史数据。使用如下:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install covid-19</span><br><span class="line">pip install gunicorn</span><br><span class="line">covid serve</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>需要开启<code>VPN</code>才能使用，因为会直接访问github的CSV文件。</p>
+</blockquote>
+<h1 id="4-covid19-api"><a href="#4-covid19-api" class="headerlink" title="4. covid19-api"></a>4. covid19-api</h1><p>数据源来自:<a target="_blank" rel="noopener" href="https://virusncov.com/%E4%BB%A5%E5%8F%8Ahttps://epidemic-stats.com/coronavirus/">https://virusncov.com/以及https://epidemic-stats.com/coronavirus/</a></p>
+<p>使用如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sudo pip install covid19-api</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> coroapi</span><br><span class="line"></span><br><span class="line">instance = coroapi.Corona()</span><br><span class="line">country = <span class="string">&#x27;china&#x27;</span> </span><br><span class="line">instance.country_stats(country)   </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>该API只能获取当天的情况，不能获取到历史数据</p>
+</blockquote>
+<h1 id="5-covid"><a href="#5-covid" class="headerlink" title="5. covid"></a>5. covid</h1><p>pypi地址: <a target="_blank" rel="noopener" href="https://pypi.org/project/covid/">https://pypi.org/project/covid/</a><br>官方主页: <a target="_blank" rel="noopener" href="https://nf1s.github.io/covid/worldometers/">https://nf1s.github.io/covid/worldometers/</a></p>
+<h1 id="6-covid-tracking-project"><a href="#6-covid-tracking-project" class="headerlink" title="6. covid-tracking-project"></a>6. covid-tracking-project</h1><p>pypi地址:<a target="_blank" rel="noopener" href="https://pypi.org/project/covid-tracking-project/">https://pypi.org/project/covid-tracking-project/</a></p>
+<blockquote>
+<p>该包能够追溯到的日期为<code>2021年3月7日</code>，因此该包已经过时了。<br>代码使用如下:</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ctp</span><br><span class="line">data = ctp.us().history()</span><br></pre></td></tr></table></figure>
+<p>=======</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>a0f0c488d8e95c86febe7c323b7e22d38991a299</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/01/23/other/covid19-data-api/" data-id="cl85d5h4q005vi99o2urz5m5l" data-title="新冠肺炎数据统计API" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-biyelunwen/3_open_event_datatset" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/01/20/biyelunwen/3_open_event_datatset/" class="article-date">
+  <time class="dt-published" datetime="2022-01-20T10:46:06.000Z" itemprop="datePublished">2022-01-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/">毕业论文</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/01/20/biyelunwen/3_open_event_datatset/">金融领域事件数据集</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>总结目前公开的金融领域事件数据集里面都包含了哪一些<code>事件类型</code>以及对应的<code>事件元素</code>。</p>
+<h1 id="CCKS-2020：面向金融领域的小样本跨类迁移事件抽取"><a href="#CCKS-2020：面向金融领域的小样本跨类迁移事件抽取" class="headerlink" title="CCKS 2020：面向金融领域的小样本跨类迁移事件抽取"></a>CCKS 2020：面向金融领域的小样本跨类迁移事件抽取</h1><h2 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h2><p><a target="_blank" rel="noopener" href="https://www.biendata.xyz/competition/ccks_2020_3/">https://www.biendata.xyz/competition/ccks_2020_3/</a></p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在金融领域，事件抽取是一项十分重要的任务，也是自然语言处理领域一项比较复杂的任务，而小样本下的事件抽取模型在落地应用中也极为需要。本任务需要从金融领域新闻资讯句子中，抽取事件知识（包括<code>事件类型</code>、<code>触发词</code>和<code>事件元素</code>），并将大样本下训练的模型跨类<code>迁移</code>到小样本的其他事件类型上。</p>
+<p>其中，事件类型分为两类，初始事件类型限定为：<code>质押</code>、<code>股份股权转让</code>、<code>投资</code>、<code>起诉</code>和<code>减持</code>，需要迁移的事件类型为：<code>收购</code>、<code>担保</code>、<code>中标</code>、<code>签署合同</code>和<code>判决</code>，每个事件类型都有其对应的<code>事件框架</code>，需要抽取出每个事件对应的事件元素 。即给出一段句子级新闻资讯文本，针对该文本需要判断其所属的事件类型，抽取该事件的各个事件元素。</p>
+<p>示例：</p>
+<p>输入：</p>
+<blockquote>
+<p>刚刚，A公司发布情报通告，称已于2019年10月28日向广州知识产权法院就B公司涉嫌滥用市场支配地位等相关事宜提起诉讼，并于2019年11月4日得到受理。</p>
+</blockquote>
+<p>输出：</p>
+<ul>
+<li>事件类型：起诉</li>
+<li>触发词：诉讼</li>
+<li>原告（公司）：A公司</li>
+<li>被告（公司）：B公司</li>
+<li>起诉日期：2019年10月28日</li>
+</ul>
+<h1 id="CCKS-2020：面向金融领域的篇章级事件主体与要素抽取"><a href="#CCKS-2020：面向金融领域的篇章级事件主体与要素抽取" class="headerlink" title="CCKS 2020：面向金融领域的篇章级事件主体与要素抽取"></a>CCKS 2020：面向金融领域的篇章级事件主体与要素抽取</h1><h2 id="事件主体抽取"><a href="#事件主体抽取" class="headerlink" title="事件主体抽取"></a>事件主体抽取</h2><h3 id="官网-1"><a href="#官网-1" class="headerlink" title="官网"></a>官网</h3><p><a target="_blank" rel="noopener" href="https://www.biendata.xyz/competition/ccks_2020_4_1/">https://www.biendata.xyz/competition/ccks_2020_4_1/</a></p>
+<h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><p>“事件抽取”是舆情监控领域和金融领域的重要任务之一，“事件”在金融领域是投资分析，资产管理的重要决策参考；事件也是知识图谱的重要组成部分，事件抽取是进行图谱推理、事件分析的必要过程。“事件抽取”的挑战体现在文本的复杂和任务的复杂。文本的复杂体现在事件抽取的输入文本可能是句子、段落或者篇章，不定长度的文本使得限制文本长度的模型无法使用；任务的复杂体现在事件识别的任务包括：</p>
+<ul>
+<li><code>事件类型识别</code></li>
+<li><code>事件主体抽取</code></li>
+<li><code>事件要素抽取</code></li>
+</ul>
+<p>本次评测任务的文本范围包括<code>互联网上的新闻文本</code>，<code>上市公司发布的公告文本（PDF文档已转成无结构化的文本内容）</code>。 本次评测任务的事件类型包括：</p>
+<ul>
+<li>财务造假</li>
+<li>偿付能力不足</li>
+<li>高层失联/去世</li>
+<li>企业破产</li>
+<li>重大资损</li>
+<li>重大赔付</li>
+<li>重大事故</li>
+<li>股权冻结</li>
+<li>股权质押</li>
+<li>增持</li>
+<li>减持</li>
+</ul>
+<p>本次评测任务把<code>发生特定事件类型的主体</code>称为事件主体，如 “公司A向公司B赔付”对于事件类型“重大赔付”的事件主体是“公司A”。事件要素为<code>该事件类型的所有属性信息</code>，如事件类型“破产清算”的事件要素包括“发布公告时间”、“破产清算的公司”、“受理法院”、 “公司所属行业”、 “裁定时间”。</p>
+<h2 id="篇章级事件要素抽取"><a href="#篇章级事件要素抽取" class="headerlink" title="篇章级事件要素抽取"></a>篇章级事件要素抽取</h2><h3 id="官网-2"><a href="#官网-2" class="headerlink" title="官网"></a>官网</h3><p><a target="_blank" rel="noopener" href="https://www.biendata.xyz/competition/ccks_2020_4_2/">https://www.biendata.xyz/competition/ccks_2020_4_2/</a></p>
+<h3 id="简介-2"><a href="#简介-2" class="headerlink" title="简介"></a>简介</h3><p>本次评测任务的文本范围包括互联网上的新闻文本，上市公司发布的公告文本（PDF文档已转成无结构化的文本内容）。 本次评测任务的事件类型包括：财务造假、偿付能力不足、高层失联/去世、企业破产、重大资损、重大赔付、重大事故、股权冻结、股权质押、增持、减持等。本次评测任务把发生特定事件类型的主体称为事件主体，如 “公司A向公司B赔付”对于事件类型“重大赔付”的事件主体是“公司A”。<code>事件要素为该事件类型的所有属性信息</code>，如事件类型“破产清算”的事件要素包括“发布公告时间”、“破产清算的公司”、“受理法院”、 “公司所属行业”、 “裁定时间”。</p>
+<p>输入: <code>一段文本T</code></p>
+<p>输出: <code>事件类型和事件要素</code></p>
+<p>举例：</p>
+<p>原文：</p>
+<blockquote>
+<p>“本公司及董事会全体成员保证信息披露的内容真实、准确、完整，没有虚假记载、误导性陈述或重大遗漏。<br>2017年 1月 12日，长航凤凰股份有限公司（以下简称“公司”） 通过中国登记结算有限公司系统查询获知公司第一大股东天津顺航海运有限公司（以下简称“顺航海运”）持有公司股票 181，015，974股，持股比例 17.89%被天津市第二中级人民法院（以下简称“天津二中院”）司法冻结，具体内容详见《关于公司股东股份被法院司法冻结的公告》 公告编号 2017-006号。<br>2017年 4月 26日，顺航海运收到天津二中院（2016）津 02民初 821号《民事裁定书》，原告易涛于 2017年 4月 18日向天津二中院申请撤回对被告顺航海运的起诉，天津二中院裁定准许撤回，具体内容详见《关于公司股东股份被法院司法冻结的进展公告》 公告编号 2017-036号”*</p>
+</blockquote>
+<p>输出：</p>
+<p>事件类型: <code>股权冻结</code></p>
+<p>事件元素：</p>
+<table>
+<thead>
+<tr>
+<th>元素名称</th>
+<th>元素值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>冻结股数</td>
+<td>181，015，974</td>
+</tr>
+<tr>
+<td>被冻结股东名称</td>
+<td>天津顺航海运有限公司</td>
+</tr>
+<tr>
+<td>执行冻结结构</td>
+<td>天津市第二中级人民法院</td>
+</tr>
+<tr>
+<td>起始日期</td>
+<td>2017年1月12日</td>
+</tr>
+</tbody></table>
+<h1 id="CCKS2021：面向金融领域的篇章级事件抽取和事件因果关系抽取"><a href="#CCKS2021：面向金融领域的篇章级事件抽取和事件因果关系抽取" class="headerlink" title="CCKS2021：面向金融领域的篇章级事件抽取和事件因果关系抽取"></a>CCKS2021：面向金融领域的篇章级事件抽取和事件因果关系抽取</h1><h2 id="篇章级事件抽取"><a href="#篇章级事件抽取" class="headerlink" title="篇章级事件抽取"></a>篇章级事件抽取</h2><h3 id="网址"><a href="#网址" class="headerlink" title="网址"></a>网址</h3><p><a target="_blank" rel="noopener" href="https://www.biendata.xyz/competition/ccks_2021_task6_1/data/">https://www.biendata.xyz/competition/ccks_2021_task6_1/data/</a></p>
+<h3 id="简介-3"><a href="#简介-3" class="headerlink" title="简介"></a>简介</h3><p>事件抽取是舆情监控和金融领域的重要任务之一。“金融事件”在金融领域是投资分析，资产管理的重要决策参考；事件也是知识图谱的重要组成部分，事件抽取是进行图谱推理、事件分析的必要过程。“事件抽取”的挑战体现在文本的复杂和任务的复杂。文本的复杂体现在事件抽取的输入文本可能是句子、段落或者篇章，不定长度的文本使得限制文本长度的模型无法使用；任务的复杂体现在事件识别的任务包括：</p>
+<ul>
+<li>事件类型识别</li>
+<li>事件要素抽取</li>
+<li>事件关系抽取等等。</li>
+</ul>
+<p>本评测任务的目标是解决篇章级事件元素抽取和事件因果关系抽取这两个核心的知识抽取问题。</p>
+<p>本次评测任务的文本语料来自于互联上的公开新闻、报告。<br>在篇章级事件元素抽取任务中，给定篇章级长文本和事件类型，从篇章级文本中识别事件的元素。</p>
+<p>在事件关系抽取任务中，给定一段描述因果或影响关系的文本，从文本中抽取原因事件的表示和结果事件的表示，其中事件的表示包括事件类型和事件的三个要素：影响地域、产品、行业。 本次评测包括两个子任务：篇章级事件元素抽取和事件因果关系抽取。具体内容如下：</p>
+<blockquote>
+<p>事件用事件类型和事件要素来表示，该任务旨在从给定的长文本中抽取事件的13个要素，即给定文本T抽取T中的<code>13个事件要素</code>。同时，该任务提供文本所属的事件类型作为输入，选手可参考使用。每个事件要素的定义和描述如下表所示：</p>
+</blockquote>
+<p><img src="https://www.biendata.xyz/media/competition/2021/05/17/16212298879256122dfjkjfskd.png" alt="事件要素"></p>
+<blockquote>
+<p>也就是说这个数据集里面的每一条数据基本都涉及到这13个事件元素</p>
+</blockquote>
+<p>输入：<br>一段文本T和额外的三级事件类型level1,level2,level3</p>
+<p>输出：表格中描述的事件要素</p>
+<p>示例：</p>
+<p>输入：</p>
+<blockquote>
+<p>{“text_id”:”123456”, “text”:“王某新认识一个网友小刘,聊了一会之后了解了一下情况就很自来熟一样,过了几天小刘说肚子疼上医院要软件打五百块钱给她,没过多久脚又被行李箱砸伤又问王某要了八百，之后联系不上”,”level1”:” 欺诈风险”,”level2”:” 冒充身份类”,”level3”:” 好友/领导/婚恋交友”}</p>
+</blockquote>
+<p>输出：</p>
+<blockquote>
+<p>{“text_id”:”123456”, “attribute”:[{“type”:”支付渠道”,”entity”:”软件”, “start”:47,”end”:48},{“type”:”资损金额”,”entity”:”五百块钱”, “start”:50,”end”:53},{“type”:”资损金额”,”entity”:”八百”, “start”:75,”end”:76},{“type”:”嫌疑人”,”entity”:”小刘”, “start”:9,”end”:10},{“type”:”受害人”,”entity”:”王某”, “start”:0,”end”:1}]}</p>
+</blockquote>
+<h2 id="因果事件关系抽取"><a href="#因果事件关系抽取" class="headerlink" title="因果事件关系抽取"></a>因果事件关系抽取</h2><h3 id="网址-1"><a href="#网址-1" class="headerlink" title="网址"></a>网址</h3><p><a target="_blank" rel="noopener" href="https://www.biendata.xyz/competition/ccks_2021_task6_2/">https://www.biendata.xyz/competition/ccks_2021_task6_2/</a></p>
+<h3 id="简介-4"><a href="#简介-4" class="headerlink" title="简介"></a>简介</h3><p>该任务旨在从文本中抽取具有因果关系两个事件：原因事件和结果事件，并通过<code>事件的四个要素</code>来表示原因事件和结果事件。</p>
+<blockquote>
+<p>即给定文本T，抽取T中所有的原因事件M和结果事件N。即分别抽取M和N的事件类型和3个事件要素，如下表所示：</p>
+</blockquote>
+<p><img src="https://www.biendata.xyz/media/competition/2021/05/17/1621231015269232djfkjsdfjiojos.png" alt="关系抽取"></p>
+<p>注：每个事件要素的取值可能有多个，需要全部抽取出来并用列表来表示</p>
+<p>输入：一段文本T</p>
+<p>输出：原因事件和结果事件的类型及其事件要素</p>
+<p>示例：</p>
+<p>输入：</p>
+<blockquote>
+<p>{“text_id”:”123456”, “text”:“货运行业盈利水平大幅度缩水是卡车需求不旺的主要原因”}</p>
+</blockquote>
+<p>输出：</p>
+<blockquote>
+<p>{“text_id”:”123456”,[{“reason_type”:”产品利润下降”,”reason_region”:[],”reason_product”:[],”reason_industry”:[“货运行业”],”result_type”:”需求减少”,”result_region”:[] ,”result_product”:[“卡车”] ,”result_industry”:[]}]}</p>
+</blockquote>
+<blockquote>
+<p>这个里面的原因事件与结果事件就是抽象事件</p>
+</blockquote>
+<p>现有的一种<a target="_blank" rel="noopener" href="https://github.com/taojingcong/ccks2021FEE/blob/master/event/event_dataReader.py">解决方案</a>是将此变成一个分类任务，不对句子进行标注，反而输出<code>reason_type#result_type</code>的概率。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/01/20/biyelunwen/3_open_event_datatset/" data-id="cl85d5h2u000oi99o3ose4284" data-title="金融领域事件数据集" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" rel="tag">毕业论文</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-bigdata/hbase" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/01/17/bigdata/hbase/" class="article-date">
+  <time class="dt-published" datetime="2022-01-17T03:01:16.000Z" itemprop="datePublished">2022-01-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/01/17/bigdata/hbase/">Hbase使用教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Hbase2-3-7安装"><a href="#Hbase2-3-7安装" class="headerlink" title="Hbase2.3.7安装"></a>Hbase2.3.7安装</h1><h2 id="版本对应关系"><a href="#版本对应关系" class="headerlink" title="版本对应关系"></a>版本对应关系</h2><p><a target="_blank" rel="noopener" href="https://hbase.apache.org/book.html#hadoop">https://hbase.apache.org/book.html#hadoop</a></p>
+<blockquote>
+<p>Hadoop2.X是Hbase推荐的版本，本次使用<code>Hadoop3.2</code>搭配<code>Hbase2.3</code></p>
+</blockquote>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/apache/hbase/2.3.7/hbase-2.3.7-bin.tar.gz">https://mirrors.tuna.tsinghua.edu.cn/apache/hbase/2.3.7/hbase-2.3.7-bin.tar.gz</a>   </p>
+<h2 id="修改conf-hbase-env-sh"><a href="#修改conf-hbase-env-sh" class="headerlink" title="修改conf/hbase-env.sh"></a>修改<code>conf/hbase-env.sh</code></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置JDK</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home</span><br><span class="line"><span class="comment"># 开启Zookeeper</span></span><br><span class="line"><span class="built_in">export</span> HBASE_MANAGES_ZK=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="修改conf-hbase-site-xml"><a href="#修改conf-hbase-site-xml" class="headerlink" title="修改conf/hbase-site.xml"></a>修改<code>conf/hbase-site.xml</code></h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 单机配置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.cluster.distributed<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 临时文件夹 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>./tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.unsafe.stream.capability.enforce<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Hbase数据存储位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.rootdir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>/Library/Hadoop/Hbase/hbase-2.3.7/data/hbase<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- zookeeper数据存储位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.zookeeper.property.dataDir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>/Library/Hadoop/Hbase/hbase-2.3.7/data/zookeeper<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Zookeeper地址 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.zookeeper.quorum<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>localhost:2181<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span> </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在<code>/Library/Hadoop/Hbase/hbase-2.3.7</code>文件夹下:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /Library/Hadoop/Hbase/hbase-2.3.7</span><br><span class="line">mkdir data</span><br><span class="line">cd data</span><br><span class="line">mkdir hbase</span><br><span class="line">mkdir zookeeper</span><br></pre></td></tr></table></figure>
+
+<h2 id="Hbase启动"><a href="#Hbase启动" class="headerlink" title="Hbase启动"></a>Hbase启动</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动Hadoop</span></span><br><span class="line">start-all.sh </span><br><span class="line"><span class="comment"># 启动Hbase</span></span><br><span class="line"><span class="built_in">cd</span> /Library/Hadoop/Hbase/hbase-2.3.7/bin</span><br><span class="line">./start-hbase.sh</span><br></pre></td></tr></table></figure>
+
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<blockquote>
+<p>20220415更新: Hbase启动报错，报错信息如下:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2022-04-15 19:43:37,316 WARN  [master&#x2F;192.168.0.104:16000:becomeActiveMaster] master.HMaster: hbase:meta,,1.1588230740 is NOT online; state&#x3D;&#123;1588230740 state&#x3D;OPEN, ts&#x3D;1650023012572, server&#x3D;192.168.0.104,16020,1649902296296&#125;; ServerCrashProcedures&#x3D;true. Master startup cannot progress, </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>解决方法参考这一篇<a target="_blank" rel="noopener" href="https://www.cnblogs.com/yankang/p/10582641.html">博客</a>。<br>需要清理zookeeper</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./hbase zkcli</span><br><span class="line">deleteall /hbase/meta-region-server</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> create /hbase/meta-region-server</span></span><br></pre></td></tr></table></figure>
+
+<p>端口扫描</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof -i tcp:2181</span><br></pre></td></tr></table></figure>
+
+
+
+<p>=======</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>a0f0c488d8e95c86febe7c323b7e22d38991a299<br>验证是否安装成功：</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">jps</span><br><span class="line"></span><br><span class="line">3440 Jps</span><br><span class="line">3362 HMaster # 有HMaster则说明安装成功</span><br><span class="line">1885</span><br></pre></td></tr></table></figure>
+
+<h1 id="Phoenix安装"><a href="#Phoenix安装" class="headerlink" title="Phoenix安装"></a>Phoenix安装</h1><h2 id="Phoenix简介"><a href="#Phoenix简介" class="headerlink" title="Phoenix简介"></a>Phoenix简介</h2><blockquote>
+<p>Phoenix是一个HBase框架，可以通过SQL的方式来操作HBase。<br>Phoenix是构建在HBase上的一个SQL层，是内嵌在HBase中的JDBC驱动，能够让用户使用标准的JDBC来操作HBase。<br>Phoenix使用JAVA语言进行编写，其查询引擎会将SQL查询语句转换成一个或多个HBase Scanner，且并行执行生成标准的JDBC结果集。</p>
+</blockquote>
+<h2 id="Phoenix与Hbase版本对应关系"><a href="#Phoenix与Hbase版本对应关系" class="headerlink" title="Phoenix与Hbase版本对应关系"></a>Phoenix与Hbase版本对应关系</h2><p><a target="_blank" rel="noopener" href="https://phoenix.apache.org/download.html">https://phoenix.apache.org/download.html</a></p>
+<blockquote>
+<p>Current release 4.16.1 can run on Apache HBase 1.3, 1.4, 1.5 and 1.6. Current release <code>5.1.2</code> can run on Apache HBase 2.1, 2.2, <code>2.3</code> and 2.4 CDH HBase 5.11, 5.12, 5.13 and 5.14 is supported by 4.14.0.</p>
+</blockquote>
+<h2 id="下载地址-1"><a href="#下载地址-1" class="headerlink" title="下载地址"></a>下载地址</h2><p><a target="_blank" rel="noopener" href="https://www.apache.org/dyn/closer.lua/phoenix/phoenix-5.1.2/phoenix-hbase-2.3-5.1.2-bin.tar.gz">https://www.apache.org/dyn/closer.lua/phoenix/phoenix-5.1.2/phoenix-hbase-2.3-5.1.2-bin.tar.gz</a></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul>
+<li>复制<code>phoenix-server-hbase-2.3-5.1.2.jar</code>放到<code>hbase/lib</code>目录下</li>
+<li>复制<code>hase/conf/hbase-site.xml</code>到<code>bin</code>目录下</li>
+</ul>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 进入目录</span></span><br><span class="line">cd /Library/Hadoop/Hbase/phoenix/phoenix-hbase-2.3-5.1.2-bin/bin</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动</span></span><br><span class="line">python sqlline.py 127.0.0.1:2181</span><br><span class="line"><span class="meta">#</span><span class="bash"> 初始化表</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> !tables</span></span><br></pre></td></tr></table></figure>
+
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<blockquote>
+<h1 id="20220414更新：启动该服务报错，报错信息如下"><a href="#20220414更新：启动该服务报错，报错信息如下" class="headerlink" title="20220414更新：启动该服务报错，报错信息如下:"></a>20220414更新：启动该服务报错，报错信息如下:</h1><p>20220414更新：启动该服务报错，报错信息如下:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>a0f0c488d8e95c86febe7c323b7e22d38991a299</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.net.UnknownHostException: bogon: bogon: nodename nor servname provided, or not known--异常</span><br></pre></td></tr></table></figure>
+<p>此时需要修改<code>/etc/hosts</code>文件，在最后一行添加:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> vim /etc/hosts</span></span><br><span class="line">127.0.0.1 localhost bogon</span><br></pre></td></tr></table></figure>
+
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<p>=======</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>a0f0c488d8e95c86febe7c323b7e22d38991a299<br>运行<a target="_blank" rel="noopener" href="https://phoenix.apache.org/installation.html">demo</a>:</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 创建一张表然后倒入数据</span></span><br><span class="line">python sqlline.py 127.0.0.1:2181 ../examples/stock_symbol.sql</span><br></pre></td></tr></table></figure>
+
+<p>可以使用一个GUI工具<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/squirrel-sql/">squirrel-sql</a>来去操作:</p>
+<p><img src="https://phoenix.apache.org/images/squirrel.png"></p>
+<p>也可以使用<code>psql.py</code>导入一个CSV文件:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> python psql.py -t tablename localhost abspath</span></span><br><span class="line">python psql.py -t JOB_LIST localhost /Users/renweiqiang/outSource/进行中/0415_hadoop_hbase_招聘信息可视化/todb/joblist.selected.csv</span><br></pre></td></tr></table></figure>
+
+<h1 id="使用python-api去链接"><a href="#使用python-api去链接" class="headerlink" title="使用python api去链接"></a>使用python api去链接</h1><p>安装<code>phoenixdb</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install phoenixdb</span><br></pre></td></tr></table></figure>
+
+<p>开启<code>queryserver</code>服务:</p>
+<blockquote>
+<p>phoenix5.1不包含内置的<code>queryserver</code>，需要额外下载，地址为:<br><a target="_blank" rel="noopener" href="https://dlcdn.apache.org/phoenix/phoenix-queryserver-6.0.0/phoenix-queryserver-6.0.0-bin.tar.gz">https://dlcdn.apache.org/phoenix/phoenix-queryserver-6.0.0/phoenix-queryserver-6.0.0-bin.tar.gz</a></p>
+</blockquote>
+<ul>
+<li>将phoenix中的<code>phoenix-client-hbase-2.3-5.1.2.jar</code>以及<code>phoenix-server-hbase-2.3-5.1.2.jar</code>放到queryserver的bin目录</li>
+<li>将<code>phoenix/bin/hbase-site.xml</code>放到<code>queryserver/bin</code>目录下</li>
+</ul>
+<p>配置queryserver的原文如下:</p>
+<blockquote>
+<p>The server is packaged in a standalone jar, <code>phoenix-queryserver-&lt;version&gt;.jar</code>. This jar, the <code>phoenix-client.jar</code> and <code>HBASE_CONF_DIR</code> on the classpath are all that is required to launch the server.</p>
+</blockquote>
+<p>开启queryserver服务:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> bin</span><br><span class="line">python2 queryserver.py </span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>需要使用<code>python2</code>开启</p>
+</blockquote>
+<p>使用python测试</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> phoenixdb</span><br><span class="line"><span class="keyword">import</span> phoenixdb.cursor</span><br><span class="line">database_url = <span class="string">&quot;http://localhost:8765/&quot;</span></span><br><span class="line"></span><br><span class="line">conn = phoenixdb.connect(database_url, autocommit=<span class="literal">True</span>, cursor_factory=phoenixdb.cursor.DictCursor)</span><br><span class="line">cursor = conn.cursor() </span><br><span class="line">sql = <span class="string">&quot;select * from STOCK_SYMBOL&quot;</span>  </span><br><span class="line">cursor.execute(sql)</span><br><span class="line">cursor.fetchall()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li>Mac下安装HBase及详解. <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/510e1d599123">https://www.jianshu.com/p/510e1d599123</a></li>
+<li>本地模式下搭建Hbase（使用自带的zookeeper）. <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42369418/article/details/99440946">https://blog.csdn.net/weixin_42369418/article/details/99440946</a></li>
+<li>bogon: nodename nor servname provided, or not known–异常. <a target="_blank" rel="noopener" href="https://blog.uproject.cn/articles/2016/07/16/1468684624515.html">https://blog.uproject.cn/articles/2016/07/16/1468684624515.html</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/01/17/bigdata/hbase/" data-id="cl85d5h2l000bi99oe48hc01m" data-title="Hbase使用教程" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hbase/" rel="tag">Hbase</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-bigdata" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/01/17/bigdata/" class="article-date">
+  <time class="dt-published" datetime="2022-01-17T03:00:44.000Z" itemprop="datePublished">2022-01-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/01/17/bigdata/">Hbase安装与应用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/01/17/bigdata/" data-id="cl85d5h260000i99ofyiehi3k" data-title="Hbase安装与应用" class="article-share-link">Teilen</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other/job_spider" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/01/10/other/job_spider/" class="article-date">
+  <time class="dt-published" datetime="2022-01-10T05:32:31.000Z" itemprop="datePublished">2022-01-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/01/10/other/job_spider/">就业信息爬取与分析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h1><p>数据源为<code>51job</code>，通过指定的城市代码与岗位名称来构造请求的url，核心的构造url的代码如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">city_config = &#123;</span><br><span class="line">    <span class="string">&#x27;shenzhen&#x27;</span>: <span class="string">&#x27;040000&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;guangzhou&#x27;</span>: <span class="string">&#x27;030200&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">city = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gen_url</span>(<span class="params">self, i=<span class="number">1</span></span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    生成待爬虫的Url</span></span><br><span class="line"><span class="string">    params: i为页码</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    self.url = <span class="string">f&#x27;https://search.51job.com/list/<span class="subst">&#123;self.city_config[self.city]&#125;</span>,000000,0000,00,9,99,&#x27;</span> + self.keyword + <span class="string">&quot;,2,&quot;</span> + <span class="built_in">str</span>(i) + <span class="string">&quot;.html&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>爬取的就业信息存储到JSON文件中，核心代码如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_json</span>(<span class="params">self, data</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;写入文件&quot;&quot;&quot;</span></span><br><span class="line">    path = self.data_dir + <span class="string">f&#x27;/<span class="subst">&#123;self.keyword&#125;</span>_<span class="subst">&#123;self.city&#125;</span>_<span class="subst">&#123;time.time()&#125;</span>.json&#x27;</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(path, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;UTF-8&#x27;</span>) <span class="keyword">as</span> wp:</span><br><span class="line">        json.dump(data, wp, ensure_ascii=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<p>数据格式如下所示:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;engine_jds&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;jt&quot;</span>: <span class="string">&quot;0_0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;tags&quot;</span>: [],</span><br><span class="line">    <span class="attr">&quot;ad_track&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;jobid&quot;</span>: <span class="string">&quot;98192508&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;coid&quot;</span>: <span class="string">&quot;4865021&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;effect&quot;</span>: <span class="string">&quot;1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;is_special_job&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;job_href&quot;</span>: <span class="string">&quot;https://jobs.51job.com/guangzhou-hpq/98192508.html?s=sou_sou_soulb&amp;t=0_0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;job_name&quot;</span>: <span class="string">&quot;Python全栈开发&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;job_title&quot;</span>: <span class="string">&quot;Python全栈开发&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;company_href&quot;</span>: <span class="string">&quot;https://jobs.51job.com/all/co4865021.html&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;company_name&quot;</span>: <span class="string">&quot;广东珺桦能源科技有限公司&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;providesalary_text&quot;</span>: <span class="string">&quot;0.6-1.2万/月&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;workarea&quot;</span>: <span class="string">&quot;030206&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;workarea_text&quot;</span>: <span class="string">&quot;广州-黄埔区&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;updatedate&quot;</span>: <span class="string">&quot;12-24&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;iscommunicate&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;companytype_text&quot;</span>: <span class="string">&quot;民营公司&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;degreefrom&quot;</span>: <span class="string">&quot;6&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;workyear&quot;</span>: <span class="string">&quot;4&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;issuedate&quot;</span>: <span class="string">&quot;2021-12-24 09:05:24&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;isFromXyz&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;isIntern&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;jobwelf&quot;</span>: <span class="string">&quot;五险一金 员工旅游 绩效奖金 年终奖金 定期体检 餐饮补贴&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;jobwelf_list&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;五险一金&quot;</span>,</span><br><span class="line">        <span class="string">&quot;员工旅游&quot;</span>,</span><br><span class="line">        <span class="string">&quot;绩效奖金&quot;</span>,</span><br><span class="line">        <span class="string">&quot;年终奖金&quot;</span>,</span><br><span class="line">        <span class="string">&quot;定期体检&quot;</span>,</span><br><span class="line">        <span class="string">&quot;餐饮补贴&quot;</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;isdiffcity&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;attribute_text&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;广州-黄埔区&quot;</span>,</span><br><span class="line">        <span class="string">&quot;2年经验&quot;</span>,</span><br><span class="line">        <span class="string">&quot;本科&quot;</span>,</span><br><span class="line">        <span class="string">&quot;招2人&quot;</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;companysize_text&quot;</span>: <span class="string">&quot;少于50人&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;companyind_text&quot;</span>: <span class="string">&quot;电气/电力/水利&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;adid&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h2 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h2><p>使用决策树进行薪资的预测，本研究将薪资预测转化成一个<code>回归任务</code>，即根据一系列的<code>特征</code>来取预测具体的<code>薪资</code>。其中选择的特征主要包括：</p>
+<ul>
+<li>城市</li>
+<li>公司类型</li>
+<li>公司规模</li>
+<li>学历</li>
+<li>工作年限</li>
+<li>福利待遇</li>
+<li>工作经验<br>主要涉及的工作为对针对这些特征进行预处理-&gt;转化成向量-&gt;数据切分-&gt;决策树模型训练<br>其核心的代码如下图所示:</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeRegressor</span><br><span class="line">regressor = DecisionTreeRegressor()</span><br><span class="line">regressor.fit(X_train, y_train)</span><br></pre></td></tr></table></figure>
+
+<p>其中反映模型拟合度的图如下所示：</p>
+<p><img src="0_decision_tree_pred.png" alt="模型拟合度"></p>
+<h2 id="Aprori"><a href="#Aprori" class="headerlink" title="Aprori"></a>Aprori</h2><p>使用关联规则来挖掘企业用人单位对于薪资、岗位要求、福利待遇的相似点，通过选择一系列特征数据来构造数据集，如下所示：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">[[&#x27;薪资: 0.8万-1.0万&#x27;, &#x27;深圳-南山区&#x27;, &#x27;无需经验&#x27;, &#x27;大专&#x27;, &#x27;招2人&#x27;, &#x27;民营公司&#x27;],</span><br><span class="line"> [&#x27;薪资: 2.5万-3.0万&#x27;,</span><br><span class="line">  &#x27;深圳-福田区&#x27;,</span><br><span class="line">  &#x27;5-7年经验&#x27;,</span><br><span class="line">  &#x27;本科&#x27;,</span><br><span class="line">  &#x27;招1人&#x27;,</span><br><span class="line">  &#x27;民营公司&#x27;,</span><br><span class="line">  &#x27;150-500人&#x27;,</span><br><span class="line">  &#x27;五险一金&#x27;],</span><br><span class="line"> [&#x27;薪资: 2.5万-5.0万&#x27;,</span><br><span class="line">  &#x27;深圳-南山区&#x27;,</span><br><span class="line">  &#x27;5-7年经验&#x27;,</span><br><span class="line">  &#x27;本科&#x27;,</span><br><span class="line">  &#x27;招1人&#x27;,</span><br><span class="line">  &#x27;上市公司&#x27;,</span><br><span class="line">  &#x27;500-1000人&#x27;,</span><br><span class="line">  &#x27;五险一金&#x27;,</span><br><span class="line">  &#x27;员工旅游&#x27;,</span><br><span class="line">  &#x27;年终奖金&#x27;,</span><br><span class="line">  &#x27;定期体检&#x27;],</span><br><span class="line"> [&#x27;薪资: 2.5万-3.0万&#x27;,</span><br><span class="line">  &#x27;深圳&#x27;,</span><br><span class="line">  &#x27;3-4年经验&#x27;,</span><br><span class="line">  &#x27;本科&#x27;,</span><br><span class="line">  &#x27;招1人&#x27;,</span><br><span class="line">  &#x27;民营公司&#x27;,</span><br><span class="line">  &#x27;50-150人&#x27;,</span><br><span class="line">  &#x27;五险一金&#x27;,</span><br><span class="line">  &#x27;年终奖金&#x27;,</span><br><span class="line">  &#x27;绩效奖金&#x27;,</span><br><span class="line">  &#x27;年底双薪&#x27;,</span><br><span class="line">  &#x27;交通补贴&#x27;,</span><br><span class="line">  &#x27;餐饮补贴&#x27;,</span><br><span class="line">  &#x27;股票期权&#x27;,</span><br><span class="line">  &#x27;员工旅游&#x27;],</span><br></pre></td></tr></table></figure>
+
+<p>然后设置关联规则的<code>最小支持度</code>以及<code>置信度</code>可以得到频繁项集，如下图所示：</p>
+<p><img src="1_%E9%A2%91%E7%B9%81%E9%A1%B9%E9%9B%86.png" alt="频繁项集"></p>
+<p>最后的关联规则如下图所示:</p>
+<p><img src="2_%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99.png" alt="关联规则"></p>
+<p>可以看到的是:</p>
+<blockquote>
+<p>薪资在<code>1万到1.5万之间</code>的学历要求均为<code>本科</code>，同时需要<code>1年经验</code>，在福利待遇上面，都会提供<code>绩效奖金</code>与<code>五险一金</code>。</p>
+</blockquote>
+<p>核心代码如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">te = TransactionEncoder()</span><br><span class="line">te_ary = te.fit(train_data).transform(train_data)</span><br><span class="line">train_df = pd.DataFrame(te_ary,columns=te.columns_)</span><br><span class="line">frequent_itemsets = apriori(train_df,min_support=<span class="number">0.01</span>,use_colnames=<span class="literal">True</span>)</span><br><span class="line">association_rule = association_rules(frequent_itemsets,metric=<span class="string">&#x27;confidence&#x27;</span>,min_threshold=<span class="number">0.95</span>)	<span class="comment"># metric可以有很多的度量选项，返回的表列名都可以作为参数</span></span><br><span class="line">association_rule.sort_values(by=<span class="string">&#x27;leverage&#x27;</span>,ascending=<span class="literal">False</span>,inplace=<span class="literal">True</span>)    <span class="comment">#关联规则可以按leverage排序</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Django可视化展示"><a href="#Django可视化展示" class="headerlink" title="Django可视化展示"></a>Django可视化展示</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># settings.py</span></span><br><span class="line">SIMPLEUI_CONFIG = &#123;</span><br><span class="line">    <span class="string">&#x27;system_keep&#x27;</span>: <span class="literal">False</span>,</span><br><span class="line">    <span class="string">&#x27;menu_display&#x27;</span>: [<span class="string">&#x27;薪资统计&#x27;</span>, <span class="string">&#x27;工作经验要求统计&#x27;</span>, <span class="string">&#x27;学历统计&#x27;</span>, <span class="string">&#x27;公司类型统计&#x27;</span>, <span class="string">&#x27;福利统计&#x27;</span>, <span class="string">&#x27;岗位要求统计&#x27;</span>],      <span class="comment"># 开启排序和过滤功能, 不填此字段为默认排序和全部显示, 空列表[] 为全部不显示.</span></span><br><span class="line">    <span class="string">&#x27;dynamic&#x27;</span>: <span class="literal">True</span>, </span><br><span class="line">    <span class="string">&#x27;menus&#x27;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;薪资统计&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;icon&#x27;</span>: <span class="string">&#x27;fa fa-chart-bar&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;url&#x27;</span>: <span class="string">&#x27;/bar/?type=salary&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;工作经验要求统计&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;icon&#x27;</span>: <span class="string">&#x27;fa fa-chart-pie&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;url&#x27;</span>: <span class="string">&#x27;/bar/?type=avg_exp&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;学历统计&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;icon&#x27;</span>: <span class="string">&#x27;fa fa-chart-pie&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;url&#x27;</span>: <span class="string">&#x27;/bar/?type=degree&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;公司类型统计&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;icon&#x27;</span>: <span class="string">&#x27;fa fa-chart-pie&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;url&#x27;</span>: <span class="string">&#x27;/bar/?type=companytype_text&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;福利统计&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;icon&#x27;</span>: <span class="string">&#x27;fa fa-chart-bar&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;url&#x27;</span>: <span class="string">&#x27;/wordcloud/?type=welf&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;岗位要求统计&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;icon&#x27;</span>: <span class="string">&#x27;fa fa-chart-bar&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;url&#x27;</span>: <span class="string">&#x27;/wordcloud/?type=attribute&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># views.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="keyword">from</span> mysite.settings <span class="keyword">import</span> BASE_DIR</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create your views here.</span></span><br><span class="line">data_df = pd.read_csv(BASE_DIR / <span class="string">&#x27;app&#x27;</span> / <span class="string">&#x27;train_data.csv&#x27;</span>)</span><br><span class="line"><span class="comment"># 薪资</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_salary</span>(<span class="params">salary</span>):</span></span><br><span class="line">    <span class="keyword">if</span> salary &lt; <span class="number">0.5</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&lt;0.5万&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="number">0.5</span> &lt;= salary &lt; <span class="number">1.0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;0.5万-1万&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="number">1.0</span> &lt;= salary &lt; <span class="number">1.5</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;1万-1.5万&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="number">1.5</span> &lt;= salary &lt;= <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;1.5万-2万&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="number">2</span> &lt;= salary &lt; <span class="number">2.5</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;2万-2.5万&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="number">2.5</span> &lt;= salary &lt; <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;2.5万-3万&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="number">3</span> &lt; salary:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&gt;3万&#x27;</span></span><br><span class="line">data_df[<span class="string">&#x27;salary&#x27;</span>] = data_df[<span class="string">&#x27;mean_y&#x27;</span>].apply(process_salary)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 工作经验</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_exp</span>(<span class="params">exp</span>):</span></span><br><span class="line">    <span class="keyword">if</span> exp == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;无经验要求&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">f&#x27;<span class="subst">&#123;<span class="built_in">int</span>(exp)&#125;</span>年经验&#x27;</span></span><br><span class="line">data_df[<span class="string">&#x27;avg_exp&#x27;</span>] = data_df[<span class="string">&#x27;avg_exp&#x27;</span>].apply(process_exp)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">group_count</span>(<span class="params">key</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    分组统计</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> data_df[key].groupby(data_df[key]).count().to_frame().to_dict()[key]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bar_plot</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    _<span class="built_in">type</span> = request.GET.get(<span class="string">&#x27;type&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    template = <span class="string">&#x27;bar.html&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> _<span class="built_in">type</span> == <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">        key = <span class="string">&#x27;salary&#x27;</span></span><br><span class="line">        title = <span class="string">&#x27;薪资范围统计&#x27;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        key = _<span class="built_in">type</span></span><br><span class="line"></span><br><span class="line">    data = group_count(key)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> _<span class="built_in">type</span> == <span class="string">&#x27;salary&#x27;</span>: <span class="comment"># 薪资统计</span></span><br><span class="line">        title = <span class="string">&#x27;薪资范围统计&#x27;</span></span><br><span class="line">        template = <span class="string">&#x27;bar.html&#x27;</span></span><br><span class="line">    <span class="keyword">elif</span> _<span class="built_in">type</span> == <span class="string">&#x27;degree&#x27;</span>:</span><br><span class="line">        title = <span class="string">&#x27;学历要求统计&#x27;</span></span><br><span class="line">        template = <span class="string">&#x27;pie.html&#x27;</span></span><br><span class="line">    <span class="keyword">elif</span> _<span class="built_in">type</span> == <span class="string">&#x27;companytype_text&#x27;</span>:</span><br><span class="line">        title = <span class="string">&#x27;公司类型统计&#x27;</span></span><br><span class="line">        template = <span class="string">&#x27;pie.html&#x27;</span></span><br><span class="line">    <span class="keyword">elif</span> _<span class="built_in">type</span> == <span class="string">&#x27;avg_exp&#x27;</span>:</span><br><span class="line">        title = <span class="string">&#x27;工作经验要求统计&#x27;</span></span><br><span class="line">        template = <span class="string">&#x27;pie.html&#x27;</span></span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    x = <span class="built_in">list</span>(data.keys())</span><br><span class="line">    y = <span class="built_in">list</span>(data.values())</span><br><span class="line">    x = json.dumps(x, ensure_ascii=<span class="literal">False</span>)</span><br><span class="line">    y = json.dumps(y, ensure_ascii=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">f&#x27;app/<span class="subst">&#123;template&#125;</span>&#x27;</span>, &#123;<span class="string">&#x27;x&#x27;</span>: x, <span class="string">&#x27;y&#x27;</span>: y, <span class="string">&#x27;title&#x27;</span>: title&#125;)</span><br><span class="line"></span><br><span class="line">orignal_data_df = pd.read_csv(BASE_DIR / <span class="string">&#x27;app/data.csv&#x27;</span>)</span><br><span class="line">welfs = []</span><br><span class="line">attributes = []</span><br><span class="line"><span class="keyword">for</span> _, row <span class="keyword">in</span> orignal_data_df.iterrows():</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        attributes += <span class="built_in">eval</span>(row[<span class="string">&quot;attribute_text&quot;</span>])</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        welfs += row[<span class="string">&#x27;jobwelf&#x27;</span>].split(<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line">welfs = <span class="built_in">dict</span>(Counter(welfs).most_common())</span><br><span class="line">welfs = [&#123;<span class="string">&quot;name&quot;</span>: k, <span class="string">&quot;value&quot;</span>: v&#125; <span class="keyword">for</span> k, v <span class="keyword">in</span> welfs.items()]</span><br><span class="line"></span><br><span class="line">attributes = <span class="built_in">dict</span>(Counter(attributes).most_common())</span><br><span class="line">attributes = [&#123;<span class="string">&quot;name&quot;</span>: k, <span class="string">&quot;value&quot;</span>: v&#125; <span class="keyword">for</span> k, v <span class="keyword">in</span> attributes.items()]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">word_cloud</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    词云图</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    _<span class="built_in">type</span> = request.GET.get(<span class="string">&#x27;type&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> _<span class="built_in">type</span> == <span class="string">&#x27;welf&#x27;</span>:</span><br><span class="line">        data = welfs</span><br><span class="line">    <span class="keyword">elif</span> _<span class="built_in">type</span> == <span class="string">&#x27;attribute&#x27;</span>:</span><br><span class="line">        data = attributes</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        data = welfs</span><br><span class="line">        </span><br><span class="line">    data = json.dumps(data, ensure_ascii=<span class="literal">False</span>)</span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">&#x27;app/wordcloud.html&#x27;</span>, &#123;<span class="string">&#x27;data&#x27;</span>: data&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<!-- 
+# 参考链接
+
+1. mlxtend文档. http://rasbt.github.io/mlxtend/api_subpackages/mlxtend.frequent_patterns/
+2. 利用mlxtend进行数据关联分析. https://blog.csdn.net/qq_36523839/article/details/83960195
+3. 
+
+-->
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/01/10/other/job_spider/" data-id="cl85d5h51006fi99o1i4d95ws" data-title="就业信息爬取与分析" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; zurück</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/4/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">-CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Leetcode/">Leetcode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/django/">django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/sql/">sql</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1/">业务</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1%E6%8C%87%E6%A0%87/">业务指标</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/">中信证券</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/Django/">Django</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Flume/">Flume</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E9%9B%86/">数据集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/">毕业论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/">毕业设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/">秋招</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/%E9%9D%A2%E8%AF%95/">面试</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AF%95/">笔试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BA%E6%96%87/">论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/">银联实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">-leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flume/" rel="tag">Flume</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hbase/" rel="tag">Hbase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%9A%E5%8A%A1/" rel="tag">业务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" rel="tag">中信证券</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" rel="tag">时间序列预测</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" rel="tag">毕业论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" rel="tag">毕业设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%8B%E6%8B%9B/" rel="tag">秋招</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" rel="tag">金山实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" rel="tag">银联实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/leetcode/" style="font-size: 10px;">-leetcode</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Django/" style="font-size: 13.33px;">Django</a> <a href="/tags/Flume/" style="font-size: 10px;">Flume</a> <a href="/tags/Hbase/" style="font-size: 10px;">Hbase</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/SQL/" style="font-size: 18.89px;">SQL</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/leetcode/" style="font-size: 15.56px;">leetcode</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/%E4%B8%9A%E5%8A%A1/" style="font-size: 13.33px;">业务</a> <a href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" style="font-size: 11.11px;">中信证券</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 20px;">其他</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 13.33px;">大数据</a> <a href="/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 16.67px;">实习</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 11.11px;">工作</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" style="font-size: 10px;">时间序列预测</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12.22px;">机器学习</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" style="font-size: 14.44px;">毕业论文</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">毕业设计</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 12.22px;">爬虫</a> <a href="/tags/%E7%A7%8B%E6%8B%9B/" style="font-size: 13.33px;">秋招</a> <a href="/tags/%E7%AC%94%E8%AF%95/" style="font-size: 12.22px;">笔试</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 12.22px;">统计学</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 11.11px;">论文</a> <a href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" style="font-size: 13.33px;">金山实习</a> <a href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" style="font-size: 10px;">银联实习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 17.78px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/14/other/time_series_pred/">时间序列预测</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/01/other/customer_analysis_in_python/">用户价值分析</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/15/other/PEP8/">PEP-8: Python代码规范</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/29/other/fanqie/">番茄工作法</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/20/citics/neo4j_query_optimize/">neo4j查询调优</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

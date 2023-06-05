@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>rwqccnuimd的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="rwqccnuimd的博客">
+<meta property="og:url" content="http://example.com/page/10/index.html">
+<meta property="og:site_name" content="rwqccnuimd的博客">
+<meta property="og:locale">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="rwqccnuimd的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">rwqccnuimd的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-mianshi/pinduoduo" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/08/01/mianshi/pinduoduo/" class="article-date">
+  <time class="dt-published" datetime="2021-08-01T13:41:19.000Z" itemprop="datePublished">2021-08-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/08/01/mianshi/pinduoduo/">拼多多</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="提前批"><a href="#提前批" class="headerlink" title="提前批"></a>提前批</h1><h2 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h2><ol>
+<li>SQL题</li>
+</ol>
+<ul>
+<li>任意两个月份的销售额大于某一个值<blockquote>
+<p>用<code>case when</code></p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    mallid,</span><br><span class="line">    ordertime</span><br><span class="line"><span class="keyword">from</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="operator">*</span>,</span><br><span class="line">        <span class="keyword">case</span> <span class="keyword">when</span> amt <span class="operator">&gt;=</span> <span class="number">100000</span> <span class="keyword">then</span> <span class="number">1</span> <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span> <span class="keyword">as</span> if_ok</span><br><span class="line">    <span class="keyword">from</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            mallid,</span><br><span class="line">            <span class="keyword">month</span>(ordertime) <span class="keyword">as</span> ordertime,</span><br><span class="line">            <span class="built_in">sum</span>(amt) <span class="keyword">as</span> amt</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            base</span><br><span class="line">        <span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">            mallid,</span><br><span class="line">            <span class="keyword">month</span>(ordertime)</span><br><span class="line">    ) <span class="keyword">as</span> a</span><br><span class="line">) <span class="keyword">as</span> a </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    mallid,</span><br><span class="line">    ordertime</span><br><span class="line"><span class="keyword">having</span></span><br><span class="line">    <span class="built_in">sum</span>(amt) <span class="operator">&gt;=</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>自己做得项目</li>
+<li>假设检验</li>
+<li>大数定理</li>
+<li>决策树确定最大的子树</li>
+<li>开放题<ul>
+<li>确定今年的GDP为6%，如何规划<blockquote>
+<p>强调的是指标的拆解，比如按照地区、按照产业细分</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/01/mianshi/pinduoduo/" data-id="cl85d5h3r0036i99o0pgf28l4" data-title="拼多多" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A7%8B%E6%8B%9B/" rel="tag">秋招</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other/boss_lagou_spider" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/30/other/boss_lagou_spider/" class="article-date">
+  <time class="dt-published" datetime="2021-07-30T02:40:41.000Z" itemprop="datePublished">2021-07-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/30/other/boss_lagou_spider/">Boss/拉勾网爬虫</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>需要帮助女朋友统计市面上游戏公司的薪资水平，因此需要从<code>boss</code>以及<code>拉钩</code>上爬取给定的游戏公司内发布的所有职位的招聘信息，通过从Github上clone下来的一些代码以及CSDN上的博客，发现总体上爬取方式有两种：</p>
+<ol>
+<li>requests构造请求头，携带上cookie发送请求，从而返回一个JSON，进而去取数据。</li>
+<li>使用<code>selenium</code>控制浏览器爬取。</li>
+</ol>
+<p>但是自己在实操中发现了以下的问题:</p>
+<ol>
+<li>挂上cookie爬取很容易遇到反爬的问题。</li>
+<li>由于拉勾网在打开网页的时候在加载完<code>doc</code>会加载ajax请求，因此selenium设置的<code>等待时间</code>不可控，经常会闪退。</li>
+</ol>
+<p>通过看这位<a target="_blank" rel="noopener" href="https://github.com/xianyunyh/spider_job">大神</a>的代码发现可以通过以下的方式来解决问题:</p>
+<ol>
+<li>用<code>手机端</code>的拉钩接口。</li>
+<li>用代理IP,我用的是快代理，还可以。</li>
+<li>每一轮爬取都<code>sleep</code>5到20秒钟。<br>通过使用浏览器调试手机端的拉钩，可以看到手机端API的一个demo:</li>
+</ol>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://gate.lagou.com/v1/entry/position/queryByCompany?companyId=451&amp;showId=null&amp;positionType=&amp;city=&amp;pageNo=1&amp;pageSize=10&amp;workYear=&amp;salary=&amp;_t=1627612742833</span><br></pre></td></tr></table></figure>
+<p>上面的demo为查看某一个公司发布的岗位。</p>
+<blockquote>
+<p>凡是碰到有封锁IP的网站都可以使用谷歌浏览器调试，尝试使用手机端的接口</p>
+</blockquote>
+<h1 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://github.com/xianyunyh/spider_job">https://github.com/xianyunyh/spider_job</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/30/other/boss_lagou_spider/" data-id="cl85d5h4k005ki99o4fr486gc" data-title="Boss/拉勾网爬虫" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-sql/leijiqiuhe" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/28/sql/leijiqiuhe/" class="article-date">
+  <time class="dt-published" datetime="2021-07-28T09:44:50.000Z" itemprop="datePublished">2021-07-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/SQL/">SQL</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/28/sql/leijiqiuhe/">累计求和问题与滑动求和问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="题目1"><a href="#题目1" class="headerlink" title="题目1"></a>题目1</h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>已知数据表<code>Activity</code><br><img src="https://img-blog.csdnimg.cn/20200717211034388.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2RocjIyMw==,size_16,color_FFFFFF,t_70"><br>每一行是一个玩家的记录，他在某一天使用某个设备注销之前登录并玩了很多游戏（可能是 0 ）。<br>编写一个 SQL 查询，同时报告每组玩家和日期，以及玩家到目前为止玩了多少游戏。也就是<code>在此日期之前玩家所玩的游戏总数</code>。<br>查询结果如下:<br><img src="https://img-blog.csdnimg.cn/20200717211232404.png"></p>
+<p>对于 ID 为 1 的玩家，2016-05-02 共玩了 5+6=11 个游戏，2017-06-25 共玩了 5+6+1=12 个游戏。<br>对于 ID 为 3 的玩家，2018-07-03 共玩了 0+5=5 个游戏。<br>请注意，对于每个玩家，我们只关心玩家的登录日期。</p>
+<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><h3 id="使用自链接来解决问题"><a href="#使用自链接来解决问题" class="headerlink" title="使用自链接来解决问题"></a>使用自链接来解决问题</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">	a.player_id,</span><br><span class="line">	a.event_date,</span><br><span class="line">	<span class="built_in">sum</span>(b.games_played)</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">	`累计求和_activity` <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span></span><br><span class="line">	`累计求和_activity` <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">	a.player_id <span class="operator">=</span> b.player_id</span><br><span class="line">	<span class="keyword">and</span> a.event_date <span class="operator">&gt;=</span> b.event_date</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">	a.player_id,</span><br><span class="line">	a.event_date</span><br></pre></td></tr></table></figure>
+
+<p>类似于求留存率，自己与自己连接之后的结果为:<br><img src="https://img-blog.csdnimg.cn/20200717212814624.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2RocjIyMw==,size_16,color_FFFFFF,t_70"></p>
+<p>然后求出来截止到某一个日期话就需要再次过滤，也就是</p>
+<blockquote>
+<p>左表的日期要大于等于右表<br>最后进行分组聚合对右表进行sum</p>
+</blockquote>
+<h3 id="使用窗口函数"><a href="#使用窗口函数" class="headerlink" title="使用窗口函数"></a>使用窗口函数</h3><p>核心的要点在于:</p>
+<blockquote>
+<p>order by：表面是排序功能，实际是累计功能！！！</p>
+</blockquote>
+<p>所以当一些聚合函数（sum、avg、min、max等）和窗口函数连用的时候，<code>order by 就是起累计作用的</code>。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">	player_id,</span><br><span class="line">	event_date,</span><br><span class="line">	<span class="built_in">sum</span>(games_played) <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> player_id <span class="keyword">order</span> <span class="keyword">by</span> event_date) <span class="comment">-- 截止到event_date来做累计求和</span></span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">	`累计求和_activity`</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li>hive中over来完成累计求和. <a target="_blank" rel="noopener" href="https://www.codenong.com/cs105190396/">https://www.codenong.com/cs105190396/</a></li>
+<li>(超详细一文看懂）MySQL累计求和问题及窗口函数order by的原理. <a target="_blank" rel="noopener" href="https://blog.csdn.net/dhr223/article/details/107413344">https://blog.csdn.net/dhr223/article/details/107413344</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/28/sql/leijiqiuhe/" data-id="cl85d5h5s008xi99oghch3rh3" data-title="累计求和问题与滑动求和问题" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other/hadoop_install" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/28/other/hadoop_install/" class="article-date">
+  <time class="dt-published" datetime="2021-07-28T09:39:21.000Z" itemprop="datePublished">2021-07-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/28/other/hadoop_install/">MAC上hadoop全家桶安装</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="版本对应问题"><a href="#版本对应问题" class="headerlink" title="版本对应问题"></a>版本对应问题</h1><ul>
+<li>hadoop==3.2.2</li>
+<li>java=1.8</li>
+</ul>
+<h1 id="1-安装jdk1-8"><a href="#1-安装jdk1-8" class="headerlink" title="1. 安装jdk1.8"></a>1. 安装jdk1.8</h1><p>下载链接: <a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javasebusiness/downloads/">http://www.oracle.com/technetwork/java/javasebusiness/downloads/</a></p>
+<blockquote>
+<p>mac在安装java的时候会默认把java添加进环境变量</p>
+</blockquote>
+<p>除此之外，还需要自己去配置环境变量。</p>
+<h1 id="2-安装hadoop3-2-2"><a href="#2-安装hadoop3-2-2" class="headerlink" title="2. 安装hadoop3.2.2"></a>2. 安装hadoop3.2.2</h1><p>下载链接: <a target="_blank" rel="noopener" href="https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-3.2.2/hadoop-3.2.2.tar.gz">https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-3.2.2/hadoop-3.2.2.tar.gz</a><br>或者从清华镜像里面去下载：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-3.2.2/hadoop-3.2.2.tar.gz">https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-3.2.2/hadoop-3.2.2.tar.gz</a></p>
+<p>运行wordcount程序的时候报错如下：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[2021-12-15 23:57:46.370]Container exited with a non-zero exit code 127. Error file: prelaunch.err.</span><br><span class="line">Last 4096 bytes of prelaunch.err :</span><br><span class="line">Last 4096 bytes of stderr :</span><br><span class="line">/bin/bash: /Library/Internet: No such file or directory</span><br></pre></td></tr></table></figure>
+
+<p>原因在于hadoop默认使用的java_home是环境变量为<code>/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home</code>，我们需要指定我们使用的是自己<code>设定的JAVA_HOME</code>，具体需要做的是修改<code>etc/hadoop/hadoop-env.sh</code>里面的<code>JAVA_HOME</code>，然后cd到这个目录里面去<code>sh hadoop-env.sh</code>，最后重启即可完成！</p>
+<p><code>hadoop-env.sh</code>修改如下:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 54行</span></span><br><span class="line">export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="3-运行hadoop"><a href="#3-运行hadoop" class="headerlink" title="3. 运行hadoop"></a>3. 运行hadoop</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">start-all.sh</span><br><span class="line">jps # 查看是否已经启动</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-安装Hive"><a href="#4-安装Hive" class="headerlink" title="4. 安装Hive"></a>4. 安装Hive</h1><h2 id="4-1-下载Hive"><a href="#4-1-下载Hive" class="headerlink" title="4.1 下载Hive"></a>4.1 下载Hive</h2><p>注意版本：<code>3.1.2</code>与hadoop3.2.2对应，下载地址为: <a target="_blank" rel="noopener" href="https://dlcdn.apache.org/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz">https://dlcdn.apache.org/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz</a><br>也可以使用清华镜像，地址为<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/apache/hive/hive-3.1.2/">https://mirrors.tuna.tsinghua.edu.cn/apache/hive/hive-3.1.2/</a></p>
+<p>下载好之后放到<code>/Library/Hive</code>文件夹里面，然后添加环境变量:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export HIVE_HOME=/Library/Hive/apache-hive-3.1.2-bin</span><br><span class="line">export PATH=$HIVE_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
+
+<p>在命令行中输入<code>hive</code>后报错信息如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">SLF4J: Found binding in [jar:file:/Library/Hive/apache-hive-3.1.2-bin/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: Found binding in [jar:file:/Library/Hadoop/hadoop-3.2.2/share/hadoop/common/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]</span><br><span class="line">SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.</span><br><span class="line">SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]</span><br><span class="line">Exception in thread &quot;main&quot; java.lang.NoSuchMethodError: com.google.common.base.Preconditions.checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V</span><br><span class="line">    at org.apache.hadoop.conf.Configuration.set(Configuration.java:1357)</span><br><span class="line">    at org.apache.hadoop.conf.Configuration.set(Configuration.java:1338)</span><br><span class="line">    at org.apache.hadoop.mapred.JobConf.setJar(JobConf.java:536)</span><br><span class="line">    at org.apache.hadoop.mapred.JobConf.setJarByClass(JobConf.java:554)</span><br><span class="line">    at org.apache.hadoop.mapred.JobConf.&lt;init&gt;(JobConf.java:448)</span><br><span class="line">    at org.apache.hadoop.hive.conf.HiveConf.initialize(HiveConf.java:5141)</span><br><span class="line">    at org.apache.hadoop.hive.conf.HiveConf.&lt;init&gt;(HiveConf.java:5099)</span><br><span class="line">    at org.apache.hadoop.hive.common.LogUtils.initHiveLog4jCommon(LogUtils.java:97)</span><br><span class="line">    at org.apache.hadoop.hive.common.LogUtils.initHiveLog4j(LogUtils.java:81)</span><br><span class="line">    at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:699)</span><br><span class="line">    at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:683)</span><br><span class="line">    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</span><br><span class="line">    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)</span><br><span class="line">    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</span><br><span class="line">    at java.lang.reflect.Method.invoke(Method.java:483)</span><br><span class="line">    at org.apache.hadoop.util.RunJar.run(RunJar.java:323)</span><br><span class="line">    at org.apache.hadoop.util.RunJar.main(RunJar.java:236)</span><br></pre></td></tr></table></figure>
+
+<p>这个原因是在于hive中的包与hadoop中的包没有对应上所导致的，解决方法是:</p>
+<ol>
+<li><p>com.google.common.base.Preconditions.checkArgument这个类所在的jar包为：guava.jar</p>
+</li>
+<li><p>hadoop-3.2.2（路径：hadoop\share\hadoop\common\lib）中该jar包为 cd ；而hive-3.1.2(路径：hive/lib)中该jar包为guava-19.0.1.jar</p>
+</li>
+<li><p>将jar包变成一致的版本：删除hive中低版本jar包，将hadoop中高版本的复制到hive的lib中。同时也需要把这个放到flume的lib文件夹。</p>
+</li>
+</ol>
+<p>以上内容复制自该博客<a target="_blank" rel="noopener" href="https://www.cnblogs.com/syq816/p/12632028.html">hive启动报错</a></p>
+<h2 id="4-2-下载Mysql驱动"><a href="#4-2-下载Mysql驱动" class="headerlink" title="4.2 下载Mysql驱动"></a>4.2 下载Mysql驱动</h2><p>下载地址: <a target="_blank" rel="noopener" href="https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-8.0.27.tar.gz">https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-8.0.27.tar.gz</a></p>
+<p>然后放到<code>lib</code>目录下。</p>
+<h2 id="4-3-在mysql中创建metastore数据表"><a href="#4-3-在mysql中创建metastore数据表" class="headerlink" title="4.3 在mysql中创建metastore数据表"></a>4.3 在mysql中创建<code>metastore</code>数据表</h2><h2 id="4-4-创建conf-hive-site-xml"><a href="#4-4-创建conf-hive-site-xml" class="headerlink" title="4.4 创建conf/hive-site.xml"></a>4.4 创建conf/hive-site.xml</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- 配置mysql --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionURL<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">value</span>&gt;</span>jdbc:mysql://localhost:3306/metastore?createDatabaseIfNotExist=true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionDriverName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">value</span>&gt;</span>com.mysql.cj.jdbc.Driver<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionUserName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">value</span>&gt;</span>hive<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionPassword<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">value</span>&gt;</span>hive<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-4-初始化schema"><a href="#4-4-初始化schema" class="headerlink" title="4.4 初始化schema"></a>4.4 初始化schema</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">schematool -initSchema -dbType mysql</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="4-5-创建一个表来测试"><a href="#4-5-创建一个表来测试" class="headerlink" title="4.5 创建一个表来测试"></a>4.5 创建一个表来测试</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hive</span><br><span class="line">create table test(a string, b int);</span><br><span class="line">show databases;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="5-flume"><a href="#5-flume" class="headerlink" title="5. flume"></a>5. flume</h1><h2 id="5-1-下载链接"><a href="#5-1-下载链接" class="headerlink" title="5.1 下载链接"></a>5.1 下载链接</h2><p>可以使用官方的：<a target="_blank" rel="noopener" href="https://dlcdn.apache.org/flume/1.9.0/apache-flume-1.9.0-bin.tar.gz">https://dlcdn.apache.org/flume/1.9.0/apache-flume-1.9.0-bin.tar.gz</a></p>
+<p>也可以使用清华镜像: <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/apache/flume/1.9.0/apache-flume-1.9.0-bin.tar.gz">https://mirrors.tuna.tsinghua.edu.cn/apache/flume/1.9.0/apache-flume-1.9.0-bin.tar.gz</a></p>
+<h2 id="5-2-安装"><a href="#5-2-安装" class="headerlink" title="5.2 安装"></a>5.2 安装</h2><p>编辑<code>.bash_profile</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> add flume</span></span><br><span class="line">export FLUME_HOME=/Library/Hadoop/Flume/apache-flume-1.9.0-bin</span><br><span class="line">export FLUME_CONF_DIR=$FLUME_HOME/conf</span><br><span class="line">export PATH=$FLUME_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-3-配置conf-flume-env-sh"><a href="#5-3-配置conf-flume-env-sh" class="headerlink" title="5.3 配置conf/flume-env.sh"></a>5.3 配置<code>conf/flume-env.sh</code></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_141.jdk/Contents/Home</span><br><span class="line">export JAVA_OPTS=&quot;-Xms100m -Xmx2000m -Dcom.sun.management.jmxremote&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-4-测试"><a href="#5-4-测试" class="headerlink" title="5.4 测试"></a>5.4 测试</h2><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">flume-ng version</span><br><span class="line"></span><br><span class="line">Source code repository: https://git-wip-us.apache.org/repos/asf/flume.git</span><br><span class="line">Revision: d4fcab4f501d41597bc616921329a4339f73585e</span><br><span class="line">Compiled by fszabo on Mon Dec 17 20:45:25 CET 2018</span><br><span class="line">From source with checksum 35db629a3bda49d23e9b3690c80737f9</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>windows电脑上如果需要hive的话需要将hive加入到环境变量</p>
+</blockquote>
+<h1 id="6-Spark"><a href="#6-Spark" class="headerlink" title="6. Spark"></a>6. Spark</h1><p>Spark与Hadoop是一脉相承的，可以认为是MapReduce2.0。使用spark之前首先需要安装<code>scala</code>。</p>
+<h2 id="6-1-下载安装scala"><a href="#6-1-下载安装scala" class="headerlink" title="6.1 下载安装scala"></a>6.1 下载安装scala</h2><p>下载<code>scala2.12.13</code>(<a target="_blank" rel="noopener" href="https://downloads.lightbend.com/scala/2.12.13/scala-2.12.13.tgz))%EF%BC%8C%E7%84%B6%E5%90%8E%E6%94%BE%E5%88%B0%60/usr/local%60%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8C%E9%9D%A2%E5%8E%BB%E3%80%82">https://downloads.lightbend.com/scala/2.12.13/scala-2.12.13.tgz))，然后放到`/usr/local`文件夹里面去。</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local</span><br><span class="line">sudo mkdir scala</span><br><span class="line">mv ~/Downloads/scala-2.12.13.tgz ./</span><br><span class="line">sudo tar -zxvf scala-2.12.13.tgz</span><br><span class="line">sudo rm scala-2.12.13.tgz</span><br></pre></td></tr></table></figure>
+
+<p>编辑<code>.bash_profile</code>:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SCALA_HOME=/usr/local/scala/scala-2.12.13</span><br><span class="line">export PATH=$PATH:$SCALA_HOME/bin</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-2-下载安装spark"><a href="#6-2-下载安装spark" class="headerlink" title="6.2 下载安装spark"></a>6.2 下载安装spark</h2><p>下载<a target="_blank" rel="noopener" href="https://www.apache.org/dyn/closer.lua/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz"><code>spark-3.1.1</code></a> <!-- 官方网站上没有找到3.1.1的 --><br>然后执行下面的操作:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd /Library/Hadoop</span><br><span class="line">mkdir Spark</span><br><span class="line">cd Spark</span><br><span class="line">mv ~/.spark-3.1.1-bin-hadoop3.2.tgz ./</span><br><span class="line">sudo tar -zvxf spark-3.1.1-bin-hadoop3.2.tgz</span><br><span class="line">sudo rm spark-3.1.1-bin-hadoop3.2.tgz</span><br></pre></td></tr></table></figure>
+
+<p>编辑<code>.bash_profile</code>:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SPARK_HOME=/Library/Hadoop/Spark/spark-3.1.1-bin-hadoop3.2</span><br><span class="line">export PATH=$PATH:$SPARK_HOME/bin</span><br></pre></td></tr></table></figure>
+<p><code>source ~/.bash_profile</code>使环境变量生效。</p>
+<h2 id="6-3-启动spark"><a href="#6-3-启动spark" class="headerlink" title="6.3 启动spark"></a>6.3 启动spark</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HOME</span><br><span class="line">./sbin/start-master.sh # 启动master</span><br><span class="line">./sbin/start-worker.sh spark://renweiqiangdeMacBook-Pro.local:7077 # 启动slave</span><br><span class="line">./sbin/start-all.sh # 启动所有</span><br></pre></td></tr></table></figure>
+
+<p><code>jps</code>查看情况</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(base) renweiqiang@renweiqiangdeMacBook-Pro spark-3.1.1-bin-hadoop3.2 % jps</span><br><span class="line">8132 NameNode</span><br><span class="line">9974 Master</span><br><span class="line">8232 DataNode</span><br><span class="line">10026 Jps</span><br><span class="line">10011 Worker</span><br><span class="line">8556 ResourceManager</span><br><span class="line">8652 NodeManager</span><br><span class="line">8366 SecondaryNameNode</span><br></pre></td></tr></table></figure>
+
+<p>访问<code>localhost:8080</code>就能看到相应的信息</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li>mac安装jdk1.8: <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/26db5674d1f9">https://www.jianshu.com/p/26db5674d1f9</a></li>
+<li>mac卸载java: <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/3ab3fcfb8bcd">https://www.jianshu.com/p/3ab3fcfb8bcd</a></li>
+<li>mac配置java Home: <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/27e494e45f78">https://www.jianshu.com/p/27e494e45f78</a></li>
+<li>naco mac 启动报错 /Library/Internet: No such file or directory: <a target="_blank" rel="noopener" href="https://blog.csdn.net/fynzhy/article/details/118148883">https://blog.csdn.net/fynzhy/article/details/118148883</a></li>
+<li>hadoop执行wordcount报错: <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_33609401/article/details/80912808">https://blog.csdn.net/qq_33609401/article/details/80912808</a></li>
+<li>jdk和hadoop和hbase的版本对应: <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43582443/article/details/115140601">https://blog.csdn.net/weixin_43582443/article/details/115140601</a></li>
+<li>hive启动报错-java.lang.NoSuchMethodError: com.google.common.base.Preconditions.checkArgument: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/syq816/p/12632028.html">https://www.cnblogs.com/syq816/p/12632028.html</a></li>
+<li>Hive环境搭建-Mac、Hadoop、Yarn、Hive、MySQL: <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/65825211">https://zhuanlan.zhihu.com/p/65825211</a></li>
+<li>Hive与Hbase的区别: <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/30023920">https://zhuanlan.zhihu.com/p/30023920</a></li>
+<li>mac配置Flume: <a target="_blank" rel="noopener" href="https://blog.csdn.net/vbirdbest/article/details/104479258">https://blog.csdn.net/vbirdbest/article/details/104479258</a></li>
+<li>mac安装Flume: <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38262266/article/details/108628496">https://blog.csdn.net/qq_38262266/article/details/108628496</a></li>
+<li>Flume1.9中文文档. <a target="_blank" rel="noopener" href="https://flume.liyifeng.org/#agent">https://flume.liyifeng.org/#agent</a></li>
+<li>hadoop. <a target="_blank" rel="noopener" href="https://towardsdatascience.com/installing-hadoop-on-a-mac-ec01c67b003c">https://towardsdatascience.com/installing-hadoop-on-a-mac-ec01c67b003c</a></li>
+<li>Spark. <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42855570/article/details/115146839">https://blog.csdn.net/qq_42855570/article/details/115146839</a></li>
+<li>Hive. <a target="_blank" rel="noopener" href="https://blog.csdn.net/vbirdbest/article/details/104139457">https://blog.csdn.net/vbirdbest/article/details/104139457</a></li>
+<li>Hadoop安装教程Mac版. <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42855570/article/details/115146839">https://blog.csdn.net/qq_42855570/article/details/115146839</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/28/other/hadoop_install/" data-id="cl85d5h4v0069i99obb7gg2oo" data-title="MAC上hadoop全家桶安装" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other/useful_websites" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/27/other/useful_websites/" class="article-date">
+  <time class="dt-published" datetime="2021-07-27T03:27:47.000Z" itemprop="datePublished">2021-07-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/27/other/useful_websites/">一些有用的网站</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="行业与调研数据"><a href="#行业与调研数据" class="headerlink" title="行业与调研数据"></a>行业与调研数据</h1><ul>
+<li>阿里研究院:<a target="_blank" rel="noopener" href="http://www.aliresearch.com/">http://www.aliresearch.com/</a></li>
+<li>数据局:<a target="_blank" rel="noopener" href="http://www.shujuju.cn/">http://www.shujuju.cn/</a></li>
+<li>199it数据:<a target="_blank" rel="noopener" href="http://www.199it.com/newly">http://www.199it.com/newly</a></li>
+</ul>
+<h1 id="python开源库"><a href="#python开源库" class="headerlink" title="python开源库"></a>python开源库</h1><h2 id="1-RecBole"><a href="#1-RecBole" class="headerlink" title="1. RecBole"></a>1. RecBole</h2><p>伯乐，一个统一、全面、高效的推荐系统代码库，主要复现了使用深度学习所实现的各种推荐系统模型。<br>网址: <a target="_blank" rel="noopener" href="https://recbole.io/cn/index.html">https://recbole.io/cn/index.html</a></p>
+<h2 id="2-wechatarticles"><a href="#2-wechatarticles" class="headerlink" title="2. wechatarticles"></a>2. wechatarticles</h2><p>爬取微信公众号的文章历史列表的爬虫，正好在公司内手动搜集数据的时候碰到了这个需求。</p>
+<h2 id="3-paddle-ocr"><a href="#3-paddle-ocr" class="headerlink" title="3. paddle ocr"></a>3. paddle ocr</h2><p>OCR最强神奇，轻量模型，超高准确率，网址：<a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PaddleOCR">https://github.com/PaddlePaddle/PaddleOCR</a></p>
+<h2 id="4-Graph4NLP"><a href="#4-Graph4NLP" class="headerlink" title="4. Graph4NLP"></a>4. Graph4NLP</h2><p>使用图神经网络来做NLP，例如利用图神经网络来做<a target="_blank" rel="noopener" href="https://github.com/graph4ai/graph4nlp/blob/master/examples/pytorch/text_classification/run_text_classifier.py">文本分类</a></p>
+<h2 id="5-bilibili"><a href="#5-bilibili" class="headerlink" title="5. bilibili"></a>5. bilibili</h2><p>B站视频、弹幕下载器，目前只支持<code>python3.8以上的版本</code>。地址为:<a target="_blank" rel="noopener" href="https://bilili.nyakku.moe/">https://bilili.nyakku.moe/</a></p>
+<h2 id="6-Cdlib"><a href="#6-Cdlib" class="headerlink" title="6. Cdlib"></a>6. Cdlib</h2><p>基于<code>networkx</code>的<code>社区发现</code>算法包。地址为:<a target="_blank" rel="noopener" href="https://github.com/GiulioRossetti/cdlib">https://github.com/GiulioRossetti/cdlib</a></p>
+<h2 id="7-Ttop"><a href="#7-Ttop" class="headerlink" title="7. Ttop"></a>7. Ttop</h2><p>一个机器学习的<code>自动调参</code>工具。地址为:<a target="_blank" rel="noopener" href="http://epistasislab.github.io/tpot/">http://epistasislab.github.io/tpot/</a></p>
+<h2 id="8-Echarts-wordcloud"><a href="#8-Echarts-wordcloud" class="headerlink" title="8. Echarts wordcloud"></a>8. Echarts wordcloud</h2><p>基于echarts的词云绘制JS插件。地址为:<a target="_blank" rel="noopener" href="https://github.com/ecomfe/echarts-wordcloud">https://github.com/ecomfe/echarts-wordcloud</a></p>
+<h2 id="9-Httpx"><a href="#9-Httpx" class="headerlink" title="9. Httpx"></a>9. Httpx</h2><p>一个基于requests的爬虫库，是对requests库的更高级别的封装.地址为:<a target="_blank" rel="noopener" href="https://github.com/encode/httpx">https://github.com/encode/httpx</a>.</p>
+<h2 id="10-smartChart"><a href="#10-smartChart" class="headerlink" title="10. smartChart"></a>10. smartChart</h2><p>可视化大屏，基于<code>echarts</code>与<code>django</code>. 地址为:<a target="_blank" rel="noopener" href="https://gitee.com/smartchart/smartchart">https://gitee.com/smartchart/smartchart</a></p>
+<h2 id="11-FreeAPI"><a href="#11-FreeAPI" class="headerlink" title="11. FreeAPI"></a>11. FreeAPI</h2><p>免费的公开的API集合网站。地址为:<a target="_blank" rel="noopener" href="https://www.free-api.com/">https://www.free-api.com/</a></p>
+<h2 id="12-bootstrapmade"><a href="#12-bootstrapmade" class="headerlink" title="12. bootstrapmade"></a>12. bootstrapmade</h2><p>免费的，基于bootstrap的网页模板网站，地址为: <a target="_blank" rel="noopener" href="https://bootstrapmade.com/">https://bootstrapmade.com/</a></p>
+<h1 id="软件库"><a href="#软件库" class="headerlink" title="软件库"></a>软件库</h1><h2 id="1-MacWk"><a href="#1-MacWk" class="headerlink" title="1. MacWk"></a>1. MacWk</h2><p>每款Mac应用都经过Macwk.com严格测试后发布，确保应用可以和正版软件一样稳定运行使用！<br>网址: <a target="_blank" rel="noopener" href="https://macwk.com/">https://macwk.com/</a></p>
+<h1 id="Git仓库"><a href="#Git仓库" class="headerlink" title="Git仓库"></a>Git仓库</h1><h2 id="1-Malicious-Code-Detection"><a href="#1-Malicious-Code-Detection" class="headerlink" title="1. Malicious-Code-Detection"></a>1. Malicious-Code-Detection</h2><p>该资源为<code>恶意代码检测与识别</code>的相关链接汇总，希望对您有所帮助！<br>网址：<a target="_blank" rel="noopener" href="https://github.com/eastmountyxz/Malicious-Code-Detection">https://github.com/eastmountyxz/Malicious-Code-Detection</a></p>
+<h2 id="2-https-github-com-yuantuo666-baiduwp-php"><a href="#2-https-github-com-yuantuo666-baiduwp-php" class="headerlink" title="2. https://github.com/yuantuo666/baiduwp-php"></a>2. <a target="_blank" rel="noopener" href="https://github.com/yuantuo666/baiduwp-php">https://github.com/yuantuo666/baiduwp-php</a></h2><p>该资源为<code>百度网盘加速下载器</code>，下载速度非常快，能够到<code>15MB/s</code>.</p>
+<p>官网地址为: <a target="_blank" rel="noopener" href="http://www.dupan.cc/">http://www.dupan.cc/</a></p>
+<p>配合上<a target="_blank" rel="noopener" href="https://motrix.app/">Motrix</a>，下载会非常快。</p>
+<h1 id="电子书-文档教程"><a href="#电子书-文档教程" class="headerlink" title="电子书/文档教程"></a>电子书/文档教程</h1><ol>
+<li>django admin cook book</li>
+</ol>
+<p>该教程介绍了如何个性化配置<code>admin</code>后台的管理。<br>链接为：<a target="_blank" rel="noopener" href="https://books.agiliq.com/projects/django-admin-cookbook/en/latest/logo.html">https://books.agiliq.com/projects/django-admin-cookbook/en/latest/logo.html</a><br>这个链接里面还有其他的一些关于<code>django</code>的一些其他的应用。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/27/other/useful_websites/" data-id="cl85d5h5i0084i99o5xa8en5u" data-title="一些有用的网站" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-practice/yinlian/2_mobile_banking_transaction_facilitation_survey" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/27/practice/yinlian/2_mobile_banking_transaction_facilitation_survey/" class="article-date">
+  <time class="dt-published" datetime="2021-07-27T02:00:21.000Z" itemprop="datePublished">2021-07-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/">银联实习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/27/practice/yinlian/2_mobile_banking_transaction_facilitation_survey/">2_手机银行APP交易促动行业研究</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="《基于手机银行的农村金融产品下沉策略研究》论文阅读"><a href="#《基于手机银行的农村金融产品下沉策略研究》论文阅读" class="headerlink" title="《基于手机银行的农村金融产品下沉策略研究》论文阅读"></a>《基于手机银行的农村金融产品下沉策略研究》论文阅读</h1><h2 id="农村金融市场是商业银行业务发展的新蓝海"><a href="#农村金融市场是商业银行业务发展的新蓝海" class="headerlink" title="农村金融市场是商业银行业务发展的新蓝海"></a>农村金融市场是商业银行业务发展的新蓝海</h2><h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>近年来<code>普惠金融市场导向</code>和<code>互联网金融</code>兴起才是第一次冲击到商业银行垄断地位，以阿里巴巴为代表的科技金融公司以“门口的野蛮人”姿态，大肆争夺小微企业、农民甚至无信用记录人群等巨量<code>长尾客户市场</code>。</p>
+<h3 id="宏观优势"><a href="#宏观优势" class="headerlink" title="宏观优势"></a>宏观优势</h3><ol>
+<li>国家政策利好</li>
+</ol>
+<p>2019年2月，五部委再次联合印发《关于金融服务乡村振兴的指导意见》，鼓励商业银行支持乡村振兴，在<code>金融产品</code>和<code>服务方式</code>方面加强创新，拓宽农业农村<code>抵质押物范围</code>、推动新技术在农村金融领域的应用推广。<br>国家政策利好为商业银行下沉农村金融市场提供了良好的政治环境和营商环境，为商业银行涉足以往“不熟悉”的农村金融市场、在<code>信息不对称</code>甚至<code>不够透明</code>的情况下开展经营增强了信心。</p>
+<ol start="2">
+<li>金融科技促进</li>
+</ol>
+<ul>
+<li>手机银行APP</li>
+<li>大数据、云计算</li>
+</ul>
+<ol start="3">
+<li>市场前景</li>
+</ol>
+<ul>
+<li>可支配收入增加</li>
+<li>长尾客户凸显</li>
+</ul>
+<ol start="4">
+<li>基础设施完善</li>
+</ol>
+<ul>
+<li>互联网</li>
+</ul>
+<h2 id="转变商业逻辑是拓展农村金融市场的前提"><a href="#转变商业逻辑是拓展农村金融市场的前提" class="headerlink" title="转变商业逻辑是拓展农村金融市场的前提"></a>转变商业逻辑是拓展农村金融市场的前提</h2><p>过去的商业逻辑基本上是通过<code>把持关键资源</code>进行垄断式发展。在这些过程中，<code>小微企业</code>及<code>其他长尾客户</code>基本充当着<code>低成本存款来源</code>，是资金的提供者，但并不是受益者。但是，随着金融市场结构的调整和金融科技的发展，互联网金融、消费金融的时代来临，新的市场特征出现:</p>
+<ul>
+<li>一是长尾客户成为主角，商业银行的传统优势受到冲击。</li>
+<li>网点的价值和业务形态发生巨变，诸多金融需求都不用到网点即可在线上得到满足，客户到店量大幅下降，网点吸纳存款的能力大幅下降，网点不再是获客吸储的有效渠道，商业银行丧失<code>渠道垄断</code>优势。</li>
+<li>长尾市场获客营商的关键能力与商业银行惯常的方式差异巨大，<code>线上流量</code>获取、<code>服务场景</code>构建、<code>支付入口</code>拓展成为长尾市场致胜关键能力，且前期“个性化打磨”与成本投入巨大，这与商业银行<code>批发式</code>、<code>规模化</code>、<code>标准化</code>、<code>短期见效</code>的获客经营思路也相去甚远。</li>
+<li>赢者通吃。</li>
+</ul>
+<h2 id="拓展农村金融市场的业务模式"><a href="#拓展农村金融市场的业务模式" class="headerlink" title="拓展农村金融市场的业务模式"></a>拓展农村金融市场的业务模式</h2><h3 id="互联网金融公司模式"><a href="#互联网金融公司模式" class="headerlink" title="互联网金融公司模式"></a>互联网金融公司模式</h3><ol>
+<li>阿里</li>
+</ol>
+<ul>
+<li>是线上平台与线下站点紧密结合，全流程绑定。</li>
+<li>蚂蚁金服农业金融事业部。</li>
+</ul>
+<ol start="2">
+<li>京东</li>
+</ol>
+<ul>
+<li>发挥风控与渠道优势。</li>
+<li>乡村白条、京农贷。</li>
+</ul>
+<ol start="3">
+<li>腾讯</li>
+</ol>
+<ul>
+<li>互联网+农村。</li>
+<li>公众号。</li>
+<li>微信入口。</li>
+</ul>
+<h3 id="银行同业模式"><a href="#银行同业模式" class="headerlink" title="银行同业模式"></a>银行同业模式</h3><ul>
+<li>是固定物理设备和固定人员合理配置模式。</li>
+<li>农商行、农信社等本地金融机构则以现有农村物理网点为触角，充分利用点多面广、人多面熟优势，进行综合营销。</li>
+<li>是金融科技支撑和金融产品创新模式。</li>
+</ul>
+<h1 id="基于手机银行的农村金融产品下沉策略研究"><a href="#基于手机银行的农村金融产品下沉策略研究" class="headerlink" title="基于手机银行的农村金融产品下沉策略研究"></a>基于手机银行的农村金融产品下沉策略研究</h1><h2 id="以手机银行做农村金融下沉的可行性"><a href="#以手机银行做农村金融下沉的可行性" class="headerlink" title="以手机银行做农村金融下沉的可行性"></a>以手机银行做农村金融下沉的可行性</h2><ul>
+<li>手机银行覆盖率较高。手机银行集合了银行绝大多数基础金融服务功能，且不断整合公共事业服务和日常消费功能，能够满足用户相应的金融和非金融需求。</li>
+<li>人脸识别、扫码支付、智能语音服务、智能顾问等一系列银行<code>金融科技创新功能</code>都率先在手机银行上实施，良好的创新基础和技术融合能力可以支撑手机银行在农村拓展方面进行更多变革和突破，也为手机银行参与互联网金融公司智能应用市场的竞争奠定了一定的技术基础。</li>
+<li>手机银行的<code>开放性</code>有利于与金融科技公司现有平台功能的互通互联，加强外部合作、提升银行进军农村市场的效率。</li>
+<li>手机银行<code>沉淀了银行绝大多数存量客户和新客账户信息及其他数字化信息</code>，往后也会积累更多客户多元化的行为信息，加之其以移动应用的形式深度融合于手机终端及应用市场环境，具有非常好的互联网适应性。</li>
+</ul>
+<h2 id="具体调整策略"><a href="#具体调整策略" class="headerlink" title="具体调整策略"></a>具体调整策略</h2><h3 id="从企业文化与战略角度"><a href="#从企业文化与战略角度" class="headerlink" title="从企业文化与战略角度"></a>从企业文化与战略角度</h3><ul>
+<li><code>风控文化</code>是国有银行的企业文化，在面对新兴市场和陌生领域时表现出<code>相对稳健</code>甚至<code>保守</code>的跟随型策略。这就使得:</li>
+</ul>
+<blockquote>
+<p>商业银行摈弃跟随型的战略，将创新创业精神和容错文化置于风控文化之前，以互联网市场的商业逻辑面对农村金融市场，将农村市场开拓及手机银行应用当作企业级的战略去实施。</p>
+</blockquote>
+<h3 id="从系统开发和用户体验角度"><a href="#从系统开发和用户体验角度" class="headerlink" title="从系统开发和用户体验角度"></a>从系统开发和用户体验角度</h3><p>商业银行现有的系统:</p>
+<ul>
+<li>一方面遵循以<code>部门</code>、<code>流程</code>、<code>产品</code>为中心的逻辑，缺乏以<code>客户</code>为中心、构建<code>场景</code>融入的思路。</li>
+<li>另一方面则是将<code>核心系统</code>与其他系统<code>隔离</code>，<code>封闭</code>且不断<code>集约化</code>的系统架构使得银行系统自成一体，难以与外部系统联通。</li>
+</ul>
+<blockquote>
+<p>以更加开放的方式去开发手机银行的底层系统架构，以更加友好的界面和表述去融入场景。</p>
+</blockquote>
+<h3 id="以功能定位"><a href="#以功能定位" class="headerlink" title="以功能定位"></a>以功能定位</h3><p>当前支付宝、微信之所以成为商业银行难以逾越的对手，正是因为它们把持住了互联网与科技金融时代，银行竞争的三大关键性资源:</p>
+<blockquote>
+<p>入口、流量、数据</p>
+</blockquote>
+<ul>
+<li>在入口上，微信、支付宝呈现寡头地位。</li>
+<li>在流量上，一个智能应用要获取尽量多的客户并提升其活跃度，必须要是一个<code>高频应用</code>。</li>
+<li>三是平台化，构建<code>自有生态</code>和<code>垂直场景</code>，比如微信和支付宝，单一的功能很难长久地绑住用户，唯有把握住生活场景，才能黏住用户。</li>
+</ul>
+<blockquote>
+<p>如果能将手机银行上升到企业级的战略，自然是选择自建场景平台 ；若是想更快见到产出，不如<code>融入支付宝、微信平台，争取成为其主要的合作银行</code>，一方面将手机银行的产品、服务深入嫁接进支付宝、微信的平台，另一方面借两者为手机银行引流 ；对于更加<code>细分领域</code>的场景平台，比如农村就医、社保、购物、装修、租赁等平台，则致力于成为具体场景中最后的<code>支付</code>、<code>信贷功能提供方</code>。</p>
+</blockquote>
+<ul>
+<li>从数据看，目前手机银行沉淀了商业银行存量客户数据，可以加以应用并匹配相应的风控体系。</li>
+</ul>
+<h3 id="仍需讨论的问题"><a href="#仍需讨论的问题" class="headerlink" title="仍需讨论的问题"></a>仍需讨论的问题</h3><ul>
+<li>理监管与创新的关系。</li>
+<li>是如何选择发展金融科技的模式：成立金融科技公司，比如兴业数金。</li>
+<li>如何应用金融第一性原理。</li>
+</ul>
+<h1 id="微众银行《2020银行业用户体验大调研报告》"><a href="#微众银行《2020银行业用户体验大调研报告》" class="headerlink" title="微众银行《2020银行业用户体验大调研报告》"></a>微众银行《2020银行业用户体验大调研报告》</h1><p><a target="_blank" rel="noopener" href="http://www.199it.com/archives/1179097.html">原始链接</a></p>
+<p><img src="0.png"></p>
+<blockquote>
+<p>用户对银行做得营销活动总体上相对于其他模块来说不太满意</p>
+</blockquote>
+<p><img src="1.png"></p>
+<blockquote>
+<p>营销活动对于用户的重要性上来说最低</p>
+</blockquote>
+<p><img src="2.png"></p>
+<p><img src="3.png"></p>
+<blockquote>
+<p>微信公众号/银行APP中的广告占大头</p>
+</blockquote>
+<p><img src="4.png"></p>
+<blockquote>
+<p>宣传上不要严肃，采取多种形式</p>
+</blockquote>
+<p><img src="5.png"></p>
+<blockquote>
+<p>微信公众号仍然是主流</p>
+</blockquote>
+<p><img src="6.png"></p>
+<blockquote>
+<p>简单，少点套路</p>
+</blockquote>
+<p><img src="7.png"></p>
+<blockquote>
+<p>邀请第三方意见领袖做测评</p>
+</blockquote>
+<p><img src="8.png"></p>
+<blockquote>
+<p>宣传上不要死板，融合案例</p>
+</blockquote>
+<h1 id="金融界《2018年手机银行发展与评测报告》"><a href="#金融界《2018年手机银行发展与评测报告》" class="headerlink" title="金融界《2018年手机银行发展与评测报告》"></a>金融界《2018年手机银行发展与评测报告》</h1><p><a target="_blank" rel="noopener" href="http://bank.jrj.com.cn/pdf/report.pdf">原始链接</a></p>
+<p><img src="9.png"></p>
+<p><img src="10.png"></p>
+<p><img src="11.png"></p>
+<blockquote>
+<p>年轻人仍然是主力</p>
+</blockquote>
+<p><img src="12.png"></p>
+<blockquote>
+<p>高学历占主流，使用上不会有困难</p>
+</blockquote>
+<p><img src="13.png"></p>
+<blockquote>
+<p>打工人使用</p>
+</blockquote>
+<p><img src="14.png"></p>
+<blockquote>
+<p>中等收入人使用</p>
+</blockquote>
+<p><img src="15.png"></p>
+<p><img src="16.png"></p>
+<blockquote>
+<p>转账、缴费使用</p>
+</blockquote>
+<p><img src="17.png"></p>
+<p><img src="18.png"></p>
+<blockquote>
+<p>活跃很低</p>
+</blockquote>
+<p><img src="19.png"></p>
+<blockquote>
+<p>缴费、购物值得挖掘用户潜力</p>
+</blockquote>
+<p><img src="20.png"></p>
+<h1 id="报告正文"><a href="#报告正文" class="headerlink" title="报告正文"></a>报告正文</h1><h2 id="1-银行APP发展现状"><a href="#1-银行APP发展现状" class="headerlink" title="1. 银行APP发展现状"></a>1. 银行APP发展现状</h2><h2 id="2-总体分析"><a href="#2-总体分析" class="headerlink" title="2. 总体分析"></a>2. 总体分析</h2><h2 id="各行营销活动分析"><a href="#各行营销活动分析" class="headerlink" title="各行营销活动分析"></a>各行营销活动分析</h2><h3 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h3><p>流量入口：APP内部引流、AT快捷支付引流<br>消费群体：</p>
+<p>银联可以提供什么：</p>
+<ul>
+<li>商户资源</li>
+<li>营销解决方案</li>
+<li>数据支持实现精准营销</li>
+<li>云闪付内为其他手机银行内置商城搭建一个入口</li>
+<li>优惠的分期手续费计费</li>
+</ul>
+<p>核心关键词为: <code>app内部引流</code>、<code>消费群体</code></p>
+<h1 id="PPT"><a href="#PPT" class="headerlink" title="PPT"></a>PPT</h1><h2 id="第一版"><a href="#第一版" class="headerlink" title="第一版"></a>第一版</h2><p>第一版昨晚之后让指导人修改了一下，在这里先记录一下自己做PPT的问题，因为自己做这个的时候还是很懵逼，不知道从哪一个方向入手来，问题如下：</p>
+<ol>
+<li><p>描述性统计的必要性<br>因为银行的活动大都为<code>交易促动</code>类型的，这个已知的结论是否还需要再次强调。</p>
+</li>
+<li><p>银联与银行开展合作的模式有哪一些：</p>
+</li>
+</ol>
+<ul>
+<li>比如共享商户资源</li>
+<li>互相开放入口</li>
+</ul>
+<h2 id="第二版"><a href="#第二版" class="headerlink" title="第二版"></a>第二版</h2><ul>
+<li>背景介绍去掉</li>
+<li>要有分点的结论，而不是大段论述</li>
+<li>增加<code>上海银行</code>、<code>民生银行</code>、<code>中信银行</code></li>
+</ul>
+<h2 id="第三版"><a href="#第三版" class="headerlink" title="第三版"></a>第三版</h2><ul>
+<li>去掉<code>招商银行</code>、<code>上海银行</code></li>
+<li>增加<code>光大银行</code>、<code>浦发银行</code></li>
+<li>其他银行按照<code>农业银行</code>的思路来做</li>
+</ul>
+<blockquote>
+<p>总算觉得自己做得有一些意义了哈哈哈哈</p>
+</blockquote>
+<p>数据量很小的时候分析的维度不应该拆得太细，比如在<code>商超便利</code>与<code>线下商圈</code>，这个概念的话是一定程度上交叉的，因为商场有超市，但是超市不一定全部都在商超里面。</p>
+<p>在具体的<code>场景</code>与<code>支付</code>方式上可以进一步合并，比如：</p>
+<ul>
+<li>微信、支付宝支付等方式合并成为<code>第三方支付</code></li>
+<li>云闪付、银联卡等方式合并为<code>银联渠道</code></li>
+<li>银行APP则是<code>银行自收单</code></li>
+</ul>
+<p>先做总体分析：<br>知道每一个场景下的一个大概的比例，由于每一个银行的数量都不定，所以的话从<code>比例</code>入手更加合适。</p>
+<h2 id="第四版"><a href="#第四版" class="headerlink" title="第四版"></a>第四版</h2><p>boss说：</p>
+<ul>
+<li><p>不能有太多的演绎成分，数据呈现出来什么就是什么</p>
+</li>
+<li><p><a href="ppt.pdf">PPT下载</a></p>
+</li>
+<li><p><a href="data.xlsx">excel下载</a></p>
+</li>
+</ul>
+<h2 id="PPT制作的建议"><a href="#PPT制作的建议" class="headerlink" title="PPT制作的建议"></a>PPT制作的建议</h2><ol>
+<li>一页文字内容不要方太多</li>
+<li>观点在前，阐述的话可以换行来写</li>
+<li>内容要有归类</li>
+<li>不同的表述块用不同的div框起来</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/27/practice/yinlian/2_mobile_banking_transaction_facilitation_survey/" data-id="cl85d5h7600d1i99oaztc4emi" data-title="2_手机银行APP交易促动行业研究" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-paper/event_graph" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/23/paper/event_graph/" class="article-date">
+  <time class="dt-published" datetime="2021-07-23T14:07:25.000Z" itemprop="datePublished">2021-07-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AE%BA%E6%96%87/">论文</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/23/paper/event_graph/">事理图谱</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/23/paper/event_graph/" data-id="cl85d5h4f0055i99of2e20xb9" data-title="事理图谱" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-sql/company_collection" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/sql/company_collection/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T08:21:10.000Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/SQL/">SQL</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/sql/company_collection/">SQL笔试题集合</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="网易春招-题目1"><a href="#网易春招-题目1" class="headerlink" title="网易春招-题目1"></a>网易春招-题目1</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><img src="./0.png"></p>
+<h2 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/368947628">https://zhuanlan.zhihu.com/p/368947628</a></p>
+<h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> base <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        a.goods_id,</span><br><span class="line">        b.name,</span><br><span class="line">        a.count,</span><br><span class="line">        b.weight</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        trans <span class="keyword">as</span> a</span><br><span class="line">    <span class="keyword">left</span> <span class="keyword">join</span></span><br><span class="line">        goods <span class="keyword">as</span> b</span><br><span class="line">    <span class="keyword">on</span> a.goods_id <span class="operator">=</span> b.goods_id</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    name</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    base</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    weight <span class="keyword">between</span> <span class="number">30</span> <span class="keyword">and</span> <span class="number">50</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    goods_id</span><br><span class="line"><span class="keyword">having</span></span><br><span class="line">    <span class="built_in">sum</span>(count) <span class="operator">&gt;</span> <span class="number">50</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="网易春招-题目2"><a href="#网易春招-题目2" class="headerlink" title="网易春招-题目2"></a>网易春招-题目2</h1><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p><img src="./1.png"></p>
+<h2 id="来源-1"><a href="#来源-1" class="headerlink" title="来源"></a>来源</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/368947628">https://zhuanlan.zhihu.com/p/368947628</a></p>
+<h2 id="SQL-1"><a href="#SQL-1" class="headerlink" title="SQL"></a>SQL</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 取出该用户喜欢并关注的人所喜欢的音乐</span></span><br><span class="line"><span class="keyword">with</span> follow_like <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="keyword">distinct</span> b.music_id</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        follow <span class="keyword">as</span> a</span><br><span class="line">    <span class="keyword">left</span> <span class="keyword">join</span></span><br><span class="line">        music_likes <span class="keyword">as</span> b</span><br><span class="line">    <span class="keyword">on</span></span><br><span class="line">        a.follower_id <span class="operator">=</span> b.user_id</span><br><span class="line">    <span class="keyword">where</span></span><br><span class="line">        b.music_id <span class="keyword">not</span> <span class="keyword">in</span> (</span><br><span class="line">            <span class="keyword">select</span></span><br><span class="line">                music_id</span><br><span class="line">            <span class="keyword">from</span></span><br><span class="line">                music_likes</span><br><span class="line">            <span class="keyword">where</span></span><br><span class="line">                user_id <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">        ) </span><br><span class="line">)</span><br><span class="line"><span class="comment">-- 向user_id为1的用户推荐</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    b.music_name</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    follow_like <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span></span><br><span class="line">    music <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span> a.music_id <span class="operator">=</span> b.music_id</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="完美世界春招-题目1"><a href="#完美世界春招-题目1" class="headerlink" title="完美世界春招-题目1"></a>完美世界春招-题目1</h1><h2 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h2><p><img src="./2.png"></p>
+<h2 id="来源-2"><a href="#来源-2" class="headerlink" title="来源"></a>来源</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/367773231">https://zhuanlan.zhihu.com/p/367773231</a></p>
+<h2 id="SQL1"><a href="#SQL1" class="headerlink" title="SQL1"></a>SQL1</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="type">date</span>(log_time) <span class="keyword">as</span> <span class="string">&#x27;日期&#x27;</span>,</span><br><span class="line">    <span class="built_in">count</span>(<span class="keyword">distinct</span> user_id) <span class="keyword">as</span> <span class="string">&#x27;访客次数&#x27;</span>, <span class="comment">-- 注意去重</span></span><br><span class="line">    <span class="built_in">count</span>(opr_id) <span class="operator">/</span> <span class="built_in">count</span>(<span class="keyword">distinct</span> user_id) <span class="keyword">as</span> <span class="string">&#x27;平均操作次数&#x27;</span></span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    tracking_log</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    <span class="type">date</span>(log_time)</span><br></pre></td></tr></table></figure>
+
+<h2 id="SQL2"><a href="#SQL2" class="headerlink" title="SQL2"></a>SQL2</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 统计每天符合以下条件的用户数：A操作之后是B操作，AB操作必须相邻</span></span><br><span class="line"><span class="keyword">with</span> base <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        user_id,</span><br><span class="line">        opr_id,</span><br><span class="line">        <span class="type">date</span>(log_time) <span class="keyword">as</span> log_date, <span class="comment">-- 日期转化</span></span><br><span class="line">        <span class="built_in">LEAD</span>(opr_id, <span class="number">1</span>) <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> user_id <span class="keyword">order</span> <span class="keyword">by</span> log_time) <span class="keyword">as</span> next_opr_id <span class="comment">-- 下一次的操作id 记得加order_by</span></span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        tracking_log        </span><br><span class="line">)</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    log_date,</span><br><span class="line">    <span class="built_in">count</span>(<span class="keyword">distinct</span> user_id) <span class="keyword">as</span> <span class="string">&#x27;用户数&#x27;</span></span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    base</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    opr_id <span class="operator">=</span> <span class="string">&#x27;A&#x27;</span> <span class="keyword">and</span> next_opr_id <span class="operator">=</span> <span class="string">&#x27;B&#x27;</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    log_date</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">    log_date</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="网易互娱-题目1"><a href="#网易互娱-题目1" class="headerlink" title="网易互娱-题目1"></a>网易互娱-题目1</h1><h2 id="题目描述-3"><a href="#题目描述-3" class="headerlink" title="题目描述"></a>题目描述</h2><p><img src="./4.png"></p>
+<h2 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/366090074">https://zhuanlan.zhihu.com/p/366090074</a></p>
+<h2 id="SQL1-1"><a href="#SQL1-1" class="headerlink" title="SQL1"></a>SQL1</h2><h3 id="错误写法"><a href="#错误写法" class="headerlink" title="错误写法"></a>错误写法</h3><p>为了省事写了一个错误的写法，因为一个用户在一天内可能登录不止一次，因此不是PV，而是UV</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 使用sql语句取出每个产品的登录人数，有效登录人数，官方渠道有效登录人数，再按产品顺序排序（从小到大）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> base <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="operator">*</span>,</span><br><span class="line">        <span class="keyword">case</span> <span class="keyword">when</span> online_second <span class="operator">&gt;=</span> <span class="number">5</span><span class="operator">*</span><span class="number">60</span> <span class="keyword">then</span> <span class="number">1</span> <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span> <span class="keyword">as</span> <span class="string">&#x27;有效登录&#x27;</span>,</span><br><span class="line">        <span class="keyword">case</span> <span class="keyword">when</span> <span class="keyword">right</span>(user_id, <span class="number">8</span>) <span class="operator">=</span> <span class="string">&#x27;@163.com&#x27;</span> <span class="keyword">then</span> <span class="number">1</span> <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span> <span class="keyword">as</span> <span class="string">&#x27;官方渠道&#x27;</span>,</span><br><span class="line">        <span class="keyword">case</span> <span class="keyword">when</span> online_second <span class="operator">&gt;=</span> <span class="number">5</span><span class="operator">*</span><span class="number">60</span> <span class="keyword">and</span> <span class="keyword">right</span>(user_id, <span class="number">8</span>) <span class="operator">=</span> <span class="string">&#x27;@163.com&#x27;</span> <span class="keyword">then</span> <span class="number">1</span> <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">as</span> <span class="string">&#x27;官方渠道有效登录渠道&#x27;</span></span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        user_login_table</span><br><span class="line">)</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    product,</span><br><span class="line">    <span class="built_in">count</span>(user_id) <span class="keyword">as</span> <span class="string">&#x27;登陆人数&#x27;</span>,</span><br><span class="line">    <span class="built_in">sum</span>(`有效登录`) <span class="keyword">as</span> <span class="string">&#x27;有效登陆人数&#x27;</span>, <span class="comment">-- 这里出错</span></span><br><span class="line">    <span class="built_in">sum</span>(`官方有效登录渠道`) <span class="keyword">as</span> <span class="string">&#x27;官方有效登录渠道&#x27;</span> <span class="comment">-- 这里出错</span></span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    base</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    product</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">    product</span><br></pre></td></tr></table></figure>
+
+<h3 id="正确写法"><a href="#正确写法" class="headerlink" title="正确写法"></a>正确写法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> login <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        product,</span><br><span class="line">        <span class="built_in">count</span>(<span class="keyword">distinct</span> user_id) <span class="keyword">as</span> <span class="string">&#x27;登陆人数&#x27;</span></span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        user_login_table</span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">        product</span><br><span class="line">),</span><br><span class="line">youxiao_login <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        product,</span><br><span class="line">        <span class="built_in">count</span>(<span class="keyword">distinct</span> user_id) <span class="keyword">as</span> <span class="string">&#x27;有效登陆人数&#x27;</span></span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        user_login_table</span><br><span class="line">    <span class="keyword">where</span></span><br><span class="line">        online_second <span class="operator">&gt;=</span> <span class="number">5</span><span class="operator">*</span><span class="number">60</span></span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">        product</span><br><span class="line">),</span><br><span class="line">guanfangqudao_youxiao_login <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        product,</span><br><span class="line">        <span class="built_in">count</span>(<span class="keyword">distinct</span> user_id) <span class="keyword">as</span> <span class="string">&#x27;官方渠道有效登陆人数&#x27;</span></span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        user_login_table</span><br><span class="line">    <span class="keyword">where</span></span><br><span class="line">        online_second <span class="operator">&gt;=</span> <span class="number">5</span><span class="operator">*</span><span class="number">60</span> <span class="keyword">and</span></span><br><span class="line">        <span class="keyword">right</span>(user_id, <span class="number">8</span>) <span class="operator">=</span> <span class="string">&#x27;@163.com&#x27;</span></span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">        product</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    a.product,</span><br><span class="line">    `登陆人数`,</span><br><span class="line">    `有效登陆人数`,</span><br><span class="line">    `官方渠道有效登陆人数`</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    login <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span></span><br><span class="line">    youxiao_login <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span></span><br><span class="line">    a.product <span class="operator">=</span> b.product</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> </span><br><span class="line">    guanfangqudao_youxiao_login <span class="keyword">as</span> c</span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">    a.product <span class="operator">=</span> c.product</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">    product</span><br></pre></td></tr></table></figure>
+
+<p>或者简单写法</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    product,</span><br><span class="line">    <span class="built_in">count</span>(<span class="keyword">distinct</span> user_id) <span class="keyword">as</span> <span class="string">&#x27;登陆人数&#x27;</span></span><br><span class="line">    <span class="built_in">count</span>(<span class="keyword">distinct</span> if(online_second <span class="operator">&gt;=</span> <span class="number">5</span><span class="operator">*</span><span class="number">60</span>, user_id, <span class="keyword">null</span>)) <span class="keyword">as</span> <span class="string">&#x27;有效登录&#x27;</span>, <span class="comment">-- 聚合函数忽略NULL</span></span><br><span class="line">    <span class="built_in">count</span>(<span class="keyword">distinct</span> if(online_second <span class="operator">&gt;=</span> <span class="number">5</span><span class="operator">*</span><span class="number">60</span> <span class="keyword">and</span> <span class="keyword">right</span>(user_id, <span class="number">8</span>) <span class="operator">=</span> <span class="string">&#x27;@163.com&#x27;</span>, user_id, <span class="keyword">null</span>)) <span class="keyword">as</span> <span class="string">&#x27;官方渠道有效登录&#x27;</span></span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    user_login_table</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    product</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">    product</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="SQL2-1"><a href="#SQL2-1" class="headerlink" title="SQL2"></a>SQL2</h2><h3 id="不准确写法"><a href="#不准确写法" class="headerlink" title="不准确写法"></a>不准确写法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 取出有效登录用户数前2，的产品，其总在线时长前5的用户。按照产品id顺序（从小到大），在线时长倒序（从大到小）排序</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> youxiao <span class="keyword">as</span> (</span><br><span class="line">    <span class="comment">-- 有效登录数前2的产品</span></span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        product,</span><br><span class="line">        <span class="built_in">count</span>(<span class="keyword">distinct</span> user_id) <span class="keyword">as</span> num</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        user_login_table</span><br><span class="line">    <span class="keyword">where</span></span><br><span class="line">        online_second <span class="operator">&gt;=</span> <span class="number">5</span><span class="operator">*</span><span class="number">60</span></span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">        product</span><br><span class="line">    <span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">        num <span class="keyword">desc</span></span><br><span class="line">    limit <span class="number">2</span></span><br><span class="line">    </span><br><span class="line">),</span><br><span class="line">user_online <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="operator">*</span></span><br><span class="line">    <span class="keyword">from</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            <span class="operator">*</span>,</span><br><span class="line">            <span class="built_in">dense_rank</span>() <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> product <span class="keyword">order</span> <span class="keyword">by</span> num) <span class="keyword">as</span> ranking</span><br><span class="line">        <span class="keyword">from</span> (</span><br><span class="line">            <span class="keyword">select</span></span><br><span class="line">                user_id,</span><br><span class="line">                product,</span><br><span class="line">                <span class="built_in">sum</span>(online_second) <span class="keyword">as</span> num</span><br><span class="line">            <span class="keyword">from</span></span><br><span class="line">                user_login_table</span><br><span class="line">            <span class="keyword">where</span></span><br><span class="line">                online_second <span class="operator">&gt;=</span> <span class="number">50</span></span><br><span class="line">            <span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">                user_id,</span><br><span class="line">                product</span><br><span class="line">        ) <span class="keyword">as</span> a</span><br><span class="line">    ) <span class="keyword">as</span> a</span><br><span class="line">    <span class="keyword">where</span></span><br><span class="line">        ranking <span class="operator">&lt;=</span> <span class="number">5</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    a.product,</span><br><span class="line">    b.user_id,</span><br><span class="line">    b.num</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    youxiao <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span></span><br><span class="line">    user_online <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span> a.product <span class="operator">=</span> b.product</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">    product,</span><br><span class="line">    num <span class="keyword">desc</span></span><br></pre></td></tr></table></figure>
+
+<p>这里需要注意的是</p>
+<blockquote>
+<p>取出前几名的话需要用到<code>dense_rank</code>函数，因为按照数量排序的话可能会出现排名相同的情况,dense_rank函数不会跳跃</p>
+</blockquote>
+<h3 id="正确写法-1"><a href="#正确写法-1" class="headerlink" title="正确写法"></a>正确写法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">with</span> youxiao <span class="keyword">as</span> (</span><br><span class="line">    <span class="comment">-- 有效登录数前2的产品</span></span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        product,</span><br><span class="line">        num</span><br><span class="line">    <span class="keyword">from</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            <span class="operator">*</span>,</span><br><span class="line">            <span class="built_in">dense_rank</span>() <span class="keyword">over</span> (<span class="keyword">order</span> <span class="keyword">by</span> num) <span class="keyword">as</span> ranking</span><br><span class="line">        <span class="keyword">from</span> (</span><br><span class="line">            <span class="keyword">select</span></span><br><span class="line">                product,</span><br><span class="line">                <span class="built_in">count</span>(<span class="keyword">distinct</span> user_id) <span class="keyword">as</span> num</span><br><span class="line">            <span class="keyword">from</span></span><br><span class="line">                user_login_table</span><br><span class="line">            <span class="keyword">where</span></span><br><span class="line">                online_second <span class="operator">&gt;=</span> <span class="number">5</span><span class="operator">*</span><span class="number">60</span></span><br><span class="line">            <span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">                product</span><br><span class="line">        ) <span class="keyword">as</span> a</span><br><span class="line">    )  <span class="keyword">as</span> a</span><br><span class="line">    <span class="keyword">where</span></span><br><span class="line">        ranking <span class="operator">=</span> <span class="number">1</span>  </span><br><span class="line">),</span><br><span class="line">user_online <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="operator">*</span></span><br><span class="line">    <span class="keyword">from</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            <span class="operator">*</span>,</span><br><span class="line">            <span class="built_in">dense_rank</span>() <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> product <span class="keyword">order</span> <span class="keyword">by</span> num) <span class="keyword">as</span> ranking</span><br><span class="line">        <span class="keyword">from</span> (</span><br><span class="line">            <span class="keyword">select</span></span><br><span class="line">                user_id,</span><br><span class="line">                product,</span><br><span class="line">                <span class="built_in">sum</span>(online_second) <span class="keyword">as</span> num</span><br><span class="line">            <span class="keyword">from</span></span><br><span class="line">                user_login_table</span><br><span class="line">            <span class="keyword">where</span></span><br><span class="line">                online_second <span class="operator">&gt;=</span> <span class="number">50</span></span><br><span class="line">            <span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">                user_id,</span><br><span class="line">                product</span><br><span class="line">        ) <span class="keyword">as</span> a</span><br><span class="line">    ) <span class="keyword">as</span> a</span><br><span class="line">    <span class="keyword">where</span></span><br><span class="line">        ranking <span class="operator">&lt;=</span> <span class="number">5</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    a.product,</span><br><span class="line">    b.user_id,</span><br><span class="line">    b.num</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    youxiao <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span></span><br><span class="line">    user_online <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span> a.product <span class="operator">=</span> b.product</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">    product,</span><br><span class="line">    num <span class="keyword">desc</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="网易互娱-题目2"><a href="#网易互娱-题目2" class="headerlink" title="网易互娱-题目2"></a>网易互娱-题目2</h1><h2 id="题目描述-4"><a href="#题目描述-4" class="headerlink" title="题目描述"></a>题目描述</h2><p><img src="./5.png"></p>
+<h2 id="题目来源-1"><a href="#题目来源-1" class="headerlink" title="题目来源"></a>题目来源</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/366090074">https://zhuanlan.zhihu.com/p/366090074</a></p>
+<h2 id="SQL-2"><a href="#SQL-2" class="headerlink" title="SQL"></a>SQL</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 每个产品最后一次付款记录。然后按照最后一条付款记录时间从大到小排序（若同产品最后相同时间存在多条记录，则返回多条）</span></span><br><span class="line"><span class="keyword">with</span> base <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        product,</span><br><span class="line">        pay_time</span><br><span class="line">    <span class="keyword">from</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            <span class="operator">*</span>,</span><br><span class="line">            <span class="built_in">dense_rank</span>() <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> product <span class="keyword">order</span> <span class="keyword">by</span> pay_time <span class="keyword">desc</span>) <span class="keyword">as</span> ranking <span class="comment">-- 使用这个窗口函数</span></span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            user_pay_table</span><br><span class="line">    ) <span class="keyword">as</span> a</span><br><span class="line">    <span class="keyword">where</span> </span><br><span class="line">        ranking <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">        pay_time</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h1 id="抖音春招-题目1"><a href="#抖音春招-题目1" class="headerlink" title="抖音春招-题目1"></a>抖音春招-题目1</h1><h2 id="题目描述-5"><a href="#题目描述-5" class="headerlink" title="题目描述"></a>题目描述</h2><p><img src="./6.png"></p>
+<h2 id="题目来源-2"><a href="#题目来源-2" class="headerlink" title="题目来源"></a>题目来源</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/361870962">https://zhuanlan.zhihu.com/p/361870962</a></p>
+<h2 id="SQL1-2"><a href="#SQL1-2" class="headerlink" title="SQL1"></a>SQL1</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 计算2020年每个月，每个用户连续签到的最多天数</span></span><br><span class="line"><span class="keyword">with</span> base <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        uid,</span><br><span class="line">        imp_month,</span><br><span class="line">        date_sub(imp_date, <span class="type">interval</span> ranking <span class="keyword">day</span>) <span class="keyword">as</span> gap,</span><br><span class="line">        <span class="built_in">count</span>(<span class="number">1</span>) <span class="keyword">as</span> num</span><br><span class="line">    <span class="keyword">from</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            <span class="operator">*</span>,</span><br><span class="line">            <span class="built_in">row_number</span>() <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> uid, imp_month <span class="keyword">order</span> <span class="keyword">by</span> imp_date) <span class="keyword">as</span> ranking <span class="comment">-- 每一个用户每一个月的登录时间排序</span></span><br><span class="line">        <span class="keyword">from</span> (</span><br><span class="line">            <span class="keyword">select</span></span><br><span class="line">                <span class="operator">*</span>,</span><br><span class="line">                <span class="keyword">month</span>(imp_date) <span class="keyword">as</span> imp_month</span><br><span class="line">            <span class="keyword">from</span></span><br><span class="line">                t_act_records</span><br><span class="line">            <span class="keyword">where</span></span><br><span class="line">                imp_date <span class="keyword">between</span> <span class="string">&#x27;2020-01-01&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;2020-12-31&#x27;</span></span><br><span class="line">        ) <span class="keyword">as</span> a</span><br><span class="line">    ) <span class="keyword">as</span> a</span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">        uid,</span><br><span class="line">        imp_month,</span><br><span class="line">        date_sub(imp_date, <span class="type">interval</span> ranking <span class="keyword">day</span>) <span class="comment">-- 根据这个往前推的日期排序，核心就在这里</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    uid,</span><br><span class="line">    imp_month,</span><br><span class="line">    <span class="built_in">max</span>(num) <span class="keyword">as</span> <span class="string">&#x27;最大连续登录天数&#x27;</span></span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    base</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    uid,</span><br><span class="line">    imp_month</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">    uid,</span><br><span class="line">    imp_month</span><br></pre></td></tr></table></figure>
+
+<h2 id="SQL2-2"><a href="#SQL2-2" class="headerlink" title="SQL2"></a>SQL2</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 计算2020年每个月，连续2天都有登陆的用户名单</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="keyword">distinct</span> imp_month, uid</span><br><span class="line"><span class="keyword">from</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="operator">*</span>,</span><br><span class="line">        datediff(next_login_day, imp_date) <span class="keyword">as</span> diff <span class="comment">-- 求日期差</span></span><br><span class="line">    <span class="keyword">from</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            <span class="operator">*</span>,</span><br><span class="line">            <span class="built_in">LEAD</span>(imp_date, <span class="number">1</span>) <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> uid, imp_month <span class="keyword">order</span> <span class="keyword">by</span> imp_date) <span class="keyword">as</span> next_login_day <span class="comment">-- 下一次登录日期</span></span><br><span class="line">        <span class="keyword">from</span> (</span><br><span class="line">            <span class="keyword">select</span></span><br><span class="line">                <span class="operator">*</span>,</span><br><span class="line">                <span class="keyword">month</span>(imp_date) <span class="keyword">as</span> imp_month</span><br><span class="line">            <span class="keyword">from</span></span><br><span class="line">                t_act_records</span><br><span class="line">            <span class="keyword">where</span></span><br><span class="line">                imp_date <span class="keyword">between</span> <span class="string">&#x27;2020-01-01&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;2020-12-31&#x27;</span></span><br><span class="line">        ) <span class="keyword">as</span> a</span><br><span class="line">    ) <span class="keyword">as</span> a</span><br><span class="line">) <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    diff <span class="operator">&gt;=</span> <span class="number">1</span> <span class="comment">-- 日期差大于等于1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>优化写法，还是按照<code>连续时间</code>的问题来看待</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> base <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        uid,</span><br><span class="line">        imp_month,</span><br><span class="line">        date_sub(imp_date, <span class="type">interval</span> ranking <span class="keyword">day</span>) <span class="keyword">as</span> gap</span><br><span class="line">    <span class="keyword">from</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            <span class="operator">*</span>,</span><br><span class="line">            <span class="built_in">row_number</span>() <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> uid, imp_month <span class="keyword">order</span> <span class="keyword">by</span> imp_date) <span class="keyword">as</span> ranking <span class="comment">-- 每一个用户每一个月的登录时间排序</span></span><br><span class="line">        <span class="keyword">from</span> (</span><br><span class="line">            <span class="keyword">select</span></span><br><span class="line">                <span class="operator">*</span>,</span><br><span class="line">                <span class="keyword">month</span>(imp_date) <span class="keyword">as</span> imp_month</span><br><span class="line">            <span class="keyword">from</span></span><br><span class="line">                t_act_records</span><br><span class="line">            <span class="keyword">where</span></span><br><span class="line">                imp_date <span class="keyword">between</span> <span class="string">&#x27;2020-01-01&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;2020-12-31&#x27;</span></span><br><span class="line">        ) <span class="keyword">as</span> a</span><br><span class="line">    ) <span class="keyword">as</span> a</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    imp_month,</span><br><span class="line">    uid</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    base</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    imp_month, </span><br><span class="line">    uid</span><br><span class="line"><span class="keyword">having</span></span><br><span class="line">    <span class="built_in">count</span>(gap) <span class="operator">&gt;=</span> <span class="number">2</span> <span class="comment">-- 连续两天登录</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="SQL3"><a href="#SQL3" class="headerlink" title="SQL3"></a>SQL3</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 计算2020年每个月，连续5天都有登陆的用户数</span></span><br><span class="line"><span class="keyword">with</span> base <span class="keyword">as</span> (</span><br><span class="line">	<span class="keyword">select</span></span><br><span class="line">		<span class="operator">*</span>,</span><br><span class="line">		date_sub(imp_date, <span class="type">interval</span> gap <span class="keyword">day</span>) <span class="keyword">as</span> next_login_day</span><br><span class="line">	<span class="keyword">from</span> (</span><br><span class="line">		<span class="keyword">select</span></span><br><span class="line">			<span class="operator">*</span>,</span><br><span class="line">			<span class="keyword">month</span>(imp_date) <span class="keyword">as</span> imp_month,</span><br><span class="line">			<span class="built_in">row_number</span>() <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> <span class="keyword">month</span>(imp_date), uid <span class="keyword">order</span> <span class="keyword">by</span> imp_date) <span class="keyword">as</span> gap</span><br><span class="line">		<span class="keyword">from</span></span><br><span class="line">			`抖音_t_act_records`</span><br><span class="line">		<span class="keyword">where</span></span><br><span class="line">			imp_date <span class="keyword">between</span> <span class="string">&#x27;2020-01-01&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;2020-12-31&#x27;</span></span><br><span class="line">	) <span class="keyword">as</span> a</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    imp_month,</span><br><span class="line">    <span class="built_in">count</span>(<span class="keyword">distinct</span> uid) <span class="keyword">as</span> user_num</span><br><span class="line"><span class="keyword">from</span> (</span><br><span class="line">	<span class="keyword">select</span></span><br><span class="line">		imp_month,</span><br><span class="line">		uid,</span><br><span class="line">		<span class="built_in">max</span>(num) <span class="keyword">as</span> max_login_days</span><br><span class="line">	<span class="keyword">from</span> (</span><br><span class="line">		<span class="keyword">select</span></span><br><span class="line">			<span class="comment">-- 每一个月每一个用户的连续登录天数(可能有很多)</span></span><br><span class="line">			imp_month,</span><br><span class="line">			uid,</span><br><span class="line">			next_login_day,</span><br><span class="line">			<span class="built_in">count</span>(<span class="number">1</span>) <span class="keyword">as</span> num</span><br><span class="line">		<span class="keyword">from</span></span><br><span class="line">			base</span><br><span class="line">		<span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">			imp_month,</span><br><span class="line">			uid,</span><br><span class="line">			next_login_day</span><br><span class="line">	) <span class="keyword">as</span> a</span><br><span class="line">	<span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">		imp_month,</span><br><span class="line">		uid</span><br><span class="line">) <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">	max_login_days <span class="operator">&gt;=</span> <span class="number">5</span> <span class="comment">-- 最高连续登录天数</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">	imp_month</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">	imp_month</span><br></pre></td></tr></table></figure>
+<p>精简写法</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">	<span class="keyword">month</span>(imp_date) <span class="keyword">as</span> <span class="string">&#x27;month&#x27;</span>,</span><br><span class="line">	<span class="built_in">count</span>(<span class="keyword">distinct</span> uid) <span class="keyword">as</span> num <span class="comment">-- 统计用户id</span></span><br><span class="line"><span class="keyword">from</span> (</span><br><span class="line">	<span class="keyword">select</span></span><br><span class="line">		uid,</span><br><span class="line">		imp_date,</span><br><span class="line">		date_sub(imp_date, <span class="type">interval</span> gap <span class="keyword">day</span>) <span class="keyword">as</span> diff</span><br><span class="line">	<span class="keyword">from</span> (</span><br><span class="line">		<span class="keyword">select</span></span><br><span class="line">			<span class="operator">*</span>,</span><br><span class="line">			<span class="built_in">row_number</span>() <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> <span class="keyword">month</span>(imp_date), uid <span class="keyword">order</span> <span class="keyword">by</span> imp_date) <span class="keyword">as</span> gap</span><br><span class="line">		<span class="keyword">from</span></span><br><span class="line">			`抖音_t_act_records`</span><br><span class="line">		<span class="keyword">where</span></span><br><span class="line">			imp_date <span class="keyword">between</span> <span class="string">&#x27;2020-01-01&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;2020-12-31&#x27;</span></span><br><span class="line">	) <span class="keyword">as</span> a</span><br><span class="line">) <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">	<span class="keyword">month</span>(imp_date) <span class="comment">-- 以月份来分组</span></span><br><span class="line"><span class="keyword">having</span></span><br><span class="line">	<span class="built_in">count</span>(diff) <span class="operator">&gt;=</span> <span class="number">5</span> <span class="comment">-- 登录天数大于等于5，不管什么Uid</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="抖音春招-题目2"><a href="#抖音春招-题目2" class="headerlink" title="抖音春招-题目2"></a>抖音春招-题目2</h1><h2 id="题目描述-6"><a href="#题目描述-6" class="headerlink" title="题目描述"></a>题目描述</h2><p><img src="7.png"></p>
+<h2 id="题目来源-3"><a href="#题目来源-3" class="headerlink" title="题目来源"></a>题目来源</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/361870962">https://zhuanlan.zhihu.com/p/361870962</a></p>
+<h2 id="SQL1-3"><a href="#SQL1-3" class="headerlink" title="SQL1"></a>SQL1</h2><p>求出每个用户第一个订单的记录，如果同时下单了包含多个课程的订单，则按照：语文、数学、英语顺序排。</p>
+<p>以下为错误写法：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">	order_id,</span><br><span class="line">	uid,</span><br><span class="line">	order_time,</span><br><span class="line">	subject</span><br><span class="line"><span class="keyword">from</span> (</span><br><span class="line">	<span class="keyword">select</span></span><br><span class="line">		<span class="operator">*</span>,</span><br><span class="line">		<span class="built_in">row_number</span>() <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> uid <span class="keyword">order</span> <span class="keyword">by</span> order_time, subject_ranking) <span class="keyword">as</span> ranking</span><br><span class="line">	<span class="keyword">from</span> (</span><br><span class="line">		<span class="keyword">select</span></span><br><span class="line">			<span class="operator">*</span>,</span><br><span class="line">			<span class="keyword">case</span> subject <span class="keyword">when</span> <span class="string">&#x27;语文&#x27;</span> <span class="keyword">then</span> <span class="number">1</span> <span class="keyword">when</span> <span class="string">&#x27;数学&#x27;</span> <span class="keyword">then</span> <span class="number">2</span> <span class="keyword">when</span> <span class="string">&#x27;英语&#x27;</span> <span class="keyword">then</span> <span class="number">3</span> <span class="keyword">end</span> <span class="keyword">as</span> subject_ranking</span><br><span class="line">		<span class="keyword">from</span> </span><br><span class="line">			`抖音_t_order_records`</span><br><span class="line">	) <span class="keyword">as</span> a</span><br><span class="line">) <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">	ranking <span class="operator">=</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>一个订单可能包括多个课程，所以上面的写法是错误的</p>
+<p>优化写法，主要用到了<code>field</code>函数。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">	uid,</span><br><span class="line">	subject,</span><br><span class="line">	<span class="built_in">min</span>(order_time) <span class="keyword">as</span> <span class="type">time</span></span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">	`抖音_t_order_records`</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> <span class="comment">-- 每一个用户每一科目的最早下单时间</span></span><br><span class="line">	uid,</span><br><span class="line">	subject</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">	field(subject, <span class="string">&#x27;语文&#x27;</span>, <span class="string">&#x27;数学&#x27;</span>, <span class="string">&#x27;英语&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="SQL2-3"><a href="#SQL2-3" class="headerlink" title="SQL2"></a>SQL2</h2><p>运行不出来</p>
+<h1 id="抖音春招-题目3"><a href="#抖音春招-题目3" class="headerlink" title="抖音春招-题目3"></a>抖音春招-题目3</h1><h2 id="题目描述-7"><a href="#题目描述-7" class="headerlink" title="题目描述"></a>题目描述</h2><p><img src="8.png"></p>
+<h2 id="题目来源-4"><a href="#题目来源-4" class="headerlink" title="题目来源"></a>题目来源</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/361870962">https://zhuanlan.zhihu.com/p/361870962</a></p>
+<h2 id="SQL1-4"><a href="#SQL1-4" class="headerlink" title="SQL1"></a>SQL1</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 求出每个学生成绩最高的三条记录</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    student_id,</span><br><span class="line">    course_id,</span><br><span class="line">    score</span><br><span class="line"><span class="keyword">from</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="operator">*</span>,</span><br><span class="line">        <span class="built_in">row_number</span>() <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> student_id <span class="keyword">order</span> <span class="keyword">by</span> score <span class="keyword">desc</span>) <span class="keyword">as</span> ranking</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        t_student_score</span><br><span class="line">) <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    ranking <span class="operator">&lt;=</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">    student_id,</span><br><span class="line">    score</span><br></pre></td></tr></table></figure>
+
+<h2 id="SQL2-4"><a href="#SQL2-4" class="headerlink" title="SQL2"></a>SQL2</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 求出每个班，每个课程，高于课程平均分的学生</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    class_id,</span><br><span class="line">    course_id,</span><br><span class="line">    student_id</span><br><span class="line"><span class="keyword">from</span>(</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="operator">*</span>,</span><br><span class="line">        <span class="built_in">avg</span>(score) <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> class_id, course_id) <span class="keyword">as</span> class_course_avg_score</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        t_student_score</span><br><span class="line">) <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    score <span class="operator">&gt;</span> class_course_avg_score</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    class_id,</span><br><span class="line">    course_id,</span><br><span class="line">    student_id</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="快手春招-题目1"><a href="#快手春招-题目1" class="headerlink" title="快手春招-题目1"></a>快手春招-题目1</h1><h2 id="题目描述-8"><a href="#题目描述-8" class="headerlink" title="题目描述"></a>题目描述</h2><p><img src="9.png"></p>
+<h2 id="题目来源-5"><a href="#题目来源-5" class="headerlink" title="题目来源"></a>题目来源</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/364317753">https://zhuanlan.zhihu.com/p/364317753</a></p>
+<h2 id="SQL1-5"><a href="#SQL1-5" class="headerlink" title="SQL1"></a>SQL1</h2><p>经典的计算留存的问题，之前写过博客介绍过，核心在于自连接。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> base <span class="keyword">as</span> (</span><br><span class="line">	<span class="keyword">select</span></span><br><span class="line">		a.device_id,</span><br><span class="line">		a.app_id,</span><br><span class="line">		a.login_day <span class="keyword">as</span> login_day,</span><br><span class="line">		b.login_day <span class="keyword">as</span> next_login_day,</span><br><span class="line">		datediff(b.login_day, a.login_day) <span class="keyword">as</span> gap</span><br><span class="line">	<span class="keyword">from</span></span><br><span class="line">		`快手_user_log` <span class="keyword">as</span> a</span><br><span class="line">	<span class="keyword">left</span> <span class="keyword">join</span> <span class="comment">-- 这里要注意</span></span><br><span class="line">		`快手_user_log` <span class="keyword">as</span> b</span><br><span class="line">	<span class="keyword">on</span></span><br><span class="line">		a.device_id <span class="operator">=</span> b.device_id <span class="keyword">and</span></span><br><span class="line">		a.app_id <span class="operator">=</span> b.app_id <span class="keyword">and</span></span><br><span class="line">		a.login_day <span class="operator">&lt;=</span> b.login_day <span class="comment">-- 这里要注意</span></span><br><span class="line">	<span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">		device_id,</span><br><span class="line">		app_id,</span><br><span class="line">		gap</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">	login_day,</span><br><span class="line">	day1 <span class="operator">/</span> num  <span class="keyword">as</span> 次日留存率</span><br><span class="line"><span class="keyword">from</span> (</span><br><span class="line">	<span class="keyword">select</span></span><br><span class="line">		login_day,</span><br><span class="line">		<span class="built_in">count</span>(<span class="keyword">distinct</span> device_id, app_id) <span class="keyword">as</span> num,</span><br><span class="line">		<span class="built_in">count</span>(<span class="keyword">case</span> <span class="keyword">when</span> gap <span class="operator">=</span> <span class="number">1</span> <span class="keyword">then</span> <span class="number">1</span> <span class="keyword">else</span> <span class="keyword">null</span> <span class="keyword">end</span>) <span class="keyword">as</span> day1</span><br><span class="line">	<span class="keyword">from</span></span><br><span class="line">		base</span><br><span class="line">	<span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">		login_day</span><br><span class="line">) <span class="keyword">as</span> a</span><br></pre></td></tr></table></figure>
+
+<h2 id="快手春招-题目2"><a href="#快手春招-题目2" class="headerlink" title="快手春招-题目2"></a>快手春招-题目2</h2><h2 id="题目描述-9"><a href="#题目描述-9" class="headerlink" title="题目描述"></a>题目描述</h2><p><img src="10.png"></p>
+<h2 id="题目来源-6"><a href="#题目来源-6" class="headerlink" title="题目来源"></a>题目来源</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/364317753">https://zhuanlan.zhihu.com/p/364317753</a></p>
+<h2 id="SQL1-6"><a href="#SQL1-6" class="headerlink" title="SQL1"></a>SQL1</h2><p>mysql没有split函数</p>
+<h1 id="网易"><a href="#网易" class="headerlink" title="网易"></a>网易</h1><h2 id="题目描述-10"><a href="#题目描述-10" class="headerlink" title="题目描述"></a>题目描述</h2><p>现在数据库中有一张用户交易表 netease_order，其中有orderid（订单ID）、userid（用户ID）、amount（消费金额）、paytime（支付时间）。</p>
+<ol>
+<li>请写出对应的SQL语句，查出每个用户第一单的消费金额。</li>
+<li>请写出对应的SQL语句，查出每个月的新客数（新客指在严选首次支付的用户），当月有复购的新客数，新客当月复购率（当月有复购的新客数/月总新客数）。</li>
+</ol>
+<h2 id="SQL1-7"><a href="#SQL1-7" class="headerlink" title="SQL1"></a>SQL1</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    userid,</span><br><span class="line">    amount </span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    ( <span class="keyword">SELECT</span> <span class="operator">*</span>, <span class="built_in">row_number</span>() <span class="keyword">over</span> ( <span class="keyword">PARTITION</span> <span class="keyword">BY</span> userid <span class="keyword">ORDER</span> <span class="keyword">BY</span> paytime ) <span class="keyword">AS</span> ranking <span class="keyword">FROM</span> netease_order ) <span class="keyword">AS</span> a </span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">ranking <span class="operator">=</span> <span class="number">1</span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="SQL2-5"><a href="#SQL2-5" class="headerlink" title="SQL2"></a>SQL2</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="comment">-- 查出每个月的新客数（新客指在严选首次支付的用户）</span></span><br><span class="line">new_user <span class="keyword">as</span> (</span><br><span class="line">	<span class="keyword">select</span></span><br><span class="line">		userid,</span><br><span class="line">		date_format(<span class="built_in">min</span>(paytime), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">as</span> first_order_date</span><br><span class="line">	<span class="keyword">FROM</span></span><br><span class="line">		netease_order</span><br><span class="line">	<span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">		userid</span><br><span class="line">),</span><br><span class="line">xinke <span class="keyword">as</span> (</span><br><span class="line">	<span class="keyword">select</span></span><br><span class="line">		first_order_date,</span><br><span class="line">		<span class="built_in">count</span>(userid) <span class="keyword">as</span> user_num</span><br><span class="line">	<span class="keyword">from</span></span><br><span class="line">		new_user</span><br><span class="line">	<span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">		first_order_date</span><br><span class="line">),</span><br><span class="line">fugou <span class="keyword">as</span> (</span><br><span class="line"><span class="comment">-- 	select</span></span><br><span class="line"><span class="comment">-- 		DATE_FORMAT(a.paytime, &#x27;%Y-%m&#x27;) as order_date,</span></span><br><span class="line"><span class="comment">-- 		count(distinct a.userid) as user_num</span></span><br><span class="line"><span class="comment">-- 	from</span></span><br><span class="line"><span class="comment">-- 		netease_order as a</span></span><br><span class="line"><span class="comment">-- 	left join </span></span><br><span class="line"><span class="comment">-- 		netease_order as b</span></span><br><span class="line"><span class="comment">-- 	on </span></span><br><span class="line"><span class="comment">-- 		a.userid = b.userid and</span></span><br><span class="line"><span class="comment">-- 		DATE_FORMAT(a.paytime, &#x27;%Y-%m&#x27;) = DATE_FORMAT(b.paytime, &#x27;%Y-%m&#x27;)</span></span><br><span class="line"><span class="comment">-- 	where</span></span><br><span class="line"><span class="comment">-- 		(a.userid, DATE_FORMAT(a.paytime, &#x27;%Y-%m&#x27;)) in (select * from new_user)</span></span><br><span class="line"><span class="comment">-- 	group by </span></span><br><span class="line"><span class="comment">-- 		DATE_FORMAT(a.paytime, &#x27;%Y-%m&#x27;)</span></span><br><span class="line">	<span class="keyword">select</span></span><br><span class="line">		DATE_FORMAT(a.paytime, <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">as</span> order_date,</span><br><span class="line">		<span class="built_in">count</span>(<span class="keyword">distinct</span> a.userid) <span class="keyword">as</span> user_num</span><br><span class="line">	<span class="keyword">from</span></span><br><span class="line">		netease_order <span class="keyword">as</span> a</span><br><span class="line">	<span class="keyword">inner</span> <span class="keyword">join</span> </span><br><span class="line">		new_user <span class="keyword">as</span> b</span><br><span class="line">	<span class="keyword">on</span> </span><br><span class="line">		a.userid <span class="operator">=</span> b.userid <span class="keyword">and</span></span><br><span class="line">		DATE_FORMAT(a.paytime, <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="operator">=</span> b.first_order_date</span><br><span class="line">	<span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">		DATE_FORMAT(a.paytime, <span class="string">&#x27;%Y-%m&#x27;</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">	b.order_date,</span><br><span class="line">	a.user_num <span class="keyword">as</span> <span class="string">&#x27;新客数&#x27;</span>,</span><br><span class="line">	b.user_num <span class="keyword">as</span> <span class="string">&#x27;复购数&#x27;</span>,</span><br><span class="line">	b.user_num <span class="operator">/</span> a.user_num <span class="keyword">as</span> <span class="string">&#x27;复购率&#x27;</span></span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">	xinke <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span></span><br><span class="line">	fugou <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">	a.first_order_date <span class="operator">=</span> b.order_date</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/sql/company_collection/" data-id="cl85d5h8u00k5i99og64thaar" data-title="SQL笔试题集合" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-sql/zhongweishu" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/sql/zhongweishu/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T07:53:41.000Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/SQL/">SQL</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/sql/zhongweishu/">求中位数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p><img src="./0.png"></p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><ul>
+<li>使用<code>row_number</code>窗口函数对公司薪资进行分组排序，得到序号</li>
+<li>使用<code>count</code>窗口函数统计公司内员工的数量</li>
+<li>判断当前记录的序号是否在<code>数量 / 2</code>与<code>数量 / 2 + 1</code>之间</li>
+</ul>
+<h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    Id,</span><br><span class="line">    Company,</span><br><span class="line">    Salary</span><br><span class="line"><span class="keyword">from</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="operator">*</span>,</span><br><span class="line">        <span class="built_in">row_number</span>() <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> Company <span class="keyword">order</span> <span class="keyword">by</span> Salary) <span class="keyword">as</span> ranking,</span><br><span class="line">        <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> Company) <span class="keyword">as</span> num</span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">        Employee</span><br><span class="line">) <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    ranking <span class="keyword">between</span> num <span class="operator">/</span> <span class="number">2</span> <span class="keyword">and</span> num <span class="operator">/</span> <span class="number">2</span> <span class="operator">+</span> <span class="number">1</span> <span class="comment">-- 核心</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h1><p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/practice/165d88474d434597bcd2af8bf72b24f1?tpId=82&tags=&title=&difficulty=0&judgeStatus=0&rp=1">牛客网SQL88题</a></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-median-given-frequency-of-numbers/submissions/">leetcode</a></p>
+<h1 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h1><p>这里题目使用的不是单纯得从1开始排序的，而是每一个阶段的综合数量，配合sum窗口函数累积求和问题，再加上求解中位数的一个技巧即可完成，技巧为：</p>
+<blockquote>
+<p>当某一数的正序和逆序累计均大于整个序列的数字个数的一半即为中位数</p>
+</blockquote>
+<p>比如:<br>A A B B C C D D<br>1 2 3  4  5 6  7 8<br>8 7 6  5  4  3 2 1<br>那么上面的4，5以及5，4就是中位数，如果是奇数的话，就只有1个<br>再比如<br>A2个，B3个，C5个，D2个，<br>正序2，5，10，12<br>倒序12，10，7，2<br>正序和12，大于等于6的，为C,D，<br>逆序和为12，大于等于6的为ABC，所以最后中位数为C</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 当某一数的正序和逆序累计均大于整个序列的数字个数的一半即为中位数</span></span><br><span class="line"><span class="keyword">WITH</span> base <span class="keyword">AS</span> (</span><br><span class="line">	<span class="keyword">SELECT</span></span><br><span class="line">		<span class="operator">*</span>,</span><br><span class="line">		( <span class="keyword">SELECT</span> <span class="built_in">sum</span>( number ) <span class="keyword">FROM</span> class_grade ) <span class="keyword">AS</span> total,</span><br><span class="line">		<span class="built_in">sum</span>( number ) <span class="keyword">over</span> ( <span class="keyword">ORDER</span> <span class="keyword">BY</span> grade ) <span class="keyword">AS</span> ranking,</span><br><span class="line">		<span class="built_in">sum</span>( number ) <span class="keyword">over</span> ( <span class="keyword">ORDER</span> <span class="keyword">BY</span> grade <span class="keyword">DESC</span> ) <span class="keyword">AS</span> r_ranking </span><br><span class="line">	<span class="keyword">FROM</span></span><br><span class="line">		class_grade </span><br><span class="line">	<span class="keyword">ORDER</span> <span class="keyword">BY</span></span><br><span class="line">		grade </span><br><span class="line">	) </span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="built_in">avg</span>(grade)</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	base </span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">	ranking <span class="operator">&gt;=</span> total <span class="operator">/</span> <span class="number">2</span> </span><br><span class="line">	<span class="keyword">AND</span> r_ranking <span class="operator">&gt;=</span> total <span class="operator">/</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="另一种巧妙的解题思路"><a href="#另一种巧妙的解题思路" class="headerlink" title="另一种巧妙的解题思路"></a>另一种巧妙的解题思路</h1><blockquote>
+<p>一个序列的正序与倒叙的index要么相等，要么相差为1</p>
+</blockquote>
+<p>还是第一题，那么这个时候优化的写法为：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">	Company,</span><br><span class="line">	Salary</span><br><span class="line"><span class="keyword">from</span> (</span><br><span class="line">	<span class="keyword">SELECT</span></span><br><span class="line">		<span class="operator">*</span>,</span><br><span class="line">		<span class="built_in">cast</span>(<span class="built_in">ROW_NUMBER</span>() <span class="keyword">over</span> (<span class="keyword">PARTITION</span> <span class="keyword">by</span> Company <span class="keyword">ORDER</span> <span class="keyword">BY</span> Salary) <span class="keyword">as</span> SIGNED) <span class="keyword">as</span> ranking, <span class="comment">-- 显示类型转换</span></span><br><span class="line">		<span class="built_in">cast</span>(<span class="built_in">ROW_NUMBER</span>() <span class="keyword">over</span> (<span class="keyword">PARTITION</span> <span class="keyword">by</span> Company <span class="keyword">ORDER</span> <span class="keyword">BY</span> Salary <span class="keyword">desc</span>) <span class="keyword">as</span> SIGNED) <span class="keyword">as</span> reverse_ranking</span><br><span class="line">	<span class="keyword">FROM</span></span><br><span class="line">		`牛客_employee_中位数`</span><br><span class="line">) <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">	ranking <span class="operator">=</span> reverse_ranking <span class="keyword">or</span> <span class="built_in">abs</span>(ranking <span class="operator">-</span> reverse_ranking) <span class="operator">=</span> <span class="number">1</span> <span class="comment">-- 接受相减是负数的结果</span></span><br></pre></td></tr></table></figure>
+
+<p>这个里面需要注意的是<code>SIGNED INT</code>与<code>UNSIGNED INT</code>的区别。</p>
+<p><code>unsigned</code> 是mysql自定义的类型，表示<code>无符号数值即非负数</code>。signed为整型默认属性。<br>由于<code>ranking-reverse_ranking</code>的结果可能为负数，因此需要转化成<code>signed</code>。</p>
+<blockquote>
+<p>上面的这种写法不太适合于<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/median-employee-salary/">leetcode569题</a></p>
+</blockquote>
+<p>比如最后的结果需要加上<code>id</code>的话还需要在<code>窗口函数里面加上id</code>，比如<code>order by id</code>以及<code>order by id desc</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    Id,</span><br><span class="line">    Company,</span><br><span class="line">    Salary</span><br><span class="line"><span class="keyword">from</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="operator">*</span>,</span><br><span class="line">        <span class="built_in">cast</span>(<span class="built_in">row_number</span>() <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> Company <span class="keyword">order</span> <span class="keyword">by</span> Salary, id) <span class="keyword">as</span> signed) <span class="keyword">as</span> ranking,</span><br><span class="line">        <span class="built_in">cast</span>(<span class="built_in">row_number</span>() <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> Company <span class="keyword">order</span> <span class="keyword">by</span> Salary <span class="keyword">desc</span>, id <span class="keyword">desc</span>) <span class="keyword">as</span> signed) <span class="keyword">as</span> reverse_ranking</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        Employee</span><br><span class="line">) <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    ranking <span class="operator">=</span> reverse_ranking <span class="keyword">or</span> <span class="built_in">abs</span>(ranking <span class="operator">-</span> reverse_ranking) <span class="operator">=</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">    Company, Salary</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45445841/article/details/104002092">https://blog.csdn.net/qq_45445841/article/details/104002092</a></li>
+<li></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/sql/zhongweishu/" data-id="cl85d5h6300a0i99ocs8tfrbm" data-title="求中位数" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-sql/lianxuqujian" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/sql/lianxuqujian/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T06:05:09.000Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/SQL/">SQL</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/sql/lianxuqujian/">连续区间问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="连续出现数字"><a href="#连续出现数字" class="headerlink" title="连续出现数字"></a>连续出现数字</h1><p><img src="./0.png" alt="题目描述"></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ul>
+<li>使用<code>lag</code>窗口函数来求当前行的前N行数据</li>
+<li>根据Id来过滤</li>
+</ul>
+<h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">	<span class="keyword">distinct</span> num <span class="keyword">as</span> <span class="string">&#x27;连续出现3次的数字&#x27;</span></span><br><span class="line"><span class="keyword">from</span> (</span><br><span class="line">	<span class="keyword">select</span></span><br><span class="line">		<span class="operator">*</span>,</span><br><span class="line">		<span class="built_in">lag</span>(id, <span class="number">2</span>) <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> Num <span class="keyword">order</span> <span class="keyword">by</span> id) <span class="keyword">as</span> prev</span><br><span class="line">	<span class="keyword">from</span></span><br><span class="line">		`logs`</span><br><span class="line">) <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line">	id <span class="operator">=</span> prev <span class="operator">+</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>核心在：</p>
+<blockquote>
+<p>lag(id, 2) over (partition by num order by id) as prev</p>
+</blockquote>
+<p>lag往前推2个：根据num来分组，根据Id来排序，将id作为prev</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li>lag函数. <a target="_blank" rel="noopener" href="https://www.begtut.com/mysql/mysql-lag-function.html">https://www.begtut.com/mysql/mysql-lag-function.html</a> </li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/sql/lianxuqujian/" data-id="cl85d5h5s0091i99o6bpc97eq" data-title="连续区间问题" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/9/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/11/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">-CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Leetcode/">Leetcode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/django/">django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/sql/">sql</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1/">业务</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1%E6%8C%87%E6%A0%87/">业务指标</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/">中信证券</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/Django/">Django</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Flume/">Flume</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E9%9B%86/">数据集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/">毕业论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/">毕业设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/">秋招</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/%E9%9D%A2%E8%AF%95/">面试</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AF%95/">笔试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BA%E6%96%87/">论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/">银联实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">-leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flume/" rel="tag">Flume</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hbase/" rel="tag">Hbase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%9A%E5%8A%A1/" rel="tag">业务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" rel="tag">中信证券</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" rel="tag">时间序列预测</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" rel="tag">毕业论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" rel="tag">毕业设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%8B%E6%8B%9B/" rel="tag">秋招</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" rel="tag">金山实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" rel="tag">银联实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/leetcode/" style="font-size: 10px;">-leetcode</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Django/" style="font-size: 13.33px;">Django</a> <a href="/tags/Flume/" style="font-size: 10px;">Flume</a> <a href="/tags/Hbase/" style="font-size: 10px;">Hbase</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/SQL/" style="font-size: 18.89px;">SQL</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/leetcode/" style="font-size: 15.56px;">leetcode</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/%E4%B8%9A%E5%8A%A1/" style="font-size: 13.33px;">业务</a> <a href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" style="font-size: 11.11px;">中信证券</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 20px;">其他</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 13.33px;">大数据</a> <a href="/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 16.67px;">实习</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 11.11px;">工作</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" style="font-size: 10px;">时间序列预测</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12.22px;">机器学习</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" style="font-size: 14.44px;">毕业论文</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">毕业设计</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 12.22px;">爬虫</a> <a href="/tags/%E7%A7%8B%E6%8B%9B/" style="font-size: 13.33px;">秋招</a> <a href="/tags/%E7%AC%94%E8%AF%95/" style="font-size: 12.22px;">笔试</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 12.22px;">统计学</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 11.11px;">论文</a> <a href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" style="font-size: 13.33px;">金山实习</a> <a href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" style="font-size: 10px;">银联实习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 17.78px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/14/other/time_series_pred/">时间序列预测</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/01/other/customer_analysis_in_python/">用户价值分析</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/15/other/PEP8/">PEP-8: Python代码规范</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/29/other/fanqie/">番茄工作法</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/20/citics/neo4j_query_optimize/">neo4j查询调优</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

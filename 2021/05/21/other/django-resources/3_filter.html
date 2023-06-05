@@ -1,0 +1,43 @@
+<h1 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h1><pre><code class="python">class BoothFilter(django_filters.FilterSet):
+    &quot;&quot;&quot;
+    摊位过滤器
+    &quot;&quot;&quot;
+    status = django_filters.ChoiceFilter(choices=Booth.STATUS_CHOICES)
+
+    class Meta:
+        model = Booth
+        # fields = [&#39;name&#39;, &#39;location&#39;, &#39;price&#39;, &#39;area&#39;]
+        fields = {
+            &#39;name&#39;: [&#39;contains&#39;],
+            &#39;position&#39;: [&#39;contains&#39;, ],
+            &#39;area&#39;: [&#39;lt&#39;, &#39;gt&#39;],
+            &#39;price&#39;: [&#39;lt&#39;, &#39;gt&#39;],
+            # &#39;status&#39;: [&#39;choices&#39;, ]
+
+        }
+
+        @property
+        def qs(self):
+            parent = super().qs
+            return parent
+</code></pre>
+<h1 id="2-views中使用"><a href="#2-views中使用" class="headerlink" title="2. views中使用"></a>2. views中使用</h1><pre><code class="python">f = BoothFilter(request.GET, queryset=qs)
+return render(request, &#39;booth/search.html&#39;, {&#39;filter&#39;: f})
+</code></pre>
+<h1 id="3-模板中使用"><a href="#3-模板中使用" class="headerlink" title="3. 模板中使用"></a>3. 模板中使用</h1><pre><code class="html">&lt;form method=&quot;get&quot; class=&quot;form form-horizontal&quot;&gt;
+  {% for exp in filter.form %}
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label class=&quot;col-md-2&quot; class=&quot;sr-only&quot;&gt;{{ exp.label }}&lt;/label&gt;
+    &lt;div class=&quot;col-md-10&quot;&gt;
+      {{ exp }}
+    &lt;/div&gt;
+  &lt;/div&gt;
+  {% endfor %}
+  &lt;div class=&quot; text-center&quot;&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Search&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+{% if filter.qs.count &gt; 0 %}
+    循环
+{% endif %}
+</code></pre>

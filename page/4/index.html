@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>rwqccnuimd的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="rwqccnuimd的博客">
+<meta property="og:url" content="http://example.com/page/4/index.html">
+<meta property="og:site_name" content="rwqccnuimd的博客">
+<meta property="og:locale">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="rwqccnuimd的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">rwqccnuimd的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-bigdata/win_install" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/01/05/bigdata/win_install/" class="article-date">
+  <time class="dt-published" datetime="2022-01-05T04:45:59.000Z" itemprop="datePublished">2022-01-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/01/05/bigdata/win_install/">windows上配置大数据相关组件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <table>
+<thead>
+<tr>
+<th>组件</th>
+<th>下载链接</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>hadoop3.2.3</td>
+<td><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-3.2.3/hadoop-3.2.3.tar.gz">下载</a></td>
+</tr>
+<tr>
+<td>hadoop-winutils</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/cdarlint/winutils">下载</a></td>
+</tr>
+<tr>
+<td>hive3.1.2</td>
+<td><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/apache/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz">下载</a></td>
+</tr>
+<tr>
+<td>hive2.1.1</td>
+<td><a target="_blank" rel="noopener" href="http://archive.apache.org/dist/hive/hive-2.1.1/apache-hive-2.1.1-bin.tar.gz">下载</a></td>
+</tr>
+<tr>
+<td>flume1.9.0</td>
+<td><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/apache/flume/1.9.0/apache-flume-1.9.0-bin.tar.gz">下载</a></td>
+</tr>
+<tr>
+<td>mysql8.0</td>
+<td><a target="_blank" rel="noopener" href="https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-8.0.27.1.msi">下载</a></td>
+</tr>
+<tr>
+<td>mysql-connector-java</td>
+<td></td>
+</tr>
+<tr>
+<td>mysql-workbench</td>
+<td><a target="_blank" rel="noopener" href="https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-8.0.27-winx64.msi">下载</a></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>windows上全套环境推荐这一篇<a target="_blank" rel="noopener" href="https://www.cnblogs.com/throwable/p/13917379.html">博客</a><sup>3</sup>，帮助我们踩了很多坑。</p>
+</blockquote>
+<h1 id="hadoop"><a href="#hadoop" class="headerlink" title="hadoop"></a>hadoop</h1><p>参考这一篇<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/111844817">博客</a></p>
+<blockquote>
+<p>需要使用<code>管理员权限</code>来打开<code>cmd</code></p>
+</blockquote>
+<h1 id="hive"><a href="#hive" class="headerlink" title="hive"></a>hive</h1><h2 id="初始化metastore"><a href="#初始化metastore" class="headerlink" title="初始化metastore"></a>初始化metastore</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive --service schematool -initSchema -dbType mysql</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动Metastore"><a href="#启动Metastore" class="headerlink" title="启动Metastore"></a>启动Metastore</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive --service metastore</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动hiveserver2"><a href="#启动hiveserver2" class="headerlink" title="启动hiveserver2"></a>启动hiveserver2</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive --service hiveserver2</span><br></pre></td></tr></table></figure>
+
+<h2 id="在windows电脑上可能出现的问题"><a href="#在windows电脑上可能出现的问题" class="headerlink" title="在windows电脑上可能出现的问题"></a>在windows电脑上可能出现的问题</h2><ol>
+<li><code>select</code>可以查询出数据，但是在<code>group by</code>的时候直接卡死，hadoop显示<code>JAVA-IOError 强制关闭链接</code>，可能的原因在于：<ul>
+<li>内存太小，做不了这样的运算</li>
+<li>因为hive的优化，使得没有进行MapReduce任务，而是在那个hiveserver2本地机器上启动fetch task，数据量巨大的时候，就可能使它崩溃了<sup>2</sup></li>
+</ul>
+</li>
+</ol>
+<h1 id="清理Hadoop-Hive-然后重来"><a href="#清理Hadoop-Hive-然后重来" class="headerlink" title="清理Hadoop Hive 然后重来"></a>清理Hadoop Hive 然后重来</h1><ol>
+<li>重新初始化hadoop<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs namenode -<span class="built_in">format</span></span><br></pre></td></tr></table></figure></li>
+<li>清空hadoop data文件夹</li>
+<li>删除metastore数据库</li>
+<li>建立metastore数据库</li>
+<li>初始化Hadoop<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs namenode -<span class="built_in">format</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<blockquote>
+<p>2022/4/22更新，按照这一篇<a target="_blank" rel="noopener" href="https://www.cnblogs.com/throwable/p/13917379.html">博客</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>组件名称</th>
+<th>下载地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>hadoop3.3.0</td>
+<td><a target="_blank" rel="noopener" href="https://archive.apache.org/dist/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz">https://archive.apache.org/dist/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz</a></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>以下是2023年更新</p>
+</blockquote>
+<h1 id="配置java"><a href="#配置java" class="headerlink" title="配置java"></a>配置java</h1><h1 id="配置hadoop"><a href="#配置hadoop" class="headerlink" title="配置hadoop"></a>配置hadoop</h1><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> d:</span><br><span class="line"><span class="built_in">mkdir</span> Hadoop</span><br><span class="line">tar -axvf hadoop-<span class="number">3</span>.<span class="number">1</span>.<span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> hadoop-<span class="number">3</span>.<span class="number">1</span>.<span class="number">3</span></span><br><span class="line"><span class="built_in">mkdir</span> data</span><br><span class="line"><span class="built_in">mkdir</span> data/datanode</span><br><span class="line"><span class="built_in">mkdir</span> data/namenode</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>环境变量</p>
+<p>HADOOP_HOME D:\Hadoop\hadoop-3.1.3</p>
+<p>配置好后</p>
+<p>打开浏览器，输入<code>127.0.0.1:9870</code>可以查看文件系统</p>
+<h1 id="配置Spark"><a href="#配置Spark" class="headerlink" title="配置Spark"></a>配置Spark</h1><h2 id="1-安装scala"><a href="#1-安装scala" class="headerlink" title="1. 安装scala"></a>1. 安装scala</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd d:Hadoop</span><br><span class="line">tar -zxvf scala-2.13.10.zip</span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加scalar到环境变量</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> SCALA_HOME D:\Hadoop\scala-2.13.10</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> %SCALA_HOME%\bin</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="2-spark"><a href="#2-spark" class="headerlink" title="2. spark"></a>2. spark</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd d:Hadoop</span><br><span class="line">tar -zxvf spark-XXXX</span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加SPARK_HOME到环境变量</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> SPARK_HOME D:\Hadoop\spark-3.1.1-bin-hadoop3.2</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> %SPARK_HOME%\bin</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/406008198">https://zhuanlan.zhihu.com/p/406008198</a></p>
+</blockquote>
+<h1 id="3-如何启动"><a href="#3-如何启动" class="headerlink" title="3. 如何启动"></a>3. 如何启动</h1><h2 id="3-1-启动hadoo"><a href="#3-1-启动hadoo" class="headerlink" title="3.1 启动hadoo"></a>3.1 启动hadoo</h2><p>管理员身份打开<code>powershell</code></p>
+<p>依次输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-all.cmd</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-2-启动网站"><a href="#3-2-启动网站" class="headerlink" title="3.2 启动网站"></a>3.2 启动网站</h2><p>打开<code>anaconda prompt powershell</code></p>
+<p>依次输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cd d:</span><br><span class="line">cd Hadoop</span><br><span class="line">cd scripts</span><br><span class="line">cd mysite</span><br><span class="line">python manage.py runserver</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>打开浏览器，输入:<code>127.0.0.1:8000/admin</code></p>
+<p>账号：admin<br>密码：admin123456</p>
+<h2 id="3-3-启动spark来计算"><a href="#3-3-启动spark来计算" class="headerlink" title="3.3 启动spark来计算"></a>3.3 启动spark来计算</h2><p>打开<code>anaconda prompt powershell</code></p>
+<p>依次输入:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd d:</span><br><span class="line">cd Hadoop</span><br><span class="line">cd scripts</span><br><span class="line">cd mysite</span><br><span class="line">python spark_sql.py</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
+<li>WIN10安装配置Hadoop. <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/111844817">https://zhuanlan.zhihu.com/p/111844817</a></li>
+<li>hive强制select * 进行MapReduce任务. <a target="_blank" rel="noopener" href="https://blog.csdn.net/u010936936/article/details/86578106">https://blog.csdn.net/u010936936/article/details/86578106</a></li>
+<li>Windows10系统下Hadoop和Hive开发环境搭建填坑指南. <a target="_blank" rel="noopener" href="https://www.cnblogs.com/throwable/p/13917379.html">https://www.cnblogs.com/throwable/p/13917379.html</a></li>
+<li>windows平台下安装配置Hive. <a target="_blank" rel="noopener" href="https://blog.csdn.net/qinlan1994/article/details/90524484">https://blog.csdn.net/qinlan1994/article/details/90524484</a></li>
+<li>windows10部署hive-3.1.2. <a target="_blank" rel="noopener" href="https://blog.csdn.net/yamaxifeng_132/article/details/102633264">https://blog.csdn.net/yamaxifeng_132/article/details/102633264</a></li>
+<li></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/01/05/bigdata/win_install/" data-id="cl85d5h2j0006i99oggz0cfhv" data-title="windows上配置大数据相关组件" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-nlp/fastnlp" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/01/04/nlp/fastnlp/" class="article-date">
+  <time class="dt-published" datetime="2022-01-04T03:07:25.000Z" itemprop="datePublished">2022-01-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/NLP/">NLP</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/01/04/nlp/fastnlp/">用fastnlp做文本分类与序列标注</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="文档地址"><a href="#文档地址" class="headerlink" title="文档地址"></a>文档地址</h1><p><a target="_blank" rel="noopener" href="https://fastnlp.readthedocs.io/">https://fastnlp.readthedocs.io/</a></p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install torch</span><br><span class="line">pip install fastnlp</span><br></pre></td></tr></table></figure>
+
+<h1 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h1><ul>
+<li><p>首先需要做的就是将自己的数据装填入fastnlp的<a target="_blank" rel="noopener" href="https://fastnlp.readthedocs.io/zh/latest/tutorials/tutorial_1_data_preprocess.html"><code>Dataset</code></a>对象中。一个<code>Dataset</code>相当于一个pandas的<code>DataFrame</code>。</p>
+</li>
+<li><p>构建<code>Vocabulary</code>将字符转化成Id。</p>
+</li>
+</ul>
+<h2 id="使用自己的中文数据集做情感分析"><a href="#使用自己的中文数据集做情感分析" class="headerlink" title="使用自己的中文数据集做情感分析"></a>使用自己的中文数据集做情感分析</h2><h2 id="Dataset"><a href="#Dataset" class="headerlink" title="Dataset"></a>Dataset</h2><p>情感分析作为一个二分类任务，首先需要构建一个Dataset，推荐构建的方法为:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fastNLP <span class="keyword">import</span> DataSet</span><br><span class="line"><span class="comment"># 构建一个dict</span></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;raw_chars&#x27;</span>: [ <span class="comment"># 一维数组，存放了所有的原始文本</span></span><br><span class="line">        <span class="string">&#x27;这个酒店太辣鸡了吧！&#x27;</span>, </span><br><span class="line">        <span class="string">&#x27;体验还算可以，环境比较安静&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;交通还算是比较便利的，总体打9分&#x27;</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&#x27;chars&#x27;</span>: [ <span class="comment"># 二维数组，存放的是已经切分为单独的汉字的序列</span></span><br><span class="line">        [<span class="string">&#x27;这&#x27;</span>, <span class="string">&#x27;个&#x27;</span>, <span class="string">&#x27;酒&#x27;</span>, <span class="string">&#x27;店&#x27;</span>, <span class="string">&#x27;太&#x27;</span>, <span class="string">&#x27;辣&#x27;</span>, <span class="string">&#x27;鸡&#x27;</span>, <span class="string">&#x27;了&#x27;</span>, <span class="string">&#x27;吧&#x27;</span>, <span class="string">&#x27;！&#x27;</span>],</span><br><span class="line">        [<span class="string">&#x27;体&#x27;</span>, <span class="string">&#x27;验&#x27;</span>, <span class="string">&#x27;还&#x27;</span>, <span class="string">&#x27;算&#x27;</span>, <span class="string">&#x27;可&#x27;</span>, <span class="string">&#x27;以&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;环&#x27;</span>, <span class="string">&#x27;境&#x27;</span>, <span class="string">&#x27;比&#x27;</span>, <span class="string">&#x27;较&#x27;</span>, <span class="string">&#x27;安&#x27;</span>, <span class="string">&#x27;静&#x27;</span>],</span><br><span class="line">        [<span class="string">&#x27;交&#x27;</span>, <span class="string">&#x27;通&#x27;</span>, <span class="string">&#x27;还&#x27;</span>, <span class="string">&#x27;算&#x27;</span>, <span class="string">&#x27;是&#x27;</span>, <span class="string">&#x27;比&#x27;</span>, <span class="string">&#x27;较&#x27;</span>, <span class="string">&#x27;便&#x27;</span>, <span class="string">&#x27;利&#x27;</span>, <span class="string">&#x27;的&#x27;</span>, <span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;总&#x27;</span>, <span class="string">&#x27;体&#x27;</span>, <span class="string">&#x27;打&#x27;</span>, <span class="string">&#x27;9&#x27;</span>, <span class="string">&#x27;分&#x27;</span>],</span><br><span class="line">    ], </span><br><span class="line">    <span class="string">&#x27;raw_words&#x27;</span>: [ <span class="comment"># 一维数组，存放了存放了对原始文本分词(预处理：去除停用词、词干还原....)后形成的一个以空格为分隔符的字符串</span></span><br><span class="line">        <span class="string">&#x27;酒店 辣鸡&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;体验 可以 环境 安静&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;交通 遍历 总体 9分&#x27;</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&#x27;words&#x27;</span>: [ <span class="comment"># 二维数组，存放了对原始文本分词(预处理：去除停用词、词干还原....)后形成的一个token list</span></span><br><span class="line">        [<span class="string">&#x27;酒店&#x27;</span>, <span class="string">&#x27;辣鸡&#x27;</span>],</span><br><span class="line">        [<span class="string">&#x27;体验&#x27;</span>, <span class="string">&#x27;可以&#x27;</span>, <span class="string">&#x27;环境&#x27;</span>, <span class="string">&#x27;安静&#x27;</span>],</span><br><span class="line">        [<span class="string">&#x27;交通&#x27;</span>, <span class="string">&#x27;便利&#x27;</span>, <span class="string">&#x27;总体&#x27;</span>, <span class="string">&#x27;9分&#x27;</span>],</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&#x27;seq_len&#x27;</span>: [ <span class="comment"># 一维数组,存放了输入序列的长度，注意是输入的序列,比如情感分析输入的是words的话，那么序列就是[2, 4, 4]</span></span><br><span class="line">        <span class="number">2</span>,</span><br><span class="line">        <span class="number">4</span>,</span><br><span class="line">        <span class="number">4</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&#x27;taget&#x27;</span>: [ <span class="comment"># 每一个样本的标签</span></span><br><span class="line">        <span class="string">&#x27;正向&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;负向&#x27;</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 将dict传入到Dataset中</span></span><br><span class="line">dataset = Dataset(data)</span><br><span class="line">test_dataset = DataSet(test_data)</span><br><span class="line">dev_dataset = DataSet(dev_dataset)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>对不对原始的数据分词、完全取决于自己，</p>
+</blockquote>
+<h2 id="Vocab"><a href="#Vocab" class="headerlink" title="Vocab"></a>Vocab</h2><p>第二步构建<code>Vocab</code>，将字符数字转化成<code>数字</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fastNLP <span class="keyword">import</span> Vocabulary</span><br><span class="line">vocab = Vocabulary()</span><br><span class="line">vocab.from_dataset(dataset, field_name=<span class="string">&#x27;words&#x27;</span>, no_create_entry_dataset=[dev_dataset, valid_dataset]) <span class="comment"># 根据dataset的words字段来构建vocab，把test dev数据集放到no_create_entry_dataset</span></span><br><span class="line"></span><br><span class="line">target_vocab = Vocabulary(unknown=<span class="literal">None</span>, padding=<span class="literal">None</span>) <span class="comment"># 标签做映射</span></span><br><span class="line">target_vocab.from_dataset(dataset, field_name=<span class="string">&#x27;target&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>关于<code>no_create_dataset</code>，官方文档的表述为：</p>
+<p>Vocabulary 中的 no_create_entry ，如果您并不关心具体的原理，您可以<strong>直接采取</strong>以下的建议：在添加来自于<code>非训练集的词的时候将该参数置为True</code>, 或将<code>非训练集数据 传入 no_create_entry_dataset 参数</code>。它们的意义是在接下来的模型会使用pretrain的embedding(包括glove, word2vec, elmo与bert)且会finetune的情况下，如果仅使用来自于train的数据建立vocabulary，会导致只出现在test与dev中的词语无法充分利用到来自于预训练embedding的信息(因为他们 会被认为是unk)，所以在建立词表的时候将test与dev考虑进来会使得最终的结果更好。</p>
+<h2 id="DataBundle"><a href="#DataBundle" class="headerlink" title="DataBundle"></a>DataBundle</h2><p>第三步构建<a target="_blank" rel="noopener" href="https://fastnlp.readthedocs.io/zh/latest/fastNLP.io.data_bundle.html"><code>data_bundle</code></a>，将训练集、测试集、验证集、词表集成到一个对象中。关于设立data_bundle的原因官方文档表述如下：</p>
+<p>而由于对于同一个任务，训练集，验证集和测试集会<code>共用同一个词表以及具有相同的目标值</code>，所以在fastNLP中我们使用了 DataBundle 来承载同一个任务的多个数据集 DataSet 以及它们的词表 Vocabulary 。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fastNLP.io.data_bundle <span class="keyword">import</span> DataBundle</span><br><span class="line">data_bundle = Databundle()</span><br><span class="line">data_bundle.set_dataset(train_dataset, <span class="string">&#x27;train&#x27;</span>)</span><br><span class="line">data_bundle.set_dataset(test_dataset, <span class="string">&#x27;test&#x27;</span>)</span><br><span class="line">data_bundle.set_dataset(dev_dataset, <span class="string">&#x27;dev&#x27;</span>)</span><br><span class="line">data_bundle.set_vocab(vocab, <span class="string">&#x27;words&#x27;</span>)</span><br><span class="line">data_bundle.set_vocab(target_vocab, <span class="string">&#x27;target&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Pipeline"><a href="#Pipeline" class="headerlink" title="Pipeline"></a>Pipeline</h2><p>第四步使用<code>pipeline</code>对<code>data_bundle</code>做处理：主要是批量将数据集中的文本通过vocab转化成数字。针对文本分类任务，其内置了针对不同公开数据集的pipeline，比如针对情感分析数据集，有<code>ChnSentiCorpPipe</code>，<code>IMDBPipe</code>，针对新闻分类数据集，有<code>THUCNewsPipe</code>，比如针对情感分析任务：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fastNLP.io.pipe.classification <span class="keyword">import</span> ChnSentiCorpPipe</span><br><span class="line">pipeline = ChnSentiCorpPipe()</span><br><span class="line">data_bundle = pipeline.process(data_bundle)</span><br></pre></td></tr></table></figure>
+<p>新的data_bundle里面还有4列，分别是<code>[chars, raw_chars, target, seq_len]</code>，其中<code>chars</code>里面包含了所有转化后的数字。<br><code>ChnSentiCorpPipe</code>会对dataset中的<code>raw_chars</code>与<code>target</code>进行处理。针对raw_chars的话就是进行简单的字符切分，因此如果要用分好词的情感分析数据，需要把分词好的数据放到<code>raw_chars</code>。<br>不过针对自己的数据集，建议使用<a target="_blank" rel="noopener" href="https://fastnlp.readthedocs.io/zh/latest/_modules/fastNLP/io/pipe/classification.html#AGsNewsPipe"><code>CLSBasePipe</code></a>也可以选择自己重新写一个类继承<code>CLSBasePipe</code>,<code>CLSBasePipe</code>会对dataset中的<code>raw_chars</code>与<code>target</code>进行处理。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fastNLP.io.pipe.classification <span class="keyword">import</span> BasePipe</span><br><span class="line">pipeline = BasePipe()</span><br><span class="line">data_bundle = pipeline.process(data_bundle)</span><br></pre></td></tr></table></figure>
+<p>新的data_bundle生成了3列，分别是<code>[words, raw_words, seq_len]</code>。其中<code>words</code>中存放了转化后的数字。</p>
+<h2 id="Word-Embedding"><a href="#Word-Embedding" class="headerlink" title="Word Embedding"></a>Word Embedding</h2><p>第五步位选择词向量模型，可以用中文词向量也可以选择bert</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fastNLP.embeddings <span class="keyword">import</span> StaticEmbedding</span><br><span class="line"><span class="comment"># word2vec</span></span><br><span class="line">embed = StaticEmbedding(data_bundle.get_vocab(<span class="string">&#x27;words&#x27;</span>), model_dir_or_name=<span class="string">&#x27;cn-char-fastnlp-100d&#x27;</span>)</span><br><span class="line"><span class="comment"># bert</span></span><br><span class="line"><span class="keyword">from</span> fastNLP.embeddings <span class="keyword">import</span> BertEmbedding</span><br><span class="line">embed = BertEmbedding(data_bundle.get_vocab(<span class="string">&#x27;words&#x27;</span>), model_dir_or_name=<span class="string">&#x27;bert-base-chinese&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"><span class="keyword">from</span> fastNLP.modules <span class="keyword">import</span> LSTM</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义模型</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BiLSTMMaxPoolCls</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, embed, num_classes, hidden_size=<span class="number">400</span>, num_layers=<span class="number">1</span>, dropout=<span class="number">0.3</span></span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.embed = embed</span><br><span class="line"></span><br><span class="line">        self.lstm = LSTM(self.embed.embedding_dim, hidden_size=hidden_size//<span class="number">2</span>, num_layers=num_layers,</span><br><span class="line">                         batch_first=<span class="literal">True</span>, bidirectional=<span class="literal">True</span>)</span><br><span class="line">        self.dropout_layer = nn.Dropout(dropout)</span><br><span class="line">        self.fc = nn.Linear(hidden_size, num_classes)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, chars, seq_len</span>):</span>  <span class="comment"># 这里的名称必须和DataSet中相应的field对应，比如之前我们DataSet中有chars，这里就必须为chars</span></span><br><span class="line">        <span class="comment"># chars:[batch_size, max_len]</span></span><br><span class="line">        <span class="comment"># seq_len: [batch_size, ]</span></span><br><span class="line">        chars = self.embed(chars)</span><br><span class="line">        outputs, _ = self.lstm(chars, seq_len)</span><br><span class="line">        outputs = self.dropout_layer(outputs)</span><br><span class="line">        outputs, _ = torch.<span class="built_in">max</span>(outputs, dim=<span class="number">1</span>)</span><br><span class="line">        outputs = self.fc(outputs)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">&#x27;pred&#x27;</span>:outputs&#125;  <span class="comment"># [batch_size,], 返回值必须是dict类型，且预测值的key建议设为pred</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化模型</span></span><br><span class="line">model = BiLSTMMaxPoolCls(word2vec_embed, <span class="built_in">len</span>(data_bundle.get_vocab(<span class="string">&#x27;target&#x27;</span>)))</span><br></pre></td></tr></table></figure>
+
+<h2 id="Train"><a href="#Train" class="headerlink" title="Train"></a>Train</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fastNLP <span class="keyword">import</span> Trainer</span><br><span class="line"><span class="keyword">from</span> fastNLP <span class="keyword">import</span> CrossEntropyLoss</span><br><span class="line"><span class="keyword">from</span> torch.optim <span class="keyword">import</span> Adam</span><br><span class="line"><span class="keyword">from</span> fastNLP <span class="keyword">import</span> AccuracyMetric</span><br><span class="line"></span><br><span class="line">loss = CrossEntropyLoss()</span><br><span class="line">optimizer = Adam(model.parameters(), lr=<span class="number">0.001</span>)</span><br><span class="line">metric = AccuracyMetric()</span><br><span class="line">device = <span class="number">0</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">&#x27;cpu&#x27;</span>  <span class="comment"># 如果有gpu的话在gpu上运行，训练速度会更快</span></span><br><span class="line"></span><br><span class="line">trainer = Trainer(train_data=data_bundle.get_dataset(<span class="string">&#x27;train&#x27;</span>), model=model, loss=loss,</span><br><span class="line">                  optimizer=optimizer, batch_size=<span class="number">32</span>, dev_data=data_bundle.get_dataset(<span class="string">&#x27;dev&#x27;</span>),</span><br><span class="line">                  metrics=metric, device=device)</span><br><span class="line">trainer.train()  <span class="comment"># 开始训练，训练完成之后默认会加载在dev上表现最好的模型</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fastNLP <span class="keyword">import</span> Tester</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Performance on test is:&quot;</span>)</span><br><span class="line">tester = Tester(data=data_bundle.get_dataset(<span class="string">&#x27;test&#x27;</span>), model=model, metrics=metric, batch_size=<span class="number">64</span>, device=device)</span><br><span class="line">tester.test()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>fastnlp也给出了如何以<a target="_blank" rel="noopener" href="https://fastnlp.readthedocs.io/zh/latest/tutorials/%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB.html#ps"><code>词</code></a>为基本单位来做数据预处理</p>
+</blockquote>
+<blockquote>
+<p>fastnlp是怎么针对不同的任务做数据转换的</p>
+</blockquote>
+<h2 id="使用自己的数据集做序列标注"><a href="#使用自己的数据集做序列标注" class="headerlink" title="使用自己的数据集做序列标注"></a>使用自己的数据集做序列标注</h2><p>序列标注任务以<code>chars</code>作为最基本的单元，因此需要的是最核心的<code>raw_chars</code>与<code>target</code>两列。</p>
+<blockquote>
+<p>调试的时候可以先用小批量的数据，train test dev用同样的数据。！</p>
+</blockquote>
+<blockquote>
+<p>data_bundle里面可以没有<code>vocab</code>因为<code>pipeline</code>会去生成一个vocab</p>
+</blockquote>
+<h1 id="序列标注使用bert准确率为0问题排查"><a href="#序列标注使用bert准确率为0问题排查" class="headerlink" title="序列标注使用bert准确率为0问题排查"></a>序列标注使用bert准确率为0问题排查</h1><p>使用自带的微博数据集能够正确得运行</p>
+<h2 id="用微博的数据集再加上自己的代码来弄"><a href="#用微博的数据集再加上自己的代码来弄" class="headerlink" title="用微博的数据集再加上自己的代码来弄"></a>用微博的数据集再加上自己的代码来弄</h2><ul>
+<li>使用微博的data_bundle+_NERPipe结果为0</li>
+<li>使用微博的data_bundle+WeiboNERPipe结果为0</li>
+<li>使用Bert的<code>www</code>模型也不行</li>
+<li>把学习率调小，使用官方文档里面默认的：<strong>有效果</strong></li>
+<li>设置优化器为空</li>
+</ul>
+<blockquote>
+<p>把学习率调小,调整到跟官方给的demo一样！自己当时用的学习率是按照那个word2vec的来的，官方的用bert的学习率为<code>2e-5</code>，也就是<code>0.0001</code></p>
+</blockquote>
+<p>关于学习率的文章，可以看这个论文<code>How to How to Fine-Tune BERT for Text Classification</code>，推荐的就是<code>2e-5</code></p>
+<p><img src="https://img-blog.csdnimg.cn/20200225003007515.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpb24xOTkzMDkyNA==,size_16,color_FFFFFF,t_70" alt="学习率"></p>
+<h1 id="使用自己的数据进行情感分析"><a href="#使用自己的数据进行情感分析" class="headerlink" title="使用自己的数据进行情感分析"></a>使用自己的数据进行情感分析</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> fastNLP <span class="keyword">import</span> DataSet</span><br><span class="line"><span class="keyword">from</span> fastNLP <span class="keyword">import</span> Vocabulary</span><br><span class="line"><span class="keyword">from</span> fastNLP.io.data_bundle <span class="keyword">import</span> DataBundle</span><br><span class="line"><span class="keyword">from</span> fastNLP.io <span class="keyword">import</span> CWSPipe, ChnSentiCorpPipe</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"><span class="keyword">from</span> fastNLP.modules <span class="keyword">import</span> LSTM</span><br><span class="line"><span class="keyword">from</span> fastNLP.embeddings <span class="keyword">import</span> BertEmbedding</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> fastNLP <span class="keyword">import</span> Trainer</span><br><span class="line"><span class="keyword">from</span> fastNLP <span class="keyword">import</span> CrossEntropyLoss</span><br><span class="line"><span class="keyword">from</span> torch.optim <span class="keyword">import</span> Adam</span><br><span class="line"><span class="keyword">from</span> fastNLP <span class="keyword">import</span> AccuracyMetric</span><br><span class="line"><span class="keyword">from</span> fastNLP <span class="keyword">import</span> Tester</span><br><span class="line"><span class="keyword">from</span> fastNLP.io.model_io <span class="keyword">import</span> ModelSaver</span><br><span class="line"><span class="keyword">import</span> pickle <span class="keyword">as</span> pkl</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取数据</span></span><br><span class="line">df = pd.read_csv(<span class="string">&#x27;dataset/train.labeled.csv&#x27;</span>, encoding=<span class="string">&#x27;UTF-8&#x27;</span>)</span><br><span class="line"><span class="comment"># 保留两列</span></span><br><span class="line">df = df[[<span class="string">&#x27;微博中文内容&#x27;</span>, <span class="string">&#x27;情感倾向&#x27;</span>]]</span><br><span class="line"><span class="comment"># 去除空值</span></span><br><span class="line">df = df.dropna()</span><br><span class="line"><span class="comment"># 列重新命名</span></span><br><span class="line">df.columns = [<span class="string">&#x27;content&#x27;</span>, <span class="string">&#x27;label&#x27;</span>]</span><br><span class="line"><span class="comment"># 过滤label</span></span><br><span class="line">df = df[df[<span class="string">&#x27;label&#x27;</span>].isin([<span class="string">&#x27;-1&#x27;</span>, <span class="string">&#x27;0&#x27;</span>, <span class="string">&#x27;1&#x27;</span>])]</span><br><span class="line">df[<span class="string">&#x27;label&#x27;</span>] = df[<span class="string">&#x27;label&#x27;</span>].astype(<span class="built_in">int</span>)</span><br><span class="line"><span class="comment"># 重新索引</span></span><br><span class="line">df = df.reset_index(drop=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置最大字符数</span></span><br><span class="line">max_len = <span class="number">410</span></span><br><span class="line"><span class="comment"># 处理content字段</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_content</span>(<span class="params">sentence</span>):</span></span><br><span class="line">    sentence = <span class="built_in">str</span>(sentence).strip()</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(sentence) &gt;= max_len:</span><br><span class="line">        sentence = sentence[<span class="number">0</span>: max_len]</span><br><span class="line">    <span class="keyword">return</span> sentence</span><br><span class="line">df[<span class="string">&#x27;content&#x27;</span>] = df[<span class="string">&#x27;content&#x27;</span>].apply(process_content)</span><br><span class="line"><span class="comment"># 再次过滤内容为空的数据</span></span><br><span class="line">df = df[df[<span class="string">&#x27;content&#x27;</span>] != <span class="string">&#x27;&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切分数据</span></span><br><span class="line">train_idx, test_idx, _, _  = train_test_split(<span class="built_in">list</span>(<span class="built_in">range</span>(df.shape[<span class="number">0</span>])), df[<span class="string">&#x27;label&#x27;</span>], test_size=<span class="number">0.1</span>, random_state=<span class="number">32</span>)</span><br><span class="line">df[<span class="string">&#x27;type&#x27;</span>] = <span class="string">&#x27;&#x27;</span></span><br><span class="line">df.loc[train_idx, <span class="string">&#x27;type&#x27;</span>] = <span class="string">&#x27;train&#x27;</span></span><br><span class="line">df.loc[test_idx, <span class="string">&#x27;type&#x27;</span>] = <span class="string">&#x27;test&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 构造fastnlp数据格式</span></span><br><span class="line">df[<span class="string">&#x27;chars&#x27;</span>] = df[<span class="string">&#x27;content&#x27;</span>].apply(<span class="keyword">lambda</span> x: [<span class="built_in">str</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">list</span>(x)])</span><br><span class="line">df[<span class="string">&#x27;seq_len&#x27;</span>] = df[<span class="string">&#x27;chars&#x27;</span>].apply(<span class="keyword">lambda</span> x: <span class="built_in">len</span>(x))</span><br><span class="line">df[<span class="string">&#x27;target&#x27;</span>] = df[<span class="string">&#x27;label&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;数据加载成功&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gen_dataset</span>(<span class="params">_type</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    生成dataset</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    _df = df[df[<span class="string">&#x27;type&#x27;</span>] == _<span class="built_in">type</span>]</span><br><span class="line">    dataset = DataSet(&#123;</span><br><span class="line">        <span class="string">&#x27;raw_chars&#x27;</span>: _df[<span class="string">&#x27;content&#x27;</span>].values,</span><br><span class="line">        <span class="string">&#x27;chars&#x27;</span>: _df[<span class="string">&#x27;chars&#x27;</span>].values,</span><br><span class="line">        <span class="string">&#x27;seq_len&#x27;</span>: _df[<span class="string">&#x27;seq_len&#x27;</span>].values,</span><br><span class="line">        <span class="string">&#x27;target&#x27;</span>: _df[<span class="string">&#x27;target&#x27;</span>].values</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> dataset</span><br><span class="line"></span><br><span class="line">train_dataset = gen_dataset(<span class="string">&#x27;train&#x27;</span>)</span><br><span class="line">test_dataset = gen_dataset(<span class="string">&#x27;test&#x27;</span>)</span><br><span class="line">valid_dataset = gen_dataset(<span class="string">&#x27;test&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 构建vocab</span></span><br><span class="line">vocab = Vocabulary()</span><br><span class="line"><span class="comment">#  将验证集或者测试集在建立词表是放入no_create_entry_dataset这个参数中。</span></span><br><span class="line">vocab.from_dataset(train_dataset, field_name=<span class="string">&#x27;chars&#x27;</span>, no_create_entry_dataset=[valid_dataset, test_dataset])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建databundle</span></span><br><span class="line">data_bundle = DataBundle(&#123;<span class="string">&#x27;chars&#x27;</span>: vocab&#125;, &#123;<span class="string">&#x27;train&#x27;</span>: train_dataset, <span class="string">&#x27;test&#x27;</span>: test_dataset, <span class="string">&#x27;valid&#x27;</span>: valid_dataset&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 处理databunble</span></span><br><span class="line">data_bundle = ChnSentiCorpPipe().process(data_bundle)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义模型</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BiLSTMMaxPoolCls</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, embed, num_classes, hidden_size=<span class="number">400</span>, num_layers=<span class="number">1</span>, dropout=<span class="number">0.3</span></span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.embed = embed</span><br><span class="line">        self.lstm = LSTM(self.embed.embedding_dim, hidden_size=hidden_size//<span class="number">2</span>, num_layers=num_layers,</span><br><span class="line">                         batch_first=<span class="literal">True</span>, bidirectional=<span class="literal">True</span>)</span><br><span class="line">        self.dropout_layer = nn.Dropout(dropout)</span><br><span class="line">        self.fc = nn.Linear(hidden_size, num_classes)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, chars, seq_len</span>):</span>  <span class="comment"># 这里的名称必须和DataSet中相应的field对应，比如之前我们DataSet中有chars，这里就必须为chars</span></span><br><span class="line">        <span class="comment"># chars:[batch_size, max_len]</span></span><br><span class="line">        <span class="comment"># seq_len: [batch_size, ]</span></span><br><span class="line">        chars = self.embed(chars)</span><br><span class="line">        outputs, _ = self.lstm(chars, seq_len)</span><br><span class="line">        outputs = self.dropout_layer(outputs)</span><br><span class="line">        outputs, _ = torch.<span class="built_in">max</span>(outputs, dim=<span class="number">1</span>)</span><br><span class="line">        outputs = self.fc(outputs)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">&#x27;pred&#x27;</span>:outputs&#125;  <span class="comment"># [batch_size,], 返回值必须是dict类型，且预测值的key建议设为pred</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">char_vocab = data_bundle.get_vocab(<span class="string">&#x27;chars&#x27;</span>)</span><br><span class="line"><span class="comment"># 加载Bert</span></span><br><span class="line">bert_embed = BertEmbedding(char_vocab, model_dir_or_name=<span class="string">&#x27;cn&#x27;</span>, auto_truncate=<span class="literal">True</span>, requires_grad=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># 定义模型</span></span><br><span class="line">model = BiLSTMMaxPoolCls(bert_embed, <span class="built_in">len</span>(data_bundle.get_vocab(<span class="string">&#x27;target&#x27;</span>)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义损失函数</span></span><br><span class="line">loss = CrossEntropyLoss()</span><br><span class="line"><span class="comment"># 定义优化器</span></span><br><span class="line">optimizer = Adam(model.parameters(), lr=<span class="number">2e-5</span>)</span><br><span class="line"><span class="comment"># 定义评价指标</span></span><br><span class="line">metric = AccuracyMetric()</span><br><span class="line"><span class="comment"># 定义设备</span></span><br><span class="line">device = <span class="number">0</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">&#x27;cpu&#x27;</span>  <span class="comment"># 如果有gpu的话在gpu上运行，训练速度会更快</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义trainer</span></span><br><span class="line">batch_size = <span class="number">16</span></span><br><span class="line">n_epochs = <span class="number">30</span></span><br><span class="line">trainer = Trainer(train_data=data_bundle.get_dataset(<span class="string">&#x27;train&#x27;</span>), model=model, loss=loss,</span><br><span class="line">                  optimizer=optimizer, batch_size=batch_size, dev_data=data_bundle.get_dataset(<span class="string">&#x27;test&#x27;</span>),</span><br><span class="line">                  metrics=metric, device=device, n_epochs=n_epochs)</span><br><span class="line"><span class="comment"># 开始训练，训练完成之后默认会加载在dev上表现最好的模型</span></span><br><span class="line">trainer.train()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试模型</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Performance on test is:&quot;</span>)</span><br><span class="line">tester = Tester(data=data_bundle.get_dataset(<span class="string">&#x27;test&#x27;</span>), model=model, metrics=metric, batch_size=batch_size, device=device)</span><br><span class="line">tester.test()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存模型</span></span><br><span class="line">model_path = <span class="string">&#x27;./save_models/bert_senti.pt&#x27;</span></span><br><span class="line">saver = ModelSaver(model_path)</span><br><span class="line">saver.save_pytorch(model)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;./save_models/data_bundle.pkl&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> wp:</span><br><span class="line">    pkl.dump(data_bundle, wp)</span><br></pre></td></tr></table></figure>
+
+<h1 id="预测"><a href="#预测" class="headerlink" title="预测"></a>预测</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> fastNLP <span class="keyword">import</span> DataSet</span><br><span class="line"><span class="keyword">from</span> fastNLP <span class="keyword">import</span> Vocabulary</span><br><span class="line"><span class="keyword">from</span> fastNLP.io.data_bundle <span class="keyword">import</span> DataBundle</span><br><span class="line"><span class="keyword">from</span> fastNLP.io <span class="keyword">import</span> CWSPipe, ChnSentiCorpPipe</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"><span class="keyword">from</span> fastNLP.modules <span class="keyword">import</span> LSTM</span><br><span class="line"><span class="keyword">from</span> fastNLP.embeddings <span class="keyword">import</span> BertEmbedding</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> fastNLP <span class="keyword">import</span> Trainer</span><br><span class="line"><span class="keyword">from</span> fastNLP <span class="keyword">import</span> CrossEntropyLoss</span><br><span class="line"><span class="keyword">from</span> torch.optim <span class="keyword">import</span> Adam</span><br><span class="line"><span class="keyword">from</span> fastNLP <span class="keyword">import</span> AccuracyMetric</span><br><span class="line"><span class="keyword">from</span> fastNLP <span class="keyword">import</span> Tester</span><br><span class="line"><span class="keyword">from</span> fastNLP.io.model_io <span class="keyword">import</span> ModelSaver, ModelLoader</span><br><span class="line"><span class="keyword">import</span> pickle <span class="keyword">as</span> pkl</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义设备</span></span><br><span class="line">device = <span class="number">0</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">&#x27;cpu&#x27;</span>  <span class="comment"># 如果有gpu的话在gpu上运行，训练速度会更快</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义模型</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BiLSTMMaxPoolCls</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, embed, num_classes, hidden_size=<span class="number">400</span>, num_layers=<span class="number">1</span>, dropout=<span class="number">0.3</span></span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.embed = embed</span><br><span class="line">        self.lstm = LSTM(self.embed.embedding_dim, hidden_size=hidden_size//<span class="number">2</span>, num_layers=num_layers,</span><br><span class="line">                         batch_first=<span class="literal">True</span>, bidirectional=<span class="literal">True</span>)</span><br><span class="line">        self.dropout_layer = nn.Dropout(dropout)</span><br><span class="line">        self.fc = nn.Linear(hidden_size, num_classes)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, chars, seq_len</span>):</span>  <span class="comment"># 这里的名称必须和DataSet中相应的field对应，比如之前我们DataSet中有chars，这里就必须为chars</span></span><br><span class="line">        <span class="comment"># chars:[batch_size, max_len]</span></span><br><span class="line">        <span class="comment"># seq_len: [batch_size, ]</span></span><br><span class="line">        chars = self.embed(chars)</span><br><span class="line">        outputs, _ = self.lstm(chars, seq_len)</span><br><span class="line">        outputs = self.dropout_layer(outputs)</span><br><span class="line">        outputs, _ = torch.<span class="built_in">max</span>(outputs, dim=<span class="number">1</span>)</span><br><span class="line">        outputs = self.fc(outputs)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">&#x27;pred&#x27;</span>:outputs&#125;  <span class="comment"># [batch_size,], 返回值必须是dict类型，且预测值的key建议设为pred</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载data_bundle</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;./save_models/data_bundle.pkl&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> fp:</span><br><span class="line">    data_bundle = pkl.load(fp)</span><br><span class="line"></span><br><span class="line">char_vocab = data_bundle.get_vocab(<span class="string">&#x27;chars&#x27;</span>)</span><br><span class="line"><span class="comment"># 加载Bert</span></span><br><span class="line">bert_embed = BertEmbedding(char_vocab, model_dir_or_name=<span class="string">&#x27;cn&#x27;</span>, auto_truncate=<span class="literal">True</span>, requires_grad=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># 定义模型</span></span><br><span class="line">model = BiLSTMMaxPoolCls(bert_embed, <span class="built_in">len</span>(data_bundle.get_vocab(<span class="string">&#x27;target&#x27;</span>)))</span><br><span class="line"><span class="comment"># 加载模型</span></span><br><span class="line"><span class="comment"># 有GPU的情况下用这个方式加载</span></span><br><span class="line">params = ModelLoader.load_pytorch_model(<span class="string">&#x27;./save_models/bert_senti.pt&#x27;</span>)</span><br><span class="line"><span class="comment"># 没有GPU的情况下用这个方式加载，先放到CPU上面去</span></span><br><span class="line">params = torch.load(<span class="string">&#x27;./save_models/bert_senti.pt&#x27;</span>, map_location=torch.device(<span class="string">&#x27;cpu&#x27;</span>))</span><br><span class="line">model.load_state_dict(params)</span><br><span class="line">model = model.to(device)</span><br><span class="line"></span><br><span class="line">max_len = <span class="number">410</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">predict</span>(<span class="params">sentence</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    预测一句话的情感倾向</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    sentence = <span class="built_in">str</span>(sentence).strip()</span><br><span class="line">    sentence = sentence[<span class="number">0</span> :max_len]</span><br><span class="line">    chars = <span class="built_in">list</span>(sentence)</span><br><span class="line">    test_dataset = DataSet(data=&#123;<span class="string">&#x27;chars&#x27;</span>: [chars, ]&#125;)</span><br><span class="line">    data_bundle.get_vocab(<span class="string">&#x27;chars&#x27;</span>).index_dataset(test_dataset, field_name=<span class="string">&#x27;chars&#x27;</span>, new_field_name=<span class="string">&#x27;token_ids&#x27;</span>)</span><br><span class="line">    test_data = torch.tensor(test_dataset[<span class="string">&#x27;token_ids&#x27;</span>]).to(device)</span><br><span class="line">    seq_len = torch.tensor([test_data.size()[<span class="number">1</span>], ]).to(device)</span><br><span class="line">    pred_index = model(test_data, seq_len)[<span class="string">&#x27;pred&#x27;</span>].argmax().detach().cpu().numpy().tolist()</span><br><span class="line">    pred_label = data_bundle.get_vocab(<span class="string">&#x27;target&#x27;</span>).to_word(pred_index)</span><br><span class="line">    <span class="keyword">return</span> pred_label</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">df = pd.read_csv(<span class="string">&#x27;./dataset/test.csv&#x27;</span>)</span><br><span class="line">df = df[df[<span class="string">&#x27;微博中文内容&#x27;</span>] != <span class="string">&#x27;&#x27;</span>]</span><br><span class="line">df[<span class="string">&#x27;预测结果&#x27;</span>] = df[<span class="string">&#x27;微博中文内容&#x27;</span>].apply(predict)</span><br><span class="line">df.to_csv(<span class="string">&#x27;dataset/test.labeled.csv&#x27;</span>, index=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li>利用fastnlp做的第一个中文情感分析Demo. <a target="_blank" rel="noopener" href="https://blog.csdn.net/yingdajun/article/details/106825834">https://blog.csdn.net/yingdajun/article/details/106825834</a></li>
+<li>Bert微调技巧实验大全-How to Fine-Tune BERT for Text Classification. <a target="_blank" rel="noopener" href="https://blog.csdn.net/lion19930924/article/details/104469944">https://blog.csdn.net/lion19930924/article/details/104469944</a></li>
+<li>Adam和学习率衰减（learning rate decay）. <a target="_blank" rel="noopener" href="https://www.cnblogs.com/wuliytTaotao/p/11101652.html">https://www.cnblogs.com/wuliytTaotao/p/11101652.html</a></li>
+<li>spacy做命名实体识别. <a target="_blank" rel="noopener" href="https://blog.harumonia.moe/fastnlp-and-spacy/">https://blog.harumonia.moe/fastnlp-and-spacy/</a></li>
+<li></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/01/04/nlp/fastnlp/" data-id="cl85d5h8t00k4i99ofbquc0y1" data-title="用fastnlp做文本分类与序列标注" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other/jupyterlab_remote_visit" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/01/03/other/jupyterlab_remote_visit/" class="article-date">
+  <time class="dt-published" datetime="2022-01-03T06:43:04.000Z" itemprop="datePublished">2022-01-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/01/03/other/jupyterlab_remote_visit/">服务器上配置jupyter lab远程访问</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="基本环境配置"><a href="#基本环境配置" class="headerlink" title="基本环境配置"></a>基本环境配置</h1><ul>
+<li>操作系统: ubuntu18.4</li>
+<li>node.js</li>
+<li>npm</li>
+</ul>
+<blockquote>
+<p>npm node.js是必须的，否则在<code>Jupyter build</code>的时候就会报错。可以在conda里面安装nodejs</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install nodejs</span><br></pre></td></tr></table></figure>
+
+<h1 id="jupyter相关配置"><a href="#jupyter相关配置" class="headerlink" title="jupyter相关配置"></a>jupyter相关配置</h1><p>生成配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter lab --generate-config</span><br></pre></td></tr></table></figure>
+
+<p>生成密码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> notebook.auth <span class="keyword">import</span> passwd</span><br><span class="line">passwd()</span><br></pre></td></tr></table></figure>
+
+<p>修改配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /root/.jupyter/jupyter_lab_config.py</span><br></pre></td></tr></table></figure>
+
+<p>需要修改的信息如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">c.ServerApp.allow_root = <span class="literal">True</span> <span class="comment"># 允许以root的方式运行jupyter</span></span><br><span class="line">c.ServerApp.allow_remote_access = <span class="literal">True</span> <span class="comment"># 允许远程访问</span></span><br><span class="line">c.ServerApp.open_browser = <span class="literal">False</span> <span class="comment"># 启动Jupyter的是不自动开启浏览器</span></span><br><span class="line">c.ServerApp.ip = <span class="string">&#x27;*&#x27;</span> <span class="comment"># 允许所有的ip访问</span></span><br><span class="line">c.ServerApp.port = <span class="number">8888</span> <span class="comment"># 访问端口</span></span><br><span class="line">c.ServerApp.password = <span class="string">&#x27;&#x27;</span> <span class="comment"># 之前生成的密码</span></span><br><span class="line">c.ServerApp.notebook_dir = <span class="string">&#x27;/home/hengd/container/workspace/RWQ&#x27;</span> <span class="comment"># 根目录</span></span><br><span class="line">c.ServerApp.root_dir = <span class="string">&#x27;/home/hengd/container/workspace/RWQ&#x27;</span> <span class="comment"># 根目录</span></span><br></pre></td></tr></table></figure>
+
+<p><code>build</code>jupyter</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter lab build</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在build的时候发现了服务器上没有安装<code>nodejs</code></p>
+</blockquote>
+<h1 id="关于外网访问问题"><a href="#关于外网访问问题" class="headerlink" title="关于外网访问问题"></a>关于外网访问问题</h1><p>如果访问不了的话最有可能还是<code>没有放行对应的端口</code>。使用<code>iptables</code>来完成相应的操作：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get install iptables</span><br><span class="line">iptables -I INPUT -p tcp --dport 9200 -j ACCEPT</span><br><span class="line">iptables-save</span><br></pre></td></tr></table></figure>
+
+<p>在学院的服务器上由于无法切换到<code>root</code>用户因此无法开发端口，所以目前没有解决外网访问配置的问题。</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li>云服务器搭建神器JupyterLab（多图）. <a target="_blank" rel="noopener" href="https://blog.csdn.net/ds19991999/article/details/83663349">https://blog.csdn.net/ds19991999/article/details/83663349</a></li>
+<li>Ubuntu20.04开放指定端口. <a target="_blank" rel="noopener" href="https://blog.csdn.net/lianghecai52171314/article/details/113813826">https://blog.csdn.net/lianghecai52171314/article/details/113813826</a></li>
+<li>远程访问服务器JupyterLab的配置方法. <a target="_blank" rel="noopener" href="https://blog.csdn.net/GouGe_CSDN/article/details/104567559">https://blog.csdn.net/GouGe_CSDN/article/details/104567559</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/01/03/other/jupyterlab_remote_visit/" data-id="cl85d5h52006ji99oanpb60z0" data-title="服务器上配置jupyter lab远程访问" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-biyelunwen/event_extract" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/01/03/biyelunwen/event_extract/" class="article-date">
+  <time class="dt-published" datetime="2022-01-03T04:47:05.000Z" itemprop="datePublished">2022-01-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/">毕业论文</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/01/03/biyelunwen/event_extract/">事件抽取</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="百度事件抽取解决方案"><a href="#百度事件抽取解决方案" class="headerlink" title="百度事件抽取解决方案"></a>百度事件抽取解决方案</h1><p>百度给的baseline将事件抽取分为一个两阶段的序列标注任务，即<code>事件触发词抽取-事件类型判定</code>-&gt;<code>事件元素抽取</code>。</p>
+<p>原文如下:</p>
+<p>EE-Baseline是在事件抽取数据集（DuEE 1.0）上进行事件抽取的基线模型，该模型采用基于ERNIE的序列标注（sequence labeling）方案，分为基于序列标注的触发词抽取模型和基于序列标注的论元抽取模型，属于PipeLine模型；基于序列标注的触发词抽取模型采用BIO方式，识别触发词的位置以及对应的事件类型，基于序列标注的论元抽取模型采用BIO方式识别出事件中的论元以及对应的论元角色。总体流程如下图所示：</p>
+<p><img src="https://ai-studio-static-online.cdn.bcebos.com/96d1d2a6c6a54d51a9f22b0c6d9680c92f33779f2c384e55a84aff1103ea88b6"></p>
+<h2 id="基于序列标注的触发词抽取模型"><a href="#基于序列标注的触发词抽取模型" class="headerlink" title="基于序列标注的触发词抽取模型"></a>基于序列标注的触发词抽取模型</h2><p>基于序列标注的触发词抽取模型是整体模型的一部分，该部分主要是给定事件类型，识别句子中出现的事件触发词对应的位置以及对应的事件类别，该模型是基于ERNIE开发序列标注模型，采用ERNIE+CRF实现，模型原理图如下：</p>
+<p><img src="https://github.com/PaddlePaddle/Research/raw/master/KG/DuEE_baseline/pictures/trigger_model.png"></p>
+<blockquote>
+<p>上述样例中模型通过模型识别出触发词”求婚”，并分配给”B-结婚”、”I-结婚”标签，最终可以得到该句子中包含 “结婚”事件类型。</p>
+</blockquote>
+<h2 id="基于序列标注的论元抽取模型"><a href="#基于序列标注的论元抽取模型" class="headerlink" title="基于序列标注的论元抽取模型"></a>基于序列标注的论元抽取模型</h2><p>基于序列标注的论元抽取模型也是整体模型的一部分，该部分主要是识别出事件中的论元以及对应论元角色，该模型是基于ERNIE开发序列标注模型，采用ERNIE+CRF实现，模型原理图如下：</p>
+<p><img src="https://github.com/PaddlePaddle/Research/raw/master/KG/DuEE_baseline/pictures/role_model.png"></p>
+<blockquote>
+<p>上述样例中通过模型识别出：1）论元”李荣浩”，并分配标签”B-求婚者”、”I-求婚者”、”I-求婚者”；2）论元”杨丞琳”, 并分配标签”B-求婚对象”、”I-求婚对象”、”I-求婚对象”。最终识别出句子中包含的论元角色和论元对是&lt;求婚者，李荣浩&gt;、&lt;求婚对象，杨丞琳&gt;</p>
+</blockquote>
+<h2 id="抽取结果处理策略"><a href="#抽取结果处理策略" class="headerlink" title="抽取结果处理策略"></a>抽取结果处理策略</h2><p>根据触发词抽取模型识别到的事件类型对应的所有论元角色关联论元抽取模型的结果，得到最终模型的输出结果。比如这样一个句子：</p>
+<blockquote>
+<p>计算机行业大变革？甲骨文中国区裁员，IBM收购红帽公司</p>
+</blockquote>
+<p>这个句子中蕴含了两个事件，分别是<code>公司裁员</code>以及<code>公司收购</code>。算法的流程为：</p>
+<ul>
+<li>分别将这一个句子输入到两个模型中。</li>
+<li>识别出两个触发词<code>裁员</code>,<code>收购</code></li>
+<li>识别出<code>裁员公司-甲骨文中国区</code>、<code>被收购公司-红帽公司</code>、<code>收购公司-IBM</code>。</li>
+<li>根据预先定义好的事件类型-事件元素对应框架进行元素的关联。</li>
+<li>得到完整事件表述<code>裁员事件-裁员公司-甲骨文中国区</code>和<code>收购事件-被收购公司-红帽公司</code>。</li>
+</ul>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li>千言中文开源数据集. <a target="_blank" rel="noopener" href="https://www.luge.ai/#/">https://www.luge.ai/#/</a></li>
+<li>百度事件抽取基线模型. <a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/Research/blob/master/KG/DuEE_baseline/README.zh.md">https://github.com/PaddlePaddle/Research/blob/master/KG/DuEE_baseline/README.zh.md</a></li>
+<li>基于百度自研模型ERNIE进行事件抽取任务. <a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_63642362/article/details/121725136">https://blog.csdn.net/m0_63642362/article/details/121725136</a></li>
+<li></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/01/03/biyelunwen/event_extract/" data-id="cl85d5h2x0011i99o0in3gu09" data-title="事件抽取" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" rel="tag">毕业论文</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-bigdata/spark" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/01/01/bigdata/spark/" class="article-date">
+  <time class="dt-published" datetime="2022-01-01T08:44:17.000Z" itemprop="datePublished">2022-01-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/01/01/bigdata/spark/">Spark3.1.1使用教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="启动spark"><a href="#启动spark" class="headerlink" title="启动spark"></a>启动spark</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bash_profile</span><br><span class="line">satrt-all.sh # 启动hadoop</span><br><span class="line">cd $SPARK_HOME</span><br><span class="line">./sbin/start-all.sh # 启动spark</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装pyspark"><a href="#安装pyspark" class="headerlink" title="安装pyspark"></a>安装pyspark</h1><blockquote>
+<p>注意pyspark与spark的版本对应关系</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install pyspark==3.1.1</span><br></pre></td></tr></table></figure>
+
+<h1 id="pyspark链接Hive"><a href="#pyspark链接Hive" class="headerlink" title="pyspark链接Hive"></a>pyspark链接Hive</h1><ol>
+<li>hive中的<code>hive-site.xml</code>放到spark安装目录下面的<code>conf</code>文件夹下</li>
+<li>hive中的<code>hive-site.xml</code>放到pyspark安装目录下面的<code>conf</code>文件夹下(没有的话就创建)</li>
+<li>将<code>mysql-connector-java.jar</code>包移动到<code>/Users/renweiqiang/opt/anaconda3/lib/python3.7/site-packages/jars</code>文件夹中。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd /Library/Hive/apache-hive-3.1.2-bin/conf</span><br><span class="line">sudo mkidr /Users/renweiqiang/opt/anaconda3/lib/python3.7/site-packages/pyspark/conf</span><br><span class="line">sudo cp hive-site.xml /Users/renweiqiang/opt/anaconda3/lib/python3.7/site-packages/pyspark/conf</span><br><span class="line">sudo cp hive-site.xml $SPARK_HOME/conf</span><br><span class="line">cd /Library/Hive/apache-hive-3.1.2-bin/lib</span><br><span class="line">sudo cp mysql-connector-java-8.0.27.jar /Users/renweiqiang/opt/anaconda3/lib/python3.7/site-packages/pyspark/jars</span><br></pre></td></tr></table></figure>
+
+<h2 id="pyspark做文本分类"><a href="#pyspark做文本分类" class="headerlink" title="pyspark做文本分类"></a>pyspark做文本分类</h2><blockquote>
+<p>TODO </p>
+</blockquote>
+<h2 id="spark链接mysql"><a href="#spark链接mysql" class="headerlink" title="spark链接mysql"></a>spark链接mysql</h2><p>将jdbc链接mysql的驱动放入到<code>spark</code>的<code>jar</code>目录。</p>
+<h2 id="spark链接sqlite"><a href="#spark链接sqlite" class="headerlink" title="spark链接sqlite"></a>spark链接sqlite</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> connection <span class="keyword">as</span> dbconn</span><br><span class="line"><span class="keyword">from</span> app.eplots <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> pyspark</span><br><span class="line"><span class="keyword">import</span> pyspark.sql</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> traceback</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">How To Use</span></span><br><span class="line"><span class="string">1. cd mysite</span></span><br><span class="line"><span class="string">2. python spark_sql.py</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 这里可以选择本地win系统的PySpark环境执行pySpark代码，也可以使用虚拟机中PySpark环境，通过os可以配置。</span></span><br><span class="line">os.environ[<span class="string">&#x27;SPARK_HOME&#x27;</span>] = <span class="string">r&#x27;D:\Hadoop\spark-3.1.1-bin-hadoop3.2&#x27;</span></span><br><span class="line"><span class="comment"># TODO python安装的路径</span></span><br><span class="line">PYSPARK_PYTHON = <span class="string">r&quot;D:\Anaconda\python&quot;</span></span><br><span class="line"><span class="comment"># 当存在多个python版本环境时，不指定很可能会导致出错</span></span><br><span class="line">os.environ[<span class="string">&quot;PYSPARK_PYTHON&quot;</span>] = PYSPARK_PYTHON</span><br><span class="line">os.environ[<span class="string">&quot;PYSPARK_DRIVER_PYTHON&quot;</span>] = PYSPARK_PYTHON</span><br><span class="line"></span><br><span class="line">BASE_DIR = os.getcwd()</span><br><span class="line"></span><br><span class="line">jar_path = os.path.join(BASE_DIR, <span class="string">&#x27;sqlite-jdbc-3.34.0.jar&#x27;</span>)</span><br><span class="line">SPARK = SparkSession.builder.appName(<span class="string">&quot;SQLite&quot;</span>).config(<span class="string">&quot;spark.driver.extraClassPath&quot;</span>, jar_path).getOrCreate()</span><br><span class="line"></span><br><span class="line">jdbc_url = <span class="string">&#x27;jdbc:sqlite:&#x27;</span> + os.path.join(BASE_DIR, <span class="string">&#x27;db.sqlite3&#x27;</span>)</span><br><span class="line">table_name = <span class="string">&#x27;app_data&#x27;</span></span><br><span class="line">DF = SPARK.read.<span class="built_in">format</span>(<span class="string">&quot;jdbc&quot;</span>).option(<span class="string">&quot;url&quot;</span>, jdbc_url).option(<span class="string">&quot;dbtable&quot;</span>, table_name).load()</span><br><span class="line">DF.createOrReplaceTempView(<span class="string">&quot;app_data&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;spark load success&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_data_from_spark</span>(<span class="params">sql</span>):</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        result = SPARK.sql(sql)</span><br><span class="line">        data = result.toPandas()</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        traceback.print_exc()</span><br><span class="line">        data = pd.read_sql(sql, dbconn)</span><br><span class="line">    pdata = data</span><br><span class="line">    <span class="keyword">return</span> pdata</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">spark_plot</span>():</span></span><br><span class="line">    page = Page(layout=Page.SimplePageLayout)</span><br><span class="line">    sql = <span class="string">f&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        select t.city as x,</span></span><br><span class="line"><span class="string">               avg(t.price_per_meter) as y</span></span><br><span class="line"><span class="string">          from app_data t</span></span><br><span class="line"><span class="string">        where t.city is not null and t.price_per_meter is not null</span></span><br><span class="line"><span class="string">        group by t.city</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    pdata = load_data_from_spark(sql)</span><br><span class="line">    x = pdata[<span class="string">&#x27;x&#x27;</span>].tolist()</span><br><span class="line">    y = [<span class="built_in">round</span>(<span class="built_in">float</span>(i), <span class="number">2</span>) <span class="keyword">for</span> i <span class="keyword">in</span> pdata[<span class="string">&#x27;y&#x27;</span>].values]</span><br><span class="line">    plot = simple_bar(x=x, y=y, title=<span class="string">&#x27;城市对房均价影响&#x27;</span>, y_axis_name=<span class="string">&#x27;平均价格(元/平方米)&#x27;</span>)</span><br><span class="line">    plot.set_series_opts(label_opts=opts.LabelOpts(is_show=<span class="literal">True</span>))</span><br><span class="line">    page.add(plot)</span><br><span class="line"></span><br><span class="line">    page.render(os.path.join(BASE_DIR, <span class="string">&#x27;templates/spark_plot.html&#x27;</span>))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;gen plot success&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    spark_plot()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>核心是：<code>SPARK = SparkSession.builder.appName(&quot;SQLite&quot;).config(&quot;spark.driver.extraClassPath&quot;, jar_path).getOrCreate()</code></p>
+<h2 id="pyspark协同过滤算法"><a href="#pyspark协同过滤算法" class="headerlink" title="pyspark协同过滤算法"></a>pyspark协同过滤算法</h2><h3 id="mysql版本"><a href="#mysql版本" class="headerlink" title="mysql版本"></a>mysql版本</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkContext</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SQLContext, Row</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br><span class="line"></span><br><span class="line"><span class="comment"># spark 初始化</span></span><br><span class="line">spark = SparkSession.\</span><br><span class="line">        Builder().\</span><br><span class="line">        appName(<span class="string">&#x27;sql&#x27;</span>).\</span><br><span class="line">        master(<span class="string">&#x27;local&#x27;</span>).\</span><br><span class="line">        config(<span class="string">&#x27;spark.executor.memory&#x27;</span>,<span class="string">&#x27;8g&#x27;</span>).\</span><br><span class="line">        config(<span class="string">&#x27;spark.driver.memory&#x27;</span>,<span class="string">&#x27;8g&#x27;</span>).\</span><br><span class="line">        config(<span class="string">&#x27;spark.driver.maxResultsSize&#x27;</span>,<span class="string">&#x27;0&#x27;</span>).\</span><br><span class="line">        getOrCreate()</span><br><span class="line"></span><br><span class="line"><span class="comment"># mysql 配置(需要修改)</span></span><br><span class="line">prop = &#123;</span><br><span class="line">    <span class="string">&#x27;user&#x27;</span>: <span class="string">&#x27;tianjin&#x27;</span>, </span><br><span class="line">    <span class="string">&#x27;password&#x27;</span>: <span class="string">&#x27;tianjin&#x27;</span>, </span><br><span class="line">    <span class="string">&#x27;driver&#x27;</span>: <span class="string">&#x27;com.mysql.cj.jdbc.Driver&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># database 地址(需要修改)</span></span><br><span class="line">url = <span class="string">&#x27;jdbc:mysql://localhost:3306/django_wxapp_food_recommendation&#x27;</span></span><br><span class="line"><span class="comment"># 读取表</span></span><br><span class="line">data = spark.read.jdbc(url=url, table=<span class="string">&#x27;app_usercomment&#x27;</span>, properties=prop)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开始算法训练</span></span><br><span class="line"><span class="keyword">from</span> pyspark.ml.recommendation <span class="keyword">import</span> ALS</span><br><span class="line"><span class="comment"># 设置参数</span></span><br><span class="line">alsExplicit  = ALS(maxIter=<span class="number">5</span>, regParam=<span class="number">0.01</span>, userCol=<span class="string">&quot;user_id&quot;</span>, itemCol=<span class="string">&quot;good_id&quot;</span>, ratingCol=<span class="string">&quot;score&quot;</span>)</span><br><span class="line"><span class="comment"># 训练</span></span><br><span class="line">modelExplicit = alsExplicit.fit(data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line"><span class="comment"># spark.createDataFrame([(0, 2), (1, 0), (2, 0)], [&quot;user&quot;, &quot;item&quot;])</span></span><br><span class="line">recom = modelExplicit.transform(data).orderBy(<span class="string">&#x27;prediction&#x27;</span>, ascending=<span class="literal">False</span>)</span><br><span class="line"><span class="comment"># 写到数据库</span></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> functions <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">set_now</span>(<span class="params">_</span>):</span></span><br><span class="line">    <span class="keyword">return</span> datetime.datetime.now()</span><br><span class="line"></span><br><span class="line">recom = recom.select(<span class="string">&#x27;user_id&#x27;</span>, <span class="string">&#x27;good_id&#x27;</span>, <span class="string">&#x27;prediction&#x27;</span>)</span><br><span class="line">recom = recom.withColumnRenamed(<span class="string">&#x27;prediction&#x27;</span>, <span class="string">&#x27;score&#x27;</span>)</span><br><span class="line">recom = recom.withColumn(<span class="string">&#x27;create_at&#x27;</span>, F.lit(datetime.datetime.now()))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 存到数据库</span></span><br><span class="line">recom.write.jdbc(url=url, table=<span class="string">&#x27;app_userrecommend&#x27;</span>, mode=<span class="string">&#x27;overwrite&#x27;</span>, properties=prop)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="sqlite版本"><a href="#sqlite版本" class="headerlink" title="sqlite版本"></a>sqlite版本</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyspark</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> pyspark.sql</span><br><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkContext</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SQLContext, Row</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># spark 初始化</span></span><br><span class="line"><span class="comment"># spark = SparkSession.\</span></span><br><span class="line"><span class="comment">#         Builder().\</span></span><br><span class="line"><span class="comment">#         appName(&#x27;sql&#x27;).\</span></span><br><span class="line"><span class="comment">#         master(&#x27;local&#x27;).\</span></span><br><span class="line"><span class="comment">#         config(&#x27;spark.executor.memory&#x27;,&#x27;8g&#x27;).\</span></span><br><span class="line"><span class="comment">#         config(&#x27;spark.driver.memory&#x27;,&#x27;8g&#x27;).\</span></span><br><span class="line"><span class="comment">#         config(&#x27;spark.driver.maxResultsSize&#x27;,&#x27;0&#x27;).\</span></span><br><span class="line"><span class="comment">#         getOrCreate()</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;spark init success&#x27;</span>)</span><br><span class="line"></span><br><span class="line">BASE_DIR = os.getcwd()</span><br><span class="line"></span><br><span class="line">jar_path = os.path.join(BASE_DIR, <span class="string">&#x27;sqlite-jdbc-3.34.0.jar&#x27;</span>)</span><br><span class="line">SPARK = SparkSession.builder.appName(<span class="string">&quot;SQLite&quot;</span>).config(<span class="string">&quot;spark.driver.extraClassPath&quot;</span>, jar_path).getOrCreate()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;spark init success&#x27;</span>)</span><br><span class="line"></span><br><span class="line">jdbc_url = <span class="string">&#x27;jdbc:sqlite:&#x27;</span> + os.path.join(BASE_DIR, <span class="string">&#x27;db.sqlite3&#x27;</span>)</span><br><span class="line">table_name = <span class="string">&#x27;app_userrank&#x27;</span></span><br><span class="line"></span><br><span class="line">data = SPARK.read.<span class="built_in">format</span>(<span class="string">&quot;jdbc&quot;</span>).option(<span class="string">&quot;url&quot;</span>, jdbc_url).option(<span class="string">&quot;dbtable&quot;</span>, table_name).load()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;评分表加载成功&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开始算法训练</span></span><br><span class="line"><span class="keyword">from</span> pyspark.ml.recommendation <span class="keyword">import</span> ALS</span><br><span class="line"><span class="comment"># 设置参数</span></span><br><span class="line">alsExplicit  = ALS(maxIter=<span class="number">5</span>, regParam=<span class="number">0.01</span>, userCol=<span class="string">&quot;user_id&quot;</span>, itemCol=<span class="string">&quot;book_id&quot;</span>, ratingCol=<span class="string">&quot;score&quot;</span>)</span><br><span class="line"><span class="comment"># 训练</span></span><br><span class="line">modelExplicit = alsExplicit.fit(data)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;模型训练成功&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">recom = modelExplicit.transform(data).orderBy(<span class="string">&#x27;prediction&#x27;</span>, ascending=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 写到数据库</span></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> functions <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">set_now</span>(<span class="params">_</span>):</span></span><br><span class="line">    <span class="keyword">return</span> datetime.datetime.now()</span><br><span class="line"></span><br><span class="line">recom = recom.select(<span class="string">&#x27;user_id&#x27;</span>, <span class="string">&#x27;book_id&#x27;</span>, <span class="string">&#x27;prediction&#x27;</span>)</span><br><span class="line">recom = recom.withColumnRenamed(<span class="string">&#x27;prediction&#x27;</span>, <span class="string">&#x27;score&#x27;</span>)</span><br><span class="line">recom = recom.withColumn(<span class="string">&#x27;create_at&#x27;</span>, F.lit(datetime.datetime.now()))</span><br><span class="line"><span class="comment"># 存到数据库</span></span><br><span class="line">recom.write.<span class="built_in">format</span>(<span class="string">&quot;jdbc&quot;</span>).option(<span class="string">&quot;url&quot;</span>, jdbc_url).option(<span class="string">&quot;dbtable&quot;</span>, table_name).mode(<span class="string">&#x27;overwrite&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;模型运算完成!&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p>1.Jupyter中通过pyspark连接Hive数据库. <a target="_blank" rel="noopener" href="https://blog.csdn.net/Albert_Fang/article/details/107932131">https://blog.csdn.net/Albert_Fang/article/details/107932131</a><br>2.pyspark环境搭建,连接hive. <a target="_blank" rel="noopener" href="https://blog.csdn.net/l752820681/article/details/114482873">https://blog.csdn.net/l752820681/article/details/114482873</a><br>3. pyspark链接mysql. <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/136777424">https://zhuanlan.zhihu.com/p/136777424</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/01/01/bigdata/spark/" data-id="cl85d5h2p000gi99o59ze3yhf" data-title="Spark3.1.1使用教程" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-bigdata/flume" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/12/17/bigdata/flume/" class="article-date">
+  <time class="dt-published" datetime="2021-12-17T07:22:24.000Z" itemprop="datePublished">2021-12-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Flume/">Flume</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/12/17/bigdata/flume/">Flume使用教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="核心架构图"><a href="#核心架构图" class="headerlink" title="核心架构图"></a>核心架构图</h1><p><img src="https://flume.liyifeng.org/_images/UserGuide_image00.png" alt="核心架构图"></p>
+<h1 id="1-Spooldir对接HDFS"><a href="#1-Spooldir对接HDFS" class="headerlink" title="1. Spooldir对接HDFS"></a>1. Spooldir对接HDFS</h1><p><code>flume-conf.properties</code>文件配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">a1.sources &#x3D; r1</span><br><span class="line">a1.sinks &#x3D; k1</span><br><span class="line">a1.channels &#x3D; c1</span><br><span class="line"></span><br><span class="line">a1.sources.r1.type &#x3D; spooldir # 定义source的类型为spooldir，也就是文件</span><br><span class="line">a1.sources.r1.spoolDir &#x3D; &#x2F;Users&#x2F;renweiqiang&#x2F;outSource&#x2F;进行中&#x2F;Hadoop_日志用户挖掘_1700&#x2F;scripts&#x2F;dataset&#x2F;flume_data</span><br><span class="line"></span><br><span class="line">a1.sources.r1.fileSuffix &#x3D; .ok # 数据传输完成之后文件名后缀更改为.ok</span><br><span class="line">a1.sources.r1.decodeErrorPolicy &#x3D; IGNORE # 当从文件读取时遇到不可解析的字符时如何处理。IGNORE ：忽略无法解析的字符。</span><br><span class="line"></span><br><span class="line">a1.sinks.k1.type &#x3D; hdfs</span><br><span class="line">a1.sinks.k1.hdfs.path &#x3D; hdfs:&#x2F;&#x2F;0.0.0.0:9000&#x2F;flume&#x2F;logs&#x2F;%Y%m%d # 这里要与hadoop里面的core-site.xml保持一致</span><br><span class="line"></span><br><span class="line">a1.sinks.k1.hdfs.fileType &#x3D; DataStream</span><br><span class="line">a1.sinks.k1.hdfs.filePrefix &#x3D; events # 文件名前缀</span><br><span class="line">a1.sinks.k1.hdfs.writeFormat &#x3D; Text</span><br><span class="line">a1.sinks.k1.hdfs.useLocalTimeStamp &#x3D; true</span><br><span class="line">a1.sinks.k1.hdfs.fileSuffix &#x3D; .log # 文件名后缀</span><br><span class="line">a1.sinks.k1.hdfs.batchSize &#x3D; 100</span><br><span class="line">a1.sinks.k1.hdfs.rollSize &#x3D; 1024000 # 这里一定要调大，不然不行</span><br><span class="line">a1.sinks.k1.hdfs.rollCount &#x3D; 0</span><br><span class="line">a1.sinks.k1.hdfs.rollInterval &#x3D; 10 # 每10秒产生一个文件</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a1.channels.c1.type &#x3D; file</span><br><span class="line">a1.channels.c1.checkpointDir &#x3D; &#x2F;Library&#x2F;Hadoop&#x2F;flume&#x2F;apache-flume-1.9.0-bin&#x2F;filechannel&#x2F;checkpoint</span><br><span class="line">a1.channels.c1.dataDirs &#x3D; &#x2F;Library&#x2F;Hadoop&#x2F;flume&#x2F;apache-flume-1.9.0-bin&#x2F;filechannel&#x2F;data</span><br><span class="line"></span><br><span class="line">a1.sources.r1.channels &#x3D; c1</span><br><span class="line">a1.sinks.k1.channel &#x3D; c1</span><br></pre></td></tr></table></figure>
+
+<p>启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flume-ng agent --conf conf --conf-file conf/flume-conf.properties --name a1 -Dflume.root.logger=INFO, console</span><br></pre></td></tr></table></figure>
+
+<p>hadoop中查看数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -ls /flume/logs/</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="2-Spooldir对接hive"><a href="#2-Spooldir对接hive" class="headerlink" title="2. Spooldir对接hive"></a>2. Spooldir对接hive</h1><h2 id="2-1-Hive相关配置"><a href="#2-1-Hive相关配置" class="headerlink" title="2.1 Hive相关配置"></a>2.1 Hive相关配置</h2><h3 id="2-1-1-拷贝相关jar"><a href="#2-1-1-拷贝相关jar" class="headerlink" title="2.1.1 拷贝相关jar"></a>2.1.1 拷贝相关jar</h3><p>hive根目录下的<code>/hcatalog/share/hcatalog</code>文件夹中的如下三个文件夹添加到<code>flume的lib</code>目录下</p>
+<h3 id="2-1-2-hive-site-xml"><a href="#2-1-2-hive-site-xml" class="headerlink" title="2.1.2 hive-site.xml"></a>2.1.2 hive-site.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.port<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>9083<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 指定存储元数据要连接的地址 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.uris<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>thrift://127.0.0.1:9083<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 元数据存储授权  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.event.db.notification.api.auth<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Hive元数据存储版本的验证 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.schema.verification<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.support.concurrency<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.exec.dynamic.partition.mode<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>nonstrict<span class="tag">&lt;/<span class="name">value</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.txn.manager<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.compactor.initiator.on<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.compactor.worker.threads<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span> <span class="comment">&lt;!--这里的线程数必须大于0 :理想状态和分桶数一致--&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.enforce.bucketing<span class="tag">&lt;/<span class="name">name</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.server2.authentication<span class="tag">&lt;/<span class="name">name</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>NOSASL<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-1-3-创建数据库"><a href="#2-1-3-创建数据库" class="headerlink" title="2.1.3 创建数据库"></a>2.1.3 创建数据库</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE IF NOT EXISTS sougou;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-1-4-创建数据表"><a href="#2-1-4-创建数据表" class="headerlink" title="2.1.4 创建数据表"></a>2.1.4 创建数据表</h3><blockquote>
+<p>Hive建表需要开启的策略 - ORC 格式存储 - 分桶 - 支持事务性 - 显式声明 transtions</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">use sougou;</span><br><span class="line"></span><br><span class="line">CREATE TABLE IF NOT EXISTS log(</span><br><span class="line">    create_at String,</span><br><span class="line">    uid bigint,</span><br><span class="line">    keywords String,</span><br><span class="line">    rank String,</span><br><span class="line">    click_url String,</span><br><span class="line">    tokens String,</span><br><span class="line">    token_num int,</span><br><span class="line">    hour int,</span><br><span class="line">    minute int,</span><br><span class="line">    second int</span><br><span class="line">) </span><br><span class="line">partitioned by(`time` string) clustered by(uid) into 3 buckets </span><br><span class="line">row format delimited fields terminated by &#x27;,&#x27; </span><br><span class="line">stored as orc tblproperties(&#x27;transactional&#x27;=&#x27;true&#x27;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-Hadoop相关配置"><a href="#2-2-Hadoop相关配置" class="headerlink" title="2.2 Hadoop相关配置"></a>2.2 Hadoop相关配置</h2><p>文件夹赋权</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -chmod 777 /user/hive/warehouse/</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-3-Flume相关配置"><a href="#2-3-Flume相关配置" class="headerlink" title="2.3 Flume相关配置"></a>2.3 Flume相关配置</h2><h3 id="2-3-1-创建flume的conf文件"><a href="#2-3-1-创建flume的conf文件" class="headerlink" title="2.3.1 创建flume的conf文件"></a>2.3.1 创建flume的conf文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">a1.sources &#x3D; r1</span><br><span class="line">a1.sinks &#x3D; k1</span><br><span class="line">a1.channels &#x3D; c1</span><br><span class="line"></span><br><span class="line">a1.sources.r1.type &#x3D; spooldir</span><br><span class="line">a1.sources.r1.spoolDir &#x3D; &#x2F;Users&#x2F;renweiqiang&#x2F;outSource&#x2F;进行中&#x2F;Hadoop_日志用户挖掘_1700&#x2F;scripts&#x2F;dataset&#x2F;flume_data</span><br><span class="line"></span><br><span class="line">a1.sources.r1.fileSuffix &#x3D; .ok</span><br><span class="line">a1.sources.r1.decodeErrorPolicy &#x3D; REPLACE</span><br><span class="line"></span><br><span class="line">a1.sinks.k1.type &#x3D; hive</span><br><span class="line">a1.sinks.k1.hive.metastore &#x3D; mysql:&#x2F;&#x2F;127.0.0.1:3306</span><br><span class="line">a1.sinks.k1.hive.database &#x3D; sougou</span><br><span class="line">a1.sinks.k1.hive.table &#x3D; log</span><br><span class="line">a1.sinks.k1.hive.serializer &#x3D; DELIMITED</span><br><span class="line">a1.sinks.k1.serializer.delimiter &#x3D; &quot;\t&quot;</span><br><span class="line">a1.sinks.k1.serializer.serdeSeparator &#x3D; &quot;\t&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a1.channels.c1.type &#x3D; file</span><br><span class="line">a1.channels.c1.checkpointDir &#x3D; &#x2F;Library&#x2F;Hadoop&#x2F;flume&#x2F;apache-flume-1.9.0-bin&#x2F;filechannel&#x2F;checkpoint</span><br><span class="line">a1.channels.c1.dataDirs &#x3D; &#x2F;Library&#x2F;Hadoop&#x2F;flume&#x2F;apache-flume-1.9.0-bin&#x2F;filechannel&#x2F;data</span><br><span class="line"></span><br><span class="line">a1.sources.r1.channels &#x3D; c1</span><br><span class="line">a1.sinks.k1.channel &#x3D; c1</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-2-启动hive-metastore"><a href="#2-3-2-启动hive-metastore" class="headerlink" title="2.3.2 启动hive-metastore"></a>2.3.2 启动hive-metastore</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive --service metastore</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-3-3-启动"><a href="#2-3-3-启动" class="headerlink" title="2.3.3 启动"></a>2.3.3 启动</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /Library/Hadoop/flume/apache-flume-1.9.0-bin</span><br><span class="line">flume-ng agent --conf conf --conf-file conf/sougou-hive-conf.properties --name a1</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>所有的结果都会放到<code>logs/flume.log</code>文件夹里面去！</p>
+</blockquote>
+<h3 id="2-3-4-py脚本"><a href="#2-3-4-py脚本" class="headerlink" title="2.3.4 py脚本"></a>2.3.4 py脚本</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># put the csv file into the flume_data dir</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li>Flume实时监控目录Spooldir: <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41209740/article/details/111378804">https://blog.csdn.net/weixin_41209740/article/details/111378804</a></li>
+<li>关于flume 中spooldir传输数据报出HDFS IO error ….. File type DataStream not supported 错误解决: <a target="_blank" rel="noopener" href="https://blog.csdn.net/hui_2016/article/details/70255820">https://blog.csdn.net/hui_2016/article/details/70255820</a></li>
+<li>Flume+HDFS实战及遇到的坑: <a target="_blank" rel="noopener" href="https://blog.csdn.net/a_drjiaoda/article/details/84975690">https://blog.csdn.net/a_drjiaoda/article/details/84975690</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/62904645">https://zhuanlan.zhihu.com/p/62904645</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/12/17/bigdata/flume/" data-id="cl85d5h2i0005i99ocou1hyya" data-title="Flume使用教程" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flume/" rel="tag">Flume</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other/ubuntu_python_website" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/12/03/other/ubuntu_python_website/" class="article-date">
+  <time class="dt-published" datetime="2021-12-03T07:50:03.000Z" itemprop="datePublished">2021-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/12/03/other/ubuntu_python_website/">ubuntu部署python网站</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="安装宝塔"><a href="#安装宝塔" class="headerlink" title="安装宝塔"></a>安装宝塔</h1><p>参考<a target="_blank" rel="noopener" href="https://www.bt.cn/new/download.html">官方文档</a></p>
+<h1 id="安装miniconda3"><a href="#安装miniconda3" class="headerlink" title="安装miniconda3"></a>安装miniconda3</h1><p>下载地址为: <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh">https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh</a></p>
+<p>安装位置在:</p>
+<blockquote>
+<p>/home/ubuntu</p>
+</blockquote>
+<p>配置环境变量:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;/home/ubuntu/miniconda3/bin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>赋予文件夹访问权限:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod -R 777 /home/ubuntu/miniconda3/</span><br></pre></td></tr></table></figure>
+
+<p>TODO 删除/root/anaconda3</p>
+<h1 id="安装相关组件"><a href="#安装相关组件" class="headerlink" title="安装相关组件"></a>安装相关组件</h1><ol>
+<li>nginx</li>
+<li>uwsgi</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo conda install -c conda-forge uwsgi </span><br><span class="line">sudo conda install -c conda-forge libiconv</span><br></pre></td></tr></table></figure>
+
+<p>如果没有<code>sudo</code>命令的话可能会出现<code>perssion deny</code>.</p>
+<h1 id="uwsgi编辑"><a href="#uwsgi编辑" class="headerlink" title="uwsgi编辑"></a>uwsgi编辑</h1><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="section">[uwsgi]</span>                                                                        </span><br><span class="line">                                                                               </span><br><span class="line"><span class="attr">socket</span> = <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">5000</span>                                           </span><br><span class="line">                                                                               </span><br><span class="line"><span class="attr">plugins</span> = python                                                  </span><br><span class="line">                                                                               </span><br><span class="line"><span class="attr">chdir</span> = /python_work/websites/<span class="number">2</span>_flask_estore/scripts                                       </span><br><span class="line">                                                                               </span><br><span class="line"><span class="attr">wsgi-file</span> = manage.py                                          </span><br><span class="line">                                                                     </span><br><span class="line"><span class="attr">callable</span> = app</span><br><span class="line"></span><br><span class="line"><span class="attr">processes</span> = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="attr">threads</span> = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="attr">buffer-size</span> = <span class="number">32768</span></span><br><span class="line"></span><br><span class="line"><span class="attr">master</span> = <span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>以上不要出现任何注释</p>
+</blockquote>
+<p>启动uwsgi</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uwsgi --ini uwsgi.ini &amp;</span><br></pre></td></tr></table></figure>
+
+<p>查看uwsgi进程</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux|grep uwsgi</span><br></pre></td></tr></table></figure>
+
+<p>杀死相关uwsgi进程</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo killall uwsgi</span><br></pre></td></tr></table></figure>
+
+<h1 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name a.ozflhnb.top;</span><br><span class="line">    location / &#123;</span><br><span class="line">        include uwsgi_params;</span><br><span class="line">        uwsgi_pass 127.0.0.1:5000;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="django部署"><a href="#django部署" class="headerlink" title="django部署"></a>django部署</h1><h2 id="1-uwsgi-ini配置"><a href="#1-uwsgi-ini配置" class="headerlink" title="1. uwsgi.ini配置"></a>1. uwsgi.ini配置</h2><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[uwsgi]</span></span><br><span class="line">    <span class="attr">plugins</span> = python</span><br><span class="line">    <span class="attr">socket</span> = <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">8881</span></span><br><span class="line">    <span class="attr">master</span> = <span class="literal">true</span></span><br><span class="line">    <span class="attr">enable-threads</span> = <span class="literal">true</span></span><br><span class="line">    <span class="attr">workers</span> = <span class="number">1</span></span><br><span class="line">    <span class="attr">wsgi-file</span> = /python_work/websites/<span class="number">3</span>_pxy_termite_detect/scripts/mysite/wsgi.py</span><br><span class="line">    <span class="attr">chdir</span> = /python_work/websites/<span class="number">3</span>_pxy_termite_detect/scripts</span><br><span class="line">    <span class="attr">buffer-size</span> = <span class="number">32768</span></span><br><span class="line">    <span class="attr">pidfile</span> = %(chdir)/uwsgi.pid</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-编辑settings-py文件"><a href="#2-编辑settings-py文件" class="headerlink" title="2. 编辑settings.py文件"></a>2. 编辑<code>settings.py</code>文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ALLOWED_HOSTS = [<span class="string">&#x27;*&#x27;</span>]</span><br><span class="line"><span class="comment"># STATICFILES_DIRS = [BASE_DIR / &#x27;static&#x27;, ] # 部署的时候这个需要注释掉</span></span><br><span class="line">STATIC_ROOT = BASE_DIR / <span class="string">&#x27;static&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-收集静态文件"><a href="#4-收集静态文件" class="headerlink" title="4. 收集静态文件"></a>4. 收集静态文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py collectstatic</span><br></pre></td></tr></table></figure>
+
+<h2 id="开启uwsgi"><a href="#开启uwsgi" class="headerlink" title="开启uwsgi"></a>开启uwsgi</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">uwsgi --ini uwsgi.ini</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>测试通过的话可以使用<code>nohup</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup uwsgi --ini uwsgi.ini &gt; uwsgi.log &amp;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-nginx-cof文件配置"><a href="#4-nginx-cof文件配置" class="headerlink" title="4. nginx.cof文件配置"></a>4. nginx.cof文件配置</h2><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">  listen 81;</span><br><span class="line">  server_name localhost;</span><br><span class="line">  location / &#123;</span><br><span class="line">    include uwsgi_params;</span><br><span class="line">    uwsgi_pass 127.0.0.1:8881;</span><br><span class="line">  &#125;</span><br><span class="line">  location /static &#123;</span><br><span class="line">    alias /python_work/websites/3_pxy_termite_detect/scripts/static;</span><br><span class="line">  &#125;</span><br><span class="line">  location /media &#123;</span><br><span class="line">    alias /python_work/websites/3_pxy_termite_detect/scripts/media;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="5-重启nginx"><a href="#5-重启nginx" class="headerlink" title="5. 重启nginx"></a>5. 重启nginx</h2><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li>宝塔安装. <a target="_blank" rel="noopener" href="https://www.bt.cn/new/download.html">https://www.bt.cn/new/download.html</a></li>
+<li>conda安装<code>uwsgi</code>. <a target="_blank" rel="noopener" href="https://www.cnblogs.com/jiaxiaoxin/p/10642263.html">https://www.cnblogs.com/jiaxiaoxin/p/10642263.html</a></li>
+<li>ubuntu下<code>sudo</code>没有用. <a target="_blank" rel="noopener" href="https://blog.csdn.net/jiangjiang_jian/article/details/88933530">https://blog.csdn.net/jiangjiang_jian/article/details/88933530</a></li>
+<li>uwsgi+nginx. <a target="_blank" rel="noopener" href="https://www.cnblogs.com/sdadx/p/10360208.html">https://www.cnblogs.com/sdadx/p/10360208.html</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/12/03/other/ubuntu_python_website/" data-id="cl85d5h5e007si99o7lte3wvg" data-title="ubuntu部署python网站" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-paper/end_note" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/11/29/paper/end_note/" class="article-date">
+  <time class="dt-published" datetime="2021-11-29T02:14:36.000Z" itemprop="datePublished">2021-11-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/">毕业论文</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/11/29/paper/end_note/">EndNote使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="国标样式修改"><a href="#国标样式修改" class="headerlink" title="国标样式修改"></a>国标样式修改</h1><p>github上现成的模板: <a target="_blank" rel="noopener" href="https://duter2016.github.io/2019/10/19/%E5%9F%BA%E4%BA%8E%E5%9B%BD%E5%AE%B6%E6%A0%87%E5%87%86%E7%9A%84-EndNote-%E8%BE%93%E5%87%BA%E6%A0%B7%E5%BC%8F%E6%A8%A1%E6%9D%BF/">https://duter2016.github.io/2019/10/19/%E5%9F%BA%E4%BA%8E%E5%9B%BD%E5%AE%B6%E6%A0%87%E5%87%86%E7%9A%84-EndNote-%E8%BE%93%E5%87%BA%E6%A0%B7%E5%BC%8F%E6%A8%A1%E6%9D%BF/</a><br>以上的模板并没有把<code>et, al</code>修改成<code>等</code>，因此参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/125652934">https://zhuanlan.zhihu.com/p/125652934</a><br>这一篇<a target="_blank" rel="noopener" href="http://blog.sciencenet.cn/home.php?mod=space&uid=485&do=blog&id=306545">博客</a>也可以看一下。</p>
+<h1 id="导入Arxiv文献"><a href="#导入Arxiv文献" class="headerlink" title="导入Arxiv文献"></a>导入Arxiv文献</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/star_xxzeng/article/details/107630240">https://blog.csdn.net/star_xxzeng/article/details/107630240</a></p>
+<p><img src="https://img-blog.csdnimg.cn/20200728102649929.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3N0YXJfeHh6ZW5n,size_16,color_FFFFFF,t_70"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/11/29/paper/end_note/" data-id="cl85d5h4d0052i99o23s72bzo" data-title="EndNote使用" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" rel="tag">毕业论文</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other/keras_text_clf" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/11/18/other/keras_text_clf/" class="article-date">
+  <time class="dt-published" datetime="2021-11-18T14:53:30.000Z" itemprop="datePublished">2021-11-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/11/18/other/keras_text_clf/">Keras做文本分类</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>使用原生的<code>IMDB</code>情感分析数据集来做。</p>
+<h1 id="1-数据预处理"><a href="#1-数据预处理" class="headerlink" title="1. 数据预处理"></a>1. 数据预处理</h1><h2 id="1-1-加载原始数据"><a href="#1-1-加载原始数据" class="headerlink" title="1.1 加载原始数据"></a>1.1 加载原始数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rm_tags</span>(<span class="params">test</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    去除HTML代码</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    re_tag = re.<span class="built_in">compile</span>(<span class="string">r&#x27;&lt;[^&gt;]+&gt;&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> re_tag.sub(<span class="string">&#x27;&#x27;</span>, test)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_files</span>(<span class="params">filetype</span>):</span>  <span class="comment"># filetype取值为 &#x27;train&#x27; / &#x27;test&#x27;</span></span><br><span class="line">    path = <span class="string">&quot;./dataset/aclImdb/&quot;</span>  <span class="comment"># 数据集的路径</span></span><br><span class="line">    file_list=[]  <span class="comment"># 用于存放所有评价文件的文件名</span></span><br><span class="line"></span><br><span class="line">    positive_path=path + filetype+<span class="string">&quot;/pos/&quot;</span>  <span class="comment"># 好评文件路径</span></span><br><span class="line">    <span class="keyword">for</span> f <span class="keyword">in</span> os.listdir(positive_path):  </span><br><span class="line">        file_list+=[positive_path+f]</span><br><span class="line">    </span><br><span class="line">    negative_path=path + filetype+<span class="string">&quot;/neg/&quot;</span></span><br><span class="line">    <span class="keyword">for</span> f <span class="keyword">in</span> os.listdir(negative_path):</span><br><span class="line">        file_list+=[negative_path+f]</span><br><span class="line">        </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;read&#x27;</span>,filetype, <span class="string">&#x27;files:&#x27;</span>,<span class="built_in">len</span>(file_list))</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 创建标签，好评标签为1，差评为0</span></span><br><span class="line">    <span class="comment"># 由于先加载好评文件，因此先存放12500个1，再存放12500个0</span></span><br><span class="line">    all_labels = ([<span class="number">1</span>] * <span class="number">12500</span> + [<span class="number">0</span>] * <span class="number">12500</span>)  </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 保存所有影评</span></span><br><span class="line">    all_texts  = []</span><br><span class="line">    <span class="keyword">for</span> fi <span class="keyword">in</span> file_list:</span><br><span class="line">        <span class="comment"># 中文编码utf8</span></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(fi,encoding=<span class="string">&#x27;utf8&#x27;</span>) <span class="keyword">as</span> file_input:</span><br><span class="line">            <span class="comment"># 将文本去html代码再保存</span></span><br><span class="line">            all_texts += [rm_tags(<span class="string">&quot; &quot;</span>.join(file_input.readlines()))] </span><br><span class="line">    <span class="comment"># 返回标签和内容</span></span><br><span class="line">    <span class="keyword">return</span> all_labels,all_texts</span><br><span class="line"></span><br><span class="line">y_train, train_text = read_files(<span class="string">&#x27;train&#x27;</span>)  <span class="comment"># 训练标签、训练数据</span></span><br><span class="line">y_test, test_text = read_files(<span class="string">&#x27;test&#x27;</span>)  <span class="comment"># # 测试标签、测试数据</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>train_text</code>的一个元素为:</p>
+<p><code>&#39;For a movie that gets no respect there sure are a lot of memorable quotes listed for this gem. Imagine a movie where Joe Piscopo is actually funny! Maureen Stapleton is a scene stealer. The Moroni character is an absolute scream. Watch for Alan &quot;The Skipper&quot; Hale jr. as a police Sgt.&#39;</code> 可以看到的是就是一个原生的句子，只不过是去除了HTML标签。</p>
+<h2 id="1-2-分词并给词做编号"><a href="#1-2-分词并给词做编号" class="headerlink" title="1.2 分词并给词做编号"></a>1.2 分词并给词做编号</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tensorflow.keras.preprocessing.text <span class="keyword">import</span> Tokenizer</span><br><span class="line"><span class="comment"># 创建分词器</span></span><br><span class="line"><span class="comment"># #num_words:None或整数,处理的最大单词数量。少于此数的单词丢掉</span></span><br><span class="line">token = Tokenizer(num_words=<span class="number">10000</span>)  </span><br><span class="line"><span class="comment"># 先分词、再计算数量排序，取num_words个单词作为字典的内容</span></span><br><span class="line">token.fit_on_texts(train_text) </span><br></pre></td></tr></table></figure>
+
+<h2 id="1-3-将原始的句子转化为编号后的句子"><a href="#1-3-将原始的句子转化为编号后的句子" class="headerlink" title="1.3 将原始的句子转化为编号后的句子"></a>1.3 将原始的句子转化为编号后的句子</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.preprocessing <span class="keyword">import</span> sequence <span class="comment"># 用于转换</span></span><br><span class="line"></span><br><span class="line">x_train_seq = token.texts_to_sequences(train_text)</span><br><span class="line">x_test_seq  = token.texts_to_sequences(test_text)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="1-4-句子补全"><a href="#1-4-句子补全" class="headerlink" title="1.4 句子补全"></a>1.4 句子补全</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x_train = sequence.pad_sequences(x_train_seq, maxlen=<span class="number">100</span>) <span class="comment"># 一个序列的最大长度</span></span><br><span class="line">x_test = sequence.pad_sequences(x_test_seq, maxlen=<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-模型训练"><a href="#2-模型训练" class="headerlink" title="2. 模型训练"></a>2. 模型训练</h1><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li>IMDB数据集预处理. <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42797457/article/details/102484991">https://blog.csdn.net/qq_42797457/article/details/102484991</a></li>
+<li></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/11/18/other/keras_text_clf/" data-id="cl85d5h54006qi99odlot8zq1" data-title="Keras做文本分类" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-paper/ELG" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/11/02/paper/ELG/" class="article-date">
+  <time class="dt-published" datetime="2021-11-02T01:29:14.000Z" itemprop="datePublished">2021-11-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AE%BA%E6%96%87/">论文</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/11/02/paper/ELG/">事理图谱</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="ELG-Event-Logic-Graph"><a href="#ELG-Event-Logic-Graph" class="headerlink" title="ELG: Event Logic Graph"></a>ELG: Event Logic Graph</h1><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p><code>Event Logic Graph (ELG), which can reveal evolutionary patterns and development logics of real world events</code>.</p>
+<p>Specifically, ELG is a directed cyclic graph, whose nodes are events, and edges stand for the <code>sequential</code>, <code>causal</code>,<code>conditional</code> or <code>hypernym-hyponym (“is-a”)</code> relations between events.</p>
+<blockquote>
+<p>事件之间的关系：顺承、因果、条件、上下位</p>
+</blockquote>
+<p>This event sequence is a <code>common pattern</code> for the scenario of having lunch in a restaurant.<br>Such patterns can reveal the <code>basic rules of event evolutions and human behaviors</code>.</p>
+<blockquote>
+<p>事理图谱中的事件是<code>常识性知识</code>，比如进饭店吃饭的一般步骤：<code>吃饭-&gt;付钱-&gt;离开</code>，这种模式反应了事件的演化以及人类的行为。</p>
+</blockquote>
+<p>In this paper, we further propose to <code>organize the universal event evolutionary principles and patterns</code> into a knowledge base based on the extracted <code>temporal and causal event</code> pairs.</p>
+<blockquote>
+<p>事理图谱在于寻找事件演化的一般模式与准则，重点关注<code>因果</code>、<code>顺承</code>关系</p>
+</blockquote>
+<h2 id="ELG"><a href="#ELG" class="headerlink" title="ELG"></a>ELG</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>ELG is a directed cyclic graph, whose nodes are events, and edges stand for <code>the sequential, causal, conditional or hypernym-hyponym relations</code> between events. Essentially, ELG is an event logic knowledge base, which reveals <code>evolutionary patterns</code> and <code>development logics</code> of real world events.</p>
+<blockquote>
+<p>事理图谱是一个有向有环图，其中节点为事件，边代表事件之间的<code>顺承</code>、<code>因果</code>、<code>条件</code>、<code>上下位</code>关系。它是一个<code>事件逻辑知识库</code>，揭示了现实世界事件的<code>进化模式</code>和<code>发展逻辑</code>。</p>
+</blockquote>
+<p><code>常识性知识</code>是其中的核心。也就是某一个事件与其他的事件在现实世界中经常发生，比如<code>Plan a weeding</code>后<strong>经常</strong>会<code>Buy House</code></p>
+<p>In ELG, events are represented as <code>abstract, generalized and semantic complete</code> event tuples <code>E = (S, P, O)</code>, where P is the action, S is the actor and O is the object on which the action is performed. </p>
+<blockquote>
+<p>事理图谱中的事件是一个抽象泛化的事件，其表现形式为<code>主谓宾三元组</code>。</p>
+</blockquote>
+<p>Abstract and generalized means that we do not concern about the <code>exact participants, location and time</code> of an event.</p>
+<blockquote>
+<p>事理图谱中的事件并不关心具体的<code>参与者</code>、<code>地点</code>、<code>事件</code>。</p>
+</blockquote>
+<p>The conditional relation is a <code>logical relation</code> in which the <code>illocutionary act</code> employing one of a pair of propositions is expressed or implied to be true or in force if the other proposition is true.</p>
+<blockquote>
+<p>条件关系是一种逻辑关系，表示一个命题为真，那么另一个命题也是正确的</p>
+</blockquote>
+<p>The sequential and causal relations in ELG are <code>probabilistic</code>.</p>
+<blockquote>
+<p>事件之间的顺承因果都是都是有一定的<code>概率性</code></p>
+</blockquote>
+<h2 id="ELG构建流程"><a href="#ELG构建流程" class="headerlink" title="ELG构建流程"></a>ELG构建流程</h2><p><img src="0.png"></p>
+<h3 id="Event-Generalize"><a href="#Event-Generalize" class="headerlink" title="Event Generalize"></a>Event Generalize</h3><p>Given large amount of event pairs extracted in previous steps, we need to connect event pairs to form a graph structure. Intuitively, as shown in Figure 5 (a), if we can find the same event in two event pairs, it is easy to form the graph structure. However, as the extracted events are discretely represented by bag-of-words, we can hardly find <code>two identical events</code>. </p>
+<p>Hence, as shown in Figure 5 (b), we propose to find the <code>semantically similar events</code> (A and A’) and connect them. To this end, we propose <code>learning distributed representations</code> for each event, and utilize the <code>cosine similarity</code> to measure the semantic similarity between two event vectors. We use the framework of neural tensor networks to learn event embeddings, as described in our previous work (Ding et al., 2015).</p>
+<blockquote>
+<p>语义相似的事件进行一个整合</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/11/02/paper/ELG/" data-id="cl85d5h4c004zi99obbj4cbpf" data-title="事理图谱" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; zurück</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/5/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">-CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Leetcode/">Leetcode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/django/">django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/sql/">sql</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1/">业务</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1%E6%8C%87%E6%A0%87/">业务指标</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/">中信证券</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/Django/">Django</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Flume/">Flume</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E9%9B%86/">数据集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/">毕业论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/">毕业设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/">秋招</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/%E9%9D%A2%E8%AF%95/">面试</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AF%95/">笔试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BA%E6%96%87/">论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/">银联实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">-leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flume/" rel="tag">Flume</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hbase/" rel="tag">Hbase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%9A%E5%8A%A1/" rel="tag">业务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" rel="tag">中信证券</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" rel="tag">时间序列预测</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" rel="tag">毕业论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" rel="tag">毕业设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%8B%E6%8B%9B/" rel="tag">秋招</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" rel="tag">金山实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" rel="tag">银联实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/leetcode/" style="font-size: 10px;">-leetcode</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Django/" style="font-size: 13.33px;">Django</a> <a href="/tags/Flume/" style="font-size: 10px;">Flume</a> <a href="/tags/Hbase/" style="font-size: 10px;">Hbase</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/SQL/" style="font-size: 18.89px;">SQL</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/leetcode/" style="font-size: 15.56px;">leetcode</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/%E4%B8%9A%E5%8A%A1/" style="font-size: 13.33px;">业务</a> <a href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" style="font-size: 11.11px;">中信证券</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 20px;">其他</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 13.33px;">大数据</a> <a href="/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 16.67px;">实习</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 11.11px;">工作</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" style="font-size: 10px;">时间序列预测</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12.22px;">机器学习</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" style="font-size: 14.44px;">毕业论文</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">毕业设计</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 12.22px;">爬虫</a> <a href="/tags/%E7%A7%8B%E6%8B%9B/" style="font-size: 13.33px;">秋招</a> <a href="/tags/%E7%AC%94%E8%AF%95/" style="font-size: 12.22px;">笔试</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 12.22px;">统计学</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 11.11px;">论文</a> <a href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" style="font-size: 13.33px;">金山实习</a> <a href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" style="font-size: 10px;">银联实习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 17.78px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/14/other/time_series_pred/">时间序列预测</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/01/other/customer_analysis_in_python/">用户价值分析</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/15/other/PEP8/">PEP-8: Python代码规范</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/29/other/fanqie/">番茄工作法</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/20/citics/neo4j_query_optimize/">neo4j查询调优</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

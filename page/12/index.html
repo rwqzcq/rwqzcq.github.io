@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>rwqccnuimd的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="rwqccnuimd的博客">
+<meta property="og:url" content="http://example.com/page/12/index.html">
+<meta property="og:site_name" content="rwqccnuimd的博客">
+<meta property="og:locale">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="rwqccnuimd的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">rwqccnuimd的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-practice/kingsoft/0611" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/06/11/practice/kingsoft/0611/" class="article-date">
+  <time class="dt-published" datetime="2021-06-11T03:38:21.000Z" itemprop="datePublished">2021-06-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/06/11/practice/kingsoft/0611/">6月11日实习内容</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="分别取出来list2-thumbnail部分中实验组与对照组的留存"><a href="#分别取出来list2-thumbnail部分中实验组与对照组的留存" class="headerlink" title="分别取出来list2_thumbnail部分中实验组与对照组的留存"></a>分别取出来list2_thumbnail部分中实验组与对照组的留存</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">with</span></span><br><span class="line">    base <span class="keyword">as</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            <span class="keyword">DISTINCT</span> parse_DATE(<span class="string">&#x27;%Y%m%d&#x27;</span>,event_date) <span class="keyword">AS</span> <span class="type">date</span>,</span><br><span class="line">            user_pseudo_id <span class="keyword">AS</span> google_id,</span><br><span class="line">            ( <span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(user_properties) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;firebase_exp_231&#x27;</span>) <span class="keyword">as</span> exp</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            `wps<span class="operator">-</span>cloud<span class="operator">-</span>service.analytics_153386958.events_202105<span class="operator">*</span>`</span><br><span class="line">        <span class="keyword">where</span> </span><br><span class="line">            _table_suffix <span class="operator">&gt;=</span> <span class="string">&#x27;01&#x27;</span> <span class="keyword">and</span> _table_suffix <span class="operator">&lt;=</span> <span class="string">&#x27;31&#x27;</span> <span class="keyword">and</span></span><br><span class="line">            event_name <span class="operator">=</span> <span class="string">&#x27;button_click&#x27;</span> <span class="keyword">and</span></span><br><span class="line">            ( <span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;button_name&#x27;</span>)  <span class="operator">=</span> <span class="string">&#x27;thumbnail2_list&#x27;</span></span><br><span class="line">            <span class="keyword">and</span>  ( <span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(user_properties) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;firebase_exp_231&#x27;</span>) <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">null</span> <span class="comment">-- 命中了</span></span><br><span class="line">    ),</span><br><span class="line">    yesterday <span class="keyword">as</span> (</span><br><span class="line">        <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> base</span><br><span class="line">    ),</span><br><span class="line">    today <span class="keyword">as</span> (</span><br><span class="line">        <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> base</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    date_trunc(a.date, week) <span class="keyword">as</span> week, </span><br><span class="line">    a.exp <span class="keyword">as</span> exp,</span><br><span class="line">    date_diff(b.date, a.date, week) <span class="keyword">as</span> time_interval, </span><br><span class="line">    <span class="built_in">count</span>(<span class="keyword">distinct</span> b.google_id) <span class="keyword">as</span> retention</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    yesterday a</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> </span><br><span class="line">    today b</span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">    a.google_id <span class="operator">=</span> b.google_id </span><br><span class="line">    <span class="keyword">and</span> date_diff(b.date, a.date, week) <span class="keyword">in</span> (<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span>  </span><br><span class="line">    week, </span><br><span class="line">    a.exp, </span><br><span class="line">    time_interval</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">    week, </span><br><span class="line">    exp, </span><br><span class="line">    time_interval</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>( SELECT value.string_value FROM UNNEST(user_properties) WHERE key=&#39;firebase_exp_231&#39;)</code> is not null这个只能代表实验有没有命中，而区分对照组与实验组的标识是<code>0</code>与<code>1</code></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/06/11/practice/kingsoft/0611/" data-id="cl85d5h6x00cgi99o79wrempz" data-title="6月11日实习内容" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other/django-resources/2_tables2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/06/07/other/django-resources/2_tables2/" class="article-date">
+  <time class="dt-published" datetime="2021-06-07T14:30:13.000Z" itemprop="datePublished">2021-06-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="1-建立tables"><a href="#1-建立tables" class="headerlink" title="1. 建立tables"></a>1. 建立tables</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```<span class="class"><span class="keyword">class</span> <span class="title">InfoTable</span>(<span class="params">tables.Table</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    定义Modeltable</span></span><br><span class="line"><span class="string">    https://django-tables2.readthedocs.io/en/latest/pages/table-data.html#table-data</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        model = HealthInfo <span class="comment"># 指定模型</span></span><br><span class="line">        attrs = &#123;<span class="string">&quot;class&quot;</span>: <span class="string">&quot;table table-striped&quot;</span>&#125; <span class="comment"># 自定义属性</span></span><br></pre></td></tr></table></figure>
+<h1 id="2-views中使用"><a href="#2-views中使用" class="headerlink" title="2. views中使用"></a>2. views中使用</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_info</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    个人信息填报</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    qs = HealthInfo.objects.<span class="built_in">filter</span>(user=request.user)</span><br><span class="line">    table = InfoTable(qs)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">&#x27;health/my_info.html&#x27;</span>, &#123;<span class="string">&#x27;table&#x27;</span>: table&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-模板中使用"><a href="#3-模板中使用" class="headerlink" title="3. 模板中使用"></a>3. 模板中使用</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% load render_table from django_tables2 %&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">h4</span>&gt;</span>我的填报<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    &#123;% render_table table %&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="4-自定义字段"><a href="#4-自定义字段" class="headerlink" title="4. 自定义字段"></a>4. 自定义字段</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django_tables2 <span class="keyword">import</span> tables</span><br><span class="line"><span class="keyword">from</span> django_tables2.utils <span class="keyword">import</span> A</span><br><span class="line"></span><br><span class="line">detail = tables.columns.LinkColumn(<span class="string">&#x27;detail&#x27;</span>, args=[A(<span class="string">&#x27;pk&#x27;</span>)], orderable=<span class="literal">False</span>, empty_values=(), verbose_name=<span class="string">&#x27;操作&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">render_detail</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;查看详情&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="5-显示图片"><a href="#5-显示图片" class="headerlink" title="5. 显示图片"></a>5. 显示图片</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.utils.html <span class="keyword">import</span> format_html</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ImageColumn</span>(<span class="params">tables.columns.Column</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    自定义图片</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">render</span>(<span class="params">self, value</span>):</span></span><br><span class="line">        <span class="keyword">return</span> format_html(</span><br><span class="line">            <span class="string">&#x27;&lt;img src=&quot;/media/&#123;url&#125;&quot; class=&quot;center-block&quot; height=&quot;20px&quot;, width=&quot;20px&quot;&gt;&#x27;</span>,</span><br><span class="line">            url=value</span><br><span class="line">            )</span><br><span class="line">    </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/06/07/other/django-resources/2_tables2/" data-id="cl85d5h8s00k3i99o8q1udhsu" data-title="" class="article-share-link">Teilen</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-practice/kingsoft/0607" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/06/07/practice/kingsoft/0607/" class="article-date">
+  <time class="dt-published" datetime="2021-06-07T03:40:57.000Z" itemprop="datePublished">2021-06-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/06/07/practice/kingsoft/0607/">6月7日工作内容</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="与产品经理进行数据核对"><a href="#与产品经理进行数据核对" class="headerlink" title="与产品经理进行数据核对"></a>与产品经理进行数据核对</h1><p>在这个过程中虽然保留了SQL语句，但是SQL生成的excel找不到了，而且即使生成了excel，但也忘记了数据统计的日期口径，因为excel中不是所有的日期都要的，比如在某一个功能上线的前3天，一般都不要，因为这个时候刚启动，uv刚上来。</p>
+<p>因此</p>
+<blockquote>
+<p>结果的excel文件名要命名准确，在excel中标明统计的时间范围</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/06/07/practice/kingsoft/0607/" data-id="cl85d5h6w00cdi99o3s56e1mi" data-title="6月7日工作内容" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-practice/kingsoft/0602" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/06/02/practice/kingsoft/0602/" class="article-date">
+  <time class="dt-published" datetime="2021-06-02T06:24:01.000Z" itemprop="datePublished">2021-06-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/06/02/practice/kingsoft/0602/">6月2日工作内容</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="mso增加wps插件"><a href="#mso增加wps插件" class="headerlink" title="mso增加wps插件"></a>mso增加wps插件</h1><h2 id="平台"><a href="#平台" class="headerlink" title="平台"></a>平台</h2><p>PC</p>
+<h2 id="需求描述"><a href="#需求描述" class="headerlink" title="需求描述"></a>需求描述</h2><p>在微软office三件套中增加一个WPS插件，该插件主要可以将文档转化为PDF或者创建PDF。如 下图所示。</p>
+<p><img src="1.png"></p>
+<p>有三个create，分别是:</p>
+<ol>
+<li>create</li>
+<li>create and share</li>
+<li>create and play</li>
+</ol>
+<p>增加曝光入口：</p>
+<p><img src="2.png"></p>
+<p>分别从<code>导出</code>以及<code>共享</code>来增加曝光。</p>
+<h2 id="取数日期"><a href="#取数日期" class="headerlink" title="取数日期"></a>取数日期</h2><p>5月8日到5月28日</p>
+<h2 id="产品关注的指标"><a href="#产品关注的指标" class="headerlink" title="产品关注的指标"></a>产品关注的指标</h2><ol>
+<li>插件展现/整个日活</li>
+<li>从插件启动WPS的占比</li>
+<li>功能点击</li>
+</ol>
+<h2 id="关注的指标-分组件"><a href="#关注的指标-分组件" class="headerlink" title="关注的指标(分组件)"></a>关注的指标(分组件)</h2><ol>
+<li><p>create</p>
+<ul>
+<li>uv</li>
+<li>弹出文档未保存的uv</li>
+<li>点击保存的uv</li>
+<li>不保存的uv</li>
+<li>插件启动uv</li>
+<li>转化成功uv</li>
+<li>pdf文档打开的uv</li>
+</ul>
+</li>
+<li><p>create and share</p>
+<ul>
+<li>uv</li>
+<li>弹出文档未保存的uv</li>
+<li>点击保存的uv</li>
+<li>不保存的uv</li>
+<li>自定义路径-点击确定的uv</li>
+<li>自定义路径-点击取消的uv</li>
+<li>转化-取消的uv</li>
+<li>转化-成功的uv</li>
+<li>pdf文档打开的uv</li>
+<li>pdf文档关闭的uv</li>
+<li>点击分享的uv</li>
+<li>分享成功的uv</li>
+<li>作为email分享的uv</li>
+<li>作为link分享的uv</li>
+<li>send email的uv</li>
+</ul>
+</li>
+<li><p>create and play</p>
+<ul>
+<li>uv</li>
+<li>弹出文档未保存的uv</li>
+<li>点击保存的uv</li>
+<li>不保存的uv</li>
+<li>自定义路径-点击确定的uv</li>
+<li>自定义路径-点击取消的uv</li>
+<li>转化成功uv</li>
+<li>pdf文档打开的uv</li>
+<li>pdf文档关闭的uv</li>
+<li>播放uv</li>
+<li>播放取消uv</li>
+</ul>
+</li>
+<li><p>导出</p>
+<ul>
+<li>创建wps pdf的uv</li>
+</ul>
+</li>
+</ol>
+<h2 id="转化路径"><a href="#转化路径" class="headerlink" title="转化路径"></a>转化路径</h2><ol>
+<li>创建wps pdf<ul>
+<li>来源<ul>
+<li>头部导航栏<ul>
+<li>create</li>
+<li>create and share</li>
+<li>create and play</li>
+</ul>
+</li>
+<li>文件-&gt;导出</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>分享<ul>
+<li>来源<ul>
+<li>头部导航栏<ul>
+<li>create and share</li>
+</ul>
+</li>
+<li>文件-&gt;共享</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="相关数据表"><a href="#相关数据表" class="headerlink" title="相关数据表"></a>相关数据表</h2><p><img src="3.png"></p>
+<ul>
+<li>数据表解释</li>
+</ul>
+<p><img src="4.png"></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ol>
+<li>sql中<code>count(1)</code>与<code>count(*)</code>的区别。<ul>
+<li>count(1)排除了有null值的行。</li>
+<li>count(*)统计的是所有记录。</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/06/02/practice/kingsoft/0602/" data-id="cl85d5h6v00cai99o9tp97hkm" data-title="6月2日工作内容" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" rel="tag">金山实习</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other/unet-medical-seg" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/06/02/other/unet-medical-seg/" class="article-date">
+  <time class="dt-published" datetime="2021-06-02T03:53:32.000Z" itemprop="datePublished">2021-06-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/06/02/other/unet-medical-seg/">基于Unet实现医疗图像分割</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Unet简介"><a href="#Unet简介" class="headerlink" title="Unet简介"></a>Unet简介</h1><h1 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h1><p>kaggle的<a target="_blank" rel="noopener" href="https://drive.google.com/u/0/uc?export=download&confirm=1DAL&id=1wkephfRzoFhrcRbz_7a97_muu8ecSJ9d">Lung肺癌数据集</a>。</p>
+<h1 id="requirements"><a href="#requirements" class="headerlink" title="requirements"></a>requirements</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tensorflow&#x3D;&#x3D;1.15.1</span><br><span class="line">keras&#x3D;&#x3D;2.3.1</span><br><span class="line">opencv-python</span><br><span class="line">glob</span><br><span class="line">scikit-learn</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/06/02/other/unet-medical-seg/" data-id="cl85d5h5h0081i99ocu658p7l" data-title="基于Unet实现医疗图像分割" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-practice/kingsoft/0601" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/06/01/practice/kingsoft/0601/" class="article-date">
+  <time class="dt-published" datetime="2021-06-01T08:12:54.000Z" itemprop="datePublished">2021-06-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/06/01/practice/kingsoft/0601/">6月1日实习内容</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Add-Home-Screen相关指标计算"><a href="#Add-Home-Screen相关指标计算" class="headerlink" title="Add Home Screen相关指标计算"></a>Add Home Screen相关指标计算</h1><h2 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h2><p>13.8</p>
+<h2 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h2><p>0409到0429这20天的数据。</p>
+<h2 id="具体业务流程"><a href="#具体业务流程" class="headerlink" title="具体业务流程"></a>具体业务流程</h2><ol>
+<li>用户打开某一个文档。</li>
+<li>若该文档满足某一个触发条件，则弹窗提示用户添加到桌面一个链接。</li>
+<li>用户可以点击<code>ok</code>，<code>not now</code>或者<code>空白处</code>。</li>
+<li>用户可以选择从首页打开这个文档。</li>
+</ol>
+<h2 id="相关指标"><a href="#相关指标" class="headerlink" title="相关指标"></a>相关指标</h2><ol>
+<li>找到这20天内，20天的openfile的uv<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> start_date <span class="keyword">default</span> <span class="string">&#x27;0409&#x27;</span>;</span><br><span class="line"><span class="keyword">declare</span> end_date <span class="keyword">default</span> <span class="string">&#x27;0429&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> base <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        event_date,</span><br><span class="line">        user_pseudo_id,</span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;comp&#x27;</span>) <span class="keyword">as</span> comp, # 组件</span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">        `wps<span class="operator">-</span>cloud<span class="operator">-</span>service.analytics_153386958.events_2021<span class="operator">*</span>`</span><br><span class="line">    <span class="keyword">where</span> </span><br><span class="line">        _table_suffix <span class="operator">&gt;=</span> start_date <span class="keyword">and</span> _table_suffix <span class="operator">&lt;=</span> end_date <span class="keyword">and</span></span><br><span class="line">        event_name <span class="operator">=</span> <span class="string">&#x27;comp_openfile&#x27;</span> <span class="keyword">and</span></span><br><span class="line">        app_info.version <span class="operator">=</span> <span class="string">&#x27;13.8&#x27;</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    event_date,</span><br><span class="line">    comp,</span><br><span class="line">    <span class="built_in">count</span>(<span class="keyword">distinct</span> user_pseudo_id) <span class="keyword">as</span> uv</span><br><span class="line"><span class="keyword">from</span> base</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    event_date,</span><br><span class="line">    comp</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> event_date, comp</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>这个计算的结果的话发现日期不对，结果比较奇怪的是event_date是从20210417到20210429,从4月9日到16号之间无数据。</p>
+<blockquote>
+<p>原因是在于这个event表只会保留45天的所有记录</p>
+</blockquote>
+<ol start="2">
+<li><p>弹窗的uv</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> start_date <span class="keyword">default</span> <span class="string">&#x27;0409&#x27;</span>;</span><br><span class="line"><span class="keyword">declare</span> end_date <span class="keyword">default</span> <span class="string">&#x27;0429&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    event_date,</span><br><span class="line">    <span class="keyword">case</span> </span><br><span class="line">        <span class="keyword">when</span> <span class="built_in">lower</span>(comp)  <span class="keyword">like</span> <span class="string">&#x27;%doc%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;DOC&#x27;</span></span><br><span class="line">        <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%ppt%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;PPT&#x27;</span></span><br><span class="line">        <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%xls%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;ET&#x27;</span></span><br><span class="line">        <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%et%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;ET&#x27;</span></span><br><span class="line">        <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%pdf%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;PDF&#x27;</span></span><br><span class="line">        <span class="keyword">else</span> <span class="string">&#x27;other&#x27;</span></span><br><span class="line">    <span class="keyword">end</span> <span class="keyword">as</span> comp,</span><br><span class="line">    position,</span><br><span class="line">    <span class="built_in">count</span>(<span class="keyword">distinct</span> user_pseudo_id) <span class="keyword">as</span> uv</span><br><span class="line"><span class="keyword">from</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        event_date,</span><br><span class="line">        user_pseudo_id,</span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;comp&#x27;</span>) <span class="keyword">as</span> comp, <span class="comment">-- 组件</span></span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;position&#x27;</span>) <span class="keyword">as</span> position <span class="comment">-- 触发方式</span></span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        `wps<span class="operator">-</span>cloud<span class="operator">-</span>service.analytics_153386958.events_2021<span class="operator">*</span>`</span><br><span class="line">    <span class="keyword">where</span> </span><br><span class="line">        _table_suffix <span class="operator">&gt;=</span> start_date <span class="keyword">and</span> _table_suffix <span class="operator">&lt;=</span> end_date <span class="keyword">and</span></span><br><span class="line">        event_name <span class="operator">=</span> <span class="string">&#x27;page_show&#x27;</span> <span class="keyword">and</span></span><br><span class="line">        app_info.version <span class="operator">=</span> <span class="string">&#x27;13.8&#x27;</span> <span class="keyword">and</span></span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;func_name&#x27;</span>) <span class="operator">=</span> <span class="string">&#x27;add_homescreen_show&#x27;</span></span><br><span class="line">) <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    event_date, comp, position</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">    event_date, comp, position</span><br></pre></td></tr></table></figure></li>
+<li><p>从桌面打开的uv</p>
+</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> start_date <span class="keyword">default</span> <span class="string">&#x27;0409&#x27;</span>;</span><br><span class="line"><span class="keyword">declare</span> end_date <span class="keyword">default</span> <span class="string">&#x27;0429&#x27;</span>;</span><br><span class="line"><span class="keyword">with</span> base <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        event_date,</span><br><span class="line">        user_pseudo_id,</span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;comp&#x27;</span>) <span class="keyword">as</span> comp, # 组件</span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">    `wps<span class="operator">-</span>cloud<span class="operator">-</span>service.analytics_153386958.events_2021<span class="operator">*</span>`</span><br><span class="line">    <span class="keyword">where</span> </span><br><span class="line">        _table_suffix <span class="operator">&gt;=</span> start_date <span class="keyword">and</span> _table_suffix <span class="operator">&lt;=</span> end_date <span class="keyword">and</span></span><br><span class="line">        event_name <span class="operator">=</span> <span class="string">&#x27;comp_openfile&#x27;</span> <span class="keyword">and</span></span><br><span class="line">        app_info.version <span class="operator">=</span> <span class="string">&#x27;13.8&#x27;</span> <span class="keyword">and</span></span><br><span class="line">        (<span class="keyword">select</span> value.string_value <span class="keyword">from</span> <span class="built_in">unnest</span>(event_params) <span class="keyword">where</span> key<span class="operator">=</span><span class="string">&#x27;source&#x27;</span>) <span class="operator">=</span> <span class="string">&#x27;homescreen&#x27;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    event_date,</span><br><span class="line">    comp,</span><br><span class="line">    <span class="built_in">count</span>(<span class="keyword">distinct</span> user_pseudo_id) <span class="keyword">as</span> uv</span><br><span class="line"><span class="keyword">from</span> base</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    event_date,</span><br><span class="line">    comp</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">    event_date,</span><br><span class="line">    comp</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>click的uv</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> start_date <span class="keyword">default</span> <span class="string">&#x27;0409&#x27;</span>;</span><br><span class="line"><span class="keyword">declare</span> end_date <span class="keyword">default</span> <span class="string">&#x27;0429&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> click_add_base <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        event_date,</span><br><span class="line">        user_pseudo_id,</span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;data1&#x27;</span>) <span class="keyword">as</span> if_ok, # 是否添加成功</span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;comp&#x27;</span>) <span class="keyword">as</span> comp, # 组件</span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;stat&#x27;</span>) <span class="keyword">as</span> if_ask_agagin, # 表示是否勾选了Dont ask me again</span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;position&#x27;</span>) <span class="keyword">as</span> position # 触发方式</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        `wps<span class="operator">-</span>cloud<span class="operator">-</span>service.analytics_153386958.events_2021<span class="operator">*</span>`</span><br><span class="line">    <span class="keyword">where</span> </span><br><span class="line">        _table_suffix <span class="operator">&gt;=</span> start_date <span class="keyword">and</span> _table_suffix <span class="operator">&lt;=</span> end_date <span class="keyword">and</span></span><br><span class="line">        event_name <span class="operator">=</span> <span class="string">&#x27;button_click&#x27;</span> <span class="keyword">and</span></span><br><span class="line">        app_info.version <span class="operator">=</span> <span class="string">&#x27;13.8&#x27;</span> <span class="keyword">and</span></span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;func_name&#x27;</span>) <span class="operator">=</span> <span class="string">&#x27;add_homescreen_add&#x27;</span></span><br><span class="line">),</span><br><span class="line">click_no_base <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        event_date,</span><br><span class="line">        user_pseudo_id,</span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;data1&#x27;</span>) <span class="keyword">as</span> if_ok, # 是否添加成功</span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;comp&#x27;</span>) <span class="keyword">as</span> comp, # 组件</span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;stat&#x27;</span>) <span class="keyword">as</span> if_ask_agagin, # 表示是否勾选了Dont ask me again</span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;position&#x27;</span>) <span class="keyword">as</span> position # 触发方式</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        `wps<span class="operator">-</span>cloud<span class="operator">-</span>service.analytics_153386958.events_2021<span class="operator">*</span>`</span><br><span class="line">    <span class="keyword">where</span> </span><br><span class="line">        _table_suffix <span class="operator">&gt;=</span> start_date <span class="keyword">and</span> _table_suffix <span class="operator">&lt;=</span> end_date <span class="keyword">and</span></span><br><span class="line">        event_name <span class="operator">=</span> <span class="string">&#x27;button_click&#x27;</span> <span class="keyword">and</span></span><br><span class="line">        app_info.version <span class="operator">=</span> <span class="string">&#x27;13.8&#x27;</span> <span class="keyword">and</span></span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;func_name&#x27;</span>) <span class="operator">=</span> <span class="string">&#x27;add_homescreen_no&#x27;</span></span><br><span class="line">),</span><br><span class="line">click_add <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="string">&#x27;click_add&#x27;</span> <span class="keyword">as</span> click_name,</span><br><span class="line">        event_date,</span><br><span class="line">        # <span class="keyword">case</span> </span><br><span class="line">        #     <span class="keyword">when</span> <span class="built_in">lower</span>(comp)  <span class="keyword">like</span> <span class="string">&#x27;%doc%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;DOC&#x27;</span></span><br><span class="line">        #     <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%ppt%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;PPT&#x27;</span></span><br><span class="line">        #     <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%xls%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;ET&#x27;</span></span><br><span class="line">        #     <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%et%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;ET&#x27;</span></span><br><span class="line">        #     <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%pdf%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;PDF&#x27;</span></span><br><span class="line">        #     <span class="keyword">else</span> <span class="string">&#x27;other&#x27;</span></span><br><span class="line">        # <span class="keyword">end</span> <span class="keyword">as</span> comp,</span><br><span class="line">        comp,</span><br><span class="line">        position,</span><br><span class="line">        if_ask_agagin,</span><br><span class="line">        if_ok,</span><br><span class="line">        <span class="built_in">count</span>(<span class="keyword">distinct</span> user_pseudo_id) <span class="keyword">as</span> uv</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        click_add_base </span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">        event_date,</span><br><span class="line">        comp,</span><br><span class="line">        position,</span><br><span class="line">        if_ask_agagin,</span><br><span class="line">        if_ok</span><br><span class="line">    <span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">        event_date,</span><br><span class="line">        comp,</span><br><span class="line">        position,</span><br><span class="line">        if_ask_agagin,</span><br><span class="line">        if_ok</span><br><span class="line">),</span><br><span class="line">click_no <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="string">&#x27;click_no&#x27;</span> <span class="keyword">as</span> click_name,</span><br><span class="line">        event_date,</span><br><span class="line">        # <span class="keyword">case</span> </span><br><span class="line">        #     <span class="keyword">when</span> <span class="built_in">lower</span>(comp)  <span class="keyword">like</span> <span class="string">&#x27;%doc%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;DOC&#x27;</span></span><br><span class="line">        #     <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%ppt%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;PPT&#x27;</span></span><br><span class="line">        #     <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%xls%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;ET&#x27;</span></span><br><span class="line">        #     <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%et%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;ET&#x27;</span></span><br><span class="line">        #     <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%pdf%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;PDF&#x27;</span></span><br><span class="line">        #     <span class="keyword">else</span> <span class="string">&#x27;other&#x27;</span></span><br><span class="line">        # <span class="keyword">end</span> <span class="keyword">as</span> comp,</span><br><span class="line">        comp,</span><br><span class="line">        position,</span><br><span class="line">        if_ask_agagin,</span><br><span class="line">        if_ok,</span><br><span class="line">        <span class="built_in">count</span>(<span class="keyword">distinct</span> user_pseudo_id) <span class="keyword">as</span> uv</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        click_no_base </span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">        event_date,</span><br><span class="line">        comp,</span><br><span class="line">        position,</span><br><span class="line">        if_ask_agagin,</span><br><span class="line">        if_ok</span><br><span class="line">    <span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">        event_date,</span><br><span class="line">        comp,</span><br><span class="line">        position,</span><br><span class="line">        if_ask_agagin,</span><br><span class="line">        if_ok  </span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> click_add </span><br><span class="line"><span class="keyword">union</span> <span class="keyword">all</span> (<span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> click_no)</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> </span><br><span class="line">    click_name,</span><br><span class="line">    event_date,</span><br><span class="line">    comp,</span><br><span class="line">    position,</span><br><span class="line">    if_ask_agagin,</span><br><span class="line">    if_ok</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>需要注意的是这个里面的comp，取的是文件的后缀名，而不是没有归类成<code>ET</code>, <code>DOC</code>这样的。</p>
+</blockquote>
+<p>comp有如下形式</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">文件后缀	文档类型</span><br><span class="line">CSV	ET</span><br><span class="line">DOC	DOC</span><br><span class="line">DOCX	DOC</span><br><span class="line">PDF	PDF</span><br><span class="line">PPS	PPT</span><br><span class="line">PPSX	PPT</span><br><span class="line">PPT	PPT</span><br><span class="line">PPTX	PPT</span><br><span class="line">RTF	other</span><br><span class="line">S	other</span><br><span class="line">TXT	other</span><br><span class="line">XLS	ET</span><br><span class="line">XLSM	ET</span><br><span class="line">XLSX	ET</span><br><span class="line">XML	other</span><br><span class="line">asp	other</span><br><span class="line">c	other</span><br><span class="line">cpp	other</span><br><span class="line">docm	DOC</span><br><span class="line">dot	DOC</span><br><span class="line">dotx	DOC</span><br><span class="line">dps	PPT</span><br><span class="line">dpt	PPT</span><br><span class="line">et	ET</span><br><span class="line">htm	other</span><br><span class="line">html	other</span><br><span class="line">java	other</span><br><span class="line">log	other</span><br><span class="line">lrc	other</span><br><span class="line">mhtml	other</span><br><span class="line">potx	PPT</span><br><span class="line">pptm	PPT</span><br><span class="line">wps	DOC</span><br><span class="line">xlsb	ET</span><br><span class="line">xlt	ET</span><br><span class="line">xltx	ET</span><br><span class="line">pot	PPT</span><br><span class="line">xltm	ET</span><br><span class="line">asm	other</span><br><span class="line">bat	other</span><br><span class="line">dotm	DOC</span><br><span class="line">mht	other</span><br><span class="line">ppsm	PPT</span><br><span class="line">wpt	DOC</span><br><span class="line">cmd	other</span><br><span class="line">ett	ET</span><br><span class="line">h	other</span><br><span class="line">other	other</span><br></pre></td></tr></table></figure>
+
+<p>如果要映射成<code>ET</code>、<code>PPT</code>这种形式的话在excel里面我使用的方法是:</p>
+<blockquote>
+<p>为每一个标准的文档类型编号，从0开始，然后使用<code>if</code>函数嵌套来完成组件的替换。</p>
+</blockquote>
+<p>但是更快捷的方式是使用<code>VLOOKUP</code>,vlookup(查找的值, 要查找的区域, 要返回的列(在查找区域内)的索引(从1开始)， 是否精确查找)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/06/01/practice/kingsoft/0601/" data-id="cl85d5h6u00c7i99o98i71d8n" data-title="6月1日实习内容" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" rel="tag">金山实习</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-tongji/kafang" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/06/01/tongji/kafang/" class="article-date">
+  <time class="dt-published" datetime="2021-06-01T02:27:32.000Z" itemprop="datePublished">2021-06-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/06/01/tongji/kafang/">卡方检验</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="卡方检验是什么"><a href="#卡方检验是什么" class="headerlink" title="卡方检验是什么"></a>卡方检验是什么</h1><p>用来比较两组或者多组之间的<code>分类型变量</code>之间是否有显著性差异。</p>
+<h1 id="卡方检验具体步骤"><a href="#卡方检验具体步骤" class="headerlink" title="卡方检验具体步骤"></a>卡方检验具体步骤</h1><ol>
+<li><p>建立原假设与备择假设<br>两变量之间相互独立</p>
+</li>
+<li><p>计算卡方值</p>
+</li>
+</ol>
+<p><img src="kafang.png"></p>
+<ol start="3">
+<li>计算P值</li>
+</ol>
+<blockquote>
+<p>自由度 = (行数-1) * (列数-1)</p>
+</blockquote>
+<p>根据自由度以及卡方值(临界值)可以确定P值。</p>
+<p><img src="table.jpg"></p>
+<ol start="4">
+<li>得到结论</li>
+</ol>
+<p>接受原假设或者推翻原假设。</p>
+<h1 id="卡方检验的注意事项"><a href="#卡方检验的注意事项" class="headerlink" title="卡方检验的注意事项"></a>卡方检验的注意事项</h1><ol>
+<li>适用于分类型变量。</li>
+<li>观测值之间相互独立。</li>
+<li>样本量要大，理论上最低频数为5。</li>
+</ol>
+<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>判断吸烟与是否患肺癌之间的关系，分别调查了吸烟的人、患肺癌的人，得到的统计结果如下：</p>
+<p><img src="1.jpg"></p>
+<p>上图显示的是吸烟的人中多多少患肺癌、多少人没有患肺癌、患肺癌的人中有多少人吸烟、患肺癌的人中有多少人没有吸烟。<br>现在老判断吸烟与患肺癌之间是否有关系，则可以这样做。</p>
+<h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><ol>
+<li>建立假设</li>
+</ol>
+<p>是否吸烟与患肺病之间没有必然联系，即两变量之间相互独立。<br>也就是</p>
+<blockquote>
+<p>不管是否患肺病的群体中吸烟者的比例应该等于合计中吸烟者的比例，即240/720=33%。 </p>
+</blockquote>
+<ol start="2">
+<li>计算卡方值<br>根据这个33%这个假设值可以得到理论上患肺病中吸烟的人数以及不患肺病中吸烟的人数。<br><img src="2.png"></li>
+</ol>
+<p>根据上图中的理论频数与实际频数可以来计算卡方值。<br><img src="3.jpg"></p>
+<p>得到卡方值还有自由度=<code>(2-1)*(2-1)=1</code>后查表可以可以得到临界以及对应的P值。</p>
+<p><img src="table.jpg"></p>
+<ol start="3">
+<li>计算P值</li>
+</ol>
+<p>已知卡方值为60.53，当自由度为1的时候，可以看到<code>p=0.005</code>所对应的临界值为7.88,因为<code>60.53&gt;7.88</code>，所以可以得出</p>
+<blockquote>
+<p>p &lt; 0.005</p>
+</blockquote>
+<p>在我们假设0.5%的显著性水平下，我们可以认为原假设是小概率事件，不可能发生，因此原假设被推翻，即两者之间是有关系的。</p>
+<ol start="4">
+<li>结论</li>
+</ol>
+<p>吸烟与患肺病之间有关系吗，而且是正向的关系，即吸烟更容易患肺病。</p>
+<h1 id="在项目中如何进行卡方检验"><a href="#在项目中如何进行卡方检验" class="headerlink" title="在项目中如何进行卡方检验"></a>在项目中如何进行卡方检验</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在做abtest的时候要判断某一个功能，比如更改了首页的文件排列方式，是否起到了效果，效果的衡量标准在我们的项目中为<code>次日留存</code>。<br>那么就可以利用卡方检验来判断是否比较合适。</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li>获取实验组与对照组中留存的uv，与没有留存的uv。</li>
+</ol>
+<p><img src="4.png"></p>
+<ol start="2">
+<li>计算卡方值</li>
+</ol>
+<p>已知实际表，根据</p>
+<blockquote>
+<p>留存的uv占总uv的33.28</p>
+</blockquote>
+<p>可以得到各个的理论值。</p>
+<p>实验组中0的值为<code>实验组总uv*(1-0.3328)</code>,实验组中1的值为<code>实验组总uv*0.3328</code>。<br>对照组同理。最后得到卡方值<code>1.87122</code>。</p>
+<ol start="3">
+<li><p>计算P值<br>自由度为1，卡方值为1.87，p值在0.5与0.1之间，效果不显著。</p>
+</li>
+<li><p>得到结论-显著不显著</p>
+</li>
+</ol>
+<p>0.1&lt;p&lt;0.5，不显著，则承认原假设，两者之间没有关系，同时我们也可以看到的是，实验组的留存要低于对照组，那么可能该版本的优化产生了负面的影响。</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li>卡方检验. <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/87008470">https://zhuanlan.zhihu.com/p/87008470</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/06/01/tongji/kafang/" data-id="cl85d5h6600aai99o2pvchjx9" data-title="卡方检验" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-practice/kingsoft/0531" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/31/practice/kingsoft/0531/" class="article-date">
+  <time class="dt-published" datetime="2021-05-31T06:34:17.000Z" itemprop="datePublished">2021-05-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/31/practice/kingsoft/0531/">5月31日实习内容</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="日本本地化-首页视觉优化-AB实验取数"><a href="#日本本地化-首页视觉优化-AB实验取数" class="headerlink" title="日本本地化-首页视觉优化:AB实验取数"></a>日本本地化-首页视觉优化:AB实验取数</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--捞取firebase中215号ab实验的两组用户的次日留存率 </span></span><br><span class="line"><span class="keyword">WITH</span></span><br><span class="line">  yesterday <span class="keyword">AS</span> ( (</span><br><span class="line">    <span class="keyword">SELECT</span></span><br><span class="line">      <span class="keyword">DISTINCT</span> parse_DATE(<span class="string">&#x27;%Y%m%d&#x27;</span>,</span><br><span class="line">        event_date) <span class="keyword">AS</span> <span class="type">date</span>,</span><br><span class="line">       ( <span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(user_properties) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;firebase_exp_231&#x27;</span>) <span class="keyword">as</span> exp,<span class="comment">--区分实验组和对照组用户</span></span><br><span class="line">      user_pseudo_id <span class="keyword">AS</span> google_id</span><br><span class="line">    <span class="keyword">FROM</span></span><br><span class="line">      `wps<span class="operator">-</span>cloud<span class="operator">-</span>service.analytics_153386958.events_<span class="operator">*</span>`</span><br><span class="line">    <span class="keyword">WHERE</span></span><br><span class="line">      _table_suffix <span class="operator">&gt;=</span> <span class="string">&#x27;20210409&#x27;</span><span class="keyword">and</span> _table_suffix <span class="operator">&lt;=</span> <span class="string">&#x27;20210429&#x27;</span></span><br><span class="line">      <span class="keyword">and</span> ( <span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(user_properties) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;firebase_exp_231&#x27;</span>) <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">null</span> </span><br><span class="line">      <span class="keyword">AND</span> event_name <span class="keyword">IN</span> (<span class="string">&#x27;user_engagement&#x27;</span>)</span><br><span class="line">      <span class="keyword">AND</span> app_info.version <span class="operator">=</span><span class="string">&#x27;13.8&#x27;</span></span><br><span class="line">      <span class="keyword">and</span> geo.country <span class="keyword">in</span> (<span class="string">&#x27;Japan&#x27;</span>)</span><br><span class="line">       ) ),</span><br><span class="line">  today <span class="keyword">AS</span> ( (</span><br><span class="line">   <span class="keyword">select</span> <span class="keyword">distinct</span> <span class="type">date</span>, google_id</span><br><span class="line"><span class="keyword">from</span> `wps<span class="operator">-</span>data<span class="operator">-</span>analysis.wps_active.user_engagement_v3`</span><br><span class="line"><span class="keyword">where</span> <span class="type">date</span> <span class="operator">&gt;=</span> <span class="string">&#x27;2021-04-09&#x27;</span><span class="keyword">and</span>  <span class="type">date</span> <span class="operator">&lt;=</span> <span class="string">&#x27;2021-04-29&#x27;</span>))</span><br><span class="line"><span class="comment">--以上为子查询，限定了ab实验的当日用户和次日活跃的用户</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span><span class="comment">--捞取次日留存，将子查询中的两个表进行join，计算留存率</span></span><br><span class="line">  DATE_TRUNC(a.date, <span class="keyword">day</span>),</span><br><span class="line">  a.exp,</span><br><span class="line">  DATE_DIFF(b.date, a.date, <span class="keyword">day</span>) <span class="keyword">AS</span> time_interval,</span><br><span class="line">  <span class="built_in">COUNT</span>(<span class="keyword">DISTINCT</span> b.google_id) <span class="keyword">AS</span> retention</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">  yesterday a</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span></span><br><span class="line">  today b</span><br><span class="line"><span class="keyword">ON</span></span><br><span class="line">  a.google_id <span class="operator">=</span> b.google_id</span><br><span class="line">  <span class="keyword">AND</span> DATE_DIFF(b.date, a.date, <span class="keyword">day</span>) <span class="operator">&gt;=</span><span class="number">0</span></span><br><span class="line">  <span class="keyword">AND</span> DATE_DIFF(b.date, a.date, <span class="keyword">day</span>) <span class="operator">&lt;=</span><span class="number">15</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span></span><br><span class="line">  a.date,</span><br><span class="line">  a.exp,</span><br><span class="line">  time_interval </span><br></pre></td></tr></table></figure>
+
+<p>一定要注意限定条件：</p>
+<ul>
+<li>版本</li>
+<li>国家</li>
+<li>日期</li>
+</ul>
+<p>一般取版本上线后的第4天到第21天，也就是数据较为平稳的阶段。</p>
+<h1 id="excel透视表的优劣势"><a href="#excel透视表的优劣势" class="headerlink" title="excel透视表的优劣势"></a>excel透视表的优劣势</h1><h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><ul>
+<li>能够快速集合数据，直接进行求和，调整参数也很方面。</li>
+</ul>
+<h2 id="劣势"><a href="#劣势" class="headerlink" title="劣势"></a>劣势</h2><ul>
+<li>扩展性较差，当需要区分不同维度画图的时候，需要复制多次，复制值得同时就是值复制，而不是引用复制。</li>
+<li>需要手动更新，当原始数据更换的时候，就不得不进行手动点击<code>更新数据源</code>，因此在需要做多条件选择数据并画图的时候，最好是用<code>sumifs</code>函数加上<code>$绝对引用</code>。</li>
+</ul>
+<h2 id="经验"><a href="#经验" class="headerlink" title="经验"></a>经验</h2><blockquote>
+<p>用excel做到智能化，只需要贴数据就能运行，而不是在发现查询出来的数据错误，从而从头再来画图的时候，就需要提前布局好要画的图以及列的表格，然后用<code>定位函数</code>来做。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/31/practice/kingsoft/0531/" data-id="cl85d5h6t00c4i99o480dhish" data-title="5月31日实习内容" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-practice/kingsoft/0527" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/27/practice/kingsoft/0527/" class="article-date">
+  <time class="dt-published" datetime="2021-05-27T09:02:04.000Z" itemprop="datePublished">2021-05-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/27/practice/kingsoft/0527/">5月27日工作内容</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="撰写数据分析报告"><a href="#撰写数据分析报告" class="headerlink" title="撰写数据分析报告"></a>撰写数据分析报告</h1><p>在excel里面画了很多图，分析得很详细，区别了<code>租金</code>、<code>日期</code>、<code>dont ask again</code>,但是在数据分析报告中，由于做的是月度复盘，需要讲<br>上一个月内每一个版本迭代过程都要去复述一遍，因此讲求从大题把握，而不是针对某一个专题来进行的分析，所以力求精简。</p>
+<h1 id="13-8-安卓-添加桌面快捷方式"><a href="#13-8-安卓-添加桌面快捷方式" class="headerlink" title="13.8 安卓-添加桌面快捷方式"></a>13.8 安卓-添加桌面快捷方式</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> start_date <span class="keyword">default</span> <span class="string">&#x27;0409&#x27;</span>;</span><br><span class="line"><span class="keyword">declare</span> end_date <span class="keyword">default</span> <span class="string">&#x27;0429&#x27;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> add_homescreen <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        event_date,</span><br><span class="line">        <span class="keyword">case</span> </span><br><span class="line">            <span class="keyword">when</span> <span class="built_in">lower</span>(comp)  <span class="keyword">like</span> <span class="string">&#x27;%doc%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;DOC&#x27;</span></span><br><span class="line">            <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%ppt%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;PPT&#x27;</span></span><br><span class="line">            <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%xls%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;ET&#x27;</span></span><br><span class="line">            <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%et%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;ET&#x27;</span></span><br><span class="line">            <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%pdf%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;PDF&#x27;</span></span><br><span class="line">            <span class="keyword">else</span> <span class="string">&#x27;other&#x27;</span></span><br><span class="line">        <span class="keyword">end</span> <span class="keyword">as</span> comp,</span><br><span class="line">        position,</span><br><span class="line">        <span class="built_in">count</span>(<span class="keyword">distinct</span> user_pseudo_id) <span class="keyword">as</span> uv</span><br><span class="line">    <span class="keyword">from</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            event_date,</span><br><span class="line">            user_pseudo_id,</span><br><span class="line">            (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;comp&#x27;</span>) <span class="keyword">as</span> comp, # 组件</span><br><span class="line">            (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;position&#x27;</span>) <span class="keyword">as</span> position # 触发方式</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            `wps<span class="operator">-</span>cloud<span class="operator">-</span>service.analytics_153386958.events_2021<span class="operator">*</span>`</span><br><span class="line">        <span class="keyword">where</span> </span><br><span class="line">            _table_suffix <span class="operator">&gt;=</span> start_date <span class="keyword">and</span> _table_suffix <span class="operator">&lt;=</span> end_date <span class="keyword">and</span></span><br><span class="line">            event_name <span class="operator">=</span> <span class="string">&#x27;page_show&#x27;</span> <span class="keyword">and</span></span><br><span class="line">            app_info.version <span class="operator">=</span> <span class="string">&#x27;13.8&#x27;</span> <span class="keyword">and</span></span><br><span class="line">            (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;func_name&#x27;</span>) <span class="operator">=</span> <span class="string">&#x27;add_homescreen_show&#x27;</span></span><br><span class="line">    ) <span class="keyword">as</span> a</span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">        event_date, comp, position</span><br><span class="line">    <span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">        event_date, comp, position</span><br><span class="line">    </span><br><span class="line">),</span><br><span class="line">click_add_base <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        event_date,</span><br><span class="line">        user_pseudo_id,</span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;data1&#x27;</span>) <span class="keyword">as</span> if_ok, # 是否添加成功</span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;comp&#x27;</span>) <span class="keyword">as</span> comp, # 组件</span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;stat&#x27;</span>) <span class="keyword">as</span> if_ask_agagin, # 表示是否勾选了Dont ask me again</span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;position&#x27;</span>) <span class="keyword">as</span> position # 触发方式</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        `wps<span class="operator">-</span>cloud<span class="operator">-</span>service.analytics_153386958.events_2021<span class="operator">*</span>`</span><br><span class="line">    <span class="keyword">where</span> </span><br><span class="line">        _table_suffix <span class="operator">&gt;=</span> start_date <span class="keyword">and</span> _table_suffix <span class="operator">&lt;=</span> end_date <span class="keyword">and</span></span><br><span class="line">        event_name <span class="operator">=</span> <span class="string">&#x27;button_click&#x27;</span> <span class="keyword">and</span></span><br><span class="line">        app_info.version <span class="operator">=</span> <span class="string">&#x27;13.8&#x27;</span> <span class="keyword">and</span></span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;func_name&#x27;</span>) <span class="operator">=</span> <span class="string">&#x27;add_homescreen_add&#x27;</span></span><br><span class="line">),</span><br><span class="line">click_no_base <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        event_date,</span><br><span class="line">        user_pseudo_id,</span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;data1&#x27;</span>) <span class="keyword">as</span> if_ok, # 是否添加成功</span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;comp&#x27;</span>) <span class="keyword">as</span> comp, # 组件</span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;stat&#x27;</span>) <span class="keyword">as</span> if_ask_agagin, # 表示是否勾选了Dont ask me again</span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;position&#x27;</span>) <span class="keyword">as</span> position # 触发方式</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        `wps<span class="operator">-</span>cloud<span class="operator">-</span>service.analytics_153386958.events_2021<span class="operator">*</span>`</span><br><span class="line">    <span class="keyword">where</span> </span><br><span class="line">        _table_suffix <span class="operator">&gt;=</span> start_date <span class="keyword">and</span> _table_suffix <span class="operator">&lt;=</span> end_date <span class="keyword">and</span></span><br><span class="line">        event_name <span class="operator">=</span> <span class="string">&#x27;button_click&#x27;</span> <span class="keyword">and</span></span><br><span class="line">        app_info.version <span class="operator">=</span> <span class="string">&#x27;13.8&#x27;</span> <span class="keyword">and</span></span><br><span class="line">        (<span class="keyword">SELECT</span> value.string_value <span class="keyword">FROM</span> <span class="built_in">UNNEST</span>(event_params) <span class="keyword">WHERE</span> key<span class="operator">=</span><span class="string">&#x27;func_name&#x27;</span>) <span class="operator">=</span> <span class="string">&#x27;add_homescreen_no&#x27;</span></span><br><span class="line">),</span><br><span class="line">click_add <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="string">&#x27;click_add&#x27;</span> <span class="keyword">as</span> click_name,</span><br><span class="line">        event_date,</span><br><span class="line">        <span class="keyword">case</span> </span><br><span class="line">            <span class="keyword">when</span> <span class="built_in">lower</span>(comp)  <span class="keyword">like</span> <span class="string">&#x27;%doc%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;DOC&#x27;</span></span><br><span class="line">            <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%ppt%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;PPT&#x27;</span></span><br><span class="line">            <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%xls%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;ET&#x27;</span></span><br><span class="line">            <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%et%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;ET&#x27;</span></span><br><span class="line">            <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%pdf%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;PDF&#x27;</span></span><br><span class="line">            <span class="keyword">else</span> <span class="string">&#x27;other&#x27;</span></span><br><span class="line">        <span class="keyword">end</span> <span class="keyword">as</span> comp,</span><br><span class="line">        position,</span><br><span class="line">        if_ask_agagin,</span><br><span class="line">        if_ok,</span><br><span class="line">        <span class="built_in">count</span>(<span class="keyword">distinct</span> user_pseudo_id) <span class="keyword">as</span> uv</span><br><span class="line"></span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        click_add_base </span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">        event_date,</span><br><span class="line">        comp,</span><br><span class="line">        position,</span><br><span class="line">        if_ask_agagin,</span><br><span class="line">        if_ok</span><br><span class="line">    <span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">        event_date,</span><br><span class="line">        comp,</span><br><span class="line">        position,</span><br><span class="line">        if_ask_agagin,</span><br><span class="line">        if_ok</span><br><span class="line">),</span><br><span class="line">click_no <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="string">&#x27;click_no&#x27;</span> <span class="keyword">as</span> click_name,</span><br><span class="line">        event_date,</span><br><span class="line">        <span class="keyword">case</span> </span><br><span class="line">            <span class="keyword">when</span> <span class="built_in">lower</span>(comp)  <span class="keyword">like</span> <span class="string">&#x27;%doc%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;DOC&#x27;</span></span><br><span class="line">            <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%ppt%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;PPT&#x27;</span></span><br><span class="line">            <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%xls%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;ET&#x27;</span></span><br><span class="line">            <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%et%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;ET&#x27;</span></span><br><span class="line">            <span class="keyword">when</span> <span class="built_in">lower</span>(comp) <span class="keyword">like</span> <span class="string">&#x27;%pdf%&#x27;</span> <span class="keyword">then</span> <span class="string">&#x27;PDF&#x27;</span></span><br><span class="line">            <span class="keyword">else</span> <span class="string">&#x27;other&#x27;</span></span><br><span class="line">        <span class="keyword">end</span> <span class="keyword">as</span> comp,</span><br><span class="line">        position,</span><br><span class="line">        if_ask_agagin,</span><br><span class="line">        if_ok,</span><br><span class="line">        <span class="built_in">count</span>(<span class="keyword">distinct</span> user_pseudo_id) <span class="keyword">as</span> uv</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        click_no_base </span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">        event_date,</span><br><span class="line">        comp,</span><br><span class="line">        position,</span><br><span class="line">        if_ask_agagin,</span><br><span class="line">        if_ok</span><br><span class="line">    <span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">        event_date,</span><br><span class="line">        comp,</span><br><span class="line">        position,</span><br><span class="line">        if_ask_agagin,</span><br><span class="line">        if_ok  </span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">#<span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> add_homescreen</span><br><span class="line">#<span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> click_no </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> click_add</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/27/practice/kingsoft/0527/" data-id="cl85d5h6r00c1i99o51wh4i31" data-title="5月27日工作内容" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other/plotly" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/27/other/plotly/" class="article-date">
+  <time class="dt-published" datetime="2021-05-27T03:37:53.000Z" itemprop="datePublished">2021-05-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/27/other/plotly/">python动态可视化图-plotly</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="热力图-混淆矩阵"><a href="#热力图-混淆矩阵" class="headerlink" title="热力图/混淆矩阵"></a>热力图/混淆矩阵</h1><p>参考链接: <a target="_blank" rel="noopener" href="https://plotly.com/python/heatmaps/">https://plotly.com/python/heatmaps/</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> plotly.express <span class="keyword">as</span> px</span><br><span class="line"></span><br><span class="line">df = <span class="literal">None</span></span><br><span class="line"><span class="comment"># 探求变量之间的相关性</span></span><br><span class="line">data = pd.crosstab(cor_df[<span class="string">&#x27;工作经验&#x27;</span>], cor_df[<span class="string">&#x27;薪资&#x27;</span>])</span><br><span class="line">plot = px.imshow(data)</span><br><span class="line"><span class="keyword">return</span> HttpResponse(plot.to_html())</span><br></pre></td></tr></table></figure>
+
+<h1 id="地图"><a href="#地图" class="headerlink" title="地图"></a>地图</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最大经纬度</span></span><br><span class="line">MAX_LON = <span class="number">120.52</span></span><br><span class="line">MIN_LON = <span class="number">122.12</span></span><br><span class="line">MAX_LAT = <span class="number">31.53</span></span><br><span class="line">MIN_LAT = <span class="number">30.40</span></span><br><span class="line"></span><br><span class="line">CEN_LON = <span class="number">121.48</span></span><br><span class="line">CEN_LAT = <span class="number">31.22</span></span><br><span class="line"></span><br><span class="line">PLOTLY_TOKEN = <span class="string">&#x27;pk.eyJ1IjoiYmxhY2tzaGVlcHdhbGwwMzA1IiwiYSI6ImNrMHo5ZnQxYjBjbG8zbm84b3hrb25vb24ifQ.K8tcDjJDsPcjdYFTSVgTxw&#x27;</span></span><br><span class="line"><span class="comment"># pk.eyJ1IjoiYmxhY2tzaGVlcHdhbGwwMzA1IiwiYSI6ImNrMHo5ZnQxYjBjb</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> plotly.express <span class="keyword">as</span> px</span><br><span class="line"><span class="keyword">import</span> plotly.graph_objects <span class="keyword">as</span> go</span><br><span class="line"><span class="comment"># from mysite.settings import PLOTLY_TOKEN, CEN_LON, CEN_LAT</span></span><br><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> Car</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">one_car_plot</span>(<span class="params">x, y, car: Car</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    一辆车停放位置</span></span><br><span class="line"><span class="string">    参考链接: https://zhuanlan.zhihu.com/p/87163211</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    hovertext = <span class="built_in">str</span>(car)</span><br><span class="line">    fig = go.Figure(go.Scattermapbox(mode=<span class="string">&#x27;markers&#x27;</span>,</span><br><span class="line">                                    lon=[x],</span><br><span class="line">                                    lat=[y],</span><br><span class="line">                                    hovertext=hovertext,</span><br><span class="line">                                    hoverinfo=<span class="string">&#x27;text&#x27;</span>,</span><br><span class="line">                                    marker = <span class="built_in">dict</span>(color=<span class="string">&#x27;yellow&#x27;</span>, size=<span class="number">12</span>)</span><br><span class="line">                                ))</span><br><span class="line"></span><br><span class="line">    fig.update_layout(mapbox = &#123;<span class="string">&#x27;accesstoken&#x27;</span>: PLOTLY_TOKEN,</span><br><span class="line">                                <span class="comment"># &#x27;style&#x27;:&#x27;satellite&#x27;,</span></span><br><span class="line">                                <span class="string">&#x27;center&#x27;</span>: &#123;<span class="string">&#x27;lon&#x27;</span>: CEN_LON, <span class="string">&#x27;lat&#x27;</span>: CEN_LAT&#125;, </span><br><span class="line">                                <span class="string">&#x27;zoom&#x27;</span>: <span class="number">10</span>,</span><br><span class="line">                            &#125;,</span><br><span class="line">                    margin = &#123;<span class="string">&#x27;l&#x27;</span>: <span class="number">0</span>, <span class="string">&#x27;r&#x27;</span>: <span class="number">0</span>, <span class="string">&#x27;t&#x27;</span>: <span class="number">0</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">0</span>&#125;)</span><br><span class="line">    <span class="keyword">return</span> fig</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">multi_cars_plot</span>(<span class="params">xs, ys, car: Car</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    一辆车停放位置</span></span><br><span class="line"><span class="string">    参考链接: https://zhuanlan.zhihu.com/p/87163211</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    hovertext = <span class="built_in">str</span>(car)</span><br><span class="line">    fig = go.Figure(go.Scattermapbox(mode=<span class="string">&#x27;markers&#x27;</span>,</span><br><span class="line">                                    lon=xs,</span><br><span class="line">                                    lat=ys,</span><br><span class="line">                                    hovertext=hovertext,</span><br><span class="line">                                    hoverinfo=<span class="string">&#x27;text&#x27;</span>,</span><br><span class="line">                                    marker = <span class="built_in">dict</span>(color=<span class="string">&#x27;red&#x27;</span>, size=<span class="number">5</span>)</span><br><span class="line">                                ))</span><br><span class="line"></span><br><span class="line">    fig.update_layout(mapbox = &#123;<span class="string">&#x27;accesstoken&#x27;</span>: PLOTLY_TOKEN,</span><br><span class="line">                                <span class="comment"># &#x27;style&#x27;:&#x27;satellite&#x27;,</span></span><br><span class="line">                                <span class="string">&#x27;center&#x27;</span>: &#123;<span class="string">&#x27;lon&#x27;</span>: CEN_LON, <span class="string">&#x27;lat&#x27;</span>: CEN_LAT&#125;, </span><br><span class="line">                                <span class="string">&#x27;zoom&#x27;</span>: <span class="number">10</span>,</span><br><span class="line">                            &#125;,</span><br><span class="line">                    margin = &#123;<span class="string">&#x27;l&#x27;</span>: <span class="number">0</span>, <span class="string">&#x27;r&#x27;</span>: <span class="number">0</span>, <span class="string">&#x27;t&#x27;</span>: <span class="number">0</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">0</span>&#125;)</span><br><span class="line">    <span class="keyword">return</span> fig</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/27/other/plotly/" data-id="cl85d5h570071i99o28q4000k" data-title="python动态可视化图-plotly" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/11/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/13/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">-CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Leetcode/">Leetcode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/django/">django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/sql/">sql</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1/">业务</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1%E6%8C%87%E6%A0%87/">业务指标</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/">中信证券</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/Django/">Django</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Flume/">Flume</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E9%9B%86/">数据集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/">毕业论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/">毕业设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/">秋招</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/%E9%9D%A2%E8%AF%95/">面试</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AF%95/">笔试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BA%E6%96%87/">论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/">银联实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">-leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flume/" rel="tag">Flume</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hbase/" rel="tag">Hbase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%9A%E5%8A%A1/" rel="tag">业务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" rel="tag">中信证券</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" rel="tag">时间序列预测</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" rel="tag">毕业论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" rel="tag">毕业设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%8B%E6%8B%9B/" rel="tag">秋招</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" rel="tag">金山实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" rel="tag">银联实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/leetcode/" style="font-size: 10px;">-leetcode</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Django/" style="font-size: 13.33px;">Django</a> <a href="/tags/Flume/" style="font-size: 10px;">Flume</a> <a href="/tags/Hbase/" style="font-size: 10px;">Hbase</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/SQL/" style="font-size: 18.89px;">SQL</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/leetcode/" style="font-size: 15.56px;">leetcode</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/%E4%B8%9A%E5%8A%A1/" style="font-size: 13.33px;">业务</a> <a href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" style="font-size: 11.11px;">中信证券</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 20px;">其他</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 13.33px;">大数据</a> <a href="/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 16.67px;">实习</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 11.11px;">工作</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" style="font-size: 10px;">时间序列预测</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12.22px;">机器学习</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" style="font-size: 14.44px;">毕业论文</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">毕业设计</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 12.22px;">爬虫</a> <a href="/tags/%E7%A7%8B%E6%8B%9B/" style="font-size: 13.33px;">秋招</a> <a href="/tags/%E7%AC%94%E8%AF%95/" style="font-size: 12.22px;">笔试</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 12.22px;">统计学</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 11.11px;">论文</a> <a href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" style="font-size: 13.33px;">金山实习</a> <a href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" style="font-size: 10px;">银联实习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 17.78px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/14/other/time_series_pred/">时间序列预测</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/01/other/customer_analysis_in_python/">用户价值分析</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/15/other/PEP8/">PEP-8: Python代码规范</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/29/other/fanqie/">番茄工作法</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/20/citics/neo4j_query_optimize/">neo4j查询调优</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

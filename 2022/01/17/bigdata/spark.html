@@ -1,0 +1,207 @@
+<hr>
+<p>title: Spark3.1.1使用教程<br>date: 2022-01-01 16:44:17<br>tags:</p>
+<ul>
+<li>大数据<br>categories:</li>
+<li>大数据</li>
+</ul>
+<hr>
+<h1 id="启动spark"><a href="#启动spark" class="headerlink" title="启动spark"></a>启动spark</h1><pre><code class="shell">source ~/.bash_profile
+satrt-all.sh # 启动hadoop
+cd $SPARK_HOME
+./sbin/start-all.sh # 启动spark
+</code></pre>
+<h1 id="安装pyspark"><a href="#安装pyspark" class="headerlink" title="安装pyspark"></a>安装pyspark</h1><blockquote>
+<p>注意pyspark与spark的版本对应关系</p>
+</blockquote>
+<pre><code class="shell">sudo pip install pyspark==3.1.1
+</code></pre>
+<h1 id="pyspark链接Hive"><a href="#pyspark链接Hive" class="headerlink" title="pyspark链接Hive"></a>pyspark链接Hive</h1><ol>
+<li>hive中的<code>hive-site.xml</code>放到spark安装目录下面的<code>conf</code>文件夹下</li>
+<li>hive中的<code>hive-site.xml</code>放到pyspark安装目录下面的<code>conf</code>文件夹下(没有的话就创建)</li>
+<li>将<code>mysql-connector-java.jar</code>包移动到<code>/Users/renweiqiang/opt/anaconda3/lib/python3.7/site-packages/jars</code>文件夹中。</li>
+</ol>
+<pre><code class="shell">cd /Library/Hive/apache-hive-3.1.2-bin/conf
+sudo mkidr /Users/renweiqiang/opt/anaconda3/lib/python3.7/site-packages/pyspark/conf
+sudo cp hive-site.xml /Users/renweiqiang/opt/anaconda3/lib/python3.7/site-packages/pyspark/conf
+sudo cp hive-site.xml $SPARK_HOME/conf
+cd /Library/Hive/apache-hive-3.1.2-bin/lib
+sudo cp mysql-connector-java-8.0.27.jar /Users/renweiqiang/opt/anaconda3/lib/python3.7/site-packages/pyspark/jars
+</code></pre>
+<h2 id="pyspark做文本分类"><a href="#pyspark做文本分类" class="headerlink" title="pyspark做文本分类"></a>pyspark做文本分类</h2><blockquote>
+<p>TODO </p>
+</blockquote>
+<h2 id="spark链接mysql"><a href="#spark链接mysql" class="headerlink" title="spark链接mysql"></a>spark链接mysql</h2><p>将jdbc链接mysql的驱动放入到<code>spark</code>的<code>jar</code>目录。</p>
+<h2 id="spark链接sqlite"><a href="#spark链接sqlite" class="headerlink" title="spark链接sqlite"></a>spark链接sqlite</h2><pre><code class="python">import pandas as pd
+from django.db import connection as dbconn
+from app.eplots import *
+import pyspark
+import pyspark.sql
+from pyspark.sql import SparkSession
+import os
+import traceback
+
+&quot;&quot;&quot;
+How To Use
+1. cd mysite
+2. python spark_sql.py
+&quot;&quot;&quot;
+
+# 这里可以选择本地win系统的PySpark环境执行pySpark代码，也可以使用虚拟机中PySpark环境，通过os可以配置。
+os.environ[&#39;SPARK_HOME&#39;] = r&#39;D:\Hadoop\spark-3.1.1-bin-hadoop3.2&#39;
+# TODO python安装的路径
+PYSPARK_PYTHON = r&quot;D:\Anaconda\python&quot;
+# 当存在多个python版本环境时，不指定很可能会导致出错
+os.environ[&quot;PYSPARK_PYTHON&quot;] = PYSPARK_PYTHON
+os.environ[&quot;PYSPARK_DRIVER_PYTHON&quot;] = PYSPARK_PYTHON
+
+BASE_DIR = os.getcwd()
+
+jar_path = os.path.join(BASE_DIR, &#39;sqlite-jdbc-3.34.0.jar&#39;)
+SPARK = SparkSession.builder.appName(&quot;SQLite&quot;).config(&quot;spark.driver.extraClassPath&quot;, jar_path).getOrCreate()
+
+jdbc_url = &#39;jdbc:sqlite:&#39; + os.path.join(BASE_DIR, &#39;db.sqlite3&#39;)
+table_name = &#39;app_data&#39;
+DF = SPARK.read.format(&quot;jdbc&quot;).option(&quot;url&quot;, jdbc_url).option(&quot;dbtable&quot;, table_name).load()
+DF.createOrReplaceTempView(&quot;app_data&quot;)
+print(&#39;spark load success&#39;)
+
+def load_data_from_spark(sql):
+    try:
+        result = SPARK.sql(sql)
+        data = result.toPandas()
+    except:
+        traceback.print_exc()
+        data = pd.read_sql(sql, dbconn)
+    pdata = data
+    return pdata
+
+def spark_plot():
+    page = Page(layout=Page.SimplePageLayout)
+    sql = f&#39;&#39;&#39;
+        select t.city as x,
+               avg(t.price_per_meter) as y
+          from app_data t
+        where t.city is not null and t.price_per_meter is not null
+        group by t.city
+    &#39;&#39;&#39;
+    pdata = load_data_from_spark(sql)
+    x = pdata[&#39;x&#39;].tolist()
+    y = [round(float(i), 2) for i in pdata[&#39;y&#39;].values]
+    plot = simple_bar(x=x, y=y, title=&#39;城市对房均价影响&#39;, y_axis_name=&#39;平均价格(元/平方米)&#39;)
+    plot.set_series_opts(label_opts=opts.LabelOpts(is_show=True))
+    page.add(plot)
+
+    page.render(os.path.join(BASE_DIR, &#39;templates/spark_plot.html&#39;))
+    print(&#39;gen plot success&#39;)
+
+if __name__ == &#39;__main__&#39;:
+    spark_plot()
+</code></pre>
+<p>核心是：<code>SPARK = SparkSession.builder.appName(&quot;SQLite&quot;).config(&quot;spark.driver.extraClassPath&quot;, jar_path).getOrCreate()</code></p>
+<h2 id="pyspark协同过滤算法"><a href="#pyspark协同过滤算法" class="headerlink" title="pyspark协同过滤算法"></a>pyspark协同过滤算法</h2><h3 id="mysql版本"><a href="#mysql版本" class="headerlink" title="mysql版本"></a>mysql版本</h3><pre><code class="python">from pyspark import SparkContext
+from pyspark.sql import SQLContext, Row
+from pyspark.sql import SparkSession
+
+# spark 初始化
+spark = SparkSession.\
+        Builder().\
+        appName(&#39;sql&#39;).\
+        master(&#39;local&#39;).\
+        config(&#39;spark.executor.memory&#39;,&#39;8g&#39;).\
+        config(&#39;spark.driver.memory&#39;,&#39;8g&#39;).\
+        config(&#39;spark.driver.maxResultsSize&#39;,&#39;0&#39;).\
+        getOrCreate()
+
+# mysql 配置(需要修改)
+prop = {
+    &#39;user&#39;: &#39;tianjin&#39;, 
+    &#39;password&#39;: &#39;tianjin&#39;, 
+    &#39;driver&#39;: &#39;com.mysql.cj.jdbc.Driver&#39;
+}
+# database 地址(需要修改)
+url = &#39;jdbc:mysql://localhost:3306/django_wxapp_food_recommendation&#39;
+# 读取表
+data = spark.read.jdbc(url=url, table=&#39;app_usercomment&#39;, properties=prop)
+
+# 开始算法训练
+from pyspark.ml.recommendation import ALS
+# 设置参数
+alsExplicit  = ALS(maxIter=5, regParam=0.01, userCol=&quot;user_id&quot;, itemCol=&quot;good_id&quot;, ratingCol=&quot;score&quot;)
+# 训练
+modelExplicit = alsExplicit.fit(data)
+
+# 预测
+# spark.createDataFrame([(0, 2), (1, 0), (2, 0)], [&quot;user&quot;, &quot;item&quot;])
+recom = modelExplicit.transform(data).orderBy(&#39;prediction&#39;, ascending=False)
+# 写到数据库
+import datetime
+from pyspark.sql import functions as F
+
+def set_now(_):
+    return datetime.datetime.now()
+
+recom = recom.select(&#39;user_id&#39;, &#39;good_id&#39;, &#39;prediction&#39;)
+recom = recom.withColumnRenamed(&#39;prediction&#39;, &#39;score&#39;)
+recom = recom.withColumn(&#39;create_at&#39;, F.lit(datetime.datetime.now()))
+
+# 存到数据库
+recom.write.jdbc(url=url, table=&#39;app_userrecommend&#39;, mode=&#39;overwrite&#39;, properties=prop)
+</code></pre>
+<h3 id="sqlite版本"><a href="#sqlite版本" class="headerlink" title="sqlite版本"></a>sqlite版本</h3><pre><code class="python">import pyspark
+import pandas as pd
+import pyspark.sql
+from pyspark import SparkContext
+from pyspark.sql import SQLContext, Row
+from pyspark.sql import SparkSession
+import os
+
+# spark 初始化
+# spark = SparkSession.\
+#         Builder().\
+#         appName(&#39;sql&#39;).\
+#         master(&#39;local&#39;).\
+#         config(&#39;spark.executor.memory&#39;,&#39;8g&#39;).\
+#         config(&#39;spark.driver.memory&#39;,&#39;8g&#39;).\
+#         config(&#39;spark.driver.maxResultsSize&#39;,&#39;0&#39;).\
+#         getOrCreate()
+print(&#39;spark init success&#39;)
+
+BASE_DIR = os.getcwd()
+
+jar_path = os.path.join(BASE_DIR, &#39;sqlite-jdbc-3.34.0.jar&#39;)
+SPARK = SparkSession.builder.appName(&quot;SQLite&quot;).config(&quot;spark.driver.extraClassPath&quot;, jar_path).getOrCreate()
+
+print(&#39;spark init success&#39;)
+
+jdbc_url = &#39;jdbc:sqlite:&#39; + os.path.join(BASE_DIR, &#39;db.sqlite3&#39;)
+table_name = &#39;app_userrank&#39;
+
+data = SPARK.read.format(&quot;jdbc&quot;).option(&quot;url&quot;, jdbc_url).option(&quot;dbtable&quot;, table_name).load()
+print(&#39;评分表加载成功&#39;)
+
+# 开始算法训练
+from pyspark.ml.recommendation import ALS
+# 设置参数
+alsExplicit  = ALS(maxIter=5, regParam=0.01, userCol=&quot;user_id&quot;, itemCol=&quot;book_id&quot;, ratingCol=&quot;score&quot;)
+# 训练
+modelExplicit = alsExplicit.fit(data)
+print(&#39;模型训练成功&#39;)
+
+# 预测
+recom = modelExplicit.transform(data).orderBy(&#39;prediction&#39;, ascending=False)
+
+# 写到数据库
+import datetime
+from pyspark.sql import functions as F
+
+def set_now(_):
+    return datetime.datetime.now()
+
+recom = recom.select(&#39;user_id&#39;, &#39;book_id&#39;, &#39;prediction&#39;)
+recom = recom.withColumnRenamed(&#39;prediction&#39;, &#39;score&#39;)
+recom = recom.withColumn(&#39;create_at&#39;, F.lit(datetime.datetime.now()))
+# 存到数据库
+recom.write.format(&quot;jdbc&quot;).option(&quot;url&quot;, jdbc_url).option(&quot;dbtable&quot;, table_name).mode(&#39;overwrite&#39;)
+print(&quot;模型运算完成!&quot;)
+</code></pre>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p>1.Jupyter中通过pyspark连接Hive数据库. <a href="https://blog.csdn.net/Albert_Fang/article/details/107932131">https://blog.csdn.net/Albert_Fang/article/details/107932131</a><br>2.pyspark环境搭建,连接hive. <a href="https://blog.csdn.net/l752820681/article/details/114482873">https://blog.csdn.net/l752820681/article/details/114482873</a><br>3. pyspark链接mysql. <a href="https://zhuanlan.zhihu.com/p/136777424">https://zhuanlan.zhihu.com/p/136777424</a></p>

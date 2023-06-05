@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Spark3.1.1使用教程 | rwqccnuimd的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="启动spark1234source ~&#x2F;.bash_profilesatrt-all.sh # 启动hadoopcd $SPARK_HOME.&#x2F;sbin&#x2F;start-all.sh # 启动spark  安装pyspark 注意pyspark与spark的版本对应关系  1sudo pip install pyspark&#x3D;&#x3D;3.1.1  pyspark链接Hive hive中的hive-site.x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spark3.1.1使用教程">
+<meta property="og:url" content="http://example.com/2022/01/01/bigdata/spark/index.html">
+<meta property="og:site_name" content="rwqccnuimd的博客">
+<meta property="og:description" content="启动spark1234source ~&#x2F;.bash_profilesatrt-all.sh # 启动hadoopcd $SPARK_HOME.&#x2F;sbin&#x2F;start-all.sh # 启动spark  安装pyspark 注意pyspark与spark的版本对应关系  1sudo pip install pyspark&#x3D;&#x3D;3.1.1  pyspark链接Hive hive中的hive-site.x">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-01-01T08:44:17.000Z">
+<meta property="article:modified_time" content="2023-05-18T14:41:34.372Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="大数据">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="rwqccnuimd的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">rwqccnuimd的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-bigdata/spark" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/01/01/bigdata/spark/" class="article-date">
+  <time class="dt-published" datetime="2022-01-01T08:44:17.000Z" itemprop="datePublished">2022-01-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Spark3.1.1使用教程
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="启动spark"><a href="#启动spark" class="headerlink" title="启动spark"></a>启动spark</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bash_profile</span><br><span class="line">satrt-all.sh # 启动hadoop</span><br><span class="line">cd $SPARK_HOME</span><br><span class="line">./sbin/start-all.sh # 启动spark</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装pyspark"><a href="#安装pyspark" class="headerlink" title="安装pyspark"></a>安装pyspark</h1><blockquote>
+<p>注意pyspark与spark的版本对应关系</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install pyspark==3.1.1</span><br></pre></td></tr></table></figure>
+
+<h1 id="pyspark链接Hive"><a href="#pyspark链接Hive" class="headerlink" title="pyspark链接Hive"></a>pyspark链接Hive</h1><ol>
+<li>hive中的<code>hive-site.xml</code>放到spark安装目录下面的<code>conf</code>文件夹下</li>
+<li>hive中的<code>hive-site.xml</code>放到pyspark安装目录下面的<code>conf</code>文件夹下(没有的话就创建)</li>
+<li>将<code>mysql-connector-java.jar</code>包移动到<code>/Users/renweiqiang/opt/anaconda3/lib/python3.7/site-packages/jars</code>文件夹中。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd /Library/Hive/apache-hive-3.1.2-bin/conf</span><br><span class="line">sudo mkidr /Users/renweiqiang/opt/anaconda3/lib/python3.7/site-packages/pyspark/conf</span><br><span class="line">sudo cp hive-site.xml /Users/renweiqiang/opt/anaconda3/lib/python3.7/site-packages/pyspark/conf</span><br><span class="line">sudo cp hive-site.xml $SPARK_HOME/conf</span><br><span class="line">cd /Library/Hive/apache-hive-3.1.2-bin/lib</span><br><span class="line">sudo cp mysql-connector-java-8.0.27.jar /Users/renweiqiang/opt/anaconda3/lib/python3.7/site-packages/pyspark/jars</span><br></pre></td></tr></table></figure>
+
+<h2 id="pyspark做文本分类"><a href="#pyspark做文本分类" class="headerlink" title="pyspark做文本分类"></a>pyspark做文本分类</h2><blockquote>
+<p>TODO </p>
+</blockquote>
+<h2 id="spark链接mysql"><a href="#spark链接mysql" class="headerlink" title="spark链接mysql"></a>spark链接mysql</h2><p>将jdbc链接mysql的驱动放入到<code>spark</code>的<code>jar</code>目录。</p>
+<h2 id="spark链接sqlite"><a href="#spark链接sqlite" class="headerlink" title="spark链接sqlite"></a>spark链接sqlite</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> connection <span class="keyword">as</span> dbconn</span><br><span class="line"><span class="keyword">from</span> app.eplots <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> pyspark</span><br><span class="line"><span class="keyword">import</span> pyspark.sql</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> traceback</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">How To Use</span></span><br><span class="line"><span class="string">1. cd mysite</span></span><br><span class="line"><span class="string">2. python spark_sql.py</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 这里可以选择本地win系统的PySpark环境执行pySpark代码，也可以使用虚拟机中PySpark环境，通过os可以配置。</span></span><br><span class="line">os.environ[<span class="string">&#x27;SPARK_HOME&#x27;</span>] = <span class="string">r&#x27;D:\Hadoop\spark-3.1.1-bin-hadoop3.2&#x27;</span></span><br><span class="line"><span class="comment"># TODO python安装的路径</span></span><br><span class="line">PYSPARK_PYTHON = <span class="string">r&quot;D:\Anaconda\python&quot;</span></span><br><span class="line"><span class="comment"># 当存在多个python版本环境时，不指定很可能会导致出错</span></span><br><span class="line">os.environ[<span class="string">&quot;PYSPARK_PYTHON&quot;</span>] = PYSPARK_PYTHON</span><br><span class="line">os.environ[<span class="string">&quot;PYSPARK_DRIVER_PYTHON&quot;</span>] = PYSPARK_PYTHON</span><br><span class="line"></span><br><span class="line">BASE_DIR = os.getcwd()</span><br><span class="line"></span><br><span class="line">jar_path = os.path.join(BASE_DIR, <span class="string">&#x27;sqlite-jdbc-3.34.0.jar&#x27;</span>)</span><br><span class="line">SPARK = SparkSession.builder.appName(<span class="string">&quot;SQLite&quot;</span>).config(<span class="string">&quot;spark.driver.extraClassPath&quot;</span>, jar_path).getOrCreate()</span><br><span class="line"></span><br><span class="line">jdbc_url = <span class="string">&#x27;jdbc:sqlite:&#x27;</span> + os.path.join(BASE_DIR, <span class="string">&#x27;db.sqlite3&#x27;</span>)</span><br><span class="line">table_name = <span class="string">&#x27;app_data&#x27;</span></span><br><span class="line">DF = SPARK.read.<span class="built_in">format</span>(<span class="string">&quot;jdbc&quot;</span>).option(<span class="string">&quot;url&quot;</span>, jdbc_url).option(<span class="string">&quot;dbtable&quot;</span>, table_name).load()</span><br><span class="line">DF.createOrReplaceTempView(<span class="string">&quot;app_data&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;spark load success&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_data_from_spark</span>(<span class="params">sql</span>):</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        result = SPARK.sql(sql)</span><br><span class="line">        data = result.toPandas()</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        traceback.print_exc()</span><br><span class="line">        data = pd.read_sql(sql, dbconn)</span><br><span class="line">    pdata = data</span><br><span class="line">    <span class="keyword">return</span> pdata</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">spark_plot</span>():</span></span><br><span class="line">    page = Page(layout=Page.SimplePageLayout)</span><br><span class="line">    sql = <span class="string">f&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        select t.city as x,</span></span><br><span class="line"><span class="string">               avg(t.price_per_meter) as y</span></span><br><span class="line"><span class="string">          from app_data t</span></span><br><span class="line"><span class="string">        where t.city is not null and t.price_per_meter is not null</span></span><br><span class="line"><span class="string">        group by t.city</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    pdata = load_data_from_spark(sql)</span><br><span class="line">    x = pdata[<span class="string">&#x27;x&#x27;</span>].tolist()</span><br><span class="line">    y = [<span class="built_in">round</span>(<span class="built_in">float</span>(i), <span class="number">2</span>) <span class="keyword">for</span> i <span class="keyword">in</span> pdata[<span class="string">&#x27;y&#x27;</span>].values]</span><br><span class="line">    plot = simple_bar(x=x, y=y, title=<span class="string">&#x27;城市对房均价影响&#x27;</span>, y_axis_name=<span class="string">&#x27;平均价格(元/平方米)&#x27;</span>)</span><br><span class="line">    plot.set_series_opts(label_opts=opts.LabelOpts(is_show=<span class="literal">True</span>))</span><br><span class="line">    page.add(plot)</span><br><span class="line"></span><br><span class="line">    page.render(os.path.join(BASE_DIR, <span class="string">&#x27;templates/spark_plot.html&#x27;</span>))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;gen plot success&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    spark_plot()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>核心是：<code>SPARK = SparkSession.builder.appName(&quot;SQLite&quot;).config(&quot;spark.driver.extraClassPath&quot;, jar_path).getOrCreate()</code></p>
+<h2 id="pyspark协同过滤算法"><a href="#pyspark协同过滤算法" class="headerlink" title="pyspark协同过滤算法"></a>pyspark协同过滤算法</h2><h3 id="mysql版本"><a href="#mysql版本" class="headerlink" title="mysql版本"></a>mysql版本</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkContext</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SQLContext, Row</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br><span class="line"></span><br><span class="line"><span class="comment"># spark 初始化</span></span><br><span class="line">spark = SparkSession.\</span><br><span class="line">        Builder().\</span><br><span class="line">        appName(<span class="string">&#x27;sql&#x27;</span>).\</span><br><span class="line">        master(<span class="string">&#x27;local&#x27;</span>).\</span><br><span class="line">        config(<span class="string">&#x27;spark.executor.memory&#x27;</span>,<span class="string">&#x27;8g&#x27;</span>).\</span><br><span class="line">        config(<span class="string">&#x27;spark.driver.memory&#x27;</span>,<span class="string">&#x27;8g&#x27;</span>).\</span><br><span class="line">        config(<span class="string">&#x27;spark.driver.maxResultsSize&#x27;</span>,<span class="string">&#x27;0&#x27;</span>).\</span><br><span class="line">        getOrCreate()</span><br><span class="line"></span><br><span class="line"><span class="comment"># mysql 配置(需要修改)</span></span><br><span class="line">prop = &#123;</span><br><span class="line">    <span class="string">&#x27;user&#x27;</span>: <span class="string">&#x27;tianjin&#x27;</span>, </span><br><span class="line">    <span class="string">&#x27;password&#x27;</span>: <span class="string">&#x27;tianjin&#x27;</span>, </span><br><span class="line">    <span class="string">&#x27;driver&#x27;</span>: <span class="string">&#x27;com.mysql.cj.jdbc.Driver&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># database 地址(需要修改)</span></span><br><span class="line">url = <span class="string">&#x27;jdbc:mysql://localhost:3306/django_wxapp_food_recommendation&#x27;</span></span><br><span class="line"><span class="comment"># 读取表</span></span><br><span class="line">data = spark.read.jdbc(url=url, table=<span class="string">&#x27;app_usercomment&#x27;</span>, properties=prop)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开始算法训练</span></span><br><span class="line"><span class="keyword">from</span> pyspark.ml.recommendation <span class="keyword">import</span> ALS</span><br><span class="line"><span class="comment"># 设置参数</span></span><br><span class="line">alsExplicit  = ALS(maxIter=<span class="number">5</span>, regParam=<span class="number">0.01</span>, userCol=<span class="string">&quot;user_id&quot;</span>, itemCol=<span class="string">&quot;good_id&quot;</span>, ratingCol=<span class="string">&quot;score&quot;</span>)</span><br><span class="line"><span class="comment"># 训练</span></span><br><span class="line">modelExplicit = alsExplicit.fit(data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line"><span class="comment"># spark.createDataFrame([(0, 2), (1, 0), (2, 0)], [&quot;user&quot;, &quot;item&quot;])</span></span><br><span class="line">recom = modelExplicit.transform(data).orderBy(<span class="string">&#x27;prediction&#x27;</span>, ascending=<span class="literal">False</span>)</span><br><span class="line"><span class="comment"># 写到数据库</span></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> functions <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">set_now</span>(<span class="params">_</span>):</span></span><br><span class="line">    <span class="keyword">return</span> datetime.datetime.now()</span><br><span class="line"></span><br><span class="line">recom = recom.select(<span class="string">&#x27;user_id&#x27;</span>, <span class="string">&#x27;good_id&#x27;</span>, <span class="string">&#x27;prediction&#x27;</span>)</span><br><span class="line">recom = recom.withColumnRenamed(<span class="string">&#x27;prediction&#x27;</span>, <span class="string">&#x27;score&#x27;</span>)</span><br><span class="line">recom = recom.withColumn(<span class="string">&#x27;create_at&#x27;</span>, F.lit(datetime.datetime.now()))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 存到数据库</span></span><br><span class="line">recom.write.jdbc(url=url, table=<span class="string">&#x27;app_userrecommend&#x27;</span>, mode=<span class="string">&#x27;overwrite&#x27;</span>, properties=prop)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="sqlite版本"><a href="#sqlite版本" class="headerlink" title="sqlite版本"></a>sqlite版本</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyspark</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> pyspark.sql</span><br><span class="line"><span class="keyword">from</span> pyspark <span class="keyword">import</span> SparkContext</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SQLContext, Row</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># spark 初始化</span></span><br><span class="line"><span class="comment"># spark = SparkSession.\</span></span><br><span class="line"><span class="comment">#         Builder().\</span></span><br><span class="line"><span class="comment">#         appName(&#x27;sql&#x27;).\</span></span><br><span class="line"><span class="comment">#         master(&#x27;local&#x27;).\</span></span><br><span class="line"><span class="comment">#         config(&#x27;spark.executor.memory&#x27;,&#x27;8g&#x27;).\</span></span><br><span class="line"><span class="comment">#         config(&#x27;spark.driver.memory&#x27;,&#x27;8g&#x27;).\</span></span><br><span class="line"><span class="comment">#         config(&#x27;spark.driver.maxResultsSize&#x27;,&#x27;0&#x27;).\</span></span><br><span class="line"><span class="comment">#         getOrCreate()</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;spark init success&#x27;</span>)</span><br><span class="line"></span><br><span class="line">BASE_DIR = os.getcwd()</span><br><span class="line"></span><br><span class="line">jar_path = os.path.join(BASE_DIR, <span class="string">&#x27;sqlite-jdbc-3.34.0.jar&#x27;</span>)</span><br><span class="line">SPARK = SparkSession.builder.appName(<span class="string">&quot;SQLite&quot;</span>).config(<span class="string">&quot;spark.driver.extraClassPath&quot;</span>, jar_path).getOrCreate()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;spark init success&#x27;</span>)</span><br><span class="line"></span><br><span class="line">jdbc_url = <span class="string">&#x27;jdbc:sqlite:&#x27;</span> + os.path.join(BASE_DIR, <span class="string">&#x27;db.sqlite3&#x27;</span>)</span><br><span class="line">table_name = <span class="string">&#x27;app_userrank&#x27;</span></span><br><span class="line"></span><br><span class="line">data = SPARK.read.<span class="built_in">format</span>(<span class="string">&quot;jdbc&quot;</span>).option(<span class="string">&quot;url&quot;</span>, jdbc_url).option(<span class="string">&quot;dbtable&quot;</span>, table_name).load()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;评分表加载成功&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开始算法训练</span></span><br><span class="line"><span class="keyword">from</span> pyspark.ml.recommendation <span class="keyword">import</span> ALS</span><br><span class="line"><span class="comment"># 设置参数</span></span><br><span class="line">alsExplicit  = ALS(maxIter=<span class="number">5</span>, regParam=<span class="number">0.01</span>, userCol=<span class="string">&quot;user_id&quot;</span>, itemCol=<span class="string">&quot;book_id&quot;</span>, ratingCol=<span class="string">&quot;score&quot;</span>)</span><br><span class="line"><span class="comment"># 训练</span></span><br><span class="line">modelExplicit = alsExplicit.fit(data)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;模型训练成功&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">recom = modelExplicit.transform(data).orderBy(<span class="string">&#x27;prediction&#x27;</span>, ascending=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 写到数据库</span></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> functions <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">set_now</span>(<span class="params">_</span>):</span></span><br><span class="line">    <span class="keyword">return</span> datetime.datetime.now()</span><br><span class="line"></span><br><span class="line">recom = recom.select(<span class="string">&#x27;user_id&#x27;</span>, <span class="string">&#x27;book_id&#x27;</span>, <span class="string">&#x27;prediction&#x27;</span>)</span><br><span class="line">recom = recom.withColumnRenamed(<span class="string">&#x27;prediction&#x27;</span>, <span class="string">&#x27;score&#x27;</span>)</span><br><span class="line">recom = recom.withColumn(<span class="string">&#x27;create_at&#x27;</span>, F.lit(datetime.datetime.now()))</span><br><span class="line"><span class="comment"># 存到数据库</span></span><br><span class="line">recom.write.<span class="built_in">format</span>(<span class="string">&quot;jdbc&quot;</span>).option(<span class="string">&quot;url&quot;</span>, jdbc_url).option(<span class="string">&quot;dbtable&quot;</span>, table_name).mode(<span class="string">&#x27;overwrite&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;模型运算完成!&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p>1.Jupyter中通过pyspark连接Hive数据库. <a target="_blank" rel="noopener" href="https://blog.csdn.net/Albert_Fang/article/details/107932131">https://blog.csdn.net/Albert_Fang/article/details/107932131</a><br>2.pyspark环境搭建,连接hive. <a target="_blank" rel="noopener" href="https://blog.csdn.net/l752820681/article/details/114482873">https://blog.csdn.net/l752820681/article/details/114482873</a><br>3. pyspark链接mysql. <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/136777424">https://zhuanlan.zhihu.com/p/136777424</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/01/01/bigdata/spark/" data-id="cl85d5h2p000gi99o59ze3yhf" data-title="Spark3.1.1使用教程" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/01/03/biyelunwen/event_extract/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          事件抽取
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/12/17/bigdata/flume/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">Flume使用教程</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">-CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Leetcode/">Leetcode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/django/">django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/sql/">sql</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1/">业务</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1%E6%8C%87%E6%A0%87/">业务指标</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/">中信证券</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/Django/">Django</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Flume/">Flume</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E9%9B%86/">数据集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/">毕业论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/">毕业设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/">秋招</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/%E9%9D%A2%E8%AF%95/">面试</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AF%95/">笔试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BA%E6%96%87/">论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/">银联实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">-leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flume/" rel="tag">Flume</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hbase/" rel="tag">Hbase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%9A%E5%8A%A1/" rel="tag">业务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" rel="tag">中信证券</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" rel="tag">时间序列预测</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" rel="tag">毕业论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" rel="tag">毕业设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%8B%E6%8B%9B/" rel="tag">秋招</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" rel="tag">金山实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" rel="tag">银联实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/leetcode/" style="font-size: 10px;">-leetcode</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Django/" style="font-size: 13.33px;">Django</a> <a href="/tags/Flume/" style="font-size: 10px;">Flume</a> <a href="/tags/Hbase/" style="font-size: 10px;">Hbase</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/SQL/" style="font-size: 18.89px;">SQL</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/leetcode/" style="font-size: 15.56px;">leetcode</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/%E4%B8%9A%E5%8A%A1/" style="font-size: 13.33px;">业务</a> <a href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" style="font-size: 11.11px;">中信证券</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 20px;">其他</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 13.33px;">大数据</a> <a href="/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 16.67px;">实习</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 11.11px;">工作</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" style="font-size: 10px;">时间序列预测</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12.22px;">机器学习</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" style="font-size: 14.44px;">毕业论文</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">毕业设计</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 12.22px;">爬虫</a> <a href="/tags/%E7%A7%8B%E6%8B%9B/" style="font-size: 13.33px;">秋招</a> <a href="/tags/%E7%AC%94%E8%AF%95/" style="font-size: 12.22px;">笔试</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 12.22px;">统计学</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 11.11px;">论文</a> <a href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" style="font-size: 13.33px;">金山实习</a> <a href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" style="font-size: 10px;">银联实习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 17.78px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/14/other/time_series_pred/">时间序列预测</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/01/other/customer_analysis_in_python/">用户价值分析</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/15/other/PEP8/">PEP-8: Python代码规范</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/29/other/fanqie/">番茄工作法</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/20/citics/neo4j_query_optimize/">neo4j查询调优</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

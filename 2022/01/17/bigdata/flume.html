@@ -1,0 +1,166 @@
+<hr>
+<p>title: Flume使用教程<br>date: 2021-12-17 15:22:24<br>tags:</p>
+<ul>
+<li>大数据</li>
+<li>Flume<br>categories:</li>
+<li>大数据</li>
+<li>Flume</li>
+</ul>
+<hr>
+<h1 id="核心架构图"><a href="#核心架构图" class="headerlink" title="核心架构图"></a>核心架构图</h1><p><img src="https://flume.liyifeng.org/_images/UserGuide_image00.png" alt="核心架构图"></p>
+<h1 id="1-Spooldir对接HDFS"><a href="#1-Spooldir对接HDFS" class="headerlink" title="1. Spooldir对接HDFS"></a>1. Spooldir对接HDFS</h1><p><code>flume-conf.properties</code>文件配置</p>
+<pre><code class="conf">a1.sources = r1
+a1.sinks = k1
+a1.channels = c1
+
+a1.sources.r1.type = spooldir # 定义source的类型为spooldir，也就是文件
+a1.sources.r1.spoolDir = /Users/renweiqiang/outSource/进行中/Hadoop_日志用户挖掘_1700/scripts/dataset/flume_data
+
+a1.sources.r1.fileSuffix = .ok # 数据传输完成之后文件名后缀更改为.ok
+a1.sources.r1.decodeErrorPolicy = IGNORE # 当从文件读取时遇到不可解析的字符时如何处理。IGNORE ：忽略无法解析的字符。
+
+a1.sinks.k1.type = hdfs
+a1.sinks.k1.hdfs.path = hdfs://0.0.0.0:9000/flume/logs/%Y%m%d # 这里要与hadoop里面的core-site.xml保持一致
+
+a1.sinks.k1.hdfs.fileType = DataStream
+a1.sinks.k1.hdfs.filePrefix = events # 文件名前缀
+a1.sinks.k1.hdfs.writeFormat = Text
+a1.sinks.k1.hdfs.useLocalTimeStamp = true
+a1.sinks.k1.hdfs.fileSuffix = .log # 文件名后缀
+a1.sinks.k1.hdfs.batchSize = 100
+a1.sinks.k1.hdfs.rollSize = 1024000 # 这里一定要调大，不然不行
+a1.sinks.k1.hdfs.rollCount = 0
+a1.sinks.k1.hdfs.rollInterval = 10 # 每10秒产生一个文件
+
+
+a1.channels.c1.type = file
+a1.channels.c1.checkpointDir = /Library/Hadoop/flume/apache-flume-1.9.0-bin/filechannel/checkpoint
+a1.channels.c1.dataDirs = /Library/Hadoop/flume/apache-flume-1.9.0-bin/filechannel/data
+
+a1.sources.r1.channels = c1
+a1.sinks.k1.channel = c1
+</code></pre>
+<p>启动</p>
+<pre><code class="shell">flume-ng agent --conf conf --conf-file conf/flume-conf.properties --name a1 -Dflume.root.logger=INFO, console
+</code></pre>
+<p>hadoop中查看数据</p>
+<pre><code class="shell">hadoop fs -ls /flume/logs/
+</code></pre>
+<h1 id="2-Spooldir对接hive"><a href="#2-Spooldir对接hive" class="headerlink" title="2. Spooldir对接hive"></a>2. Spooldir对接hive</h1><h2 id="2-1-Hive相关配置"><a href="#2-1-Hive相关配置" class="headerlink" title="2.1 Hive相关配置"></a>2.1 Hive相关配置</h2><h3 id="2-1-1-拷贝相关jar"><a href="#2-1-1-拷贝相关jar" class="headerlink" title="2.1.1 拷贝相关jar"></a>2.1.1 拷贝相关jar</h3><p>hive根目录下的<code>/hcatalog/share/hcatalog</code>文件夹中的如下三个文件夹添加到<code>flume的lib</code>目录下</p>
+<h3 id="2-1-2-hive-site-xml"><a href="#2-1-2-hive-site-xml" class="headerlink" title="2.1.2 hive-site.xml"></a>2.1.2 hive-site.xml</h3><pre><code class="xml">   &lt;property&gt;
+     &lt;name&gt;hive.metastore.port&lt;/name&gt;
+     &lt;value&gt;9083&lt;/value&gt;
+   &lt;/property&gt;
+               &lt;!-- 指定存储元数据要连接的地址 --&gt;
+   &lt;property&gt;
+       &lt;name&gt;hive.metastore.uris&lt;/name&gt;
+       &lt;value&gt;thrift://127.0.0.1:9083&lt;/value&gt;
+   &lt;/property&gt;
+   &lt;!-- 元数据存储授权  --&gt;
+   &lt;property&gt;
+       &lt;name&gt;hive.metastore.event.db.notification.api.auth&lt;/name&gt;
+       &lt;value&gt;false&lt;/value&gt;
+   &lt;/property&gt;
+   &lt;!-- Hive元数据存储版本的验证 --&gt;
+   &lt;property&gt;
+       &lt;name&gt;hive.metastore.schema.verification&lt;/name&gt;
+       &lt;value&gt;false&lt;/value&gt;
+   &lt;/property&gt;
+
+    &lt;property&gt;
+      &lt;name&gt;hive.support.concurrency&lt;/name&gt;
+      &lt;value&gt;true&lt;/value&gt;
+   &lt;/property&gt;
+   &lt;property&gt;
+      &lt;name&gt;hive.exec.dynamic.partition.mode&lt;/name&gt;
+      &lt;value&gt;nonstrict&lt;/value&gt; 
+   &lt;/property&gt;
+   &lt;property&gt;
+      &lt;name&gt;hive.txn.manager&lt;/name&gt;
+      &lt;value&gt;org.apache.hadoop.hive.ql.lockmgr.DbTxnManager&lt;/value&gt;
+   &lt;/property&gt; 
+   &lt;property&gt;
+      &lt;name&gt;hive.compactor.initiator.on&lt;/name&gt;
+      &lt;value&gt;true&lt;/value&gt; 
+   &lt;/property&gt;
+   &lt;property&gt;
+      &lt;name&gt;hive.compactor.worker.threads&lt;/name&gt;
+      &lt;value&gt;1&lt;/value&gt; &lt;!--这里的线程数必须大于0 :理想状态和分桶数一致--&gt; 
+   &lt;/property&gt;
+   &lt;property&gt;
+      &lt;name&gt;hive.enforce.bucketing&lt;/name&gt; 
+      &lt;value&gt;true&lt;/value&gt;
+   &lt;/property&gt;
+   &lt;property&gt;
+      &lt;name&gt;hive.server2.authentication&lt;/name&gt; 
+      &lt;value&gt;NOSASL&lt;/value&gt;
+   &lt;/property&gt;
+</code></pre>
+<h3 id="2-1-3-创建数据库"><a href="#2-1-3-创建数据库" class="headerlink" title="2.1.3 创建数据库"></a>2.1.3 创建数据库</h3><pre><code class="shell">CREATE DATABASE IF NOT EXISTS sougou;
+</code></pre>
+<h3 id="2-1-4-创建数据表"><a href="#2-1-4-创建数据表" class="headerlink" title="2.1.4 创建数据表"></a>2.1.4 创建数据表</h3><blockquote>
+<p>Hive建表需要开启的策略 - ORC 格式存储 - 分桶 - 支持事务性 - 显式声明 transtions</p>
+</blockquote>
+<pre><code class="shell">use sougou;
+
+CREATE TABLE IF NOT EXISTS log(
+    create_at String,
+    uid bigint,
+    keywords String,
+    rank String,
+    click_url String,
+    tokens String,
+    token_num int,
+    hour int,
+    minute int,
+    second int
+) 
+partitioned by(`time` string) clustered by(uid) into 3 buckets 
+row format delimited fields terminated by &#39;,&#39; 
+stored as orc tblproperties(&#39;transactional&#39;=&#39;true&#39;);
+</code></pre>
+<h2 id="2-2-Hadoop相关配置"><a href="#2-2-Hadoop相关配置" class="headerlink" title="2.2 Hadoop相关配置"></a>2.2 Hadoop相关配置</h2><p>文件夹赋权</p>
+<pre><code class="shell">hdfs dfs -chmod 777 /user/hive/warehouse/
+</code></pre>
+<h2 id="2-3-Flume相关配置"><a href="#2-3-Flume相关配置" class="headerlink" title="2.3 Flume相关配置"></a>2.3 Flume相关配置</h2><h3 id="2-3-1-创建flume的conf文件"><a href="#2-3-1-创建flume的conf文件" class="headerlink" title="2.3.1 创建flume的conf文件"></a>2.3.1 创建flume的conf文件</h3><pre><code class="conf">a1.sources = r1
+a1.sinks = k1
+a1.channels = c1
+
+a1.sources.r1.type = spooldir
+a1.sources.r1.spoolDir = /Users/renweiqiang/outSource/进行中/Hadoop_日志用户挖掘_1700/scripts/dataset/flume_data
+
+a1.sources.r1.fileSuffix = .ok
+a1.sources.r1.decodeErrorPolicy = REPLACE
+
+a1.sinks.k1.type = hive
+a1.sinks.k1.hive.metastore = mysql://127.0.0.1:3306
+a1.sinks.k1.hive.database = sougou
+a1.sinks.k1.hive.table = log
+a1.sinks.k1.hive.serializer = DELIMITED
+a1.sinks.k1.serializer.delimiter = &quot;\t&quot;
+a1.sinks.k1.serializer.serdeSeparator = &quot;\t&quot;
+
+
+a1.channels.c1.type = file
+a1.channels.c1.checkpointDir = /Library/Hadoop/flume/apache-flume-1.9.0-bin/filechannel/checkpoint
+a1.channels.c1.dataDirs = /Library/Hadoop/flume/apache-flume-1.9.0-bin/filechannel/data
+
+a1.sources.r1.channels = c1
+a1.sinks.k1.channel = c1
+</code></pre>
+<h3 id="2-3-2-启动hive-metastore"><a href="#2-3-2-启动hive-metastore" class="headerlink" title="2.3.2 启动hive-metastore"></a>2.3.2 启动hive-metastore</h3><pre><code>hive --service metastore
+</code></pre>
+<h3 id="2-3-3-启动"><a href="#2-3-3-启动" class="headerlink" title="2.3.3 启动"></a>2.3.3 启动</h3><pre><code class="shell">cd /Library/Hadoop/flume/apache-flume-1.9.0-bin
+flume-ng agent --conf conf --conf-file conf/sougou-hive-conf.properties --name a1
+</code></pre>
+<blockquote>
+<p>所有的结果都会放到<code>logs/flume.log</code>文件夹里面去！</p>
+</blockquote>
+<h3 id="2-3-4-py脚本"><a href="#2-3-4-py脚本" class="headerlink" title="2.3.4 py脚本"></a>2.3.4 py脚本</h3><pre><code class="python"># put the csv file into the flume_data dir
+</code></pre>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li>Flume实时监控目录Spooldir: <a href="https://blog.csdn.net/weixin_41209740/article/details/111378804">https://blog.csdn.net/weixin_41209740/article/details/111378804</a></li>
+<li>关于flume 中spooldir传输数据报出HDFS IO error ….. File type DataStream not supported 错误解决: <a href="https://blog.csdn.net/hui_2016/article/details/70255820">https://blog.csdn.net/hui_2016/article/details/70255820</a></li>
+<li>Flume+HDFS实战及遇到的坑: <a href="https://blog.csdn.net/a_drjiaoda/article/details/84975690">https://blog.csdn.net/a_drjiaoda/article/details/84975690</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/62904645">https://zhuanlan.zhihu.com/p/62904645</a></li>
+</ul>

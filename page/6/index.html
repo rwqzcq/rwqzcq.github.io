@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>rwqccnuimd的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="rwqccnuimd的博客">
+<meta property="og:url" content="http://example.com/page/6/index.html">
+<meta property="og:site_name" content="rwqccnuimd的博客">
+<meta property="og:locale">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="rwqccnuimd的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">rwqccnuimd的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-leetcode/1485" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/09/28/leetcode/1485/" class="article-date">
+  <time class="dt-published" datetime="2021-09-28T02:41:40.000Z" itemprop="datePublished">2021-09-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/leetcode/">leetcode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/09/28/leetcode/1485/">按日期分组销售产品</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">表 Activities：</span><br><span class="line"></span><br><span class="line">+-------------+---------+</span><br><span class="line">| 列名         | 类型    |</span><br><span class="line">+-------------+---------+</span><br><span class="line">| sell_date   | date    |</span><br><span class="line">| product     | varchar |</span><br><span class="line">+-------------+---------+</span><br><span class="line">此表没有主键，它可能包含重复项。</span><br><span class="line">此表的每一行都包含产品名称和在市场上销售的日期。</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">编写一个 SQL 查询来查找每个日期、销售的不同产品的数量及其名称。</span><br><span class="line">每个日期的销售产品名称应按词典序排列。</span><br><span class="line">返回按 sell_date 排序的结果表。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">查询结果格式如下例所示。</span><br><span class="line"></span><br><span class="line">Activities 表：</span><br><span class="line">+------------+-------------+</span><br><span class="line">| sell_date  | product     |</span><br><span class="line">+------------+-------------+</span><br><span class="line">| 2020-05-30 | Headphone   |</span><br><span class="line">| 2020-06-01 | Pencil      |</span><br><span class="line">| 2020-06-02 | Mask        |</span><br><span class="line">| 2020-05-30 | Basketball  |</span><br><span class="line">| 2020-06-01 | Bible       |</span><br><span class="line">| 2020-06-02 | Mask        |</span><br><span class="line">| 2020-05-30 | T-Shirt     |</span><br><span class="line">+------------+-------------+</span><br><span class="line"></span><br><span class="line">Result 表：</span><br><span class="line">+------------+----------+------------------------------+</span><br><span class="line">| sell_date  | num_sold | products                     |</span><br><span class="line">+------------+----------+------------------------------+</span><br><span class="line">| 2020-05-30 | 3        | Basketball,Headphone,T-shirt |</span><br><span class="line">| 2020-06-01 | 2        | Bible,Pencil                 |</span><br><span class="line">| 2020-06-02 | 1        | Mask                         |</span><br><span class="line">+------------+----------+------------------------------+</span><br><span class="line">对于2020-05-30，出售的物品是 (Headphone, Basketball, T-shirt)，按词典序排列，并用逗号 &#x27;,&#x27; 分隔。</span><br><span class="line">对于2020-06-01，出售的物品是 (Pencil, Bible)，按词典序排列，并用逗号分隔。</span><br><span class="line">对于2020-06-02，出售的物品是 (Mask)，只需返回该物品名。</span><br><span class="line"></span><br><span class="line">来源：力扣（LeetCode）</span><br><span class="line">链接：https://leetcode-cn.com/problems/group-sold-products-by-the-date</span><br><span class="line">著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>核心的函数为<code>group_concat函数</code>来完成对一个序列按照某一个<code>分隔符</code>来转化成字符串。</p>
+</blockquote>
+<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    sell_date,</span><br><span class="line">    <span class="built_in">count</span>(<span class="keyword">distinct</span> product) <span class="keyword">as</span> num_sold, <span class="comment">-- 销售的不同产品</span></span><br><span class="line">    group_concat(<span class="keyword">distinct</span> product <span class="keyword">order</span> <span class="keyword">by</span> product separator <span class="string">&#x27;,&#x27;</span>) <span class="keyword">as</span> products</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    Activities</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">    sell_date</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">    sell_date</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>group_concat</code>的用法为<code>group_concat(list separtor &#39;分割符&#39;)</code></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/28/leetcode/1485/" data-id="cl85d5h3b0023i99o2e8nc2rj" data-title="按日期分组销售产品" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">-leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-mianshi/zhongxing" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/09/26/mianshi/zhongxing/" class="article-date">
+  <time class="dt-published" datetime="2021-09-26T02:05:02.000Z" itemprop="datePublished">2021-09-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%A7%8B%E6%8B%9B/">秋招</a>►<a class="article-category-link" href="/categories/%E7%A7%8B%E6%8B%9B/%E9%9D%A2%E8%AF%95/">面试</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/09/26/mianshi/zhongxing/">中兴</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h1><ul>
+<li>深挖实习项目<ul>
+<li>低留存率总结</li>
+</ul>
+</li>
+<li>Hive数据仓库<ul>
+<li>怎么做分区</li>
+<li>增量数据的处理逻辑<ul>
+<li>比如日活</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>详细得复述做过的一个项目<ul>
+<li>怎么获取数据</li>
+<li>怎么进行数据预处理</li>
+<li>用的什么方法</li>
+<li>得到什么结论</li>
+<li>遇到的困难有哪一些</li>
+</ul>
+</li>
+</ul>
+<h1 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h1><ul>
+<li>团队中如何与他人进行合作，合作的话有哪一些分歧，分期是怎么解决的</li>
+<li>你是否有领导过一个团队，简要描述你领导的团队做得项目，你是怎么做的，遇到不服气或者消极工作的人怎么办</li>
+<li>薪资倒挂怎么看</li>
+<li>部门调动怎么看<ul>
+<li>大局意识</li>
+</ul>
+</li>
+<li>出差怎么看</li>
+<li>期望薪资</li>
+<li>职业规划</li>
+</ul>
+<blockquote>
+<p>期望说低了!</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/26/mianshi/zhongxing/" data-id="cl85d5h44004ai99oh98d0bcl" data-title="中兴" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A7%8B%E6%8B%9B/" rel="tag">秋招</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-leetcode/1398" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/09/24/leetcode/1398/" class="article-date">
+  <time class="dt-published" datetime="2021-09-24T06:21:37.000Z" itemprop="datePublished">2021-09-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Leetcode/">Leetcode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/09/24/leetcode/1398/">1398. 购买了产品 A 和产品 B 却没有购买产品 C 的顾客</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"> Customers 表：</span><br><span class="line"></span><br><span class="line">+---------------------+---------+</span><br><span class="line">| Column Name         | Type    |</span><br><span class="line">+---------------------+---------+</span><br><span class="line">| customer_id         | int     |</span><br><span class="line">| customer_name       | varchar |</span><br><span class="line">+---------------------+---------+</span><br><span class="line">customer_id 是这张表的主键。</span><br><span class="line">customer_name 是顾客的名称。</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Orders 表：</span><br><span class="line"></span><br><span class="line">+---------------+---------+</span><br><span class="line">| Column Name   | Type    |</span><br><span class="line">+---------------+---------+</span><br><span class="line">| order_id      | int     |</span><br><span class="line">| customer_id   | int     |</span><br><span class="line">| product_name  | varchar |</span><br><span class="line">+---------------+---------+</span><br><span class="line">order_id 是这张表的主键。</span><br><span class="line">customer_id 是购买了名为 &quot;product_name&quot; 产品顾客的id。</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">请你设计 SQL 查询来报告购买了产品 A 和产品 B 却没有购买产品 C 的顾客的 ID 和姓名（ customer_id 和 customer_name ），我们将基于此结果为他们推荐产品 C 。</span><br><span class="line">您返回的查询结果需要按照 customer_id 排序。</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">查询结果如下例所示。</span><br><span class="line"></span><br><span class="line">Customers table:</span><br><span class="line">+-------------+---------------+</span><br><span class="line">| customer_id | customer_name |</span><br><span class="line">+-------------+---------------+</span><br><span class="line">| 1           | Daniel        |</span><br><span class="line">| 2           | Diana         |</span><br><span class="line">| 3           | Elizabeth     |</span><br><span class="line">| 4           | Jhon          |</span><br><span class="line">+-------------+---------------+</span><br><span class="line"></span><br><span class="line">Orders table:</span><br><span class="line">+------------+--------------+---------------+</span><br><span class="line">| order_id   | customer_id  | product_name  |</span><br><span class="line">+------------+--------------+---------------+</span><br><span class="line">| 10         |     1        |     A         |</span><br><span class="line">| 20         |     1        |     B         |</span><br><span class="line">| 30         |     1        |     D         |</span><br><span class="line">| 40         |     1        |     C         |</span><br><span class="line">| 50         |     2        |     A         |</span><br><span class="line">| 60         |     3        |     A         |</span><br><span class="line">| 70         |     3        |     B         |</span><br><span class="line">| 80         |     3        |     D         |</span><br><span class="line">| 90         |     4        |     C         |</span><br><span class="line">+------------+--------------+---------------+</span><br><span class="line"></span><br><span class="line">Result table:</span><br><span class="line">+-------------+---------------+</span><br><span class="line">| customer_id | customer_name |</span><br><span class="line">+-------------+---------------+</span><br><span class="line">| 3           | Elizabeth     |</span><br><span class="line">+-------------+---------------+</span><br><span class="line">只有 customer_id 为 3 的顾客购买了产品 A 和产品 B ，却没有购买产品 C 。</span><br><span class="line"></span><br><span class="line">来源：力扣（LeetCode）</span><br><span class="line">链接：https://leetcode-cn.com/problems/customers-who-bought-products-a-and-b-but-not-c</span><br><span class="line">著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
+
+<h1 id="错误写法"><a href="#错误写法" class="headerlink" title="错误写法"></a>错误写法</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    customer_id,</span><br><span class="line">    customer_name</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    Customers</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    customer_id <span class="keyword">in</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            <span class="keyword">distinct</span> customer_id</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            Orders</span><br><span class="line">        <span class="keyword">where</span></span><br><span class="line">            product_name <span class="operator">=</span> <span class="string">&#x27;A&#x27;</span> <span class="keyword">and</span> product_name <span class="operator">=</span> <span class="string">&#x27;B&#x27;</span> <span class="keyword">and</span> (product_name <span class="operator">!=</span> <span class="string">&#x27;C&#x27;</span>)</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>把所有的过滤条件全部写在一个where里面没效果，因为where是对所有的行挨个遍历，相当于在写<code>for</code>循环体中进行过滤。<br>上述的写法相当于某一行的名字既等于A，又等于B，同时不等于C</p>
+</blockquote>
+<p>而这个题的逻辑应该是</p>
+<blockquote>
+<p>对customer_id进行聚合操作 -&gt; 找到既包含A，又包含B的，却没有C的</p>
+</blockquote>
+<h1 id="正确写法"><a href="#正确写法" class="headerlink" title="正确写法"></a>正确写法</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    customer_id,</span><br><span class="line">    customer_name</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    Customers</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    customer_id <span class="keyword">in</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            customer_id</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            orders</span><br><span class="line">        <span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">            customer_id</span><br><span class="line">        <span class="keyword">having</span></span><br><span class="line">            <span class="built_in">sum</span>(product_name <span class="operator">=</span> <span class="string">&#x27;A&#x27;</span>) <span class="operator">&gt;=</span> <span class="number">1</span> <span class="keyword">and</span></span><br><span class="line">            <span class="built_in">sum</span>(product_name <span class="operator">=</span> <span class="string">&#x27;B&#x27;</span>) <span class="operator">&gt;=</span> <span class="number">1</span> <span class="keyword">and</span></span><br><span class="line">            <span class="built_in">sum</span>(product_name <span class="operator">=</span> <span class="string">&#x27;C&#x27;</span>) <span class="operator">=</span> <span class="number">0</span></span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/24/leetcode/1398/" data-id="cl85d5h39001xi99o7s1180ek" data-title="1398. 购买了产品 A 和产品 B 却没有购买产品 C 的顾客" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-mianshi/shanghaibank" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/09/23/mianshi/shanghaibank/" class="article-date">
+  <time class="dt-published" datetime="2021-09-23T13:25:02.000Z" itemprop="datePublished">2021-09-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/09/23/mianshi/shanghaibank/">上海银行</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h1><ul>
+<li>SQL题</li>
+<li>K-means介绍，如何确定K的值</li>
+<li>金山实习中样本不均衡的处理方式</li>
+</ul>
+<blockquote>
+<p>SQL题答得太差了！！！想得太多了！</p>
+</blockquote>
+<blockquote>
+<p>在刷SQL题的时候还是要注意的是`多看别人写的最优答案</p>
+</blockquote>
+<h1 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h1><ul>
+<li><p>如何提高银行APP的日活</p>
+</li>
+<li><p>你认为数据分析应该具备什么样的能力，你具备什么样的能力，你现在还欠缺什么能力</p>
+<ul>
+<li>我回答的是业务的理解能力</li>
+<li>技术能力<blockquote>
+<p>现在回想起来应该补充的是:<code>学习能力</code>、<code>沟通协调能力</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>感觉有点快，很一般
+ </p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/23/mianshi/shanghaibank/" data-id="cl85d5h3t003ci99oc9zfem0u" data-title="上海银行" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A7%8B%E6%8B%9B/" rel="tag">秋招</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other/windrose" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/09/20/other/windrose/" class="article-date">
+  <time class="dt-published" datetime="2021-09-20T14:33:52.000Z" itemprop="datePublished">2021-09-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/09/20/other/windrose/">matplotlib画风向玫瑰图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/5fe35f953174">https://www.jianshu.com/p/5fe35f953174</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.yisu.com/zixun/445953.html">https://www.yisu.com/zixun/445953.html</a></li>
+<li></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/20/other/windrose/" data-id="cl85d5h5k008ai99o0ka87ihl" data-title="matplotlib画风向玫瑰图" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-mianshi/jiaohang" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/09/17/mianshi/jiaohang/" class="article-date">
+  <time class="dt-published" datetime="2021-09-17T07:05:17.000Z" itemprop="datePublished">2021-09-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/09/17/mianshi/jiaohang/">交行</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="视频一面"><a href="#视频一面" class="headerlink" title="视频一面"></a>视频一面</h1><ul>
+<li>介绍在银联的实习中主要用到了什么数据分析方法，有交行的什么事情</li>
+<li>金山实习介绍</li>
+<li>分类算法、聚类算法的介绍与应用场景</li>
+<li>SQL优化<ul>
+<li>Hive的优化</li>
+<li>mysql的优化</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>挂掉了</p>
+</blockquote>
+<p><code>11.5</code>调剂到了数据中心<code>IT系统管理岗位</code>。</p>
+<h1 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h1><ul>
+<li>数据中心的职能</li>
+<li>学过哪一些计算机的课程</li>
+<li>自己如果进来的话还需要学习哪一些知识</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/17/mianshi/jiaohang/" data-id="cl85d5h3p0032i99o9jis05j2" data-title="交行" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-sql/window_function" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/09/15/sql/window_function/" class="article-date">
+  <time class="dt-published" datetime="2021-09-15T06:57:15.000Z" itemprop="datePublished">2021-09-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/SQL/">SQL</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/09/15/sql/window_function/">窗口函数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="窗口函数是什么"><a href="#窗口函数是什么" class="headerlink" title="窗口函数是什么"></a>窗口函数是什么</h1><h1 id="窗口函数的一般形式"><a href="#窗口函数的一般形式" class="headerlink" title="窗口函数的一般形式"></a>窗口函数的一般形式</h1><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">window_function_name (expression)</span><br><span class="line">over(</span><br><span class="line">	[partition_definition]</span><br><span class="line">	[order_definition]</span><br><span class="line">	[frame_definition]</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>之前只是复习到了<code>partition by</code>、<code>order by</code>，但是并没有学到<code>frame_definition</code>，而在<code>leetcode 1321题</code>中则是典型的滑动窗口的使用案例。</p>
+</blockquote>
+<h1 id="窗口函数中的滑动窗口"><a href="#窗口函数中的滑动窗口" class="headerlink" title="窗口函数中的滑动窗口"></a>窗口函数中的滑动窗口</h1><p>滑动窗口有两大类别，分别是基于<code>行</code>的与基于<code>范围</code>的。</p>
+<h2 id="基于行的滑动窗口"><a href="#基于行的滑动窗口" class="headerlink" title="基于行的滑动窗口"></a>基于行的滑动窗口</h2><p>基于<code>行</code>的滑动窗口包括的语法形式为:</p>
+<blockquote>
+<p>rows between frame_start and frame_end</p>
+</blockquote>
+<p><code>frame_start</code>和<code>frame_end</code>可以支持如下关键字，来确定不同的动态行记录：</p>
+<ul>
+<li>current row 边界是当前行，一般和其他范围关键字一起使用</li>
+<li>unbounded preceding 边界是分区的第一行</li>
+<li>unbounded following 边界是分区的最后一行</li>
+<li>expr preceding 边界是当前行减去expr行</li>
+<li>expr following 边界是当前行加上expr行</li>
+</ul>
+<p>比如:</p>
+<ul>
+<li>rows between 1 preceding and 1 following: 窗口的范围就是3行，即：当前行、上一行、后一行</li>
+<li>rows between unbounded preceding and unbounded following: 全部分区</li>
+</ul>
+<h2 id="基于范围的滑动窗口"><a href="#基于范围的滑动窗口" class="headerlink" title="基于范围的滑动窗口"></a>基于范围的滑动窗口</h2><p>不是以行数来衡量，比如希望窗口范围是一周前的订单开始，截止到当前行。此时可以使用<code>range</code>来完成。比如</p>
+<blockquote>
+<p><code>range between 10 preceding and 5 following</code>表示值在[n-10,n+5]范围内的所有值</p>
+</blockquote>
+<p>需要注意的有:</p>
+<blockquote>
+<p>mysql8.0中目前不支持<code>following</code>相关的操作</p>
+</blockquote>
+<blockquote>
+<p>窗口函数中使用<code>range</code>，则<code>order</code>中需要指定的列的类型为<code>数字</code>或者<code>时间差</code></p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20201121171300979.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjMzODY3Ng==,size_16,color_FFFFFF,t_70#pic_center"></p>
+<blockquote>
+<p>range中order的为<code>datetime</code>类型，那么需要加<code>interval</code></p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20201121172449842.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjMzODY3Ng==,size_16,color_FFFFFF,t_70#pic_center"></p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li>mysql窗口函数中的滑动窗口. <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_46338676/article/details/109899748">https://blog.csdn.net/weixin_46338676/article/details/109899748</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/15/sql/window_function/" data-id="cl85d5h62009wi99ohg3x1j54" data-title="窗口函数" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-leetcode/1321" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/09/15/leetcode/1321/" class="article-date">
+  <time class="dt-published" datetime="2021-09-15T06:51:33.000Z" itemprop="datePublished">2021-09-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/leetcode/">leetcode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/09/15/leetcode/1321/">餐馆营业额变化增长</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">表: Customer</span><br><span class="line"></span><br><span class="line">+---------------+---------+</span><br><span class="line">| Column Name   | Type    |</span><br><span class="line">+---------------+---------+</span><br><span class="line">| customer_id   | int     |</span><br><span class="line">| name          | varchar |</span><br><span class="line">| visited_on    | date    |</span><br><span class="line">| amount        | int     |</span><br><span class="line">+---------------+---------+</span><br><span class="line">(customer_id, visited_on) 是该表的主键</span><br><span class="line">该表包含一家餐馆的顾客交易数据</span><br><span class="line">visited_on 表示 (customer_id) 的顾客在 visited_on 那天访问了餐馆</span><br><span class="line">amount 是一个顾客某一天的消费总额</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">你是餐馆的老板，现在你想分析一下可能的营业额变化增长（每天至少有一位顾客）</span><br><span class="line"></span><br><span class="line">写一条 SQL 查询计算以 7 天（某日期 + 该日期前的 6 天）为一个时间段的顾客消费平均值</span><br><span class="line"></span><br><span class="line">查询结果格式的例子如下：</span><br><span class="line"></span><br><span class="line">查询结果按 visited_on 排序</span><br><span class="line">average_amount 要 保留两位小数，日期数据的格式为 (&#x27;YYYY-MM-DD&#x27;)</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Customer 表:</span><br><span class="line">+-------------+--------------+--------------+-------------+</span><br><span class="line">| customer_id | name         | visited_on   | amount      |</span><br><span class="line">+-------------+--------------+--------------+-------------+</span><br><span class="line">| 1           | Jhon         | 2019-01-01   | 100         |</span><br><span class="line">| 2           | Daniel       | 2019-01-02   | 110         |</span><br><span class="line">| 3           | Jade         | 2019-01-03   | 120         |</span><br><span class="line">| 4           | Khaled       | 2019-01-04   | 130         |</span><br><span class="line">| 5           | Winston      | 2019-01-05   | 110         | </span><br><span class="line">| 6           | Elvis        | 2019-01-06   | 140         | </span><br><span class="line">| 7           | Anna         | 2019-01-07   | 150         |</span><br><span class="line">| 8           | Maria        | 2019-01-08   | 80          |</span><br><span class="line">| 9           | Jaze         | 2019-01-09   | 110         | </span><br><span class="line">| 1           | Jhon         | 2019-01-10   | 130         | </span><br><span class="line">| 3           | Jade         | 2019-01-10   | 150         | </span><br><span class="line">+-------------+--------------+--------------+-------------+</span><br><span class="line"></span><br><span class="line">结果表:</span><br><span class="line">+--------------+--------------+----------------+</span><br><span class="line">| visited_on   | amount       | average_amount |</span><br><span class="line">+--------------+--------------+----------------+</span><br><span class="line">| 2019-01-07   | 860          | 122.86         |</span><br><span class="line">| 2019-01-08   | 840          | 120            |</span><br><span class="line">| 2019-01-09   | 840          | 120            |</span><br><span class="line">| 2019-01-10   | 1000         | 142.86         |</span><br><span class="line">+--------------+--------------+----------------+</span><br><span class="line"></span><br><span class="line">第一个七天消费平均值从 2019-01-01 到 2019-01-07 是 (100 + 110 + 120 + 130 + 110 + 140 + 150)/7 = 122.86</span><br><span class="line">第二个七天消费平均值从 2019-01-02 到 2019-01-08 是 (110 + 120 + 130 + 110 + 140 + 150 + 80)/7 = 120</span><br><span class="line">第三个七天消费平均值从 2019-01-03 到 2019-01-09 是 (120 + 130 + 110 + 140 + 150 + 80 + 110)/7 = 120</span><br><span class="line">第四个七天消费平均值从 2019-01-04 到 2019-01-10 是 (130 + 110 + 140 + 150 + 80 + 110 + 130 + 150)/7 = 142.86</span><br><span class="line"></span><br><span class="line">来源：力扣（LeetCode）</span><br><span class="line">链接：https://leetcode-cn.com/problems/restaurant-growth</span><br><span class="line">著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
+<h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h1><h2 id="窗口函数"><a href="#窗口函数" class="headerlink" title="窗口函数"></a>窗口函数</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="keyword">distinct</span> visited_on,</span><br><span class="line">    sum_amount <span class="keyword">as</span> amount, </span><br><span class="line">    round(average_amount,<span class="number">2</span>) <span class="keyword">as</span> average_amount </span><br><span class="line"><span class="keyword">from</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        visited_on,</span><br><span class="line">        <span class="built_in">avg</span>(amount) <span class="keyword">over</span>(<span class="keyword">order</span> <span class="keyword">by</span> visited_on <span class="keyword">rows</span> <span class="number">6</span> preceding) <span class="keyword">as</span> average_amount,</span><br><span class="line">        <span class="built_in">sum</span>(amount) <span class="keyword">over</span> (<span class="keyword">order</span> <span class="keyword">by</span> visited_on <span class="keyword">rows</span> <span class="number">6</span> preceding) <span class="keyword">as</span> sum_amount <span class="comment">-- 累计计算前6行，边界是当前行减去expr的值 最多计算6行</span></span><br><span class="line">    <span class="keyword">from</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            visited_on,</span><br><span class="line">            <span class="built_in">sum</span>(amount) <span class="keyword">as</span> amount</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            Customer</span><br><span class="line">        <span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line">            visited_on</span><br><span class="line">        <span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">            visited_on</span><br><span class="line">    ) <span class="keyword">as</span> a</span><br><span class="line">) <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    datediff(visited_on, (<span class="keyword">select</span> <span class="built_in">min</span>(visited_on) <span class="keyword">from</span> Customer)) <span class="operator">&gt;=</span> <span class="number">6</span> <span class="comment">-- 找到最近的日期</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>核心代码块为<code>sum(amount) over (order by visited_on rows 6 preceding)</code>,其中的<code>rows 6 preceding</code>代表的是累计求和的是前6行</p>
+</blockquote>
+<h2 id="join"><a href="#join" class="headerlink" title="join"></a>join</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/15/leetcode/1321/" data-id="cl85d5h38001si99o1aiadb7k" data-title="餐馆营业额变化增长" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-shujujiegou/paixu" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/09/15/shujujiegou/paixu/" class="article-date">
+  <time class="dt-published" datetime="2021-09-14T17:21:39.000Z" itemprop="datePublished">2021-09-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/09/15/shujujiegou/paixu/">排序算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble_sort</span>(<span class="params">arr</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    从小到大排序</span></span><br><span class="line"><span class="string">    https://www.cnblogs.com/qlshine/p/6017957.html</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    l = <span class="built_in">len</span>(arr)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(l):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i, l): <span class="comment"># 从小到大排序，每一轮最小的已经排到i的位置了</span></span><br><span class="line">            <span class="keyword">if</span> arr[j] &lt; arr[i]:</span><br><span class="line">                temp = arr[i]</span><br><span class="line">                arr[i] = arr[j]</span><br><span class="line">                arr[j] = temp</span><br><span class="line">    <span class="keyword">return</span> arr</span><br></pre></td></tr></table></figure>
+
+<h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><p>采用<code>分治策略</code>将一个序列切分成较小和较大的两个子序列，然后<code>递归</code>地排序两个子序列。<br>步骤：</p>
+<ul>
+<li>挑选基准值：从数列中挑出一个元素，称为”基准”（pivot）;</li>
+<li>分割：重新排序数列，所有比基准值小的元素摆放在基准前面，所有比基准值大的元素摆在基准后面（与基准值相等的数可以到任何一边）</li>
+<li>递归排序子序列：递归地将小于基准值元素的子序列和大于基准值元素的子序列排序。</li>
+</ul>
+<blockquote>
+<p>递归到最底部的判断条件是<code>数列的大小是零或一</code>，此时该数列显然已经有序。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/15/shujujiegou/paixu/" data-id="cl85d5h4g0058i99o55or3bqo" data-title="排序算法" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-leetcode/1270" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/09/14/leetcode/1270/" class="article-date">
+  <time class="dt-published" datetime="2021-09-14T08:23:09.000Z" itemprop="datePublished">2021-09-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/leetcode/">leetcode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/09/14/leetcode/1270/">向公司CEO汇报工作的所有人</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">员工表：Employees</span><br><span class="line"></span><br><span class="line">+---------------+---------+</span><br><span class="line">| Column Name   | Type    |</span><br><span class="line">+---------------+---------+</span><br><span class="line">| employee_id   | int     |</span><br><span class="line">| employee_name | varchar |</span><br><span class="line">| manager_id    | int     |</span><br><span class="line">+---------------+---------+</span><br><span class="line">employee_id 是这个表的主键。</span><br><span class="line">这个表中每一行中，employee_id 表示职工的 ID，employee_name 表示职工的名字，manager_id 表示该职工汇报工作的直线经理。</span><br><span class="line">这个公司 CEO 是 employee_id = 1 的人。</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">用 SQL 查询出所有直接或间接向公司 CEO 汇报工作的职工的 employee_id 。</span><br><span class="line"></span><br><span class="line">由于公司规模较小，经理之间的间接关系不超过 3 个经理。</span><br><span class="line"></span><br><span class="line">可以以任何顺序返回无重复项的结果。</span><br><span class="line"></span><br><span class="line">查询结果示例如下：</span><br><span class="line"></span><br><span class="line">Employees table:</span><br><span class="line">+-------------+---------------+------------+</span><br><span class="line">| employee_id | employee_name | manager_id |</span><br><span class="line">+-------------+---------------+------------+</span><br><span class="line">| 1           | Boss          | 1          |</span><br><span class="line">| 3           | Alice         | 3          |</span><br><span class="line">| 2           | Bob           | 1          |</span><br><span class="line">| 4           | Daniel        | 2          |</span><br><span class="line">| 7           | Luis          | 4          |</span><br><span class="line">| 8           | Jhon          | 3          |</span><br><span class="line">| 9           | Angela        | 8          |</span><br><span class="line">| 77          | Robert        | 1          |</span><br><span class="line">+-------------+---------------+------------+</span><br><span class="line"></span><br><span class="line">Result table:</span><br><span class="line">+-------------+</span><br><span class="line">| employee_id |</span><br><span class="line">+-------------+</span><br><span class="line">| 2           |</span><br><span class="line">| 77          |</span><br><span class="line">| 4           |</span><br><span class="line">| 7           |</span><br><span class="line">+-------------+</span><br><span class="line"></span><br><span class="line">公司 CEO 的 employee_id 是 1.</span><br><span class="line">employee_id 是 2 和 77 的职员直接汇报给公司 CEO。</span><br><span class="line">employee_id 是 4 的职员间接汇报给公司 CEO 4 --&gt; 2 --&gt; 1 。</span><br><span class="line">employee_id 是 7 的职员间接汇报给公司 CEO 7 --&gt; 4 --&gt; 2 --&gt; 1 。</span><br><span class="line">employee_id 是 3, 8 ，9 的职员不会直接或间接的汇报给公司 CEO。 </span><br><span class="line"></span><br><span class="line">来源：力扣（LeetCode）</span><br><span class="line">链接：https://leetcode-cn.com/problems/all-people-report-to-the-given-manager</span><br><span class="line">著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
+
+<h1 id="自己的解答"><a href="#自己的解答" class="headerlink" title="自己的解答"></a>自己的解答</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> base <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        a.<span class="operator">*</span>,</span><br><span class="line">        d.manager_id <span class="keyword">as</span> third_level_manager_id</span><br><span class="line">    <span class="keyword">from</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            a.<span class="operator">*</span>,</span><br><span class="line">            c.manager_id <span class="keyword">as</span> second_level_manager_id</span><br><span class="line">        <span class="keyword">from</span> (</span><br><span class="line">            <span class="keyword">select</span></span><br><span class="line">                a.<span class="operator">*</span>,</span><br><span class="line">                b.manager_id <span class="keyword">as</span> first_level_manager_id</span><br><span class="line">            <span class="keyword">from</span></span><br><span class="line">                Employees <span class="keyword">as</span> a</span><br><span class="line">            <span class="keyword">left</span> <span class="keyword">join</span></span><br><span class="line">                Employees <span class="keyword">as</span> b</span><br><span class="line">            <span class="keyword">on</span></span><br><span class="line">                a.manager_id <span class="operator">=</span> b.employee_id</span><br><span class="line">        ) <span class="keyword">as</span> a</span><br><span class="line">        <span class="keyword">left</span> <span class="keyword">join</span></span><br><span class="line">            Employees <span class="keyword">as</span> c</span><br><span class="line">        <span class="keyword">on</span></span><br><span class="line">            a.first_level_manager_id <span class="operator">=</span> c.employee_id</span><br><span class="line">    ) <span class="keyword">as</span> a</span><br><span class="line">    <span class="keyword">left</span> <span class="keyword">join</span></span><br><span class="line">        Employees <span class="keyword">as</span> d</span><br><span class="line">    <span class="keyword">on</span></span><br><span class="line">        a.second_level_manager_id <span class="operator">=</span> d.employee_id</span><br><span class="line">    <span class="keyword">where</span></span><br><span class="line">        a.employee_id <span class="operator">!=</span> <span class="number">1</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    employee_id</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    base</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    manager_id <span class="operator">=</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">union</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    employee_id</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    base</span><br><span class="line"><span class="keyword">where</span>   </span><br><span class="line">    first_level_manager_id <span class="operator">=</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">union</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    employee_id</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    base</span><br><span class="line"><span class="keyword">where</span>   </span><br><span class="line">    second_level_manager_id <span class="operator">=</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">union</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    employee_id</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    base</span><br><span class="line"><span class="keyword">where</span>   </span><br><span class="line">    third_level_manager_id <span class="operator">=</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br><span class="line">    employee_id</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>层层<code>left join</code>来做非常麻烦，直接每一个表依次Left Join</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="keyword">distinct</span> employee_id</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    Employees <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span></span><br><span class="line">    Employees <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span></span><br><span class="line">    a.manager_id <span class="operator">=</span> b.employee_id</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span>   </span><br><span class="line">    Employees <span class="keyword">as</span> c</span><br><span class="line"><span class="keyword">on</span></span><br><span class="line">    b.manager_id <span class="operator">=</span> c.employee_id</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span></span><br><span class="line">    Employees <span class="keyword">as</span> d</span><br><span class="line"><span class="keyword">on</span></span><br><span class="line">    c.manager_id <span class="operator">=</span> d.employee_id</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    a.employee_id <span class="operator">!=</span> <span class="number">1</span> <span class="keyword">and</span> <span class="comment">-- 不是老总</span></span><br><span class="line">    d.manager_id <span class="operator">=</span> <span class="number">1</span> <span class="comment">-- 最后的汇报人</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>使用SQL的<code>递归查询</code>也可以完成</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="keyword">distinct</span> a.employee_id</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    Employees a</span><br><span class="line"><span class="keyword">WHERE</span> </span><br><span class="line">    a.employee_id<span class="operator">&lt;&gt;</span><span class="number">1</span></span><br><span class="line"><span class="keyword">start</span> <span class="keyword">with</span> </span><br><span class="line">    a.manager_id <span class="operator">=</span> <span class="number">1</span> </span><br><span class="line"><span class="keyword">CONNECT</span> <span class="keyword">BY</span> NOCYCLE </span><br><span class="line">PRIOR a.employee_id <span class="operator">=</span> a.manager_id</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/14/leetcode/1270/" data-id="cl85d5h3a001zi99o635h7m2m" data-title="向公司CEO汇报工作的所有人" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/5/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/7/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">-CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Leetcode/">Leetcode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/django/">django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/sql/">sql</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1/">业务</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1%E6%8C%87%E6%A0%87/">业务指标</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/">中信证券</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/Django/">Django</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Flume/">Flume</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E9%9B%86/">数据集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/">毕业论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/">毕业设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/">秋招</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/%E9%9D%A2%E8%AF%95/">面试</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AF%95/">笔试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BA%E6%96%87/">论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/">银联实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">-leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flume/" rel="tag">Flume</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hbase/" rel="tag">Hbase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%9A%E5%8A%A1/" rel="tag">业务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" rel="tag">中信证券</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" rel="tag">时间序列预测</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" rel="tag">毕业论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" rel="tag">毕业设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%8B%E6%8B%9B/" rel="tag">秋招</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" rel="tag">金山实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" rel="tag">银联实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/leetcode/" style="font-size: 10px;">-leetcode</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Django/" style="font-size: 13.33px;">Django</a> <a href="/tags/Flume/" style="font-size: 10px;">Flume</a> <a href="/tags/Hbase/" style="font-size: 10px;">Hbase</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/SQL/" style="font-size: 18.89px;">SQL</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/leetcode/" style="font-size: 15.56px;">leetcode</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/%E4%B8%9A%E5%8A%A1/" style="font-size: 13.33px;">业务</a> <a href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" style="font-size: 11.11px;">中信证券</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 20px;">其他</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 13.33px;">大数据</a> <a href="/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 16.67px;">实习</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 11.11px;">工作</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" style="font-size: 10px;">时间序列预测</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12.22px;">机器学习</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" style="font-size: 14.44px;">毕业论文</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">毕业设计</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 12.22px;">爬虫</a> <a href="/tags/%E7%A7%8B%E6%8B%9B/" style="font-size: 13.33px;">秋招</a> <a href="/tags/%E7%AC%94%E8%AF%95/" style="font-size: 12.22px;">笔试</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 12.22px;">统计学</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 11.11px;">论文</a> <a href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" style="font-size: 13.33px;">金山实习</a> <a href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" style="font-size: 10px;">银联实习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 17.78px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/14/other/time_series_pred/">时间序列预测</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/01/other/customer_analysis_in_python/">用户价值分析</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/15/other/PEP8/">PEP-8: Python代码规范</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/29/other/fanqie/">番茄工作法</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/20/citics/neo4j_query_optimize/">neo4j查询调优</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

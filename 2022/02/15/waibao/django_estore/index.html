@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Django电商系统通用数据表结构 | rwqccnuimd的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="引入基本的包123from django.contrib.auth.models import Userfrom django.db import modelsfrom ckeditor_uploader.fields import RichTextUploadingField  分类表1234567891011121314class Category(models.Model):    &amp;quo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django电商系统通用数据表结构">
+<meta property="og:url" content="http://example.com/2022/02/15/waibao/django_estore/index.html">
+<meta property="og:site_name" content="rwqccnuimd的博客">
+<meta property="og:description" content="引入基本的包123from django.contrib.auth.models import Userfrom django.db import modelsfrom ckeditor_uploader.fields import RichTextUploadingField  分类表1234567891011121314class Category(models.Model):    &amp;quo">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-02-14T16:05:00.000Z">
+<meta property="article:modified_time" content="2022-02-14T16:22:36.056Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="django">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="rwqccnuimd的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">rwqccnuimd的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-waibao/django_estore" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/02/15/waibao/django_estore/" class="article-date">
+  <time class="dt-published" datetime="2022-02-14T16:05:00.000Z" itemprop="datePublished">2022-02-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/django/">django</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Django电商系统通用数据表结构
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="引入基本的包"><a href="#引入基本的包" class="headerlink" title="引入基本的包"></a>引入基本的包</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth.models <span class="keyword">import</span> User</span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"><span class="keyword">from</span> ckeditor_uploader.fields <span class="keyword">import</span> RichTextUploadingField</span><br></pre></td></tr></table></figure>
+
+<h1 id="分类表"><a href="#分类表" class="headerlink" title="分类表"></a>分类表</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Category</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    分类表</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">25</span>, verbose_name=<span class="string">&#x27;分类名称&#x27;</span>)</span><br><span class="line">    create_at = models.DateTimeField(auto_now_add=<span class="literal">True</span>, verbose_name=<span class="string">&#x27;创建时间&#x27;</span>)  <span class="comment"># 创建时间 默认为当前时间</span></span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">&quot;商品分类管理&quot;</span>  <span class="comment"># 设置模型的别名</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line">        ordering = (<span class="string">&#x27;-create_at&#x27;</span>,)  <span class="comment"># 设置排序的字段</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span>  <span class="comment"># 定义在下拉列表中的显示的名字</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br></pre></td></tr></table></figure>
+
+<h1 id="商品表"><a href="#商品表" class="headerlink" title="商品表"></a>商品表</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Good</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    商品表</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">25</span>, verbose_name=<span class="string">&#x27;商品名&#x27;</span>)</span><br><span class="line">    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name=<span class="string">&#x27;分类&#x27;</span>, default=<span class="number">1</span>)</span><br><span class="line">    description = RichTextUploadingField(verbose_name=<span class="string">&#x27;商品描述&#x27;</span>)</span><br><span class="line">    img = models.ImageField(upload_to=<span class="string">&#x27;img&#x27;</span>, verbose_name=<span class="string">&#x27;商品图片&#x27;</span>)</span><br><span class="line">    amount = models.IntegerField(verbose_name=<span class="string">&#x27;库存量&#x27;</span>, default=<span class="number">1</span>)</span><br><span class="line">    price = models.FloatField(verbose_name=<span class="string">&#x27;价格&#x27;</span>)</span><br><span class="line">    STATUS_CHOICES = (</span><br><span class="line">        (<span class="string">&#x27;正常&#x27;</span>, <span class="string">&#x27;正常&#x27;</span>),</span><br><span class="line">        (<span class="string">&#x27;已下架&#x27;</span>, <span class="string">&#x27;已下架&#x27;</span>)</span><br><span class="line">    )</span><br><span class="line">    status = models.CharField(verbose_name=<span class="string">&#x27;状态&#x27;</span>, default=<span class="string">&#x27;正常&#x27;</span>, choices=STATUS_CHOICES, max_length=<span class="number">32</span>)</span><br><span class="line">    create_at = models.DateTimeField(auto_now_add=<span class="literal">True</span>, verbose_name=<span class="string">&#x27;创建时间&#x27;</span>)  <span class="comment"># 创建时间 默认为当前时间</span></span><br><span class="line">    add_user = models.ForeignKey(User, verbose_name=<span class="string">&#x27;卖家&#x27;</span>, on_delete=models.CASCADE) <span class="comment"># 多卖家的时候有这个字段</span></span><br><span class="line">    </span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">remain</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.amount - self.has_sell</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">has_sell</span>(<span class="params">self</span>):</span></span><br><span class="line">        sum_ = self.order_set.aggregate(<span class="built_in">sum</span>=Sum(<span class="string">&#x27;amount&#x27;</span>))[<span class="string">&#x27;sum&#x27;</span>]</span><br><span class="line">        <span class="keyword">if</span> sum_ <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> sum_</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">&quot;商品管理&quot;</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line">        ordering = (<span class="string">&#x27;-create_at&#x27;</span>,)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br></pre></td></tr></table></figure>
+
+<h1 id="购物车表"><a href="#购物车表" class="headerlink" title="购物车表"></a>购物车表</h1><blockquote>
+<p>一个购物车里面只有一种商品</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cart</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    购物车</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=<span class="string">&#x27;用户&#x27;</span>)</span><br><span class="line">    good = models.ForeignKey(Good, on_delete=models.CASCADE, verbose_name=<span class="string">&#x27;商品&#x27;</span>)</span><br><span class="line">    amount = models.IntegerField(verbose_name=<span class="string">&#x27;数量&#x27;</span>, default=<span class="number">1</span>)</span><br><span class="line">    create_at = models.DateTimeField(auto_now_add=<span class="literal">True</span>, verbose_name=<span class="string">&#x27;创建时间&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">total_price</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.good.price * self.amount</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">&quot;购物车管理&quot;</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line">        ordering = (<span class="string">&#x27;-create_at&#x27;</span>,)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.user.username</span><br></pre></td></tr></table></figure>
+
+<h1 id="收货地址表"><a href="#收货地址表" class="headerlink" title="收货地址表"></a>收货地址表</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Address</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    收货地址</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=<span class="string">&#x27;用户&#x27;</span>)</span><br><span class="line">    province = models.CharField(verbose_name=<span class="string">&#x27;省份&#x27;</span>, max_length=<span class="number">255</span>)</span><br><span class="line">    city = models.CharField(verbose_name=<span class="string">&#x27;市&#x27;</span>, max_length=<span class="number">255</span>)</span><br><span class="line">    area = models.CharField(verbose_name=<span class="string">&#x27;区&#x27;</span>, max_length=<span class="number">255</span>)</span><br><span class="line">    address = models.CharField(verbose_name=<span class="string">&#x27;详细地址&#x27;</span>, max_length=<span class="number">255</span>)</span><br><span class="line">    contact_user = models.CharField(verbose_name=<span class="string">&#x27;收货人&#x27;</span>, max_length=<span class="number">255</span>)</span><br><span class="line">    phone = models.CharField(verbose_name=<span class="string">&#x27;手机号&#x27;</span>, max_length=<span class="number">12</span>)</span><br><span class="line">    create_at = models.DateTimeField(auto_now_add=<span class="literal">True</span>, verbose_name=<span class="string">&#x27;创建时间&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">&quot;收货地址管理&quot;</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line">        ordering = (<span class="string">&#x27;-create_at&#x27;</span>,)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">            &#123;&#125;-&#123;&#125;-&#123;&#125;-&#123;&#125;-&#123;&#125;-&#123;&#125;</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span>.<span class="built_in">format</span>(self.province, self.city, self.area, self.address, self.contact_user, self.phone)</span><br></pre></td></tr></table></figure>
+
+<h1 id="订单表"><a href="#订单表" class="headerlink" title="订单表"></a>订单表</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Order</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    订单表</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=<span class="string">&#x27;用户&#x27;</span>)</span><br><span class="line">    good = models.ForeignKey(Good, on_delete=models.CASCADE, verbose_name=<span class="string">&#x27;商品&#x27;</span>)</span><br><span class="line">    amount = models.IntegerField(default=<span class="string">&#x27;1&#x27;</span>, verbose_name=<span class="string">&#x27;数量&#x27;</span>)</span><br><span class="line">    total_price = models.FloatField(default=<span class="string">&#x27;0&#x27;</span>, verbose_name=<span class="string">&#x27;总价&#x27;</span>)</span><br><span class="line">    address = models.ForeignKey(Address, on_delete=models.CASCADE, verbose_name=<span class="string">&#x27;收货地址&#x27;</span>)</span><br><span class="line">    create_at = models.DateTimeField(auto_now_add=<span class="literal">True</span>, verbose_name=<span class="string">&#x27;创建时间&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">save</span>(<span class="params">self, force_insert=<span class="literal">False</span>, force_update=<span class="literal">False</span>, using=<span class="literal">None</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">             update_fields=<span class="literal">None</span></span>):</span></span><br><span class="line">        self.total_price = self.amount * self.good.price</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">super</span>().save(force_insert=force_insert, force_update=force_update, using=using,</span><br><span class="line">                            update_fields=update_fields)</span><br><span class="line"></span><br><span class="line">    STATUS_CHOICES = (</span><br><span class="line">        (<span class="string">&#x27;已下单&#x27;</span>, <span class="string">&#x27;已下单&#x27;</span>),</span><br><span class="line">        (<span class="string">&#x27;已发货&#x27;</span>, <span class="string">&#x27;已发货&#x27;</span>),</span><br><span class="line">        (<span class="string">&#x27;已收货&#x27;</span>, <span class="string">&#x27;已收货&#x27;</span>),</span><br><span class="line">        (<span class="string">&#x27;已申请退货&#x27;</span>, <span class="string">&#x27;已申请退货&#x27;</span>),</span><br><span class="line">        (<span class="string">&#x27;已退货&#x27;</span>, <span class="string">&#x27;已退货&#x27;</span>),</span><br><span class="line">    )</span><br><span class="line">    status = models.CharField(verbose_name=<span class="string">&#x27;订单状态&#x27;</span>, max_length=<span class="number">32</span>, choices=STATUS_CHOICES, default=<span class="string">&#x27;已下单&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    DELATE_CHOICES = (</span><br><span class="line">        (<span class="string">&#x27;正常&#x27;</span>, <span class="string">&#x27;正常&#x27;</span>),</span><br><span class="line">        (<span class="string">&#x27;已删除&#x27;</span>, <span class="string">&#x27;已删除&#x27;</span>),</span><br><span class="line">    )</span><br><span class="line">    is_delete = models.CharField(verbose_name=<span class="string">&#x27;是否删除&#x27;</span>, max_length=<span class="number">32</span>, choices=DELATE_CHOICES, default=<span class="string">&#x27;正常&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">delete_order</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.is_delete = <span class="string">&#x27;已删除&#x27;</span></span><br><span class="line">        self.save()</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tuihuo</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        退货</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        self.status = <span class="string">&#x27;已申请退货&#x27;</span></span><br><span class="line">        self.save()</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">shuohuo</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.status = <span class="string">&#x27;已收货&#x27;</span></span><br><span class="line">        self.save()</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">&quot;订单管理&quot;</span>  <span class="comment"># 设置模型的别名</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line">        ordering = (<span class="string">&#x27;-create_at&#x27;</span>,)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">str</span>(self.user) + <span class="string">&#x27;-&#x27;</span> + <span class="built_in">str</span>(self.good) + <span class="string">&#x27;-&#x27;</span> + <span class="built_in">str</span>(self.amount)</span><br></pre></td></tr></table></figure>
+
+<h1 id="评论表"><a href="#评论表" class="headerlink" title="评论表"></a>评论表</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Comment</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    评论表</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    order = models.ForeignKey(Order, verbose_name=<span class="string">&#x27;订单&#x27;</span>, on_delete=models.CASCADE)</span><br><span class="line">    score = models.IntegerField(verbose_name=<span class="string">&#x27;评分&#x27;</span>, default=<span class="number">1</span>)</span><br><span class="line">    content = models.TextField(verbose_name=<span class="string">&#x27;评论内容&#x27;</span>)</span><br><span class="line">    create_at = models.DateTimeField(auto_now_add=<span class="literal">True</span>, verbose_name=<span class="string">&#x27;创建时间&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">&quot;评论管理&quot;</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line">        ordering = (<span class="string">&#x27;-create_at&#x27;</span>,)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">str</span>(self.order)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/02/15/waibao/django_estore/" data-id="cl85d5h6700aei99o9k6m7c25" data-title="Django电商系统通用数据表结构" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/" rel="tag">django</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/02/21/biyelunwen/5_data_import2neo4j/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          导入数据到neo4j
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/02/10/biyelunwen/4_event_schema/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">金融风险事件表示框架</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">-CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Leetcode/">Leetcode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/django/">django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/sql/">sql</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1/">业务</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1%E6%8C%87%E6%A0%87/">业务指标</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/">中信证券</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/Django/">Django</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Flume/">Flume</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E9%9B%86/">数据集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/">毕业论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/">毕业设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/">秋招</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/%E9%9D%A2%E8%AF%95/">面试</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AF%95/">笔试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BA%E6%96%87/">论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/">银联实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">-leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flume/" rel="tag">Flume</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hbase/" rel="tag">Hbase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%9A%E5%8A%A1/" rel="tag">业务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" rel="tag">中信证券</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" rel="tag">时间序列预测</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" rel="tag">毕业论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" rel="tag">毕业设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%8B%E6%8B%9B/" rel="tag">秋招</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" rel="tag">金山实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" rel="tag">银联实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/leetcode/" style="font-size: 10px;">-leetcode</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Django/" style="font-size: 13.33px;">Django</a> <a href="/tags/Flume/" style="font-size: 10px;">Flume</a> <a href="/tags/Hbase/" style="font-size: 10px;">Hbase</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/SQL/" style="font-size: 18.89px;">SQL</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/leetcode/" style="font-size: 15.56px;">leetcode</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/%E4%B8%9A%E5%8A%A1/" style="font-size: 13.33px;">业务</a> <a href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" style="font-size: 11.11px;">中信证券</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 20px;">其他</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 13.33px;">大数据</a> <a href="/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 16.67px;">实习</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 11.11px;">工作</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" style="font-size: 10px;">时间序列预测</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12.22px;">机器学习</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" style="font-size: 14.44px;">毕业论文</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">毕业设计</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 12.22px;">爬虫</a> <a href="/tags/%E7%A7%8B%E6%8B%9B/" style="font-size: 13.33px;">秋招</a> <a href="/tags/%E7%AC%94%E8%AF%95/" style="font-size: 12.22px;">笔试</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 12.22px;">统计学</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 11.11px;">论文</a> <a href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" style="font-size: 13.33px;">金山实习</a> <a href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" style="font-size: 10px;">银联实习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 17.78px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/14/other/time_series_pred/">时间序列预测</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/01/other/customer_analysis_in_python/">用户价值分析</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/15/other/PEP8/">PEP-8: Python代码规范</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/29/other/fanqie/">番茄工作法</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/20/citics/neo4j_query_optimize/">neo4j查询调优</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

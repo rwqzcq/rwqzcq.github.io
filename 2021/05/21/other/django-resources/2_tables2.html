@@ -1,0 +1,48 @@
+<h1 id="1-建立tables"><a href="#1-建立tables" class="headerlink" title="1. 建立tables"></a>1. 建立tables</h1><pre><code class="python">
+```class InfoTable(tables.Table):
+    &quot;&quot;&quot;
+    定义Modeltable
+    https://django-tables2.readthedocs.io/en/latest/pages/table-data.html#table-data
+    &quot;&quot;&quot;
+    class Meta:
+        model = HealthInfo # 指定模型
+        attrs = {&quot;class&quot;: &quot;table table-striped&quot;} # 自定义属性
+</code></pre>
+<h1 id="2-views中使用"><a href="#2-views中使用" class="headerlink" title="2. views中使用"></a>2. views中使用</h1><pre><code class="python">def my_info(request):
+    &quot;&quot;&quot;
+    个人信息填报
+    &quot;&quot;&quot;
+    qs = HealthInfo.objects.filter(user=request.user)
+    table = InfoTable(qs)
+
+    return render(request, &#39;health/my_info.html&#39;, {&#39;table&#39;: table})
+</code></pre>
+<h1 id="3-模板中使用"><a href="#3-模板中使用" class="headerlink" title="3. 模板中使用"></a>3. 模板中使用</h1><pre><code class="html">{% load render_table from django_tables2 %}
+&lt;h4&gt;我的填报&lt;/h4&gt;
+&lt;div&gt;
+    {% render_table table %}
+&lt;/div&gt;
+</code></pre>
+<h1 id="4-自定义字段"><a href="#4-自定义字段" class="headerlink" title="4. 自定义字段"></a>4. 自定义字段</h1><pre><code class="python">from django_tables2 import tables
+from django_tables2.utils import A
+
+detail = tables.columns.LinkColumn(&#39;detail&#39;, args=[A(&#39;pk&#39;)], orderable=False, empty_values=(), verbose_name=&#39;操作&#39;)
+
+def render_detail(self):
+        return &#39;查看详情&#39;
+</code></pre>
+<h1 id="5-显示图片"><a href="#5-显示图片" class="headerlink" title="5. 显示图片"></a>5. 显示图片</h1><pre><code class="python">
+from django.utils.html import format_html
+
+
+class ImageColumn(tables.columns.Column):
+    &quot;&quot;&quot;
+    自定义图片
+    &quot;&quot;&quot;
+    def render(self, value):
+        return format_html(
+            &#39;&lt;img src=&quot;/media/{url}&quot; class=&quot;center-block&quot; height=&quot;20px&quot;, width=&quot;20px&quot;&gt;&#39;,
+            url=value
+            )
+    
+</code></pre>

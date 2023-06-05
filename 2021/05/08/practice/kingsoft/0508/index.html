@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>5月8日实习日志 | rwqccnuimd的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="工作内容完成三个安卓版本13.5, 13.6, 13.7，在2021年2月26号到2021年4月18号，也就是在每一个版本上线的第4天到第20天，以周为单位，观察安卓版本用户在分享行为的留存率的变化。 通过编写SQL语句完成数据的提取，包括  总体留存 文件分享(as_file)行为留存 链接分享(as_link)行为留存  最后将这些留存数据合并成一张excel，利用offset函数计算其留存率">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5月8日实习日志">
+<meta property="og:url" content="http://example.com/2021/05/08/practice/kingsoft/0508/index.html">
+<meta property="og:site_name" content="rwqccnuimd的博客">
+<meta property="og:description" content="工作内容完成三个安卓版本13.5, 13.6, 13.7，在2021年2月26号到2021年4月18号，也就是在每一个版本上线的第4天到第20天，以周为单位，观察安卓版本用户在分享行为的留存率的变化。 通过编写SQL语句完成数据的提取，包括  总体留存 文件分享(as_file)行为留存 链接分享(as_link)行为留存  最后将这些留存数据合并成一张excel，利用offset函数计算其留存率">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/images/wps_active_android_core_share_feature_table_structure.png">
+<meta property="og:image" content="http://example.com/images/wps_active_android_core_share_feature_demo_data.png">
+<meta property="article:published_time" content="2021-05-08T02:53:27.000Z">
+<meta property="article:modified_time" content="2021-05-11T08:36:44.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="实习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/wps_active_android_core_share_feature_table_structure.png">
+  
+    <link rel="alternate" href="/atom.xml" title="rwqccnuimd的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">rwqccnuimd的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-practice/kingsoft/0508" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/08/practice/kingsoft/0508/" class="article-date">
+  <time class="dt-published" datetime="2021-05-08T02:53:27.000Z" itemprop="datePublished">2021-05-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      5月8日实习日志
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="工作内容"><a href="#工作内容" class="headerlink" title="工作内容"></a>工作内容</h1><p>完成三个安卓版本<code>13.5</code>, <code>13.6</code>, <code>13.7</code>，在<code>2021年2月26号</code>到<code>2021年4月18号</code>，也就是在每一个版本上线的第4天到第20天，以周为单位，观察安卓版本用户在<code>分享行为</code>的留存率的变化。</p>
+<p>通过编写SQL语句完成数据的提取，包括</p>
+<ol>
+<li>总体留存</li>
+<li>文件分享(as_file)行为留存</li>
+<li>链接分享(as_link)行为留存</li>
+</ol>
+<p>最后将这些留存数据合并成一张excel，利用<code>offset函数</code>计算其留存率，并绘制不同版本的留存率图。</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>这次的任务对我而言有一定的难度，因为对于这个表结构的不熟悉以及对于Leader的SQL代码的不熟悉，导致出现了很多的问题，有</p>
+<ol>
+<li>在计算的<code>as_file</code>留存率，出现了明显得错误，大于1。</li>
+<li>对于Leader 的sql照抄而没有一个很好的改进。</li>
+</ol>
+<h1 id="表结构"><a href="#表结构" class="headerlink" title="表结构"></a>表结构</h1><p><img src="/images/wps_active_android_core_share_feature_table_structure.png"></p>
+<p>该表以日期的形式记录了每一个用户在特定的日期内在某一个版本的安卓APP中触发分享行为，其中具体的分享行为包括</p>
+<ol>
+<li>if_show(分享页面展示)</li>
+<li>as_file(以文件的形式分享,记录的是当天分享的次数)</li>
+<li>as_link(以链接的形式分享,记录的是当天分享的次数)</li>
+<li>if_click(是否点击，点击任意位置都会被记录)</li>
+</ol>
+<p>数据举例:<br><img src="/images/wps_active_android_core_share_feature_demo_data.png"></p>
+<h1 id="业务指标计算"><a href="#业务指标计算" class="headerlink" title="业务指标计算"></a>业务指标计算</h1><h2 id="计算总体的周留存率"><a href="#计算总体的周留存率" class="headerlink" title="计算总体的周留存率"></a>计算总体的周留存率</h2><h3 id="概念解析"><a href="#概念解析" class="headerlink" title="概念解析"></a>概念解析</h3><blockquote>
+<p>周留存 = 本周仍然使用分享功能的用户 / 上一周使用分享功能的用户</p>
+</blockquote>
+<p>需要注意的是周的概念：比如在周二使用的用户，那么在下一个周期(7天)仍然使用了分享功能，那么这个就计算为一次留存。但是在我们的这个业务中，周不严格地区分天数，也就是说，<br><code>上一周任意一天分享地用户在下一周任意一天分享，都会记录为一次留存</code>，关于留存率的详细链接参考<a target="_blank" rel="noopener" href="http://www.gupowang.com/article/view/5099">这里</a>。</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 开启两个子查询</span></span><br><span class="line"><span class="keyword">with</span> yesterday <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="keyword">distinct</span> <span class="type">date</span>,</span><br><span class="line">        google_id,</span><br><span class="line">        <span class="keyword">left</span>(version, <span class="number">4</span>) <span class="keyword">as</span> version</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        `wps<span class="operator">-</span>data<span class="operator">-</span>analysis.wps_active.android_core_feature_share`</span><br><span class="line">    <span class="keyword">where</span></span><br><span class="line">        <span class="keyword">left</span>(version, <span class="number">4</span>) <span class="keyword">in</span> (<span class="string">&#x27;13.5&#x27;</span>, <span class="string">&#x27;13.6&#x27;</span>, <span class="string">&#x27;13.7&#x27;</span>) <span class="keyword">and</span></span><br><span class="line">        <span class="type">date</span> <span class="keyword">between</span> <span class="string">&#x27;2021-02-26&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;2021-04-18&#x27;</span></span><br><span class="line">),</span><br><span class="line">today <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="keyword">distinct</span> <span class="type">date</span>,</span><br><span class="line">        google_id,</span><br><span class="line">        <span class="keyword">left</span>(version, <span class="number">4</span>) <span class="keyword">as</span> version</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        `wps<span class="operator">-</span>data<span class="operator">-</span>analysis.wps_active.android_core_feature_share`</span><br><span class="line">    <span class="keyword">where</span></span><br><span class="line">        <span class="keyword">left</span>(version, <span class="number">4</span>) <span class="keyword">in</span> (<span class="string">&#x27;13.5&#x27;</span>, <span class="string">&#x27;13.6&#x27;</span>, <span class="string">&#x27;13.7&#x27;</span>) <span class="keyword">and</span></span><br><span class="line">        <span class="type">date</span> <span class="keyword">between</span> <span class="string">&#x27;2021-02-26&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;2021-04-18&#x27;</span>   </span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 计算留存</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    b.google_id,</span><br><span class="line">    b.google_id,</span><br><span class="line">    b.version,</span><br><span class="line">    date_trunc(a.date, week) <span class="keyword">as</span> week,</span><br><span class="line">    date_diff(b.date, a.date, week) <span class="keyword">as</span> time_interval <span class="comment">-- 计算时间差 是在一周内的，还是在下一周的</span></span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    yesterday <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> </span><br><span class="line">    today <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">    a.google_id <span class="operator">=</span> b.google_id <span class="keyword">and</span></span><br><span class="line">    b.version <span class="operator">=</span> a.version <span class="keyword">and</span></span><br><span class="line">    date_diff(b.date, a.date, week) <span class="keyword">in</span> (<span class="number">0</span>,<span class="number">1</span>) <span class="comment">-- 核心 也就是说两个表里面差1周或者差0周会被链接</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="计算文件-链接分享的周留存率"><a href="#计算文件-链接分享的周留存率" class="headerlink" title="计算文件|链接分享的周留存率"></a>计算文件|链接分享的周留存率</h2><h3 id="一般写法"><a href="#一般写法" class="headerlink" title="一般写法"></a>一般写法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">with</span> yesterday <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="type">date</span>,</span><br><span class="line">        google_id,</span><br><span class="line">        version</span><br><span class="line">        <span class="comment">-- 这里不需要再次count，已经有过分享行为了，在一天之内，不管分享了几次，都算当天分享</span></span><br><span class="line">    <span class="keyword">from</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            <span class="type">date</span>,</span><br><span class="line">            google_id,</span><br><span class="line">            <span class="keyword">left</span>(version, <span class="number">4</span>) <span class="keyword">as</span> version,</span><br><span class="line">            as_file</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            `wps<span class="operator">-</span>data<span class="operator">-</span>analysis.wps_active.android_core_feature_share`</span><br><span class="line">        <span class="keyword">where</span></span><br><span class="line">            <span class="keyword">left</span>(version, <span class="number">4</span>) <span class="keyword">in</span> (<span class="string">&#x27;13.5&#x27;</span>, <span class="string">&#x27;13.6&#x27;</span>, <span class="string">&#x27;13.7&#x27;</span>) <span class="keyword">and</span></span><br><span class="line">            <span class="type">date</span> <span class="keyword">between</span> <span class="string">&#x27;2021-02-26&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;2021-04-18&#x27;</span> <span class="keyword">and</span></span><br><span class="line">            as_file <span class="operator">&gt;</span> <span class="number">0</span> <span class="comment">-- 有过分享行为 </span></span><br><span class="line">    ) <span class="keyword">as</span> a</span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> <span class="type">date</span>, google_id, version</span><br><span class="line">),</span><br><span class="line">today <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="type">date</span>,</span><br><span class="line">        google_id,</span><br><span class="line">        version</span><br><span class="line">        <span class="comment">-- 这里不需要再次count，已经有过分享行为了，在一天之内，不管分享了几次，都算当天分享</span></span><br><span class="line">    <span class="keyword">from</span> (</span><br><span class="line">        <span class="keyword">select</span></span><br><span class="line">            <span class="type">date</span>,</span><br><span class="line">            google_id,</span><br><span class="line">            <span class="keyword">left</span>(version, <span class="number">4</span>) <span class="keyword">as</span> version,</span><br><span class="line">            as_file</span><br><span class="line">        <span class="keyword">from</span></span><br><span class="line">            `wps<span class="operator">-</span>data<span class="operator">-</span>analysis.wps_active.android_core_feature_share`</span><br><span class="line">        <span class="keyword">where</span></span><br><span class="line">            <span class="keyword">left</span>(version, <span class="number">4</span>) <span class="keyword">in</span> (<span class="string">&#x27;13.5&#x27;</span>, <span class="string">&#x27;13.6&#x27;</span>, <span class="string">&#x27;13.7&#x27;</span>) <span class="keyword">and</span></span><br><span class="line">            <span class="type">date</span> <span class="keyword">between</span> <span class="string">&#x27;2021-02-26&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;2021-04-18&#x27;</span> <span class="keyword">and</span></span><br><span class="line">            as_file <span class="operator">&gt;</span> <span class="number">0</span> <span class="comment">-- 有过分享行为 </span></span><br><span class="line">    ) <span class="keyword">as</span> a</span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> <span class="type">date</span>, google_id, version</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 计算留存</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    b.version,</span><br><span class="line">    date_trunc(a.date, week) <span class="keyword">as</span> week,</span><br><span class="line">    date_diff(b.date, a.date, week) <span class="keyword">as</span> time_interval <span class="comment">-- 计算时间差 是在一周内的，还是在下一周的</span></span><br><span class="line">    <span class="built_in">count</span>(<span class="keyword">distinct</span> google_id) <span class="keyword">as</span> retentional <span class="comment">-- 这里需要用到distinct</span></span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    yesterday <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> </span><br><span class="line">    today <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">    a.google_id <span class="operator">=</span> b.google_id <span class="keyword">and</span></span><br><span class="line">    b.version <span class="operator">=</span> a.version <span class="keyword">and</span></span><br><span class="line">    date_diff(b.date, a.date, week) <span class="keyword">in</span> (<span class="number">0</span>,<span class="number">1</span>) <span class="comment">-- 核心 也就是说两个表里面差1周或者差0周会被拼接在一起</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">    b.version,</span><br><span class="line">    week, <span class="comment">-- 这里的执行顺序需要注意</span></span><br><span class="line">    time_interval</span><br></pre></td></tr></table></figure>
+
+<h3 id="优化写法"><a href="#优化写法" class="headerlink" title="优化写法"></a>优化写法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">-- 开启两个子查询</span></span><br><span class="line"><span class="keyword">with</span> yesterday <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="keyword">distinct</span> <span class="type">date</span>,</span><br><span class="line">        google_id,</span><br><span class="line">        <span class="keyword">left</span>(version, <span class="number">4</span>) <span class="keyword">as</span> version</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        `wps<span class="operator">-</span>data<span class="operator">-</span>analysis.wps_active.android_core_feature_share`</span><br><span class="line">    <span class="keyword">where</span></span><br><span class="line">        <span class="keyword">left</span>(version, <span class="number">4</span>) <span class="keyword">in</span> (<span class="string">&#x27;13.5&#x27;</span>, <span class="string">&#x27;13.6&#x27;</span>, <span class="string">&#x27;13.7&#x27;</span>) <span class="keyword">and</span></span><br><span class="line">        <span class="type">date</span> <span class="keyword">between</span> <span class="string">&#x27;2021-02-26&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;2021-04-18&#x27;</span></span><br><span class="line">),</span><br><span class="line">today <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="keyword">distinct</span> <span class="type">date</span>,</span><br><span class="line">        google_id,</span><br><span class="line">        <span class="keyword">left</span>(version, <span class="number">4</span>) <span class="keyword">as</span> version</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        `wps<span class="operator">-</span>data<span class="operator">-</span>analysis.wps_active.android_core_feature_share`</span><br><span class="line">    <span class="keyword">where</span></span><br><span class="line">        <span class="keyword">left</span>(version, <span class="number">4</span>) <span class="keyword">in</span> (<span class="string">&#x27;13.5&#x27;</span>, <span class="string">&#x27;13.6&#x27;</span>, <span class="string">&#x27;13.7&#x27;</span>) <span class="keyword">and</span></span><br><span class="line">        <span class="type">date</span> <span class="keyword">between</span> <span class="string">&#x27;2021-02-26&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;2021-04-18&#x27;</span>   </span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 计算留存</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    b.google_id,</span><br><span class="line">    b.google_id,</span><br><span class="line">    b.version,</span><br><span class="line">    date_trunc(a.date, week) <span class="keyword">as</span> week,</span><br><span class="line">    date_diff(b.date, a.date, week) <span class="keyword">as</span> time_interval <span class="comment">-- 计算时间差 是在一周内的，还是在下一周的</span></span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    yesterday <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> </span><br><span class="line">    today <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">    a.google_id <span class="operator">=</span> b.google_id <span class="keyword">and</span></span><br><span class="line">    b.version <span class="operator">=</span> a.version <span class="keyword">and</span></span><br><span class="line">    date_diff(b.date, a.date, week) <span class="keyword">in</span> (<span class="number">0</span>,<span class="number">1</span>) <span class="comment">-- 核心 也就是说两个表里面差1周或者差0周会被链接</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="计算文件-链接分享的周留存率-1"><a href="#计算文件-链接分享的周留存率-1" class="headerlink" title="计算文件|链接分享的周留存率"></a>计算文件|链接分享的周留存率</h2><h3 id="一般写法-1"><a href="#一般写法-1" class="headerlink" title="一般写法"></a>一般写法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">with</span> yesterday <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="type">date</span>,</span><br><span class="line">        google_id,</span><br><span class="line">        <span class="keyword">left</span>(version, <span class="number">4</span>) <span class="keyword">as</span> version</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        `wps<span class="operator">-</span>data<span class="operator">-</span>analysis.wps_active.android_core_feature_share`</span><br><span class="line">    <span class="keyword">where</span></span><br><span class="line">        <span class="keyword">left</span>(version, <span class="number">4</span>) <span class="keyword">in</span> (<span class="string">&#x27;13.5&#x27;</span>, <span class="string">&#x27;13.6&#x27;</span>, <span class="string">&#x27;13.7&#x27;</span>) <span class="keyword">and</span></span><br><span class="line">        <span class="type">date</span> <span class="keyword">between</span> <span class="string">&#x27;2021-02-26&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;2021-04-18&#x27;</span> <span class="keyword">and</span></span><br><span class="line">        as_file <span class="operator">&gt;</span> <span class="number">0</span> <span class="comment">-- 有过分享行为 </span></span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> <span class="type">date</span>, google_id, <span class="keyword">left</span>(version, <span class="number">4</span>)</span><br><span class="line">),</span><br><span class="line">today <span class="keyword">as</span> (</span><br><span class="line">    <span class="keyword">select</span></span><br><span class="line">        <span class="type">date</span>,</span><br><span class="line">        google_id,</span><br><span class="line">        <span class="keyword">left</span>(version, <span class="number">4</span>) <span class="keyword">as</span> version</span><br><span class="line">    <span class="keyword">from</span></span><br><span class="line">        `wps<span class="operator">-</span>data<span class="operator">-</span>analysis.wps_active.android_core_feature_share`</span><br><span class="line">    <span class="keyword">where</span></span><br><span class="line">        <span class="keyword">left</span>(version, <span class="number">4</span>) <span class="keyword">in</span> (<span class="string">&#x27;13.5&#x27;</span>, <span class="string">&#x27;13.6&#x27;</span>, <span class="string">&#x27;13.7&#x27;</span>) <span class="keyword">and</span></span><br><span class="line">        <span class="type">date</span> <span class="keyword">between</span> <span class="string">&#x27;2021-02-26&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;2021-04-18&#x27;</span> <span class="keyword">and</span></span><br><span class="line">        as_file <span class="operator">&gt;</span> <span class="number">0</span> <span class="comment">-- 有过分享行为 </span></span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> <span class="type">date</span>, google_id, <span class="keyword">left</span>(version, <span class="number">4</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 计算留存</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    b.version,</span><br><span class="line">    date_trunc(a.date, week) <span class="keyword">as</span> week,</span><br><span class="line">    date_diff(b.date, a.date, week) <span class="keyword">as</span> time_interval <span class="comment">-- 计算时间差 是在一周内的，还是在下一周的</span></span><br><span class="line">    <span class="built_in">count</span>(<span class="keyword">distinct</span> google_id) <span class="keyword">as</span> retentional <span class="comment">-- 这里需要用到distinct</span></span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    yesterday <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> </span><br><span class="line">    today <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">    a.google_id <span class="operator">=</span> b.google_id <span class="keyword">and</span></span><br><span class="line">    b.version <span class="operator">=</span> a.version <span class="keyword">and</span></span><br><span class="line">    date_diff(b.date, a.date, week) <span class="keyword">in</span> (<span class="number">0</span>,<span class="number">1</span>) <span class="comment">-- 核心 也就是说两个表里面差1周或者差0周会被拼接在一起</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">    b.version,</span><br><span class="line">    week, <span class="comment">-- 这里的执行顺序需要注意</span></span><br><span class="line">    time_interval</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="计算分享的周留存率"><a href="#计算分享的周留存率" class="headerlink" title="计算分享的周留存率"></a>计算分享的周留存率</h2><h1 id="学习要点"><a href="#学习要点" class="headerlink" title="学习要点"></a>学习要点</h1><ol>
+<li>distinct</li>
+</ol>
+<p>distinct约束的是distinct后面所有的字段的值，而不是单单约束其中的一个。<br>比如<code>select distinct A, B, C from table1</code>。<br>其执行顺序为:</p>
+<ol>
+<li>从table1中筛选出<code>A B C</code>三列。</li>
+<li>再对包含<code>A B C</code>列进行去重，其中必须要保证<code>A B C</code>三列中全部要重复才能去重，否则该约束会失败。</li>
+</ol>
+<p><code>distinct A, B, C</code>就相当于<code>distinct (A, B, C)</code>,<br>所以要想多列对某一个字段去重，则需要<code>group by</code>,<br>由于用户在一天之内可能进行多次文件分享的操作，每一次点击的次数可能不唯一，因此需要用到<code>group by</code>,把用户一天之内进行的多次操作全部置为1次操作，<br>因此我感觉这个脚本写得可能有问题，既然是按日期精确到某一天了，就不太可能会出现一天之内进行的重复操作了。因此<span style="color:red;font-weight:bold;">需要研究写该SQL的原始代码</span>。</p>
+<ol start="2">
+<li>date_diff函数</li>
+</ol>
+<p>date_diff函数是BigQuery中的语法，为了计算两个日期之间的差，差值的单位可以是<code>month week year</code>,这段SQL中需要注意的是日期的前后顺序，<code>date_diff(b.date, a.date, week)</code>，b的日期要晚于a的日期，所以<br>其差值为非负数。</p>
+<ol start="3">
+<li>hive SQL 执行顺序</li>
+</ol>
+<blockquote>
+<p>from-&gt;join-&gt;where-&gt;group by-&gt;having-&gt;select-&gt;order-&gt;limit</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    b.version,</span><br><span class="line">    date_trunc(a.date, week) <span class="keyword">as</span> week,</span><br><span class="line">    date_diff(b.date, a.date, week) <span class="keyword">as</span> time_interval <span class="comment">-- 计算时间差 是在一周内的，还是在下一周的</span></span><br><span class="line">    <span class="built_in">count</span>(<span class="keyword">distinct</span> google_id) <span class="keyword">as</span> retentional <span class="comment">-- 这里需要用到distinct</span></span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">    yesterday <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> </span><br><span class="line">    today <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span> </span><br><span class="line">    a.google_id <span class="operator">=</span> b.google_id <span class="keyword">and</span></span><br><span class="line">    b.version <span class="operator">=</span> a.version <span class="keyword">and</span></span><br><span class="line">    date_diff(b.date, a.date, week) <span class="keyword">in</span> (<span class="number">0</span>,<span class="number">1</span>) <span class="comment">-- 核心 也就是说两个表里面差1周或者差0周会被拼接在一起</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">    b.version,</span><br><span class="line">    week, <span class="comment">-- 这里的执行顺序需要注意</span></span><br><span class="line">    time_interval</span><br></pre></td></tr></table></figure>
+<p>上面的代码在<code>group by</code>中所使用的字段是在<code>select</code>中也出现的，我的一个猜想可能是某一种同步的机制，我group by的字段那么也要在selcet中出现，这个时候可以做到关联。</p>
+<h1 id="未来学习的方向"><a href="#未来学习的方向" class="headerlink" title="未来学习的方向"></a>未来学习的方向</h1><ol>
+<li>如何在excel中使用<code>数据透视表</code>完成留存率的计算。</li>
+<li>hiveSQL的执行顺序</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/08/practice/kingsoft/0508/" data-id="cl85d5h6g00b5i99o8upueur7" data-title="5月8日实习日志" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/05/10/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          RWQ_CCNU_IMD
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/04/27/mianshi/ziguang/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">紫光/紫光展锐数据分析</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">-CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Leetcode/">Leetcode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/django/">django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/sql/">sql</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1/">业务</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1%E6%8C%87%E6%A0%87/">业务指标</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/">中信证券</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/Django/">Django</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Flume/">Flume</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E9%9B%86/">数据集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/">毕业论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/">毕业设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/">秋招</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/%E9%9D%A2%E8%AF%95/">面试</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AF%95/">笔试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BA%E6%96%87/">论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/">银联实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">-leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flume/" rel="tag">Flume</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hbase/" rel="tag">Hbase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%9A%E5%8A%A1/" rel="tag">业务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" rel="tag">中信证券</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" rel="tag">时间序列预测</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" rel="tag">毕业论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" rel="tag">毕业设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%8B%E6%8B%9B/" rel="tag">秋招</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" rel="tag">金山实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" rel="tag">银联实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/leetcode/" style="font-size: 10px;">-leetcode</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Django/" style="font-size: 13.33px;">Django</a> <a href="/tags/Flume/" style="font-size: 10px;">Flume</a> <a href="/tags/Hbase/" style="font-size: 10px;">Hbase</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/SQL/" style="font-size: 18.89px;">SQL</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/leetcode/" style="font-size: 15.56px;">leetcode</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/%E4%B8%9A%E5%8A%A1/" style="font-size: 13.33px;">业务</a> <a href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" style="font-size: 11.11px;">中信证券</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 20px;">其他</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 13.33px;">大数据</a> <a href="/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 16.67px;">实习</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 11.11px;">工作</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" style="font-size: 10px;">时间序列预测</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12.22px;">机器学习</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" style="font-size: 14.44px;">毕业论文</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">毕业设计</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 12.22px;">爬虫</a> <a href="/tags/%E7%A7%8B%E6%8B%9B/" style="font-size: 13.33px;">秋招</a> <a href="/tags/%E7%AC%94%E8%AF%95/" style="font-size: 12.22px;">笔试</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 12.22px;">统计学</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 11.11px;">论文</a> <a href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" style="font-size: 13.33px;">金山实习</a> <a href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" style="font-size: 10px;">银联实习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 17.78px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/14/other/time_series_pred/">时间序列预测</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/01/other/customer_analysis_in_python/">用户价值分析</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/15/other/PEP8/">PEP-8: Python代码规范</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/29/other/fanqie/">番茄工作法</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/20/citics/neo4j_query_optimize/">neo4j查询调优</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

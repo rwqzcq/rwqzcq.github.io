@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>rwqccnuimd的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="rwqccnuimd的博客">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="rwqccnuimd的博客">
+<meta property="og:locale">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="rwqccnuimd的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">rwqccnuimd的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-spider/xiecheng" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/26/spider/xiecheng/" class="article-date">
+  <time class="dt-published" datetime="2022-04-26T07:20:49.000Z" itemprop="datePublished">2022-04-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/26/spider/xiecheng/">携程酒店_景点爬虫与评论</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="酒店爬虫"><a href="#酒店爬虫" class="headerlink" title="酒店爬虫"></a>酒店爬虫</h1><h2 id="酒店列表"><a href="#酒店列表" class="headerlink" title="酒店列表"></a>酒店列表</h2><blockquote>
+<p>现在网上的<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_51271122/article/details/112512441">代码</a>基本都过时，所以参考的代码为本<a target="_blank" rel="noopener" href="https://github.com/songweiwei/pachong/blob/master/main.py">链接</a></p>
+</blockquote>
+<p>API为:<code>https://m.ctrip.com/restapi/soa2/21881/getRecommendHotels</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">crawl_hotels</span>(<span class="params">city_name=<span class="string">&#x27;上海&#x27;</span>, city_id=<span class="number">2</span>, page_size=<span class="number">5</span></span>):</span></span><br><span class="line">    all_dataset = []</span><br><span class="line">    <span class="keyword">for</span> page_index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, page_size + <span class="number">1</span>):</span><br><span class="line">        url = <span class="string">&quot;https://m.ctrip.com/restapi/soa2/21881/getRecommendHotels&quot;</span></span><br><span class="line">        <span class="built_in">print</span>(url, page_index, <span class="string">&#x27;start&#x27;</span>)</span><br><span class="line">        params = &#123;</span><br><span class="line">            <span class="string">&quot;cityId&quot;</span>: city_id,</span><br><span class="line">            <span class="string">&quot;platform&quot;</span>: <span class="string">&quot;online&quot;</span>,</span><br><span class="line">            <span class="string">&quot;pageID&quot;</span>: <span class="string">&quot;102001&quot;</span>,</span><br><span class="line">            <span class="string">&quot;pageNo&quot;</span>: page_index,</span><br><span class="line">            <span class="string">&quot;head&quot;</span>: &#123;</span><br><span class="line">                <span class="string">&quot;Version&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">                <span class="string">&quot;userRegion&quot;</span>: <span class="string">&quot;CN&quot;</span>,</span><br><span class="line">                <span class="string">&quot;Locale&quot;</span>: <span class="string">&quot;zh-CN&quot;</span>,</span><br><span class="line">                <span class="string">&quot;LocaleController&quot;</span>: <span class="string">&quot;zh-CN&quot;</span>,</span><br><span class="line">                <span class="string">&quot;TimeZone&quot;</span>: <span class="string">&quot;8&quot;</span>,</span><br><span class="line">                <span class="string">&quot;Currency&quot;</span>: <span class="string">&quot;CNY&quot;</span>,</span><br><span class="line">                <span class="string">&quot;PageId&quot;</span>: <span class="string">&quot;102001&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            response = requests.post(url, headers=headers, data=json.dumps(params))</span><br><span class="line">        <span class="keyword">except</span>: </span><br><span class="line">            <span class="built_in">print</span>(url, <span class="string">&#x27;请求失败&#x27;</span>)</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> response.status_code != <span class="number">200</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;响应码: &#x27;</span>, response.status_code)</span><br><span class="line">            <span class="keyword">continue</span> </span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            data = response.json()</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;不是JSON响应&#x27;</span>)</span><br><span class="line">            <span class="keyword">continue</span> </span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            hotel_list = data[<span class="string">&quot;Response&quot;</span>][<span class="string">&quot;hotels&quot;</span>]</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;没有酒店信息&#x27;</span>)</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        dataset = []</span><br><span class="line">        <span class="keyword">for</span> hotel <span class="keyword">in</span> hotel_list:</span><br><span class="line">            name = hotel[<span class="string">&#x27;hotelName&#x27;</span>]</span><br><span class="line">            star = hotel[<span class="string">&#x27;star&#x27;</span>]</span><br><span class="line">            price = hotel[<span class="string">&#x27;price&#x27;</span>]</span><br><span class="line">            _url = hotel[<span class="string">&#x27;url&#x27;</span>]</span><br><span class="line">            inner_id = hotel[<span class="string">&#x27;url&#x27;</span>].split(<span class="string">&#x27;/&#x27;</span>)[<span class="number">2</span>].strip(<span class="string">&#x27;.html&#x27;</span>)</span><br><span class="line">            dataset.append(</span><br><span class="line">                [name, star, price, _url, inner_id]</span><br><span class="line">            )</span><br><span class="line">        df = pd.DataFrame(data=dataset, columns=[<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;star&#x27;</span>, <span class="string">&#x27;price&#x27;</span>, <span class="string">&#x27;url&#x27;</span>, <span class="string">&#x27;inner_id&#x27;</span>, ])</span><br><span class="line">        df[<span class="string">&#x27;city&#x27;</span>] = city_name</span><br><span class="line">        all_dataset.append(df)</span><br><span class="line">    df = pd.concat(all_dataset)</span><br><span class="line">    df = df.drop_duplicates()</span><br><span class="line">    df.to_sql(<span class="string">&#x27;app_hotel&#x27;</span>, conn, index=<span class="literal">False</span>, if_exists=<span class="string">&#x27;append&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> _, row <span class="keyword">in</span> df.iterrows():</span><br><span class="line">        hotel_id = row[<span class="string">&#x27;inner_id&#x27;</span>]</span><br><span class="line">        crawl_comments(hotel_id, <span class="number">30</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>需要注意的是该代码能够爬取到每一个城市的酒店的数量是有限的，因为是<code>酒店推荐</code>。</p>
+</blockquote>
+<h2 id="酒店评论"><a href="#酒店评论" class="headerlink" title="酒店评论"></a>酒店评论</h2><p>参考本篇<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/270648077">文章</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">crawl_comments</span>(<span class="params">hotel_id, page_size=<span class="number">10</span></span>):</span></span><br><span class="line">    headers = &#123;<span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko&#x27;</span>,<span class="string">&quot;Content-Type&quot;</span>: <span class="string">&quot;application/json&quot;</span>&#125;</span><br><span class="line">    <span class="keyword">for</span> page_index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, page_size + <span class="number">1</span>):</span><br><span class="line">        time.sleep(<span class="number">0.5</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;评论-&#x27;</span>, page_index, <span class="string">&#x27;start&#x27;</span>)</span><br><span class="line">        params = &#123;</span><br><span class="line">            <span class="string">&quot;hotelId&quot;</span>: hotel_id, </span><br><span class="line">            <span class="string">&quot;pageIndex&quot;</span>: page_index, </span><br><span class="line">            <span class="string">&quot;tagId&quot;</span>: <span class="number">0</span>, </span><br><span class="line">            <span class="string">&quot;pageSize&quot;</span>: <span class="number">10</span>, </span><br><span class="line">            <span class="string">&quot;groupTypeBitMap&quot;</span>: <span class="number">2</span>,</span><br><span class="line">            <span class="string">&quot;needStatisticInfo&quot;</span>: <span class="number">0</span>, </span><br><span class="line">            <span class="string">&quot;order&quot;</span>: <span class="number">0</span>, </span><br><span class="line">            <span class="string">&quot;basicRoomName&quot;</span>: <span class="string">&quot;&quot;</span>, </span><br><span class="line">            <span class="string">&quot;travelType&quot;</span>: -<span class="number">1</span>,</span><br><span class="line">            <span class="string">&quot;head&quot;</span>: &#123;<span class="string">&quot;cid&quot;</span>: <span class="string">&quot;09031174312350135405&quot;</span>, <span class="string">&quot;ctok&quot;</span>: <span class="string">&quot;&quot;</span>, <span class="string">&quot;cver&quot;</span>: <span class="string">&quot;1.0&quot;</span>, <span class="string">&quot;lang&quot;</span>: <span class="string">&quot;01&quot;</span>, <span class="string">&quot;sid&quot;</span>: <span class="string">&quot;8888&quot;</span>,<span class="string">&quot;syscode&quot;</span>: <span class="string">&quot;09&quot;</span>, <span class="string">&quot;auth&quot;</span>: <span class="string">&quot;93C8AE20D20009DC90E6E10BB588DE61E67EBBC236DE15433FDDADFD95636F28&quot;</span>, <span class="string">&quot;extension&quot;</span>: []&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        headers = &#123;<span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko&#x27;</span>, <span class="string">&quot;Content-Type&quot;</span>: <span class="string">&quot;application/json&quot;</span>&#125;</span><br><span class="line">        url = <span class="string">&#x27;http://m.ctrip.com/restapi/soa2/16765/gethotelcomment?_fxpcqlniredt=09031144211504567945&#x27;</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            response = requests.post(url, headers=headers, data=json.dumps(params))</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;请求失败!&#x27;</span>)</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> response.status_code != <span class="number">200</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;响应码: &#x27;</span>, response.status_code)</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            data = response.json()</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;无JSON数据&#x27;</span>)</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        result = data.get(<span class="string">&#x27;othersCommentList&#x27;</span>, <span class="literal">False</span>)</span><br><span class="line">        <span class="keyword">if</span> result <span class="keyword">is</span> <span class="literal">False</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;无数据&#x27;</span>)</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        dataset = []</span><br><span class="line">        items = result</span><br><span class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> items:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                inner_id = row[<span class="string">&#x27;id&#x27;</span>]</span><br><span class="line">                content = row[<span class="string">&#x27;content&#x27;</span>].strip()</span><br><span class="line">                label = predict(content)</span><br><span class="line">                dataset.append(</span><br><span class="line">                    [inner_id, content, label]</span><br><span class="line">                )</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                traceback.print_exc()</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(dataset) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        df = pd.DataFrame(data=dataset, columns=[<span class="string">&#x27;inner_id&#x27;</span>, <span class="string">&#x27;content&#x27;</span>, <span class="string">&#x27;label&#x27;</span>])</span><br><span class="line">        df[<span class="string">&#x27;hotel_id&#x27;</span>] = hotel_id</span><br><span class="line">        df.to_sql(<span class="string">&#x27;app_hotelcomment&#x27;</span>, conn, if_exists=<span class="string">&#x27;append&#x27;</span>, index=<span class="literal">False</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;评论-&#x27;</span>, page_index, <span class="string">&#x27;end&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="景点爬虫"><a href="#景点爬虫" class="headerlink" title="景点爬虫"></a>景点爬虫</h1><p>TODO </p>
+<h2 id="景点列表"><a href="#景点列表" class="headerlink" title="景点列表"></a>景点列表</h2><h2 id="景点评论"><a href="#景点评论" class="headerlink" title="景点评论"></a>景点评论</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/26/spider/xiecheng/" data-id="cl85d5h5n008ji99o467p0r66" data-title="携程酒店_景点爬虫与评论" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-spider/sina_news" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/02/spider/sina_news/" class="article-date">
+  <time class="dt-published" datetime="2022-04-02T00:09:07.000Z" itemprop="datePublished">2022-04-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/02/spider/sina_news/">新浪新闻爬虫</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="API接口"><a href="#API接口" class="headerlink" title="API接口"></a>API接口</h1><h2 id="每日滚动新闻"><a href="#每日滚动新闻" class="headerlink" title="每日滚动新闻"></a>每日滚动新闻</h2><blockquote>
+<p>参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/71925619">博客</a></p>
+</blockquote>
+<h3 id="url"><a href="#url" class="headerlink" title="url"></a>url</h3><p><a target="_blank" rel="noopener" href="https://feed.mix.sina.com.cn/api/roll/get?pageid=153&amp;lid=2509&amp;k=&amp;num=50&amp;page=1&amp;r=0.8561416273305507">https://feed.mix.sina.com.cn/api/roll/get?pageid=153&amp;lid=2509&amp;k=&amp;num=50&amp;page=1&amp;r=0.8561416273305507</a></p>
+<h3 id="请求参数"><a href="#请求参数" class="headerlink" title="请求参数"></a>请求参数</h3><table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>含义</th>
+<th>示例值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>lid</td>
+<td>新闻分类ID</td>
+<td>2509</td>
+</tr>
+<tr>
+<td>num</td>
+<td>每一页数据条数</td>
+<td>50</td>
+</tr>
+<tr>
+<td>page</td>
+<td>当前页码</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<p>lid的值以及对应的分类名称如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;2509&quot;</span>: <span class="string">&quot;全部&quot;</span>,</span><br><span class="line"><span class="string">&quot;2510&quot;</span>: <span class="string">&quot;国内&quot;</span>,</span><br><span class="line"><span class="string">&quot;2511&quot;</span>: <span class="string">&quot;国际&quot;</span>,</span><br><span class="line"><span class="string">&quot;2669&quot;</span>: <span class="string">&quot;社会&quot;</span>,</span><br><span class="line"><span class="string">&quot;2512&quot;</span>: <span class="string">&quot;体育&quot;</span>,</span><br><span class="line"><span class="string">&quot;2513&quot;</span>: <span class="string">&quot;娱乐&quot;</span>,</span><br><span class="line"><span class="string">&quot;2514&quot;</span>: <span class="string">&quot;军事&quot;</span>,</span><br><span class="line"><span class="string">&quot;2515&quot;</span>: <span class="string">&quot;科技&quot;</span>,</span><br><span class="line"><span class="string">&quot;2516&quot;</span>: <span class="string">&quot;财经&quot;</span>,</span><br><span class="line"><span class="string">&quot;2517&quot;</span>: <span class="string">&quot;股市&quot;</span>,</span><br><span class="line"><span class="string">&quot;2518&quot;</span>: <span class="string">&quot;美股&quot;</span>,</span><br><span class="line"><span class="string">&quot;2968&quot;</span>: <span class="string">&quot;国内_国际&quot;</span>,</span><br><span class="line"><span class="string">&quot;2970&quot;</span>: <span class="string">&quot;国内_社会&quot;</span>,</span><br><span class="line"><span class="string">&quot;2972&quot;</span>: <span class="string">&quot;国际_社会&quot;</span>,</span><br><span class="line"><span class="string">&quot;2974&quot;</span>: <span class="string">&quot;国内国际社会&quot;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>知乎网友2020-01-09日消息：最多只能获取50页数据，也就是每一个栏目2500条数据</p>
+</blockquote>
+<h2 id="滚动新闻2"><a href="#滚动新闻2" class="headerlink" title="滚动新闻2"></a>滚动新闻2</h2><blockquote>
+<p>参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41664845/article/details/79135082">博客</a></p>
+</blockquote>
+<h3 id="url-1"><a href="#url-1" class="headerlink" title="url"></a>url</h3><p><a target="_blank" rel="noopener" href="http://api.roll.news.sina.com.cn/zt_list?channel=news&amp;cat_1=gnxw&amp;show_all=1&amp;show_num=6000&amp;tag=1&amp;format=json">http://api.roll.news.sina.com.cn/zt_list?channel=news&amp;cat_1=gnxw&amp;show_all=1&amp;show_num=6000&amp;tag=1&amp;format=json</a></p>
+<blockquote>
+<p>该接口返回的是2018年的数据，因此已过时</p>
+</blockquote>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/02/spider/sina_news/" data-id="cl85d5h5m008gi99oc1qs3b2e" data-title="新浪新闻爬虫" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-dataset/weibo" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/30/dataset/weibo/" class="article-date">
+  <time class="dt-published" datetime="2022-03-30T09:38:06.000Z" itemprop="datePublished">2022-03-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E9%9B%86/">数据集</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/30/dataset/weibo/">微博数据集</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="微博社交网络数据集总结"><a href="#微博社交网络数据集总结" class="headerlink" title="微博社交网络数据集总结"></a>微博社交网络数据集总结</h1><table>
+<thead>
+<tr>
+<th>数据集名称</th>
+<th>下载地址</th>
+<th>用途</th>
+<th>总结</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MicroblogPCU</td>
+<td><a target="_blank" rel="noopener" href="https://archive.ics.uci.edu/ml/machine-learning-databases/00323/">下载</a></td>
+<td>探索微博中的spammers（发送垃圾信息的人）</td>
+<td>数据量适中；适合做小项目，是一个比较理想的数据集</td>
+</tr>
+<tr>
+<td>WeiboSpammer</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/WxxShirley/WeiboSpammer">下载</a></td>
+<td>异常粉丝</td>
+<td>数据量较少，但是是一个完整的项目</td>
+</tr>
+<tr>
+<td>微博数据集</td>
+<td>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1tStvmHwRcXsGxiUh8SbI9A">https://pan.baidu.com/s/1tStvmHwRcXsGxiUh8SbI9A</a> 提取码：n3hl</td>
+<td>数据量很大，对机器要求高</td>
+<td></td>
+</tr>
+<tr>
+<td>北京大学新浪微博用户关系数据</td>
+<td><a target="_blank" rel="noopener" href="https://opendata.pku.edu.cn/dataset.xhtml?persistentId=doi:10.18170/DVN/KVBL82">下载</a></td>
+<td>数据量小，只有id编号，没有其他数据</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="MicroblogPCU"><a href="#MicroblogPCU" class="headerlink" title="MicroblogPCU"></a>MicroblogPCU</h1><h2 id="数据集信息"><a href="#数据集信息" class="headerlink" title="数据集信息"></a>数据集信息</h2><h3 id="weibo-user-csv"><a href="#weibo-user-csv" class="headerlink" title="weibo_user.csv"></a>weibo_user.csv</h3><ul>
+<li>user_id: 用户ID</li>
+<li>user_name: 用户昵称</li>
+<li>gender:性别，male，female，other</li>
+<li>class:账户级别</li>
+<li>message:账户注册位置或其他个人信息</li>
+<li>post_num: 邮政编码</li>
+<li>follower_num: followers的数量</li>
+<li>followee_num: followee的数量</li>
+<li>follow ratio: followee_num/follower_num;</li>
+<li>is_spammer: manually annotated label, 1 表示 spammer，0 表示 non-spammer;</li>
+</ul>
+<h3 id="user-post-csv"><a href="#user-post-csv" class="headerlink" title="user_post.csv"></a>user_post.csv</h3><ul>
+<li>post_id:微博的ID</li>
+<li>post_time:发布时间</li>
+<li>poster_id: 发布用户的ID</li>
+<li>repost_num:转发数量</li>
+<li>commnet_num: 评论数量</li>
+</ul>
+<h3 id="followe-followee-csv"><a href="#followe-followee-csv" class="headerlink" title="followe-followee.csv"></a>followe-followee.csv</h3><ul>
+<li>follower: the nickname of follower;</li>
+<li>follower_id: the user ID of follower;</li>
+<li>followee: the nickname of followee;</li>
+<li>followee_id: the user ID of followee;</li>
+</ul>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li>新浪微博数据集MicroblogPCU. <a target="_blank" rel="noopener" href="https://blog.csdn.net/scythe666/article/details/51872882">https://blog.csdn.net/scythe666/article/details/51872882</a></li>
+<li></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/30/dataset/weibo/" data-id="cl85d5h30001bi99oc4emana0" data-title="微博数据集" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other/neo4j" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/26/other/neo4j/" class="article-date">
+  <time class="dt-published" datetime="2022-03-26T07:44:53.000Z" itemprop="datePublished">2022-03-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/26/other/neo4j/">neo4j学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Neo4j安装"><a href="#Neo4j安装" class="headerlink" title="Neo4j安装"></a>Neo4j安装</h1><blockquote>
+<p>jdl8 + neo4j3.5</p>
+</blockquote>
+<h2 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h2><h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><p>安装好需要先<code>./neo4j.bat install-service</code>才能启动</p>
+<h1 id="Neo4j导入csv文件"><a href="#Neo4j导入csv文件" class="headerlink" title="Neo4j导入csv文件"></a>Neo4j导入csv文件</h1><p>使用<code>LOAD CSV WITH HEADERS FROM file_path as line</code>进行导入，其中<code>with headers</code>是将第一行作为key，需要注意的是这个csv文件里面不要出现<code>空值</code>,否则会报错：</p>
+<blockquote>
+<p>Cannot merge the following node because of null property value for ‘name’:</p>
+</blockquote>
+<p>使用<code>merge</code>而不是使用<code>create</code>来创建节点与边，以免出现重复的问题。<br>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">LOAD CSV WITH HEADERS FROM &#39;file:&#x2F;&#x2F;&#x2F;imdb_top_1000_movies.csv&#39; AS line</span><br><span class="line">with line as line where line.Title is not null and line.Certificate is not null</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 创建电影节点</span><br><span class="line">merge (movie: Movie &#123; title: line.Title, year: line.Released_Year, rating: line.IMDB_Rating, runtime: line.Runtime, overview: line.Overview&#125;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 创建题材节点</span><br><span class="line">merge (genre: Genre &#123; category: line.Genre&#125;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 创建关系: 电影-题材</span><br><span class="line">merge (movie)-[: CATEGORIZATION]-&gt;(genre)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 创建Certificate节点</span><br><span class="line">merge (certificate: Certificate &#123;type: line.Certificate&#125;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 创建关系: 电影-Certificate</span><br><span class="line">merge (movie)-[: CERTIFICATION]-&gt;(certificate)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 创建导演节点</span><br><span class="line">merge (director: Director &#123;name: line.Director&#125;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 创建关系: 电影-导演</span><br><span class="line">merge (director)-[: DIRECTED]-&gt;(movie)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 创建演员节点, 创建关系: 电影-演员</span><br><span class="line"></span><br><span class="line">merge(actor1: Actor &#123;name: line.Star1&#125;)</span><br><span class="line">merge (actor1)-[: ACTED_ID]-&gt;(movie)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 创建演员节点, 创建关系: 电影-演员</span><br><span class="line">merge(actor2: Actor &#123;name: line.Star2&#125;)</span><br><span class="line">merge (actor2)-[: ACTED_ID]-&gt;(movie)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 创建演员节点, 创建关系: 电影-演员</span><br><span class="line">merge(actor3: Actor &#123;name: line.Star3&#125;)</span><br><span class="line">merge (actor3)-[: ACTED_ID]-&gt;(movie)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Neo4j图算法"><a href="#Neo4j图算法" class="headerlink" title="Neo4j图算法"></a>Neo4j图算法</h1><h2 id="社群划分算法"><a href="#社群划分算法" class="headerlink" title="社群划分算法"></a>社群划分算法</h2><p><a target="_blank" rel="noopener" href="https://neo4j.com/docs/graph-data-science/1.1/algorithms/louvain/">https://neo4j.com/docs/graph-data-science/1.1/algorithms/louvain/</a></p>
+<h1 id="Nneo4j前端可视化组件"><a href="#Nneo4j前端可视化组件" class="headerlink" title="Nneo4j前端可视化组件"></a>Nneo4j前端可视化组件</h1><blockquote>
+<p>官方文档: <a target="_blank" rel="noopener" href="https://neo4j.com/developer/tools-graph-visualization/">https://neo4j.com/developer/tools-graph-visualization/</a></p>
+</blockquote>
+<h2 id="popoto-js"><a href="#popoto-js" class="headerlink" title="popoto.js"></a>popoto.js</h2><p><a target="_blank" rel="noopener" href="https://github.com/Nhogs/popoto">https://github.com/Nhogs/popoto</a></p>
+<h2 id="Neovis-js"><a href="#Neovis-js" class="headerlink" title="Neovis.js"></a>Neovis.js</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/neo4j-contrib/neovis.js">https://github.com/neo4j-contrib/neovis.js</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av201105891/">https://www.bilibili.com/video/av201105891/</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/26/other/neo4j/" data-id="cl85d5h55006wi99ocksm8x1f" data-title="neo4j学习" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-cv/facenet" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/21/cv/facenet/" class="article-date">
+  <time class="dt-published" datetime="2022-03-21T02:58:05.000Z" itemprop="datePublished">2022-03-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CV/">-CV</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/21/cv/facenet/">FaceNet人脸检测</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="人脸识别的流程"><a href="#人脸识别的流程" class="headerlink" title="人脸识别的流程"></a>人脸识别的流程</h1><ol>
+<li><p>人脸分割：从一张图中抠出来人脸的部分</p>
+</li>
+<li><p>特征提取：从第一步得到人脸提取特征</p>
+</li>
+<li><p>人脸分类：训练一个分类器来判断人脸是哪一张人脸</p>
+</li>
+</ol>
+<h2 id="人脸分割"><a href="#人脸分割" class="headerlink" title="人脸分割"></a>人脸分割</h2><p>人脸分割是一个目标检测的任务。比较流行的方法有：</p>
+<ul>
+<li>yolov5</li>
+<li>mtcnn</li>
+</ul>
+<h2 id="特征提取"><a href="#特征提取" class="headerlink" title="特征提取"></a>特征提取</h2><p>可以用迁移学习，同预训练模型来提取特征，比如：</p>
+<ul>
+<li>facanet</li>
+</ul>
+<blockquote>
+<p>facenet是基于resnet的，针对人脸所做的预训练模型</p>
+</blockquote>
+<h2 id="人脸分类"><a href="#人脸分类" class="headerlink" title="人脸分类"></a>人脸分类</h2><p>分类任务，常见的分类算法都可以：</p>
+<ul>
+<li>SVM</li>
+<li>KNN</li>
+<li>MLP</li>
+</ul>
+<h1 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h1><p>TODO</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li>yolov5face. <a target="_blank" rel="noopener" href="https://github.com/deepcam-cn/yolov5-face">https://github.com/deepcam-cn/yolov5-face</a></li>
+<li>facenet_pytorch简介. <a target="_blank" rel="noopener" href="https://blog.csdn.net/zhonglongshen/article/details/117995211">https://blog.csdn.net/zhonglongshen/article/details/117995211</a></li>
+<li>基于yolov5的人脸识别. <a target="_blank" rel="noopener" href="https://windfill.gitee.io/article/2391c58c.html">https://windfill.gitee.io/article/2391c58c.html</a></li>
+<li></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/21/cv/facenet/" data-id="cl85d5h2z0018i99o2b5j3bbn" data-title="FaceNet人脸检测" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CV/" rel="tag">CV</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-django/django_rest_framework" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/15/django/django_rest_framework/" class="article-date">
+  <time class="dt-published" datetime="2022-03-15T03:09:44.000Z" itemprop="datePublished">2022-03-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Django/">Django</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/15/django/django_rest_framework/">django_rest_framework</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://www.django-rest-framework.org/api-guide/responses/">官方文档</a></p>
+<p>django rest_framework的核心组件包括</p>
+<ul>
+<li>seiralizers</li>
+<li>response</li>
+<li>view</li>
+</ul>
+<h1 id="Serializers"><a href="#Serializers" class="headerlink" title="Serializers"></a>Serializers</h1><blockquote>
+<p>用来<code>序列化</code>模型</p>
+</blockquote>
+<h1 id="权限控制机制"><a href="#权限控制机制" class="headerlink" title="权限控制机制"></a>权限控制机制</h1><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li>django rest framework中api view的两种写法. <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35348643">https://zhuanlan.zhihu.com/p/35348643</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/15/django/django_rest_framework/" data-id="cl85d5h32001gi99o8ogk54za" data-title="django_rest_framework" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/" rel="tag">Django</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other/py2neo" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/07/other/py2neo/" class="article-date">
+  <time class="dt-published" datetime="2022-03-06T16:01:20.000Z" itemprop="datePublished">2022-03-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/07/other/py2neo/">py2neo&amp;Cypher使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>编写python代码，使用py2neo库，编写cypher语言然后返回数据进行查询</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/07/other/py2neo/" data-id="cl85d5h5a007ei99ocpgf0eb1" data-title="py2neo&amp;Cypher使用" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other/sina-covid19-spider" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/03/other/sina-covid19-spider/" class="article-date">
+  <time class="dt-published" datetime="2022-03-03T15:49:10.000Z" itemprop="datePublished">2022-03-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/03/other/sina-covid19-spider/">新浪网新冠肺炎数据爬取</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>本博客针对新浪网的疫情实时播报网页(<a target="_blank" rel="noopener" href="https://news.sina.cn/zt_d/yiqing0121)%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%8C%E4%B8%BB%E8%A6%81%E9%87%87%E9%9B%86%E7%9A%84%E6%8C%87%E6%A0%87%E5%88%86%E5%88%AB%60%E5%9B%BD%E5%86%85%60%E3%80%81%60%E5%9B%BD%E5%A4%96%60%E4%B8%A4%E4%B8%AA%E9%83%A8%E5%88%86%E3%80%82%E9%87%87%E9%9B%86%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%B4%E5%BA%A6%E5%8C%85%E6%8B%AC%EF%BC%9A">https://news.sina.cn/zt_d/yiqing0121)进行数据采集，主要采集的指标分别`国内`、`国外`两个部分。采集的数据维度包括：</a></p>
+<ul>
+<li>新增确诊</li>
+<li>累计确诊</li>
+<li>新增死亡</li>
+<li>累计死亡</li>
+<li>新增治愈</li>
+<li>累计治愈</li>
+<li>各省数据</li>
+<li>全国数据</li>
+</ul>
+<h1 id="相关API"><a href="#相关API" class="headerlink" title="相关API"></a>相关API</h1><table>
+<thead>
+<tr>
+<th>API</th>
+<th>请求方式</th>
+<th>解释</th>
+<th>返回示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://gwpre.sina.cn/ncp/get_data?type=1&amp;callback=dynamicData">https://gwpre.sina.cn/ncp/get_data?type=1&amp;callback=dynamicData</a></td>
+<td>GET</td>
+<td>获取包含所有国家的历史数据的csv文件</td>
+<td>try{dynamicData({“result”:{“status”:{“code”:0,”msg”:”succ”},”timestamp”:”Thu Mar 03 23:53:07 +0800 2022”,”data”:{“csv_url”:”https://comment.sinaimg.cn/ncp/all_country_history_1646321400.csv”}}});}catch(e){};</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://comment.sinaimg.cn/ncp/all_country_history_1646321400.csv">https://comment.sinaimg.cn/ncp/all_country_history_1646321400.csv</a></td>
+<td>GET</td>
+<td>获取所有国家的历史数据</td>
+<td>美国,SCUS0001,1646236800,80770604,0,53945789,979725,72680,0,214984,2323,25845090,-144627,324024,936375.88,246,878.50,536.90</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://gwpre.sina.cn/interface/news/ncp/data.d.json?mod=province&amp;province=hebei">https://gwpre.sina.cn/interface/news/ncp/data.d.json?mod=province&amp;province=hebei</a></td>
+<td>GET</td>
+<td>获取中国某一个省份的所有历史数据</td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://gwpre.sina.cn/interface/news/ncp/data.d.json?mod=city&amp;citycode=CN61010000000000&amp;_=1647186530303&amp;callback=jsoncallback">https://gwpre.sina.cn/interface/news/ncp/data.d.json?mod=city&amp;citycode=CN61010000000000&amp;_=1647186530303&amp;callback=jsoncallback</a></td>
+<td>GET</td>
+<td>获取中国某一个城市的所有历史数据</td>
+<td></td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/03/other/sina-covid19-spider/" data-id="cl85d5h5d007mi99o72d2eept" data-title="新浪网新冠肺炎数据爬取" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-other/dataset_collection" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/02/24/other/dataset_collection/" class="article-date">
+  <time class="dt-published" datetime="2022-02-24T02:36:39.000Z" itemprop="datePublished">2022-02-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/02/24/other/dataset_collection/">数据集集合</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>收集各个领域常见的数据集</p>
+<h1 id="NLP"><a href="#NLP" class="headerlink" title="NLP"></a>NLP</h1><table>
+<thead>
+<tr>
+<th>网址</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/GanjinZero/awesome_Chinese_medical_NLP">https://github.com/GanjinZero/awesome_Chinese_medical_NLP</a></td>
+<td>中文医学NLP公开资源整理：术语集/语料库/词向量/预训练模型/知识图谱/命名实体识别/QA/信息抽取/模型/论文/etc</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44722174/article/details/108963426">https://blog.csdn.net/qq_44722174/article/details/108963426</a></td>
+<td>提供下载地址的情感数据库大全（涵盖音视频生理图像文本）</td>
+</tr>
+</tbody></table>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><table>
+<thead>
+<tr>
+<th>网址</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://www.cnopendata.com/">https://www.cnopendata.com/</a></td>
+<td>开放数据大全</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_23971513/article/details/110815051">https://blog.csdn.net/sinat_23971513/article/details/110815051</a></td>
+<td>数据集大全</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/02/24/other/dataset_collection/" data-id="cl85d5h4r005zi99o01rldm5n" data-title="数据集集合" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-biyelunwen/5_data_import2neo4j" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/02/21/biyelunwen/5_data_import2neo4j/" class="article-date">
+  <time class="dt-published" datetime="2022-02-21T03:40:43.000Z" itemprop="datePublished">2022-02-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/">毕业设计</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/02/21/biyelunwen/5_data_import2neo4j/">导入数据到neo4j</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>删除所有的节点:<code>match (n) detach delete n</code></p>
+</blockquote>
+<h1 id="demo1"><a href="#demo1" class="headerlink" title="demo1"></a>demo1</h1><blockquote>
+<p>湖北能源副总经理金彪辞职 2020年薪酬为99.41万</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>事件元素</th>
+<th>元素值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>公告公司</td>
+<td>湖北能源</td>
+</tr>
+<tr>
+<td>离职高管名称</td>
+<td>金彪</td>
+</tr>
+<tr>
+<td>高管职务</td>
+<td>副总经理</td>
+</tr>
+</tbody></table>
+<p>创建4个实体，分别为：</p>
+<ul>
+<li>事件提及句<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create (s: event_sentence &#123;id: 1, content: &#39;湖北能源副总经理金彪辞职 2020年薪酬为99.41万&#39;, url: &#39;http:&#x2F;&#x2F;stock.jrj.com.cn&#x2F;2021&#x2F;12&#x2F;22213234049020.shtml&#39;&#125;)</span><br></pre></td></tr></table></figure></li>
+<li>事件类型</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create (et: event_type &#123;id: 1, name: &quot;高管离职&quot;&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>公司<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create (c: company &#123;id: 1, name: &#39;湖北能源&#39;&#125; )</span><br></pre></td></tr></table></figure></li>
+<li>高管<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create (m: manager &#123;id: 1, name: &#39;金彪&#39;&#125;)</span><br></pre></td></tr></table></figure></li>
+<li>职务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create (p: post &#123;id: 1, name: &#39;副总经理&#39;&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>创建对应的关系</p>
+<ul>
+<li><p>(事件提及句)-[has_an_event]-&gt;(事件类型)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">match (s: event_sentence), (et: event_type)</span><br><span class="line">where s.id &#x3D; 1 and et.id&#x3D;1</span><br><span class="line">create (s)-[r:has_an_event]-&gt;(et)</span><br><span class="line">return r</span><br></pre></td></tr></table></figure></li>
+<li><p>(事件提及句)-[公告公司]-&gt;(公司)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">match(s: event_sentence), (c: company)</span><br><span class="line">where s.id&#x3D;1 and c.id&#x3D;1</span><br><span class="line">create (s)-[r:公告公司]-&gt;(c)</span><br><span class="line">return r</span><br></pre></td></tr></table></figure></li>
+<li><p>(事件提及句)-[离职高管]-&gt;(高管)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">match(s: event_sentence), (m: manager)</span><br><span class="line">where s.id &#x3D; 1 and m.id &#x3D; 1</span><br><span class="line">create (s)-[r:离职高管]-&gt;(m)</span><br><span class="line">return r</span><br></pre></td></tr></table></figure></li>
+<li><p>(高管)-[职务]-&gt;(职务)</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">match(m: manager), (p: post)</span><br><span class="line">where m.id &#x3D; 1 and p.id &#x3D; 1</span><br><span class="line">create (m)-[r:职务]-&gt;(p)</span><br><span class="line">return r</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="demo2"><a href="#demo2" class="headerlink" title="demo2"></a>demo2</h1><blockquote>
+<p>长源电力(000966.SZ)：湖北能源减持1674.16万股 持股比例减至5%</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>事件元素</th>
+<th>元素值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>公告公司</td>
+<td>长源电力</td>
+</tr>
+<tr>
+<td>减持方_公司</td>
+<td>湖北能源</td>
+</tr>
+<tr>
+<td>减持股本数</td>
+<td>1674.16万</td>
+</tr>
+</tbody></table>
+<p>创建节点，分别为：</p>
+<ul>
+<li>事件提及句</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create (s: sentence &#123;id: 2, content: &#39;长源电力(000966.SZ)：湖北能源减持1674.16万股 持股比例减至5%&#39;, url: &#39;http:&#x2F;&#x2F;stock.jrj.com.cn&#x2F;2021&#x2F;12&#x2F;22213234049020.shtml&#39;&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>事件类型</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create (et: event_type &#123;id: 2, name: &#39;股东减持&#39;&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>公告公司</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create (c: company &#123;id: 2, name: &#39;长源电力&#39;&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><p>减持方_公司</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create (c: company &#123;id: 2, name: &#39;湖北能源&#39;&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><p>股本数</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create (sm: stock_num &#123;id: 2, value: &#39;股本数&#39;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>创建关系，分别为：</p>
+<ul>
+<li><p>(事件提及句)-[has_an_evnt]-&gt;(事件类型)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">match (s: event_sentence), (et: event_type)</span><br><span class="line">where s.id &#x3D; 2 and et.id &#x3D; 3</span><br><span class="line">create (s)-[r:has_an_event]-&gt;(et)</span><br><span class="line">return r</span><br></pre></td></tr></table></figure></li>
+<li><p>(事件提及句)-[减持方]-&gt;(公司)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">match (s: event_sentence), (c: company)</span><br><span class="line">where s.id &#x3D; 2 and c.id &#x3D; 1</span><br><span class="line">create (s)-[r:减持方]-&gt;(c)</span><br><span class="line">return r</span><br></pre></td></tr></table></figure></li>
+<li><p>(事件提及句)-[被减持方]-&gt;(公司)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">match (s:event_sentence), (c: company)</span><br><span class="line">where s.id &#x3D; 2 and c.id &#x3D; 2</span><br><span class="line">create (s)-[r:被减持方]-&gt;(c)</span><br><span class="line">return r</span><br></pre></td></tr></table></figure></li>
+<li><p>(事件提及句)-[股本数]-&gt;(股本数)</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">match (s: event_sentence), (sm: stock_num)</span><br><span class="line">where s.id &#x3D; 2 and sm.id &#x3D;2</span><br><span class="line">create (s)-[r:减持股本数]-&gt;(sm)</span><br><span class="line">return r</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>(事件提及句)-[顺承]-&gt;(事件提及句)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">match (s1: event_sentence), (s2: event_sentence)</span><br><span class="line">where s1.id &#x3D; 1 and s2.id &#x3D; 2</span><br><span class="line">create (s2)-[r:顺承 &#123;p: 1&#125;]-&gt;(s1)</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="创建节点以及节点之间的对应关系"><a href="#创建节点以及节点之间的对应关系" class="headerlink" title="创建节点以及节点之间的对应关系"></a>创建节点以及节点之间的对应关系</h1><h1 id="Cypher语句"><a href="#Cypher语句" class="headerlink" title="Cypher语句"></a>Cypher语句</h1><h2 id="创建节点"><a href="#创建节点" class="headerlink" title="创建节点"></a>创建节点</h2><ul>
+<li>事件提及句</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">create(s1:event_sentence &#123;id: 1, content: &#39;湖北能源副总经理金彪辞职 2020年薪酬为99.41万&#39;, url: &#39;http:&#x2F;&#x2F;stock.jrj.com.cn&#x2F;2021&#x2F;12&#x2F;22213234049020.shtml&#39;&#125;)</span><br><span class="line"></span><br><span class="line">create(s2:event_sentence &#123;id: 2, content: &#39;长源电力(000966.SZ)：湖北能源减持1674.16万股 持股比例减至5%&#39;, url: &#39;http:&#x2F;&#x2F;stock.jrj.com.cn&#x2F;2021&#x2F;09&#x2F;01200233369282.shtml&#39;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">match (s1:event_sentence), (s2:event_sentence)</span><br><span class="line">where s1.id &#x3D; 2 and s2.id&#x3D;1</span><br><span class="line">create (s1)-[r:seq]-&gt;(s2)</span><br><span class="line">return r</span><br><span class="line"></span><br><span class="line">match(s1:event_sentence), (et2:event_type)</span><br><span class="line">where s1.id &#x3D; 2 and et2.id &#x3D; 2</span><br><span class="line">create (s1)-[r:has_an_event]-&gt;(et2)</span><br><span class="line">return r</span><br><span class="line"></span><br><span class="line">match (s1:event_sentence), (c1:company)</span><br><span class="line">where s1.id&#x3D;2 and c1.id&#x3D;2</span><br><span class="line">create (s1)-[r:has_an_company]-&gt;(c1)</span><br><span class="line"></span><br><span class="line">match(s1:event_sentence), (c2:company)</span><br><span class="line">where s1.id&#x3D;2 and c2.id&#x3D;1</span><br><span class="line">create(s1)-[r:减持方]-&gt;(c2)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>事件类型</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create(et1:event_type &#123;id: 1, content: &#39;高管离职&#39;&#125;)</span><br><span class="line">create(et2:event_type &#123;id: 2, content: &#39;股东减持&#39;&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>公司</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create(c1:company &#123;id: 1, name: &#39;湖北能源&#39;&#125;)</span><br><span class="line">create(c1:company &#123;id: 2, name: &#39;长源电力&#39;&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>高管</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create(m1:manager &#123;id: 1, name: &#39;金彪&#39;&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>职位</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create(p1:post &#123;id: 1, name: &#39;总经理&#39;&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="创建关系"><a href="#创建关系" class="headerlink" title="创建关系"></a>创建关系</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create (sentence_id_1:event_sentence) - [r1:has_an_company]-&gt; (company_id_1:company)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MATCH (s1:event_sentence),(c1:company)</span><br><span class="line">WHERE s1.id &#x3D; 1 AND c1.id &#x3D; 1</span><br><span class="line">CREATE (s1)-[r:has_an_company] -&gt; (c1)</span><br><span class="line">RETURN r</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MATCH (s1:event_sentence), (et1:event_type)</span><br><span class="line">WHERE s1.id&#x3D;1 and et1.id &#x3D; 1</span><br><span class="line">CREATE (s1)-[r:has_an_event] -&gt; (et1)</span><br><span class="line">return r</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MATCH (et1: event_type), (m1:manager)</span><br><span class="line">WHERE et1.id&#x3D;1 and m1.id &#x3D; 1</span><br><span class="line">CREATE (et1)-[r:has_an_attribute]-&gt;(m1)</span><br><span class="line">return r</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MATCH (s1: event_sentence), (m1:manager)</span><br><span class="line">where s1.id &#x3D; 1 and m1.id &#x3D; 1</span><br><span class="line">create (s1)-[r:has_an_attribute]-&gt;(m1)</span><br><span class="line">return r</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>高管-职位<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">match (m1:manager), (p1:post)</span><br><span class="line">where m1.id&#x3D;1 and p1.id&#x3D;1</span><br><span class="line">create (m1)-[r:has_an_post]-&gt;(p1)</span><br><span class="line">return r</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/02/21/biyelunwen/5_data_import2neo4j/" data-id="cl85d5h2x0010i99oavj20wcq" data-title="导入数据到neo4j" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" rel="tag">毕业设计</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/3/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">-CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Leetcode/">Leetcode</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/django/">django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/sql/">sql</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1/">业务</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%9A%E5%8A%A1%E6%8C%87%E6%A0%87/">业务指标</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/">中信证券</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/Django/">Django</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Flume/">Flume</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E9%9B%86/">数据集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/">毕业论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/">毕业设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/">秋招</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%8B%E6%8B%9B/%E9%9D%A2%E8%AF%95/">面试</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AF%95/">笔试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BA%E6%96%87/">论文</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/">金山实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/">银联实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">-leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flume/" rel="tag">Flume</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hbase/" rel="tag">Hbase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NLP/" rel="tag">NLP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%9A%E5%8A%A1/" rel="tag">业务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" rel="tag">中信证券</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%B9%A0/" rel="tag">实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C/" rel="tag">工作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" rel="tag">时间序列预测</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" rel="tag">毕业论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" rel="tag">毕业设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%8B%E6%8B%9B/" rel="tag">秋招</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" rel="tag">金山实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" rel="tag">银联实习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/leetcode/" style="font-size: 10px;">-leetcode</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Django/" style="font-size: 13.33px;">Django</a> <a href="/tags/Flume/" style="font-size: 10px;">Flume</a> <a href="/tags/Hbase/" style="font-size: 10px;">Hbase</a> <a href="/tags/NLP/" style="font-size: 10px;">NLP</a> <a href="/tags/SQL/" style="font-size: 18.89px;">SQL</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/leetcode/" style="font-size: 15.56px;">leetcode</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/%E4%B8%9A%E5%8A%A1/" style="font-size: 13.33px;">业务</a> <a href="/tags/%E4%B8%AD%E4%BF%A1%E8%AF%81%E5%88%B8/" style="font-size: 11.11px;">中信证券</a> <a href="/tags/%E5%85%B6%E4%BB%96/" style="font-size: 20px;">其他</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 13.33px;">大数据</a> <a href="/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 16.67px;">实习</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 11.11px;">工作</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" style="font-size: 10px;">时间序列预测</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12.22px;">机器学习</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/" style="font-size: 14.44px;">毕业论文</a> <a href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">毕业设计</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 12.22px;">爬虫</a> <a href="/tags/%E7%A7%8B%E6%8B%9B/" style="font-size: 13.33px;">秋招</a> <a href="/tags/%E7%AC%94%E8%AF%95/" style="font-size: 12.22px;">笔试</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 12.22px;">统计学</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 11.11px;">论文</a> <a href="/tags/%E9%87%91%E5%B1%B1%E5%AE%9E%E4%B9%A0/" style="font-size: 13.33px;">金山实习</a> <a href="/tags/%E9%93%B6%E8%81%94%E5%AE%9E%E4%B9%A0/" style="font-size: 10px;">银联实习</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 17.78px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/14/other/time_series_pred/">时间序列预测</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/01/other/customer_analysis_in_python/">用户价值分析</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/15/other/PEP8/">PEP-8: Python代码规范</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/29/other/fanqie/">番茄工作法</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/20/citics/neo4j_query_optimize/">neo4j查询调优</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
